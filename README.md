@@ -85,10 +85,16 @@ More bots coming soon...
 
 ---
 
-## 🚀 How to Run Any Script
+## 🚀 How to Connect or Run Any Script
 
 1. **Clone the repo**
 
 ```bash
 git clone https://github.com/debashish-panda/rpa-automation-suite.git
 cd rpa-automation-suite
+---
+📬 Contact
+For any queries or collaboration, reach out at:
+📧 debashish@pravartan.ai
+🌐 www.pravartan.ai
+🔗 LinkedIn – Debashish Panda
