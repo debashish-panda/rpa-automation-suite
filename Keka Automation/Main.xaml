@@ -1,4 +1,12 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1642,12430" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.In_arg_output_path="D:\LHG Docs\EmployeeTimesheet" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="In_arg_output_path" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1642,11387.333333333334</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -141,9 +149,17 @@
       <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
       <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="880,12365.333333333334" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1286.6666666666667,11322.666666666666" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt2" />
@@ -159,21 +175,29 @@
       <Variable x:TypeArguments="x:Boolean" Name="Existdailytimeentries" />
       <Variable x:TypeArguments="x:Boolean" Name="Norecordfoundexist" />
       <Variable x:TypeArguments="x:Boolean" Name="FolderExist" />
+      <Variable x:TypeArguments="x:String" Name="value" />
+      <Variable x:TypeArguments="x:String" Name="prev_employee">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="Date_data" />
+      <Variable x:TypeArguments="x:String" Name="File_path" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap2010:Annotation.AnnotationText="Bot will check the folder exist or not if not it will create a folder under download directory" DisplayName="Folder Existence Check and Creation" sap:VirtualizedContainerService.HintSize="818,923.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_87">
+    <Sequence sap2010:Annotation.AnnotationText="Bot will check the folder exist or not if not it will create a folder under download directory" DisplayName="Folder Existence Check and Creation" sap:VirtualizedContainerService.HintSize="1224.6666666666667,102.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_87">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:FolderExistsX DisplayName="Folder Exists" Exists="[FolderExist]" sap:VirtualizedContainerService.HintSize="450,168.66666666666666" sap2010:WorkflowViewState.IdRef="FolderExistsX_1" Path="C:\Users\SDS\Downloads\SUNDEW FILE" />
+      <ui:FolderExistsX DisplayName="Folder Exists" Exists="[FolderExist]" sap:VirtualizedContainerService.HintSize="450,168.66666666666666" sap2010:WorkflowViewState.IdRef="FolderExistsX_1" Path="SUNDEW FILE" />
       <If Condition="[FolderExist]" sap:VirtualizedContainerService.HintSize="450,604" sap2010:WorkflowViewState.IdRef="If_8">
         <If.Then>
           <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,252" sap2010:WorkflowViewState.IdRef="Sequence_85">
@@ -197,20 +221,20 @@
         </If.Else>
       </If>
     </Sequence>
-    <uix:NApplicationCard sap2010:Annotation.AnnotationText="" AttachMode="ByInstance" DisplayName="Use Browser Chrome: Home | Dashboard" sap:VirtualizedContainerService.HintSize="818,11354" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="7c91725b-7200-46b8-958e-16170d21741c" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard sap2010:Annotation.AnnotationText="" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Home | Dashboard" sap:VirtualizedContainerService.HintSize="1224.6666666666667,11132" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="7c91725b-7200-46b8-958e-16170d21741c" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="784,11081.333333333334" sap2010:WorkflowViewState.IdRef="Sequence_36">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1190.6666666666667,10859.333333333334" sap2010:WorkflowViewState.IdRef="Sequence_36">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="722,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Open KEKA page and searching for project button&quot;]">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1128.6666666666667,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Open KEKA page and searching for project button&quot;]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -218,24 +242,48 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:LogMessage>
-            <Sequence DisplayName="Login Page For Keka" sap:VirtualizedContainerService.HintSize="722,698.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_63">
+            <Sequence DisplayName="Login Page For Keka" sap:VirtualizedContainerService.HintSize="1128.6666666666667,804" sap2010:WorkflowViewState.IdRef="Sequence_63">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Project'" sap:VirtualizedContainerService.HintSize="388,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_11" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Version="V3">
-                <uix:NClick.Target>
-                  <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/home/dashboard" CVScreenId="9d2d1b8b-8f59-4405-8c10-5c97b0b06cca" CvElementArea="53, 824, 24, 26" CvType="Icon" DesignTimeRectangle="52, 825, 27, 27" DesignTimeScaleFactor="1.125" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;xhr-app-root&amp;gt;div&amp;gt;xhr-left-nav&amp;gt;nav&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;a&amp;gt;span' idx='15' parentid='accordion' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='ki-clipboard-list sidebar-list-icon' parentid='accordion' tag='SPAN' aaname='' /&gt;" Guid="ff6ed8fa-1b51-44e1-9fb3-2af83aa93052" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGcSURBVFhH7ZZfa4JQGIf3bbroaiHsoovABtYGEkKMaAwaIy+Mgm0sKBRcgSGxymKBgwMZDLwIuuj7/eafLqydsg1ENrx4Lo7v8X181fOec5Y6zyMuEnks/D15utyHvtjAsh0WBM0yR50Xxi/kPERjAzLrgy+IaM7WsAwZGerc45wg58DWh1AmU4hFd1xDm2ygN/xq0w0CiwzBuXOLsjevXb9FeicHnVB5pv4BYq/wpg1ww1YgNGV03WqXn1DUKYyl+xbGEJsScmwLj5oF015Dq/PUfEFC5fejDcye5I8ZCV1zBXNBwRxDYPx7hN4K1qizk4fGSfK5XKPGDsHJdiI/yg/kHLKVF1RLV36M4ZEtVJALcsl7f3kE8g40t6mYA7DO9aq+bTI72GgL/69yepxGBPIaJMOGoUpedRd3Ayj6O16DeI0oEnkLiruZTDpeH+eeCeb7jYYQSNF8c3qcRiKnxYKEynnV2STI1Flie8vqEKUnKM6Wa6oiNV+QUHmKeXAODM4DfGsohzGdg8b1doc7Rrg8QhJ5LCTyGMjjC9w5l4abaKJEAAAAAElFTkSuQmCC" InformativeScreenshot="24d109f89334a62d59e180a13f9b79b7.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Home | Dashboard' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+              <uix:NHover DisplayName="Hover 'Project'" sap:VirtualizedContainerService.HintSize="388,229.33333333333334" HoverTime="2" sap2010:WorkflowViewState.IdRef="NHover_1" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Version="V3">
+                <uix:NHover.Target>
+                  <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/home/dashboard" CVScreenId="12c3d34c-9c16-48ca-a08e-00240957b2a0" CvTextArea="77, 1427, 72, 26" CvTextArgument="Project" CvType="Text" DesignTimeRectangle="13, 1423, 200, 32" DesignTimeScaleFactor="2" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Project' parentid='accordion' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Project' parentid='accordion' tag='SPAN' type='' class='sidebar-list-label mt-1' check:innerText='Project' /&gt;" Guid="1b3140db-bead-4936-84df-b45f9dae6361" InformativeScreenshot="65fad4b9e79b6ea93d90de7ebca4296b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Home | Dashboard' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
                       <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                        <uix:Target CVScreenId="9d2d1b8b-8f59-4405-8c10-5c97b0b06cca" CvTextArea="44, 862, 41, 13" CvTextArgument="Project" CvType="Text" DesignTimeRectangle="9, 860, 113, 18" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Project' parentid='accordion' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Project' parentid='accordion' tag='SPAN' type='' class='sidebar-list-label mt-1' check:innerText='Project' /&gt;" Guid="994a4cee-0ae3-4434-96be-7126121074fc" SearchSteps="FuzzySelector, CV" />
+                        <uix:Target CVScreenId="12c3d34c-9c16-48ca-a08e-00240957b2a0" CvTextArea="47, 1285, 128, 20" CvTextArgument="Performance" CvType="Text" DesignTimeRectangle="13, 1280, 200, 32" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Performance' class='sidebar-list-label' parentid='accordion' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Performance' class='sidebar-list-label' parentid='accordion' tag='SPAN' type='' check:innerText='Performance' /&gt;" Guid="1bd1f218-3059-4ea2-9ab1-9c10cdffc45b" SearchSteps="FuzzySelector, CV" />
                       </scg:List>
                     </uix:TargetAnchorable.Anchors>
-                    <uix:TargetAnchorable.PointOffset>
-                      <uix:PointOffset X="5" Y="1" />
-                    </uix:TargetAnchorable.PointOffset>
+                  </uix:TargetAnchorable>
+                </uix:NHover.Target>
+                <uix:NHover.VerifyOptions>
+                  <uix:VerifyExecutionOptions DisplayName="Label 'Analytics'" Mode="Appears" Retry="True">
+                    <uix:VerifyExecutionOptions.Target>
+                      <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/home/dashboard" DesignTimeRectangle="128, 712, 52, 20" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Analytics' class='sidebar-dropdown-label' parentid='accordion' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Analytics' class='sidebar-dropdown-label' parentid='accordion' tag='SPAN' type='' check:innerText='Analytics' /&gt;" Guid="8536d61a-d455-4a43-a8a8-b3f64e3483fd" InformativeScreenshot="6e7ada4e2eeef34944c98df1ca46044e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Home | Dashboard' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="8, 709, 100, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Project' parentid='accordion' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Project' parentid='accordion' tag='SPAN' type='' class='sidebar-list-label mt-1' check:innerText='Project' /&gt;" Guid="f041a1f7-fdd7-49b5-b0a5-74b25e33eba6" SearchSteps="FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:VerifyExecutionOptions.Target>
+                    <uix:VerifyExecutionOptions.Timeout>
+                      <InArgument x:TypeArguments="x:Double" />
+                    </uix:VerifyExecutionOptions.Timeout>
+                  </uix:VerifyExecutionOptions>
+                </uix:NHover.VerifyOptions>
+              </uix:NHover>
+              <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="2" DisplayName="Click 'Analytics'" sap:VirtualizedContainerService.HintSize="388,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_34" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/project-timesheets/analytics/reports" DesignTimeRectangle="253, 1426, 104, 40" DesignTimeScaleFactor="2" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Analytics' class='sidebar-dropdown-label' parentid='accordion' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Analytics' class='sidebar-dropdown-label' parentid='accordion' tag='SPAN' type='' check:innerText='Analytics' /&gt;" Guid="1c6afd17-49bc-47fb-a13e-1fbb4eb317ef" InformativeScreenshot="de4c495daecf2974cd25f45edcfb3dfb.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Project-timesheets | Analytics | Reports' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="497, 1422, 48, 48" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;xhr-app-root&amp;gt;div&amp;gt;xhr-left-nav&amp;gt;nav&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;a&amp;gt;span' idx='45' parentid='accordion' tag='SPAN' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl type='' class='ki ki-chevron-right sidebar-dropdown-label ml-auto' parentid='accordion' tag='SPAN' aaname='' /&gt;" Guid="f1553144-144c-4584-902e-6e32c04c298c" SearchSteps="FuzzySelector" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
                   </uix:TargetAnchorable>
                 </uix:NClick.Target>
                 <uix:NClick.VerifyOptions>
@@ -249,12 +297,12 @@
                   </uix:VerifyExecutionOptions>
                 </uix:NClick.VerifyOptions>
               </uix:NClick>
-              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Analytics'" sap:VirtualizedContainerService.HintSize="388,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_12" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Version="V3">
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Reports'" sap:VirtualizedContainerService.HintSize="388,222.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_33" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Version="V3">
                 <uix:NClick.Target>
-                  <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/project-timesheets/projects/list/active-projects" CVScreenId="cf999d9a-448f-4134-b851-5b630b5ab8ec" CvTextArea="234, 295, 65, 11" CvTextArgument="ANALYTICS" CvType="Text" DesignTimeRectangle="226, 284, 82, 35" DesignTimeScaleFactor="1.125" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Analytics' parentid='preload' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Analytics' parentid='preload' tag='A' type='' class='' check:innerText='ANALYTICS' /&gt;" Guid="7b1d6a7c-e060-4747-9970-7e0b81ce9b3c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFYAAAAnCAYAAACVKL+TAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAALcSURBVGhD7ZbBa+JAFIf3vw4ihUHK0sB6kCIFDzk0BQ8NlGX1sGAulnXBiwXLIkVYegi0pYLkECgiv32TTDSJrpqUd3sfBDIz4WXmm8x7+QKBBRHLhIhlQsQyIWKZELFMiFgmRCwTIpYJEcuEiGVCxDIhYpkQsUyIWCZELBOVxYb3LViWhdZ9aHoMjy71K7iPkelImN5YaA5eTSvhcAwXU9PE+xDtmoL3ZNoxESbXCupmiujNR5Pi6Fj5K4mh323RcxvCOXzHRr2WPFe/cOD/3c538eCheWZinNlo302wWJvBE6koNkDvQqH7vQv1zUdOVyyFJqRcTDJud8Uei5ERS4S/2rAaHuZmgdGDC9WgZ/L7t3cDc2LfhmjVFTqDOcKV7lghfPRgn7UwfKFm0INda2P4Hg9itaRNuPZyazmFamKfPKiLHoL1DJ6y0QtMvyaW0oF7o2BdjZB+izsLPhojL5bUYnRlwf7xTFancBu7p0JzTKy+V7ez+D5H+kX+6cKqORgtE7FVqSR2dqs2kw/6dn6iqZT1M32RdMzNc8UFnxTDNDcsR5QSbLQuTQow3VkOi53TJlq0IUn/Xtav8C/r9H5KEectOP0xgkKmOoXyYj8mcGp0bJamvaSjRTs8+TDtrJQXn8aa+ElHLLfgMjEKxHm5kGayfFpszApRMMew76L9lSTTXH2dJkpQWmxacIrXpgAVpLwO6PlGF11nu+CyMXLosWJOznBYbHJ/MBXsEGHc2Y15jJJidcGx0LlfIAzDzRVoeZfDJJ/uSKGJkVQtLplclRgZPin2v8WrQQWLvsqI4jc7PuZpjg2pBuj5/i6XD8qJfaaKaTkYp0c25WMMx6ICRHVlr5S42JgFnxxj+yVvN8WMfUas5tDv1mqByV2b/hLMu/XvVn+2N58folLxEo4jYpkQsUyIWCZELBMilgkRy4SIZULEMiFimRCxTIhYJkQsEyKWCRHLAvAPHpsqw28n1b0AAAAASUVORK5CYII=" InformativeScreenshot="11436fb64e1d257cdbdcab2a61f5a214.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Project-timesheets | Projects | List | Active-projects' /&gt;" SearchSteps="Selector, FuzzySelector, Image, CV" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/project-timesheets/analytics/reports" CVScreenId="219a349d-e041-4bfd-a113-3cc827ce3f40" CvTextArea="631, 1431, 24, 20" CvTextArgument="to" CvType="Text" DesignTimeRectangle="593, 1440, 89, 40" DesignTimeScaleFactor="2" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Reports' class='sidebar-dropdown-label' idx='4' parentid='accordion' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Reports' class='sidebar-dropdown-label' type='' parentid='accordion' tag='SPAN' check:innerText='Reports' /&gt;" Guid="340f9717-2137-40bd-b6f0-0220e7808ec1" InformativeScreenshot="d386503a779b410494a7259efcb75eb4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Project-timesheets | Analytics | Reports' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
                       <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                        <uix:Target CVScreenId="cf999d9a-448f-4134-b851-5b630b5ab8ec" CvTextArea="137, 295, 61, 11" CvTextArgument="PROJECTS" CvType="Text" DesignTimeRectangle="131, 284, 77, 35" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Projects' parentid='preload' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Projects' parentid='preload' tag='A' type='' class='' check:innerText='PROJECTS' /&gt;" Guid="bff4973c-e089-4e50-b525-e2e22f4eb1e6" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFEAAAAnCAYAAAB39KTqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAK+SURBVGhD7Za/axsxFMf7t2g78ODNkCHZPBU6HHQs5CBQQweDIaRDcKfLlClHhnrqDQVjKNjQ4tJACgF7CNxguKF1Ji8GDwEPBg+Gb9/p5Phy/hG7fgEH3gcElh7WSR9JT3oFYWtEIgMikQGRyIBIZEAkMiASGRCJDIhEBkQiAyKRAZHIgEhkQCQyIBIZEIkMbCQxOFNQalasPRvu70Ec7FfhJGJKZZEv+eiO4rBm0EKlZCOXMfH3Lup/xib4mEHNgToL4sqtm+h3WhxU+3EYkyHCWhn2nqVj0bjKtS6intNjnhanZsZNY/KOcrCi9kwOdqmClgmty+YSpxMjxh0Ptiqgfk8VLTE5sQHqJQsHF2Fc79fhZPIoX/UwnsRNw46v286DeZHzEl3MvpyEvvOBFuS4ijAaR8R9AO9tDoVGzzQQenzpPnrwbQvFhrGmF8OF1168sMvYSiK1wKUVdG/pZ1pixE0Z6rBK0xyj9SkhNMGwUYCyfZrOY9aWSDFr30NoFuaBdH2hxADnGQvln0NT/z+2kjhsu8irIprRGFbuxBDevpGdRv/P9JHg6eMcCwkvD1ILu4SFEmkvfisgS/1Ze69ROPVxfbe50C1zokNbf0lOjPLLadXkRA6Ji3fithI1ox7Chg+X8nVWWZQv0+diNVse5wR6kGYnjq5Rztjw7+IQZc8dPc7zjK9OTApan+eRSAy/F2GRnO50MmtcLN12C4MoNqGEf6joYjDbc5XEpRdL/umLZUQ5/d0Jqh3zHbpYggsb1nETmxzqZ5OoJ3dkwf7SNXVi5RNnjPCzE8d0KmiiN12AhTkxmX+XP3EeWLITBzcVFOkmnz1xfITJZ9kabCRRWIxIZEAkMiASGRCJDIhEBkQiAyKRAZHIgEhkQCQyIBIZEIkM7KTEv19/6fJS2DmJkbwfbz7q8jJEAv8AvHywBm9vOn8AAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image, CV" />
+                        <uix:Target CVScreenId="219a349d-e041-4bfd-a113-3cc827ce3f40" CvTextArea="325, 1429, 200, 26" CvTextArgument="Identify employees" CvType="Text" DesignTimeRectangle="253, 1424, 292, 48" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Analytics' parentid='accordion' tag='A' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl aaname='Analytics' parentid='accordion' tag='A' type='' class='' check:innerText='Analytics' /&gt;" Guid="f97e579c-ee68-4971-828c-d6c03b9f1f75" SearchSteps="FuzzySelector, CV" />
                       </scg:List>
                     </uix:TargetAnchorable.Anchors>
                   </uix:TargetAnchorable>
@@ -270,412 +318,200 @@
                   </uix:VerifyExecutionOptions>
                 </uix:NClick.VerifyOptions>
               </uix:NClick>
-              <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="388,117.33333333333333" sap2010:WorkflowViewState.IdRef="Delay_4" />
             </Sequence>
-            <Sequence sap:VirtualizedContainerService.HintSize="722,1300" sap2010:WorkflowViewState.IdRef="Sequence_78">
+            <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="1128.6666666666667,240" sap2010:WorkflowViewState.IdRef="Sequence_117">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:UiElementExists DisplayName="Element Exists 'A  #/project-timesheets...'" Exists="[Existdailytimeentries]" sap:VirtualizedContainerService.HintSize="488.6666666666667,139.33333333333334" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
-                <ui:UiElementExists.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4b652b4d-bb6b-44cb-9899-3edef70872c7" InformativeScreenshot="bf53bb8bb9df883427ccaf567afad584" Selector="&lt;webctrl aaname='Daily Time Entries' parentid='preload' tag='A' /&gt;">
-                    <ui:Target.TimeoutMS>
-                      <InArgument x:TypeArguments="x:Int32" />
-                    </ui:Target.TimeoutMS>
-                    <ui:Target.WaitForReady>
-                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                    </ui:Target.WaitForReady>
-                  </ui:Target>
-                </ui:UiElementExists.Target>
-              </ui:UiElementExists>
-              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="488.6666666666667,1038" sap2010:WorkflowViewState.IdRef="TryCatch_1">
-                <TryCatch.Try>
-                  <If Condition="[Existdailytimeentries]" sap:VirtualizedContainerService.HintSize="450,773.3333333333334" sap2010:WorkflowViewState.IdRef="If_6">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <If.Then>
-                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,254.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_79">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,170" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Daily time entries option is available&quot;]" />
-                      </Sequence>
-                    </If.Then>
-                    <If.Else>
-                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,378.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_80">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Daily time entries option is not available&quot;]" />
-                        <Throw Exception="[New BusinessRuleException(&quot;Time Sheet is not available&quot;)]" sap:VirtualizedContainerService.HintSize="354,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_1" />
-                      </Sequence>
-                    </If.Else>
-                  </If>
-                </TryCatch.Try>
-                <TryCatch.Catches>
-                  <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="454.6666666666667,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+              <Delay DisplayName=" Delay 1 second" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="388,117.33333333333333" sap2010:WorkflowViewState.IdRef="Delay_17" />
+            </Sequence>
+            <Sequence sap:VirtualizedContainerService.HintSize="1128.6666666666667,572" sap2010:WorkflowViewState.IdRef="Sequence_119">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Project Work Hours'" sap:VirtualizedContainerService.HintSize="388,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_37" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/project-timesheets/analytics/reports" CVScreenId="75929d95-2659-4c78-93d8-dee7cc7c3627" CvTextArea="389, 992, 293, 34" CvTextArgument="Project Work Hours" CvType="Text" DesignTimeRectangle="391, 980, 553, 52" DesignTimeScaleFactor="2.625" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Project Work Hours ' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Project Work Hours ' tag='P' type='' class='text-normal font-weight-semi-bold' check:innerText='Project Work Hours' /&gt;" Guid="b672f485-d661-4f6b-9016-759d46f47cfe" InformativeScreenshot="917eca70d77bdc03914f81bb4d178f4f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Project-timesheets | Analytics | Reports' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target CVScreenId="75929d95-2659-4c78-93d8-dee7cc7c3627" CvTextArea="389, 855, 376, 34" CvTextArgument="Clients &amp; Project Reports" CvType="Text" DesignTimeRectangle="391, 843, 553, 53" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Clients &amp;amp; Project Reports ' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Clients &amp;amp; Project Reports ' tag='P' type='' class='text-normal font-weight-semi-bold' check:innerText='Clients &amp;amp; Project Reports' /&gt;" Guid="2e98a55c-dcda-442e-9a0d-7b5bfa202248" SearchSteps="FuzzySelector, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+                <uix:NClick.VerifyOptions>
+                  <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                    <uix:VerifyExecutionOptions.Retry>
+                      <InArgument x:TypeArguments="x:Boolean" />
+                    </uix:VerifyExecutionOptions.Retry>
+                    <uix:VerifyExecutionOptions.Timeout>
+                      <InArgument x:TypeArguments="x:Double" />
+                    </uix:VerifyExecutionOptions.Timeout>
+                  </uix:VerifyExecutionOptions>
+                </uix:NClick.VerifyOptions>
+              </uix:NClick>
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Daily Time Entries'" sap:VirtualizedContainerService.HintSize="388,222.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_38" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/project-timesheets/analytics/reports" CVScreenId="75c919ad-f5b2-440c-8cde-9c8c562d26cb" CvTextArea="2459, 993, 273, 34" CvTextArgument="Daily Time Entries" CvType="Text" DesignTimeRectangle="2461, 981, 270, 52" DesignTimeScaleFactor="2.625" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Daily Time Entries' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Daily Time Entries' tag='P' type='' class='text-normal font-weight-semi-bold text-break report-card-click text-truncate-1' check:innerText='Daily Time Entries' /&gt;" Guid="03c2a5d4-ab4c-4583-b670-34e05e07b6ce" InformativeScreenshot="a68fef4af5b3928d79b2f6cec077a985.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Project-timesheets | Analytics | Reports' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target CVScreenId="75c919ad-f5b2-440c-8cde-9c8c562d26cb" CvTextArea="2459, 1055, 1233, 27" CvTextArgument="With project and task-wise timesheet data conduct productivity analysis for any selected..." CvType="Text" DesignTimeRectangle="2461, 1042, 1268, 53" ElementType="Text" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;xhr-app-root&amp;gt;div&amp;gt;timesheet-root&amp;gt;div&amp;gt;timesheet-analytics&amp;gt;timesheet-reports&amp;gt;new-timesheet-reports&amp;gt;div&amp;gt;xhr-reports&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;p' idx='4' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='text-secondary text-small text-break report-card-click text-truncate-1' tag='P' aaname='With project and task-wise timesheet data conduct productivity analysis for any selected date ' check:innerText='With project and task-wise timesheet data conduct productivity analysis for any selected date' /&gt;" Guid="b1fefbda-a762-49d3-b241-b044d5be8efb" SearchSteps="FuzzySelector, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+                <uix:NClick.VerifyOptions>
+                  <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                    <uix:VerifyExecutionOptions.Retry>
+                      <InArgument x:TypeArguments="x:Boolean" />
+                    </uix:VerifyExecutionOptions.Retry>
+                    <uix:VerifyExecutionOptions.Timeout>
+                      <InArgument x:TypeArguments="x:Double" />
+                    </uix:VerifyExecutionOptions.Timeout>
+                  </uix:VerifyExecutionOptions>
+                </uix:NClick.VerifyOptions>
+              </uix:NClick>
+            </Sequence>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1128.6666666666667,244.66666666666666" sap2010:WorkflowViewState.IdRef="CommentOut_10">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512,132.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_118">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="Sequence_78">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ActivityAction x:TypeArguments="ui:BusinessRuleException">
-                      <ActivityAction.Argument>
-                        <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
-                      </ActivityAction.Argument>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Error" Message="[exception.Message]" />
-                    </ActivityAction>
-                  </Catch>
-                </TryCatch.Catches>
-              </TryCatch>
-            </Sequence>
-            <Sequence DisplayName="Scroll down to daily time entries " sap:VirtualizedContainerService.HintSize="722,411.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_73">
+                    <ui:UiElementExists DisplayName="Element Exists 'A  #/project-timesheets...'" Exists="[Existdailytimeentries]" sap:VirtualizedContainerService.HintSize="488.6666666666667,139.33333333333334" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                      <ui:UiElementExists.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4b652b4d-bb6b-44cb-9899-3edef70872c7" InformativeScreenshot="bf53bb8bb9df883427ccaf567afad584" Selector="&lt;webctrl aaname='Daily Time Entries' parentid='preload' tag='A' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:UiElementExists.Target>
+                    </ui:UiElementExists>
+                    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="488.6666666666667,1038" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                      <TryCatch.Try>
+                        <If Condition="[Existdailytimeentries]" sap:VirtualizedContainerService.HintSize="450,773.3333333333334" sap2010:WorkflowViewState.IdRef="If_6">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,254.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_79">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,170" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Daily time entries option is available&quot;]" />
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,378.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_80">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Daily time entries option is not available&quot;]" />
+                              <Throw Exception="[New BusinessRuleException(&quot;Time Sheet is not available&quot;)]" sap:VirtualizedContainerService.HintSize="354,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                      </TryCatch.Try>
+                      <TryCatch.Catches>
+                        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="454.6666666666667,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ActivityAction x:TypeArguments="ui:BusinessRuleException">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
+                            </ActivityAction.Argument>
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Error" Message="[exception.Message]" />
+                          </ActivityAction>
+                        </Catch>
+                      </TryCatch.Catches>
+                    </TryCatch>
+                  </Sequence>
+                </Sequence>
+              </ui:CommentOut.Body>
+            </ui:CommentOut>
+            <Sequence DisplayName="Click Activities For Report Page" sap:VirtualizedContainerService.HintSize="1128.6666666666667,4419.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_74">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="388,171.33333333333334" sap2010:WorkflowViewState.IdRef="SendHotkey_3" Key="pgdn" KeyModifiers="None" SpecialKey="True">
-                <ui:SendHotkey.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="0f35943b-4639-46d0-8075-48976016f665">
-                    <ui:Target.TimeoutMS>
-                      <InArgument x:TypeArguments="x:Int32" />
-                    </ui:Target.TimeoutMS>
-                    <ui:Target.WaitForReady>
-                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                    </ui:Target.WaitForReady>
-                  </ui:Target>
-                </ui:SendHotkey.Target>
-              </ui:SendHotkey>
-              <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="388,117.33333333333333" sap2010:WorkflowViewState.IdRef="Delay_5" />
-            </Sequence>
-            <Sequence DisplayName="Click Activities For Report Page" sap:VirtualizedContainerService.HintSize="722,5008.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_74">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="592,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Open report page and searching for daily time entries button&quot;]" />
-              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Daily Time Entries'" sap:VirtualizedContainerService.HintSize="592,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_27" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Version="V3">
-                <uix:NClick.Target>
-                  <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/project-timesheets/analytics/reports" CVScreenId="08dd3942-f3b2-40fc-a63e-75f1c3a98e60" CvTextArea="1060, 819, 114, 16" CvTextArgument="Daily Time Entries" CvType="Text" DesignTimeRectangle="1061, 1266, 115, 21" DesignTimeScaleFactor="1.125" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Daily Time Entries' parentid='preload' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Daily Time Entries' parentid='preload' tag='A' type='' class='' check:innerText='Daily Time Entries' /&gt;" Guid="7e3bc3e0-f442-4843-a7e8-f9db5d77250d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHcAAAAZCAYAAAALx7GgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAASUSURBVGhD7ZjPSyNJFMf338ktp9w8evLmLTdvuc1tbnsTJASZHVkkiqyyCyKLYRlQZMlhh1xcBzE/iHYT88MZWuKuCVFDmCRi+O6rH3G6OpXYum12afoLBamuqu733qfr1et8h0C+VQDXxwrg+lgBXB8rgOtjBXB9rACujxXA9bEUuI10AaGlrNLm1g2kijdyhjvldrOI7FyixzsmQqsVNPiIe+V2VDuUxu9Xx1o8i0SuL1e8plpIrWrsYI389EqNj0XumyX7/1ajcO0guh1YxyYWKIjR3+oC1nP1Qrh2cbs8DOLzJeDG0i3Zf4HqFcSWTORkdxqaDHeoSzIsnsf7YldeeIYCuEL/W7ik6n4eoY0LtHnvHtahgVhCpKbIchGbRTHCpMAYwh1QGl3OY+3sQVwf6qyE2eUSjIHsa6SHKwKekNESc76gmj7FPGWaULyAzbMOeucVLK4IO6O78qjg6tBcA1Hpw0zSQObzvRxzygVc6WfuxHyMy0yS/OrIMZbCZRP3uURiqUBHnoW1pLzm3AiDGxztFjHH/KF10Z/KyN0O4/cAK/PN/sgKHZ+lbwyYXMPlD46LN69nlhDbqsBo0k4edDnoufgp0rdiqhYu/bQOCphN1cV1rgcYqTyiB9eyr5druJRdEodN9PpdVOlZIXqZYgTc6t6jVxPZZ7vGZlNg0kXM23xomGUaJx+a/HYOuYRLEN4eXKHRJQCtK2za14zsXAaXoKyXYbTopRrQGgVuh+oOis2uBatD4/2vIs7v5Eb4XEZ0mey1vgr7KxdIbKjntXu4inFkiLLTmkj9mKW0LXrj4PJ7xA0cDbN718Ii7TCFt0au4drnjATTNp8/12aHVJsKmvn9v2XPLrHWvvsem85PKcUmLVzy3e6W/R4M3krZUVyJzbD4JxlOG2z2hzKqEzLei3auPV2wlLx2Uh8faMXpO+ytZ4VxpN4nA+H1mkz14+U5XBYYHSjWtnW1qli7sH+F9m1bbWxXMb0Urv3Ftt2jnTnV20dt4XdKL4Mm0lt5hGlzvN0pY8+kjOUA7RLuA6of6Mz9+Qs/s9jvcJLSyV/MwRtUD0VF/TRcO9A20hsE+pNj+2jkOdyiiXDCxJETFGttnT1irZsz1yu4jT/osyhZQVVn4/CFYupQ/I8rSNC5HaH5lg2wO7hKtSwcXTy2Fx8TAu10mqfEIvbOa3ijSY06eQ5XHgfbNUdxN1bTh8vTMtUAGVaQaaU7GqlgNWWXNBnumO/cx53LCgF20BdKBMolXHluRGi+WlyNl+dwyQZWUIXfUYXMChKq/nuWhfer9NJpazsP4F7XyB5WdHbRbjFiT8CVBRWP82PRV8H3q+RTnzLgGXHZoupZ2t8eFoSyqGUahevI7+wfqj1Hic3z/S8FRGg8nHjOmSvFz7xh5fq0vIfLpH4Kidph3D9xYq0zNrxN8FO16Q6ZbYJFa2Z+ZZ9kT8ElOT6FZtjnzrncymzsw+lE+xW4UxP7th2pBAN5renC7bM0fo0UHf5vPt7Ji4FeS9OFe2LwFDK/daFUdYFeR/9NWg40FQVwfawArm8F/APdGWgiHa2a0wAAAABJRU5ErkJggg==" InformativeScreenshot="4406d7745b5adee1969dd785ccbca9f9.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Project-timesheets | Analytics | Reports' /&gt;" SearchSteps="Selector, FuzzySelector, Image, CV" Version="V4" Visibility="Interactive">
-                    <uix:TargetAnchorable.Anchors>
-                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                        <uix:Target CVScreenId="b38ccba9-1d20-4e68-ab28-74718ca6b9aa" CvTextArea="1019, 401, 170, 20" CvTextArgument="Project Work Hours" CvType="Text" DesignTimeRectangle="1020, 394, 876, 31" ElementType="Text" FullSelectorArgument="&lt;webctrl idx='2' tag='H4' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='H4' class='mb-10' aaname='Project Work Hours' check:innerText='Project Work Hours' /&gt;" Guid="b0306092-b846-428a-983e-3725fa032666" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAA3AAAAAjCAYAAADVGOgTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAh+SURBVHhe7d3BSxtbG8fx92/JLmQRcCF0YTfqJlAwdHFbCrUISsHKhfvyQvEKL2ZTXLRkEXAhykUCRSqXQovcUIJCESwRvFKhXqS00IuCjaC8hS6f9zlnZpKZ5ExMtKHN9bv4LJwzMzlzjov5cc6c86//ffkqAAAAAIAfHwEOAAAAAHoEAQ4AAAAAegQBDgAAAAB6BAEOAAAAAHoEAQ4AAAAAegQBDgAAAAB6BAEOAAAAAHoEAQ4AAAAAegQBDgAAAAB6BAEOAAAAAHoEAQ4AAAAAekQkwG3mEpJIOKT6JTOel/L76MXfSqWQkWTff+T53+7yb+bdC3k0tyibR46ykN2FjD73dXmy7Sg/25LZVEKSua3mMlXJX9drM7Lwtrnswt4XZVT7Yfa1o6wNH4r3tE73ZLll/+lzmb6OeS4AAAAA358jwE1I4dWGlMOezcv4oAlyGgL+it7gW6jkh/XeU90PcK9zbQQZtZ2XAQ0zmYW92LLEQF4qjWVf9mThRlzZJRDgAAAAAChHgMvJZuhYzeeSTKe0fPKFHLrKe0G7Ac4fZXM9qx2dSyUl6Rpl84PWQH4nevyyCHAAAAAAVPsB7ssnWb6r5am5Wrk9/25RPpwdyFrunvSnotcebq/K7PiwpE0wSCSl/+aUFF59qpUHvIDh+N33G1L4Oav3NdcnJD04IbPP9qTaeJ5x9knKhSkZuZa05yb6hmX88YbWzZT74SSiVaA5lfKv5j4zsnYSPu61QWahKE8GEjJajD7L4e9Tek0yGrTOjqXyLCfjg2nvd1P9MvLzvHM6amx7xgW4ow2ZHUxIcqwo+/Y53S4d4Jz9sCOHDb8Z24/+vcPtVTtX22dzSfutL1S/ox1Zfhj+vdsyvbTl9yUAAABwdbUf4M52bGhJjK3KB/+YPf/GPRnNZORBYVXKr/ZqI1b7TydscBsan5cVOxVzVQqTGUlqwBnJ70RCmOvFv/omLyOppGQmg+s3ZEUDWkZf6oc0ZERC3OcteZTRwJXKyL+XSrVpnw/0WDI7L5WTY9k1x+Yn9HcyGj7M/bZkPxLOoqp/zOi5DWHs6IU88L+N28zp70VG6E5l7aFpv1Do0yC2ct8ENw2Ttn3q9UqksvLkzWn93iq2PV0BTp/Zhrebeal8Dh13uEyAq76es22evJmT5Zem3UqynLvt9e0vLyLBsfMAp8861i+3ckVZC/rD/J+Z6boaEgu2nzZkrTjn9aW2d/C/BwAAAFxFbQW46vsdWf5lWMuS8uD34+j55ru4d9Hzg8DRFLTU/m/mxX04skBI04u//xI/8jga9Ky/9N6p6xpmgvBzqvW47tWj8fu8z3uy+WcoJLU7hdKwYS06HdKGOjMqpqHFC3jhETo/4IZCnfdcw6G6+jTY2dHMQQ1foQB0XnvWAlwQWAe1LueEN8Orh+nbNoQD3IkGL30m1whfdT0nAw3/D50HOG2b9fr1ln1WDclvQscMbbP9Lnx/CQAAAPQSR4CLYUa3nh1ELrbnmyl/oWOGt4pj4/RDX7CK41w9KDS9+GvQSsZdr8r/1euDoHFSkmmtn3PBkUadBLhgyuiNRdn1j9lRt4clL1TagBcaoXu7KBmtRz3Q+AuaBOc3ss+YlEeb9WNx7RkJcBpKF8a88FY+ZzXNgNe+t2Vh+1gO/47jtWM4wHkhNW5FTb99QiOynQc4x7l+cB6db56iCQAAAFx1jgCnwcnxgl91vEzHBY7YIGJ9kpWxaHnjy7z3t6lLC8H1rumFcToKcF9lfylbP9+fQloPaMeycr8+QufVOXzv5tAS8XHV1jtcfm6AWz+QZRPeEsNScG1xEKO5bi5efcMBLjZk+TbnTF0a++2SAc6UreflVp/p57QM3ZmS2aWS7HZ7hVIAAACgB3SwiEmzlgHup6LsNxz3tBvgZuT5x+YgWXPkT0vsYoCLjKrZ7QOi19p62hG6Y3k+qc8UGq0LQsut36KjljUXCHDpvrQkBjPeN2kdrAbqtefFA1w5ZiSsWwEuUH23I2vFeZke65ekhrnxpzFtCQAAAFwRXQlw3sjVhKy4Rk3amELpTd1zfAflcrJhtzf49lMoDf+7toclqZhpoZGApmzA0/u99aYfRrcPOJCFrF57f9UdtC4whTL45q2q1w7ptaPF9gLNRQNc9dWM1jGuH7o0hTKG9+3klDxvc9ooAAAA8E/UlQAXBI4LL2JysiWPzEqEdxcdy+Ofyu52NLhUHndhEROf/e5N7z2qYaV5fzcv4I1PTnlBp2Fao/dcHS5i0qI9w6OM+3rvpOveDhcNcB0vYvLU/TvVP+ebRhtjA5y2zebr+nk1+nud9h0AAADwT9OdAKe8bQTC2wCEthEotLuNgIaHzFRtOXm7BH82LYm+GVkLj8S02EYgkdGQFCyGYqdBapB4rOe8LEq5cbVHB28UyrRLc0AzbMAz5f7qlJHyYBsBrZe3LUCoXqmsFLaj4auTAOdNRfXCZVNwbXDhAKeCbQTSd9zbCETq+m5RRvR445YD/Tez9ng7Ac70u5m2mr4zIwu1fve+iUuGRvsAAACAq6hrAc5wbuS93jy6EjsaYzeQvi1DdkELfYG/ltUgVJJd1zQ610beuVXZjSyzfyzlXNarT19Wpl86Rnoa+atcOgOa8qZ7anncapNxG3l/bD63swCn/L3gzttO4DIBzupgQ3WzAMmo3wdef5nN1L17tzuF8vBtKfJ7yWsZ7ctSy83KAQAAgKsgEuC+l1Yv8wAAAAAAzw8R4Oy+cak5AhwAAAAAtPBdA9yH7Q0pv8zLqPnW7dcN9xREAAAAAID1HQPcgSz/ZL5xSsvQ+LxUWnzDBQAAAAD4QaZQAgAAAADOR4ADAAAAgB5BgAMAAACAHkGAAwAAAIAeQYADAAAAgB5BgAMAAACAnvBV/g8oPejhcN7rYgAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
-                      </scg:List>
-                    </uix:TargetAnchorable.Anchors>
-                  </uix:TargetAnchorable>
-                </uix:NClick.Target>
-                <uix:NClick.VerifyOptions>
-                  <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                    <uix:VerifyExecutionOptions.Retry>
-                      <InArgument x:TypeArguments="x:Boolean" />
-                    </uix:VerifyExecutionOptions.Retry>
-                    <uix:VerifyExecutionOptions.Timeout>
-                      <InArgument x:TypeArguments="x:Double" />
-                    </uix:VerifyExecutionOptions.Timeout>
-                  </uix:VerifyExecutionOptions>
-                </uix:NClick.VerifyOptions>
-              </uix:NClick>
-              <Sequence DisplayName="Datetime dyanmic input" sap:VirtualizedContainerService.HintSize="592,2105.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_75">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Date'" sap:VirtualizedContainerService.HintSize="530,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_23" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Version="V3">
-                  <uix:NClick.Target>
-                    <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/project-timesheets/analytics/reports/dailytimeentries" CVScreenId="32d770b5-ccb3-4bad-9f88-78b711cc6d3b" CvElementArea="215, 321, 22, 22" CvType="Icon" DesignTimeRectangle="216, 322, 23, 23" DesignTimeScaleFactor="1.125" FullSelectorArgument="&lt;webctrl id='bsdrp' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='bsdrp' tag='SPAN' type='' class='ki-calendar ki ki-sm' aaname='' /&gt;" Guid="fd5e26f0-8614-44b6-99ac-88e9feebbe85" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABsAAAAbCAYAAACN1PRVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAE1SURBVEhL7ZRhS8JAGMf7/h9DEObRZpKKXTRbbLHJ0DJGvnAutKFBghSy+erfjJV1PLcGW1Hhix8c9zw8P+5/xx3E8QY/xV5WCr9PthqPcD2PiFqEwBshWIn7NLlkU4uDWQuitoBxxGHMxH2aDFmE0HNxembhuNFGtWGgk6w/Y4AdtsF4sj53JaffIZf5PSh1E5dXHtw8OCYU1cYtNStFLhuakuhkfB1ppqySRKRoJzlJoq4VkLGLCeYPjzmZQC9ysm2M67sBVNZEpZaimegvif6iMW5l4rPv8yZaQ6H3lT8p+3B3znfK4qUPvcXfX53KbxCsif5SZFSNpLAspGskYQHZbACmdaG7xNdE4JhdVOs9jKlZKXJZwtO9D8eyiQ9YxIbh+pg+03PeyJSVzV5WCv9VtsELmL7PzhPCOywAAAAASUVORK5CYII=" InformativeScreenshot="715322898113761a92bcc98d648b5200.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Project-timesheets | Analytics | Reports | Dailytimeentries' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                      <uix:TargetAnchorable.Anchors>
-                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                          <uix:Target CVScreenId="32d770b5-ccb3-4bad-9f88-78b711cc6d3b" CvTextArea="49, 325, 32, 13" CvTextArgument="Date" CvType="Text" DesignTimeRectangle="51, 322, 30, 21" ElementType="Text" FullSelectorArgument="&lt;webctrl class='filter-label' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='filter-label' tag='SPAN' type='' aaname='Date' check:innerText='Date' /&gt;" Guid="67924230-50e6-459d-b13c-35cea2975926" SearchSteps="FuzzySelector, CV" />
-                        </scg:List>
-                      </uix:TargetAnchorable.Anchors>
-                      <uix:TargetAnchorable.PointOffset>
-                        <uix:PointOffset X="-5" Y="4" />
-                      </uix:TargetAnchorable.PointOffset>
-                    </uix:TargetAnchorable>
-                  </uix:NClick.Target>
-                  <uix:NClick.VerifyOptions>
-                    <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                      <uix:VerifyExecutionOptions.Retry>
-                        <InArgument x:TypeArguments="x:Boolean" />
-                      </uix:VerifyExecutionOptions.Retry>
-                      <uix:VerifyExecutionOptions.Timeout>
-                        <InArgument x:TypeArguments="x:Double" />
-                      </uix:VerifyExecutionOptions.Timeout>
-                    </uix:VerifyExecutionOptions>
-                  </uix:NClick.VerifyOptions>
-                </uix:NClick>
-                <Assign sap:VirtualizedContainerService.HintSize="530,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_11">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:String">[findday]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[DateTime.Now.ToString("dddd")]</InArgument>
-                  </Assign.Value>
-                </Assign>
-                <If Condition="[findday=&quot;Monday&quot;]" sap:VirtualizedContainerService.HintSize="530,792" sap2010:WorkflowViewState.IdRef="If_4">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <If.Then>
-                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,310" sap2010:WorkflowViewState.IdRef="Sequence_56">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_14">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="x:String">[day]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="x:String">[DateTime.Now.AddDays(-3).ToString("dd")]</InArgument>
-                        </Assign.Value>
-                      </Assign>
-                      <Assign sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_12">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="x:String">[friday_togetdate]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="x:String">[DateTime.Now.AddDays(-3).ToString("dd-MM-yyyy")]</InArgument>
-                        </Assign.Value>
-                      </Assign>
-                    </Sequence>
-                  </If.Then>
-                  <If.Else>
-                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="496,310" sap2010:WorkflowViewState.IdRef="Sequence_57">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_15">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="x:String">[day]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="x:String">[DateTime.Now.AddDays(-1).ToString("dd")]</InArgument>
-                        </Assign.Value>
-                      </Assign>
-                      <Assign sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_13">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="x:String">[otherday_getdate]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="x:String">[DateTime.Now.AddDays(-1).ToString("dd-MM-yyyy")]</InArgument>
-                        </Assign.Value>
-                      </Assign>
-                    </Sequence>
-                  </If.Else>
-                </If>
-                <Assign sap:VirtualizedContainerService.HintSize="530,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_23">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:String">[indexofzero]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[Convert.ToString(day.IndexOf("0"))]</InArgument>
-                  </Assign.Value>
-                </Assign>
-                <If Condition="[indexofzero=&quot;0&quot;]" sap:VirtualizedContainerService.HintSize="530,386.6666666666667" sap2010:WorkflowViewState.IdRef="If_5">
-                  <If.Then>
-                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,192.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_76">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <Assign sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_22">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="x:String">[day]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="x:String">[day.ToString.Replace("0","")]</InArgument>
-                        </Assign.Value>
-                      </Assign>
-                    </Sequence>
-                  </If.Then>
-                  <If.Else>
-                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,22" sap2010:WorkflowViewState.IdRef="Sequence_77">
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1066.6666666666667,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Open report page and searching for daily time entries button&quot;]" />
+              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1066.6666666666667,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                <ui:CommentOut.Body>
+                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512,136" sap2010:WorkflowViewState.IdRef="Sequence_95">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence DisplayName="Datetime dyanmic input" sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="Sequence_75">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                    </Sequence>
-                  </If.Else>
-                </If>
-                <Assign sap:VirtualizedContainerService.HintSize="530,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_21">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:String">[monthname]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[DateTime.Now.ToString("MMMM")]</InArgument>
-                  </Assign.Value>
-                </Assign>
-                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '31'" sap:VirtualizedContainerService.HintSize="530,222.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_25" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Version="V3">
-                  <uix:NClick.Target>
-                    <uix:TargetAnchorable BrowserURL="https://app.keka.com/Account/Login?ReturnUrl=%2F" CVScreenId="fe904fb5-7f78-48f8-8b4e-712e7aebf3b6" CvTextArea="284, 696, 16, 15" CvTextArgument="31" CvType="Text" DesignTimeRectangle="274, 687, 36, 36" DesignTimeScaleFactor="1.125" ElementType="Text" FullSelectorArgument="[string.Format(&quot;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='{0}' tag='SPAN' parentclass='ng-star-inserted' /&gt;&quot;, day)]" FuzzySelectorArgument="[string.Format(&quot;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='{0}' tag='SPAN' parentclass='ng-star-inserted' type='' class='ng-star-inserted' /&gt;&quot;, day)]" Guid="c90606b6-3c8e-4add-8475-d745cbe53142" ImageBase64="" InformativeScreenshot="9005bd89ab26be73f5da24fbfb968b72.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Project-timesheets | Analytics | Reports | Dailytimeentries' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
-                      <uix:TargetAnchorable.Anchors>
-                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                          <uix:Target CVScreenId="5fd4c141-a283-449d-bcdc-042c954dfed4" CvTextArea="245, 469, 30, 17" CvTextArgument="July" CvType="Text" DesignTimeRectangle="233, 461, 55, 34" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='*' tag='BUTTON' type='button' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="[string.Format(&quot;&lt;webctrl aaname='{0}' tag='BUTTON' type='button' class='current ng-star-inserted' check:innerText='July' /&gt;&quot;, monthname)]" Guid="b6c88467-eba2-4d0f-bb95-12949018161b" ImageBase64="" SearchSteps="FuzzySelector, CV" />
-                        </scg:List>
-                      </uix:TargetAnchorable.Anchors>
-                    </uix:TargetAnchorable>
-                  </uix:NClick.Target>
-                  <uix:NClick.VerifyOptions>
-                    <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                      <uix:VerifyExecutionOptions.Retry>
-                        <InArgument x:TypeArguments="x:Boolean" />
-                      </uix:VerifyExecutionOptions.Retry>
-                      <uix:VerifyExecutionOptions.Timeout>
-                        <InArgument x:TypeArguments="x:Double" />
-                      </uix:VerifyExecutionOptions.Timeout>
-                    </uix:VerifyExecutionOptions>
-                  </uix:NClick.VerifyOptions>
-                </uix:NClick>
-              </Sequence>
-              <Sequence DisplayName="Click Activities to downlaod the report" sap:VirtualizedContainerService.HintSize="592,2372" sap2010:WorkflowViewState.IdRef="Sequence_65">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Project'" sap:VirtualizedContainerService.HintSize="450,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_16" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Version="V3">
-                  <uix:NClick.Target>
-                    <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/project-timesheets/analytics/reports/dailytimeentries" CVScreenId="0c5933fa-ff06-4396-b731-9c373b2a7d49" CvElementArea="1565, 320, 25, 25" CvTextArea="1399, 325, 46, 16" CvTextArgument="Project" CvType="ArrowButton" DesignTimeRectangle="1383, 305, 225, 56" DesignTimeScaleFactor="1.125" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Project' class='ng-star-inserted' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Project' class='ng-star-inserted' tag='A' type='' check:innerText='Project' /&gt;" Guid="3a42c4a5-eb50-4122-be09-50c292da0d41" InformativeScreenshot="5ac84412a65fbd3e7eb889a63ff3ab88.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Project-timesheets | Analytics | Reports | Dailytimeentries' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                      <uix:TargetAnchorable.Anchors>
-                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                          <uix:Target DesignTimeRectangle="1176, 311, 168, 45" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;modal-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;xhr-report-filters&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;a&amp;gt;span' idx='11' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='' tag='SPAN' aaname='' check:innerText='STATE&amp;#xD;&amp;#xA;Active' /&gt;" Guid="77066d1d-487e-4688-bdaa-76326f70492a" SearchSteps="FuzzySelector" />
-                        </scg:List>
-                      </uix:TargetAnchorable.Anchors>
-                    </uix:TargetAnchorable>
-                  </uix:NClick.Target>
-                  <uix:NClick.VerifyOptions>
-                    <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                      <uix:VerifyExecutionOptions.Retry>
-                        <InArgument x:TypeArguments="x:Boolean" />
-                      </uix:VerifyExecutionOptions.Retry>
-                      <uix:VerifyExecutionOptions.Timeout>
-                        <InArgument x:TypeArguments="x:Double" />
-                      </uix:VerifyExecutionOptions.Timeout>
-                    </uix:VerifyExecutionOptions>
-                  </uix:NClick.VerifyOptions>
-                </uix:NClick>
-                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Test project-test client'" sap:VirtualizedContainerService.HintSize="450,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_17" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Version="V3">
-                  <uix:NClick.Target>
-                    <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/project-timesheets/analytics/reports/dailytimeentries" CVScreenId="0c5933fa-ff06-4396-b731-9c373b2a7d49" CvTextArea="1426, 471, 142, 15" CvTextArgument="Test project-test client" CvType="Text" DesignTimeRectangle="1428, 469, 140, 22" DesignTimeScaleFactor="1.125" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Test project-test client' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Test project-test client' tag='SPAN' type='' class='' check:innerText='Test project-test client' /&gt;" Guid="3ecbec01-0796-457b-8b6b-44149981f9d5" InformativeScreenshot="e782b3194118d8df81225680fa74d958.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Project-timesheets | Analytics | Reports | Dailytimeentries' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                      <uix:TargetAnchorable.Anchors>
-                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                          <uix:Target CVScreenId="0c5933fa-ff06-4396-b731-9c373b2a7d49" CvTextArea="1399, 325, 46, 16" CvTextArgument="Project" CvType="Text" DesignTimeRectangle="1401, 322, 44, 21" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Project' class='filter-label' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Project' class='filter-label' tag='SPAN' type='' check:innerText='Project' /&gt;" Guid="ede086a4-530c-4a48-8ff7-a828560389f4" SearchSteps="FuzzySelector, CV" />
-                        </scg:List>
-                      </uix:TargetAnchorable.Anchors>
-                    </uix:TargetAnchorable>
-                  </uix:NClick.Target>
-                  <uix:NClick.VerifyOptions>
-                    <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                      <uix:VerifyExecutionOptions.Retry>
-                        <InArgument x:TypeArguments="x:Boolean" />
-                      </uix:VerifyExecutionOptions.Retry>
-                      <uix:VerifyExecutionOptions.Timeout>
-                        <InArgument x:TypeArguments="x:Double" />
-                      </uix:VerifyExecutionOptions.Timeout>
-                    </uix:VerifyExecutionOptions>
-                  </uix:NClick.VerifyOptions>
-                </uix:NClick>
-                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Run'" sap:VirtualizedContainerService.HintSize="450,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_18" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Version="V3">
-                  <uix:NClick.Target>
-                    <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/project-timesheets/analytics/reports/dailytimeentries" CVScreenId="c765b521-ac7f-4785-bff9-56cf4507dde3" CvElementArea="1819, 337, 89, 49" CvTextArea="1849, 354, 28, 13" CvTextArgument="Run" CvType="Button" DesignTimeRectangle="1821, 339, 85, 45" DesignTimeScaleFactor="1.125" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='Run' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Run' tag='BUTTON' type='' class='btn btn-primary' check:innerText='Run' /&gt;" Guid="1d08399a-4a7b-4349-a21e-091d52ce0b51" InformativeScreenshot="08af3c44613428aa55631cfb3f102234.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Project-timesheets | Analytics | Reports | Dailytimeentries' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                      <uix:TargetAnchorable.Anchors>
-                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                          <uix:Target DesignTimeRectangle="1383, 305, 225, 56" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='ProjectTest project-test client' class='ng-star-inserted' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='ProjectTest project-test client' class='ng-star-inserted' tag='A' type='' check:innerText='PROJECT&amp;#xD;&amp;#xA;Test project-test client' /&gt;" Guid="475ca7b7-bbbb-4112-a67d-baa071aa5706" SearchSteps="FuzzySelector" />
-                        </scg:List>
-                      </uix:TargetAnchorable.Anchors>
-                    </uix:TargetAnchorable>
-                  </uix:NClick.Target>
-                  <uix:NClick.VerifyOptions>
-                    <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                      <uix:VerifyExecutionOptions.Retry>
-                        <InArgument x:TypeArguments="x:Boolean" />
-                      </uix:VerifyExecutionOptions.Retry>
-                      <uix:VerifyExecutionOptions.Timeout>
-                        <InArgument x:TypeArguments="x:Double" />
-                      </uix:VerifyExecutionOptions.Timeout>
-                    </uix:VerifyExecutionOptions>
-                  </uix:NClick.VerifyOptions>
-                </uix:NClick>
-                <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="450,124" sap2010:WorkflowViewState.IdRef="Delay_6" />
-                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Run'" sap:VirtualizedContainerService.HintSize="450,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_20" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Version="V3">
-                  <uix:NClick.Target>
-                    <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/project-timesheets/analytics/reports/dailytimeentries" CVScreenId="2b5f7b91-dac0-4110-88ae-c8fdc7a95650" CvElementArea="1820, 475, 24, 25" CvType="Icon" DesignTimeRectangle="1820, 475, 27, 27" DesignTimeScaleFactor="1.125" FullSelectorArgument="&lt;webctrl parentid='download-menu' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='download-menu' tag='SPAN' type='' class='ki-download ki' aaname='' /&gt;" Guid="3d7bb234-16dd-41d4-8d62-4fd9042a8047" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAF9SURBVFhH7ZVNSwJRFIb9h4XkIoiW/YRIyyDKjX+glDZG9EGbaJGjKRJBJlkUFFiKhBhBaaFojjPOvN1znU3o2NyhNGoeOJt3Fs+Ze87ccWGEOPKR4MiF6bTaOPOFUdhLGYk4tuVqU0Z6bg35naSRiOPIhXHkf1deuS4wSQiN8ouRdDGV6zoej6+Q8a+jXWsYYX++lMvVGk5nV5GaCaL+8GSkJnImLkkZxDyLyEUkaGrHeNAfS8eu1JtIe0NITAfwlivxrEfOxHTbRd0LuN9OQNe0bj4AyzNXGi1+nR5NLaN6U/wkJxEJo+555HdZM6wRKwgtHDVAs4xPLqGcvODyu804bsMH/I35PW9RTAjJCWogG9jgMirJ4+czLu6fCIkJYTmhvsu4DG7hcMwLacLPl0xUTNiSEx1Z4cf8fJ6zJSZsy7+DgXLa6FalZrvk1/rAb91UrikqsisRPle7FR33oRRj+2DC7z32n+Yfy3X2jQ6j+uHS2E9hGNXbCPAB9fKWOYDxLacAAAAASUVORK5CYII=" InformativeScreenshot="596e43a8d07c143f41f97966ae1fb082.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Project-timesheets | Analytics | Reports | Dailytimeentries' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                      <uix:TargetAnchorable.Anchors>
-                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                          <uix:Target CVScreenId="2b5f7b91-dac0-4110-88ae-c8fdc7a95650" CvElementArea="1819, 337, 89, 50" CvTextArea="1849, 354, 28, 13" CvTextArgument="Run" CvType="Button" DesignTimeRectangle="1821, 339, 85, 45" FullSelectorArgument="&lt;webctrl class='buttons-container' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='buttons-container' tag='DIV' type='' aaname='' check:innerText='Run' /&gt;" Guid="73d458da-5a67-4819-8b61-0afa03d7501a" SearchSteps="FuzzySelector, CV" />
-                        </scg:List>
-                      </uix:TargetAnchorable.Anchors>
-                      <uix:TargetAnchorable.PointOffset>
-                        <uix:PointOffset Y="6" />
-                      </uix:TargetAnchorable.PointOffset>
-                    </uix:TargetAnchorable>
-                  </uix:NClick.Target>
-                  <uix:NClick.VerifyOptions>
-                    <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                      <uix:VerifyExecutionOptions.Retry>
-                        <InArgument x:TypeArguments="x:Boolean" />
-                      </uix:VerifyExecutionOptions.Retry>
-                      <uix:VerifyExecutionOptions.Timeout>
-                        <InArgument x:TypeArguments="x:Double" />
-                      </uix:VerifyExecutionOptions.Timeout>
-                    </uix:VerifyExecutionOptions>
-                  </uix:NClick.VerifyOptions>
-                </uix:NClick>
-                <Sequence DisplayName="BusinessRule Exception" sap:VirtualizedContainerService.HintSize="450,312.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_81">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:UiElementExists DisplayName="Element Exists 'A  #/project-timesheets...'" Exists="[Norecordfoundexist]" sap:VirtualizedContainerService.HintSize="388,139.33333333333334" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
-                    <ui:UiElementExists.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4b652b4d-bb6b-44cb-9899-3edef70872c7" InformativeScreenshot="c948d34ac0b1ef515d35a85b232dc113" Selector="&lt;webctrl tag='H4' /&gt;">
-                        <ui:Target.TimeoutMS>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:Target.TimeoutMS>
-                        <ui:Target.WaitForReady>
-                          <InArgument x:TypeArguments="ui:WaitForReady" />
-                        </ui:Target.WaitForReady>
-                      </ui:Target>
-                    </ui:UiElementExists.Target>
-                  </ui:UiElementExists>
-                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="388,50.666666666666664" sap2010:WorkflowViewState.IdRef="TryCatch_2">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <TryCatch.Try>
-                      <If Condition="[Norecordfoundexist]" sap:VirtualizedContainerService.HintSize="450,773.3333333333334" sap2010:WorkflowViewState.IdRef="If_7">
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Date'" sap:VirtualizedContainerService.HintSize="530,227" sap2010:WorkflowViewState.IdRef="NClick_23" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/project-timesheets/analytics/reports/dailytimeentries" CVScreenId="32d770b5-ccb3-4bad-9f88-78b711cc6d3b" CvElementArea="215, 321, 22, 22" CvType="Icon" DesignTimeRectangle="216, 322, 23, 23" DesignTimeScaleFactor="1.125" FullSelectorArgument="&lt;webctrl id='bsdrp' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='bsdrp' tag='SPAN' type='' class='ki-calendar ki ki-sm' aaname='' /&gt;" Guid="fd5e26f0-8614-44b6-99ac-88e9feebbe85" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABsAAAAbCAYAAACN1PRVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAE1SURBVEhL7ZRhS8JAGMf7/h9DEObRZpKKXTRbbLHJ0DJGvnAutKFBghSy+erfjJV1PLcGW1Hhix8c9zw8P+5/xx3E8QY/xV5WCr9PthqPcD2PiFqEwBshWIn7NLlkU4uDWQuitoBxxGHMxH2aDFmE0HNxembhuNFGtWGgk6w/Y4AdtsF4sj53JaffIZf5PSh1E5dXHtw8OCYU1cYtNStFLhuakuhkfB1ppqySRKRoJzlJoq4VkLGLCeYPjzmZQC9ysm2M67sBVNZEpZaimegvif6iMW5l4rPv8yZaQ6H3lT8p+3B3znfK4qUPvcXfX53KbxCsif5SZFSNpLAspGskYQHZbACmdaG7xNdE4JhdVOs9jKlZKXJZwtO9D8eyiQ9YxIbh+pg+03PeyJSVzV5WCv9VtsELmL7PzhPCOywAAAAASUVORK5CYII=" InformativeScreenshot="715322898113761a92bcc98d648b5200.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Project-timesheets | Analytics | Reports | Dailytimeentries' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                <uix:Target CVScreenId="32d770b5-ccb3-4bad-9f88-78b711cc6d3b" CvTextArea="49, 325, 32, 13" CvTextArgument="Date" CvType="Text" DesignTimeRectangle="51, 322, 30, 21" ElementType="Text" FullSelectorArgument="&lt;webctrl class='filter-label' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='filter-label' tag='SPAN' type='' aaname='Date' check:innerText='Date' /&gt;" Guid="67924230-50e6-459d-b13c-35cea2975926" SearchSteps="FuzzySelector, CV" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                            <uix:TargetAnchorable.PointOffset>
+                              <uix:PointOffset X="-5" Y="4" />
+                            </uix:TargetAnchorable.PointOffset>
+                          </uix:TargetAnchorable>
+                        </uix:NClick.Target>
+                        <uix:NClick.VerifyOptions>
+                          <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                            <uix:VerifyExecutionOptions.Retry>
+                              <InArgument x:TypeArguments="x:Boolean" />
+                            </uix:VerifyExecutionOptions.Retry>
+                            <uix:VerifyExecutionOptions.Timeout>
+                              <InArgument x:TypeArguments="x:Double" />
+                            </uix:VerifyExecutionOptions.Timeout>
+                          </uix:VerifyExecutionOptions>
+                        </uix:NClick.VerifyOptions>
+                      </uix:NClick>
+                      <Assign sap:VirtualizedContainerService.HintSize="530,115" sap2010:WorkflowViewState.IdRef="Assign_11">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[findday]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[DateTime.Now.ToString("dddd")]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <If Condition="[findday=&quot;Monday&quot;]" sap:VirtualizedContainerService.HintSize="530,789" sap2010:WorkflowViewState.IdRef="If_4">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -683,62 +519,492 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <If.Then>
-                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,378.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_82">
+                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,309" sap2010:WorkflowViewState.IdRef="Sequence_56">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Error" Message="[&quot;No Record Found Exist&quot;]" />
-                            <Throw Exception="[New BusinessRuleException(&quot;No Record Found Exist&quot;)]" sap:VirtualizedContainerService.HintSize="354,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                            <Assign sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="Assign_14">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[day]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[DateTime.Now.AddDays(-3).ToString("dd")]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_12">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[friday_togetdate]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[DateTime.Now.AddDays(-3).ToString("dd-MM-yyyy")]</InArgument>
+                              </Assign.Value>
+                            </Assign>
                           </Sequence>
                         </If.Then>
                         <If.Else>
-                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,254.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_83">
+                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="496,309" sap2010:WorkflowViewState.IdRef="Sequence_57">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,170" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;File Exist&quot;]" />
+                            <Assign sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="Assign_15">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[day]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[DateTime.Now.AddDays(-1).ToString("dd")]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_13">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[otherday_getdate]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[DateTime.Now.AddDays(-1).ToString("dd-MM-yyyy")]</InArgument>
+                              </Assign.Value>
+                            </Assign>
                           </Sequence>
                         </If.Else>
                       </If>
-                    </TryCatch.Try>
-                    <TryCatch.Catches>
-                      <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="454.6666666666667,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_2">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ActivityAction x:TypeArguments="ui:BusinessRuleException">
-                          <ActivityAction.Argument>
-                            <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
-                          </ActivityAction.Argument>
-                          <Sequence sap:VirtualizedContainerService.HintSize="416,378.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_84">
+                      <Assign sap:VirtualizedContainerService.HintSize="530,115" sap2010:WorkflowViewState.IdRef="Assign_23">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[indexofzero]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[Convert.ToString(day.IndexOf("0"))]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <If Condition="[indexofzero=&quot;0&quot;]" sap:VirtualizedContainerService.HintSize="530,390" sap2010:WorkflowViewState.IdRef="If_5">
+                        <If.Then>
+                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,194" sap2010:WorkflowViewState.IdRef="Sequence_76">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Error" Message="[exception.Message]" />
-                            <TerminateWorkflow DisplayName="Terminate Workflow" sap:VirtualizedContainerService.HintSize="353.6,115.2" sap2010:WorkflowViewState.IdRef="TerminateWorkflow_2" Reason="The record is empty. Terminating the workflow." />
+                            <Assign sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_22">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[day]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[day.ToString.Replace("0","")]</InArgument>
+                              </Assign.Value>
+                            </Assign>
                           </Sequence>
-                        </ActivityAction>
-                      </Catch>
-                    </TryCatch.Catches>
-                  </TryCatch>
-                </Sequence>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Excel file downloading&quot;]" />
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Started downloading the excel file&quot;]" />
-                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Download Excel'" sap:VirtualizedContainerService.HintSize="450,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_21" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Version="V3">
+                        </If.Then>
+                        <If.Else>
+                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_77">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                      <Assign sap:VirtualizedContainerService.HintSize="530,115" sap2010:WorkflowViewState.IdRef="Assign_21">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[monthname]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[DateTime.Now.ToString("MMMM")]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '31'" sap:VirtualizedContainerService.HintSize="530,220" sap2010:WorkflowViewState.IdRef="NClick_25" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://app.keka.com/Account/Login?ReturnUrl=%2F" CVScreenId="fe904fb5-7f78-48f8-8b4e-712e7aebf3b6" CvTextArea="284, 696, 16, 15" CvTextArgument="31" CvType="Text" DesignTimeRectangle="274, 687, 36, 36" DesignTimeScaleFactor="1.125" ElementType="Text" FullSelectorArgument="[string.Format(&quot;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='{0}' tag='SPAN' parentclass='ng-star-inserted' /&gt;&quot;, day)]" FuzzySelectorArgument="[string.Format(&quot;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='{0}' tag='SPAN' parentclass='ng-star-inserted' type='' class='ng-star-inserted' /&gt;&quot;, day)]" Guid="c90606b6-3c8e-4add-8475-d745cbe53142" ImageBase64="" InformativeScreenshot="9005bd89ab26be73f5da24fbfb968b72.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Project-timesheets | Analytics | Reports | Dailytimeentries' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Visible">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                <uix:Target CVScreenId="5fd4c141-a283-449d-bcdc-042c954dfed4" CvTextArea="245, 469, 30, 17" CvTextArgument="July" CvType="Text" DesignTimeRectangle="233, 461, 55, 34" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='*' tag='BUTTON' type='button' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="[string.Format(&quot;&lt;webctrl aaname='{0}' tag='BUTTON' type='button' class='current ng-star-inserted' check:innerText='July' /&gt;&quot;, monthname)]" Guid="b6c88467-eba2-4d0f-bb95-12949018161b" ImageBase64="" SearchSteps="FuzzySelector, CV" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:NClick.Target>
+                        <uix:NClick.VerifyOptions>
+                          <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                            <uix:VerifyExecutionOptions.Retry>
+                              <InArgument x:TypeArguments="x:Boolean" />
+                            </uix:VerifyExecutionOptions.Retry>
+                            <uix:VerifyExecutionOptions.Timeout>
+                              <InArgument x:TypeArguments="x:Double" />
+                            </uix:VerifyExecutionOptions.Timeout>
+                          </uix:VerifyExecutionOptions>
+                        </uix:NClick.VerifyOptions>
+                      </uix:NClick>
+                    </Sequence>
+                  </Sequence>
+                </ui:CommentOut.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:CommentOut>
+              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="1066.6666666666667,118.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Please select date&quot;]" />
+              <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="1066.6666666666667,240" sap2010:WorkflowViewState.IdRef="Sequence_101">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Delay DisplayName=" Delay 10 seconds" Duration="00:00:05" sap:VirtualizedContainerService.HintSize="388,117.33333333333333" sap2010:WorkflowViewState.IdRef="Delay_10" />
+              </Sequence>
+              <Sequence DisplayName="Click Activities to downlaod the report" sap:VirtualizedContainerService.HintSize="1066.6666666666667,3701.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_112">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:Boolean" Name="sheet_exist" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1004.6666666666666,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_9">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,278" sap2010:WorkflowViewState.IdRef="Sequence_115">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Project'" sap:VirtualizedContainerService.HintSize="382,218" sap2010:WorkflowViewState.IdRef="NClick_29" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/project-timesheets/analytics/reports/dailytimeentries" CVScreenId="0c5933fa-ff06-4396-b731-9c373b2a7d49" CvElementArea="1565, 320, 25, 25" CvTextArea="1399, 325, 46, 16" CvTextArgument="Project" CvType="ArrowButton" DesignTimeRectangle="2455, 549, 400, 100" DesignTimeScaleFactor="2" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Project' class='ng-star-inserted' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Project' class='ng-star-inserted' tag='A' type='' check:innerText='Project' /&gt;" Guid="3a42c4a5-eb50-4122-be09-50c292da0d41" InformativeScreenshot="f7d0bb6cac4ef408b67c6ed8ed647970.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Project-timesheets | Analytics | Reports | Dailytimeentries' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                <uix:Target CVScreenId="bb2cd778-b11c-4945-b19c-f26b415289b0" CvElementArea="3019, 606, 156, 84" CvTextArea="3071, 637, 52, 24" CvTextArgument="Run" CvType="Button" DesignTimeRectangle="3021, 609, 152, 80" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='Run' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Run' tag='BUTTON' type='' class='btn btn-primary' check:innerText='Run' /&gt;" Guid="18c9f41d-edf0-492f-993c-9ef9623b55f3" SearchSteps="FuzzySelector, CV" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:NClick.Target>
+                        <uix:NClick.VerifyOptions>
+                          <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                            <uix:VerifyExecutionOptions.Retry>
+                              <InArgument x:TypeArguments="x:Boolean" />
+                            </uix:VerifyExecutionOptions.Retry>
+                            <uix:VerifyExecutionOptions.Timeout>
+                              <InArgument x:TypeArguments="x:Double" />
+                            </uix:VerifyExecutionOptions.Timeout>
+                          </uix:VerifyExecutionOptions>
+                        </uix:NClick.VerifyOptions>
+                      </uix:NClick>
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:CommentOut>
+                <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="1004.6666666666666,118.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[&quot;Please select project&quot;]" />
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1004.6666666666666,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,367" sap2010:WorkflowViewState.IdRef="Sequence_102">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="PRD Type Into 'Project'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,279" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Text="data" Version="V3">
+                        <uix:NTypeInto.Target>
+                          <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/project-timesheets/analytics/reports/dailytimeentries" CVScreenId="5d498890-a74e-4c7d-bf2f-4d0582b30d77" CvTextArea="2543, 687, 82, 24" CvTextArgument="Search" CvType="Text" DesignTimeRectangle="2487, 667, 336, 65" DesignTimeScaleFactor="2" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='form-control h-100 w-100 text-normal ng-valid ng-dirty ng-touched' placeholder='Search' aaname='' /&gt;" Guid="9f20acd6-1917-4ef4-b166-f0a68cc76bd5" InformativeScreenshot="ab0f434acc94e232024a3c38928b2265.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Project-timesheets | Analytics | Reports | Dailytimeentries' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                <uix:Target CVScreenId="5d498890-a74e-4c7d-bf2f-4d0582b30d77" CvElementArea="2781, 576, 42, 44" CvTextArea="2485, 587, 82, 28" CvTextArgument="Project" CvType="ArrowButton" DesignTimeRectangle="2455, 549, 400, 100" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Project' class='ng-star-inserted' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Project' class='ng-star-inserted' tag='A' type='' check:innerText='Project' /&gt;" Guid="1952bc79-978f-4e2f-abc5-f8c2571b2458" SearchSteps="FuzzySelector, CV" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:NTypeInto.Target>
+                        <uix:NTypeInto.VerifyOptions>
+                          <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                            <uix:VerifyExecutionTypeIntoOptions.Retry>
+                              <InArgument x:TypeArguments="x:Boolean" />
+                            </uix:VerifyExecutionTypeIntoOptions.Retry>
+                            <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                              <InArgument x:TypeArguments="x:Double" />
+                            </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                          </uix:VerifyExecutionTypeIntoOptions>
+                        </uix:NTypeInto.VerifyOptions>
+                      </uix:NTypeInto>
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:CommentOut>
+                <Delay Duration="00:00:12" sap:VirtualizedContainerService.HintSize="1004.6666666666666,124" sap2010:WorkflowViewState.IdRef="Delay_11" />
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1004.6666666666666,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_7">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,306" sap2010:WorkflowViewState.IdRef="Sequence_103">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="need change Click 'Test project-test client'" sap:VirtualizedContainerService.HintSize="354,218" sap2010:WorkflowViewState.IdRef="NClick_30" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/project-timesheets/analytics/reports/dailytimeentries" CVScreenId="0c5933fa-ff06-4396-b731-9c373b2a7d49" CvTextArea="1426, 471, 142, 15" CvTextArgument="Test project-test client" CvType="Text" DesignTimeRectangle="1428, 469, 140, 22" DesignTimeScaleFactor="1.125" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Test project-test client' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Test project-test client' tag='SPAN' type='' class='' check:innerText='Test project-test client' /&gt;" Guid="3ecbec01-0796-457b-8b6b-44149981f9d5" InformativeScreenshot="e782b3194118d8df81225680fa74d958.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Project-timesheets | Analytics | Reports | Dailytimeentries' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                <uix:Target CVScreenId="0c5933fa-ff06-4396-b731-9c373b2a7d49" CvTextArea="1399, 325, 46, 16" CvTextArgument="Project" CvType="Text" DesignTimeRectangle="1401, 322, 44, 21" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Project' class='filter-label' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Project' class='filter-label' tag='SPAN' type='' check:innerText='Project' /&gt;" Guid="ede086a4-530c-4a48-8ff7-a828560389f4" SearchSteps="FuzzySelector, CV" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:NClick.Target>
+                        <uix:NClick.VerifyOptions>
+                          <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                            <uix:VerifyExecutionOptions.Retry>
+                              <InArgument x:TypeArguments="x:Boolean" />
+                            </uix:VerifyExecutionOptions.Retry>
+                            <uix:VerifyExecutionOptions.Timeout>
+                              <InArgument x:TypeArguments="x:Double" />
+                            </uix:VerifyExecutionOptions.Timeout>
+                          </uix:VerifyExecutionOptions>
+                        </uix:NClick.VerifyOptions>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </uix:NClick>
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:CommentOut>
+                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Run'" sap:VirtualizedContainerService.HintSize="1004.6666666666666,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_28" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Version="V3">
                   <uix:NClick.Target>
-                    <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/project-timesheets/analytics/reports/dailytimeentries" CVScreenId="2b5f7b91-dac0-4110-88ae-c8fdc7a95650" CvTextArea="1684, 527, 103, 13" CvTextArgument="Download Excel" CvType="Text" DesignTimeRectangle="1667, 516, 180, 41" DesignTimeScaleFactor="1.125" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Download Excel' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Download Excel' tag='A' type='' class='dropdown-item ng-star-inserted' check:innerText='Download Excel' /&gt;" Guid="119531d7-92fc-451f-9c25-b7a1e65488b3" InformativeScreenshot="90594a5a56f59346c3656f89cb2a10aa.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Project-timesheets | Analytics | Reports | Dailytimeentries' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                    <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/project-timesheets/analytics/reports/dailytimeentries" CVScreenId="7e780c81-b58d-4afc-aa12-938618487eaa" CvElementArea="3019, 606, 156, 84" CvTextArea="3071, 637, 50, 24" CvTextArgument="Run" CvType="Button" DesignTimeRectangle="3021, 609, 152, 80" DesignTimeScaleFactor="2" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='Run' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Run' tag='BUTTON' type='' class='btn btn-primary' check:innerText='Run' /&gt;" Guid="3f205027-0354-401d-942e-fdb42f5f4c4f" InformativeScreenshot="91a87dd3fefb0261b8a3c6667425a1ac.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Project-timesheets | Analytics | Reports | Dailytimeentries' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive" />
+                  </uix:NClick.Target>
+                  <uix:NClick.VerifyOptions>
+                    <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                      <uix:VerifyExecutionOptions.Retry>
+                        <InArgument x:TypeArguments="x:Boolean" />
+                      </uix:VerifyExecutionOptions.Retry>
+                      <uix:VerifyExecutionOptions.Timeout>
+                        <InArgument x:TypeArguments="x:Double" />
+                      </uix:VerifyExecutionOptions.Timeout>
+                    </uix:VerifyExecutionOptions>
+                  </uix:NClick.VerifyOptions>
+                </uix:NClick>
+                <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="1004.6666666666666,124" sap2010:WorkflowViewState.IdRef="Delay_12" />
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1004.6666666666666,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_8">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="580,977" sap2010:WorkflowViewState.IdRef="Sequence_108">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Sequence DisplayName="BusinessRule Exception" sap:VirtualizedContainerService.HintSize="518,889" sap2010:WorkflowViewState.IdRef="Sequence_107">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:UiElementExists DisplayName="Element Exists 'A  #/project-timesheets...'" Exists="[Norecordfoundexist]" sap:VirtualizedContainerService.HintSize="456,139" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+                          <ui:UiElementExists.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4b652b4d-bb6b-44cb-9899-3edef70872c7" InformativeScreenshot="c948d34ac0b1ef515d35a85b232dc113" Selector="&lt;webctrl tag='H4' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:UiElementExists.Target>
+                        </ui:UiElementExists>
+                        <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="456,639" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <TryCatch.Try>
+                            <If Condition="[Norecordfoundexist]" sap:VirtualizedContainerService.HintSize="450,774" sap2010:WorkflowViewState.IdRef="If_12">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If.Then>
+                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,379" sap2010:WorkflowViewState.IdRef="Sequence_104">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,177" sap2010:WorkflowViewState.IdRef="LogMessage_29" Level="Error" Message="[&quot;No Record Found Exist&quot;]" />
+                                  <Throw Exception="[New BusinessRuleException(&quot;No Record Found Exist&quot;)]" sap:VirtualizedContainerService.HintSize="354,114" sap2010:WorkflowViewState.IdRef="Throw_8" />
+                                </Sequence>
+                              </If.Then>
+                              <If.Else>
+                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,256" sap2010:WorkflowViewState.IdRef="Sequence_105">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,168" sap2010:WorkflowViewState.IdRef="LogMessage_30" Level="Info" Message="[&quot;File Exist&quot;]" />
+                                </Sequence>
+                              </If.Else>
+                            </If>
+                          </TryCatch.Try>
+                          <TryCatch.Catches>
+                            <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="422,450" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ActivityAction x:TypeArguments="ui:BusinessRuleException">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
+                                </ActivityAction.Argument>
+                                <Sequence sap:VirtualizedContainerService.HintSize="416,379" sap2010:WorkflowViewState.IdRef="Sequence_106">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,177" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Error" Message="[exception.Message]" />
+                                  <TerminateWorkflow DisplayName="Terminate Workflow" sap:VirtualizedContainerService.HintSize="354,114" sap2010:WorkflowViewState.IdRef="TerminateWorkflow_5" Reason="The record is empty. Terminating the workflow." />
+                                </Sequence>
+                              </ActivityAction>
+                            </Catch>
+                          </TryCatch.Catches>
+                        </TryCatch>
+                      </Sequence>
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:CommentOut>
+                <uix:NCheckState DisplayName="Check App State 'Run'" sap:VirtualizedContainerService.HintSize="1004.6666666666666,700.6666666666666" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Timeout="5" Version="V3">
+                  <uix:NCheckState.IfExists>
+                    <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,263.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_109">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,172.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Info" Message="[&quot;File Exist&quot;]" />
+                    </Sequence>
+                  </uix:NCheckState.IfExists>
+                  <uix:NCheckState.IfNotExists>
+                    <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="500.6666666666667,447.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_111">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.6666666666667,356.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_5">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <TryCatch.Try>
+                          <Throw Exception="[New BusinessRuleException(&quot;No Record Found Exist&quot;)]" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Throw_7" />
+                        </TryCatch.Try>
+                        <TryCatch.Catches>
+                          <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="404.6666666666667,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_5">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ActivityAction x:TypeArguments="ui:BusinessRuleException">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
+                              </ActivityAction.Argument>
+                              <Sequence sap:VirtualizedContainerService.HintSize="444,502.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_110">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="382,118.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_5" Text="[&quot;No record found&quot;]" />
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_28" Level="Error" Message="[exception.Message]" />
+                                <TerminateWorkflow DisplayName="Terminate Workflow" sap:VirtualizedContainerService.HintSize="382,117.33333333333333" sap2010:WorkflowViewState.IdRef="TerminateWorkflow_4" Reason="The record is empty. Terminating the workflow." />
+                              </Sequence>
+                            </ActivityAction>
+                          </Catch>
+                        </TryCatch.Catches>
+                      </TryCatch>
+                    </Sequence>
+                  </uix:NCheckState.IfNotExists>
+                  <uix:NCheckState.Target>
+                    <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/project-timesheets/analytics/reports/dailytimeentries" CVScreenId="22617f5f-2208-492b-832e-f3c39232d5a7" CvElementArea="3019, 851, 46, 48" CvType="Icon" DesignTimeRectangle="1585, 463, 76, 18" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl parentid='download-menu' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='download-menu' tag='SPAN' type='' class='ki-download ki' aaname='' /&gt;" Guid="57c25d47-3808-4693-98cc-9fae7edf6c83" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAHYcAAB2HAY/l8WUAAAH7SURBVGhD7ZZnSwNBEED9/z/DbjQWNFYUPxjFgqioWEhix5bEiB+UQEbfcXfG2O5ub8Mq82DIsmVmXo4rHfLPUCHXUSHXUSHXUSHXsS5Ur9clv7btBWPbWBcqnl5Kz9CUF4xto0JxUSFDVCguKmSICsVFhQxRobiokCGJhJ6fX+TguCTlyoM/8z1xhchJbmokIZFQfnVLOgcmpH9kRkpnPzcZR4hc5CQ3NZKQSOiocOo1SOHe7JQcF8/8lc9EFSIHucjJXmokIfE91NwAv/uHRX/lI1GEONuc66c/6DeMHgqF0nnYSPfgpGztHvor7/wmxBnOBjLkNMFICAonF9KXnfYa6srkZHPnQBqNhr/6vRB72MsZzpKDXKYYC0HzzUyDK+s7odRXQqyxJ5CJ8nCJSipCcH55IwOjs6EUTykabxVijrVAhjOcTYvUhODq+k4yvhSxmN/wbvBAiDFzwTp7OZMmqQrBzW1ZBsfmwqaHJxbebvqcF4yDefawN21SF4K7+6pkx+fD5luDNfbYwIoQlCs1Gcm9X5EgmGPNFtaEoFXKtgxYFYLa45MsLm14wdg21oXajQq5TmQh3vBrm7uSeXt/8KnSjqAWNYPPqChEFqpUax++AtoV1KR2VGJdoe29I5lZWG5rUNPKFforqJDrqJDrqJDrqJDbiLwC3QQ0dEGhszAAAAAASUVORK5CYII=" InformativeScreenshot="adfd58079d7c43ebacf133ae6dba549d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Project-timesheets | Analytics | Reports | Dailytimeentries' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                          <uix:Target CVScreenId="f912ebeb-dc68-496b-8019-ecb296700706" CvElementArea="1648, 281, 79, 42" CvTextArea="1674, 296, 26, 12" CvTextArgument="Run" CvType="Button" DesignTimeRectangle="1649, 282, 76, 40" FullSelectorArgument="&lt;webctrl class='buttons-container' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='buttons-container' tag='DIV' type='' aaname='' check:innerText='Run' /&gt;" Guid="c56faffd-3892-4850-b31b-a85e9c0c1adc" SearchSteps="FuzzySelector, CV" />
+                          <uix:Target CVScreenId="f912ebeb-dc68-496b-8019-ecb296700706" CvElementArea="1867, 381, 17, 22" CvType="Icon" DesignTimeRectangle="1863, 380, 24, 24" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;modal-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;xhr-ag-grid-menutabs&amp;gt;div&amp;gt;a&amp;gt;span' isleaf='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' isleaf='1' tag='SPAN' class='ki-more-vertical ki' aaname='' /&gt;" Guid="2c5bf178-f9b6-4410-ba25-62f91cb7eae4" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAHYcAAB2HAY/l8WUAAACtSURBVEhL7ZS7CsJQEET9/x8Ri2AlShSbIAhaiBaiIIoErBTSaNTAyCzkAyYsi8U9MDDc5rD31UMwSehOErojC++PCvNiZWFXkYTfpsF4tsByvbWwc01BEj5fNUbTAtfyZmHnmoK8pZvdAf1sYmFX6XRp6vfH0gVZeLqUGAxzC7uKJORUPLf98WxhVyf9byEJ3dIWTqVO1iILQ59F+MMP/9pI6OftQRK6k4TOAD9p4xY9NziVMwAAAABJRU5ErkJggg==" SearchSteps="Selector, CV" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NCheckState.Target>
+                </uix:NCheckState>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1004.6666666666666,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Info" Message="[&quot;Started downloading the excel file&quot;]" />
+                <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="1" DisplayName="Click 'Download Excel'" sap:VirtualizedContainerService.HintSize="1004.6666666666666,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_32" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/project-timesheets/analytics/reports/dailytimeentries" CVScreenId="b27937ef-4595-43e9-8092-c54d62020f0a" CvElementArea="3019, 851, 46, 47" CvType="Icon" DesignTimeRectangle="3019, 852, 48, 48" DesignTimeScaleFactor="2" FullSelectorArgument="&lt;webctrl parentid='download-menu' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='download-menu' tag='SPAN' type='' class='ki-download ki' aaname='' /&gt;" Guid="874e64d3-084d-4f68-be70-4f6383d9a047" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAHYcAAB2HAY/l8WUAAAH7SURBVGhD7ZZnSwNBEED9/z/DbjQWNFYUPxjFgqioWEhix5bEiB+UQEbfcXfG2O5ub8Mq82DIsmVmXo4rHfLPUCHXUSHXUSHXUSHXsS5Ur9clv7btBWPbWBcqnl5Kz9CUF4xto0JxUSFDVCguKmSICsVFhQxRobiokCGJhJ6fX+TguCTlyoM/8z1xhchJbmokIZFQfnVLOgcmpH9kRkpnPzcZR4hc5CQ3NZKQSOiocOo1SOHe7JQcF8/8lc9EFSIHucjJXmokIfE91NwAv/uHRX/lI1GEONuc66c/6DeMHgqF0nnYSPfgpGztHvor7/wmxBnOBjLkNMFICAonF9KXnfYa6srkZHPnQBqNhr/6vRB72MsZzpKDXKYYC0HzzUyDK+s7odRXQqyxJ5CJ8nCJSipCcH55IwOjs6EUTykabxVijrVAhjOcTYvUhODq+k4yvhSxmN/wbvBAiDFzwTp7OZMmqQrBzW1ZBsfmwqaHJxbebvqcF4yDefawN21SF4K7+6pkx+fD5luDNfbYwIoQlCs1Gcm9X5EgmGPNFtaEoFXKtgxYFYLa45MsLm14wdg21oXajQq5TmQh3vBrm7uSeXt/8KnSjqAWNYPPqChEFqpUax++AtoV1KR2VGJdoe29I5lZWG5rUNPKFforqJDrqJDrqJDrqJDbiLwC3QQ0dEGhszAAAAAASUVORK5CYII=" InformativeScreenshot="b1f517a64393e4b031c7db7c19779aba.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Project-timesheets | Analytics | Reports | Dailytimeentries' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="3">
+                          <uix:Target CVScreenId="b27937ef-4595-43e9-8092-c54d62020f0a" CvElementArea="3019, 605, 158, 85" CvTextArea="3071, 637, 50, 24" CvTextArgument="Run" CvType="Button" DesignTimeRectangle="3021, 609, 152, 80" FullSelectorArgument="&lt;webctrl class='buttons-container' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='buttons-container' tag='DIV' type='' aaname='' check:innerText='Run' /&gt;" Guid="d03a4378-8d96-44e7-8f92-7f284c350591" SearchSteps="FuzzySelector, CV" />
+                          <uix:Target DesignTimeRectangle="2501, 855, 48, 48" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;modal-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;xhr-ag-grid-search&amp;gt;div&amp;gt;span' isleaf='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' isleaf='1' tag='SPAN' class='ki-search ki' aaname='' /&gt;" Guid="6cea741d-3efa-4892-95ee-a7c01f635a68" SearchSteps="FuzzySelector" />
+                          <uix:Target CVScreenId="b27937ef-4595-43e9-8092-c54d62020f0a" CvElementArea="3091, 857, 33, 44" CvType="Icon" DesignTimeRectangle="3083, 855, 48, 48" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;modal-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;xhr-ag-grid-menutabs&amp;gt;div&amp;gt;a&amp;gt;span' isleaf='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' isleaf='1' tag='SPAN' class='ki-more-vertical ki' aaname='' /&gt;" Guid="59e1ed2a-f89a-4a48-81ed-7e1d46e9044b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAHYcAAB2HAY/l8WUAAAF3SURBVGhD7ZhdS0JBEIb7/z+jTDCLJDyesLDCIrHAsE8qExEvuikik+rAmXwHt5uuvHhzHeaBgWHm6mF295zdFTGGC8WOC8WOC8WOC8WOC8WOC83L59e39PpDDeRsaEJ5nkvn8k4K5ZqslqoayFFDjwVN6GkwkvXNVCWq9aYGctTQY0ET2jts6VTOL25mFdEcNfRY0ITS/ZM/0whTQ48FfULHrY7uGQTypZ1QfzqN4lYqaxuJ7OweaSBHDT0WNCFwdfsoxekSw1QQyFFjQhUCWZbJy+ubBnI2dKH/hio0/phIo9mWUqWugRw1JjSh9/FEKrWD3/0TAjX0WNCETs+6KrCdNGQ4etZAjhp6LGhC+HgWyonc9wazimiO2lJ+WM0JmVty5g4FYOrYXhR0IVO/PqZ+Ts1dH8IFD0d0uOCFo9yv4HNAn5CZR5IwDTPPWNgz3esHFcBUEMhRQ48FTShg5il4UbhQ7LhQ7LhQ7LhQ7LhQ7BgTEvkBo/+oZMFMdu0AAAAASUVORK5CYII=" SearchSteps="FuzzySelector, CV" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:NClick.Target>
+                  <uix:NClick.VerifyOptions>
+                    <uix:VerifyExecutionOptions DisplayName="Label 'Download Excel'" Mode="Appears" Retry="True">
+                      <uix:VerifyExecutionOptions.Target>
+                        <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/project-timesheets/analytics/reports/dailytimeentries" CVScreenId="007ad9ff-1e53-407c-9c4b-8655717b8123" CvTextArea="2777, 949, 184, 24" CvTextArgument="Download Excel" CvType="Text" DesignTimeRectangle="2747, 925, 320, 72" DesignTimeScaleFactor="2" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Download Excel' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Download Excel' tag='A' type='' class='dropdown-item ng-star-inserted' check:innerText='Download Excel' /&gt;" Guid="4baca373-c4cc-4209-a870-5c3918a6bd99" InformativeScreenshot="acf01c95f83401f6301b909eff9f9a51.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Project-timesheets | Analytics | Reports | Dailytimeentries' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target CVScreenId="007ad9ff-1e53-407c-9c4b-8655717b8123" CvTextArea="2777, 1021, 164, 24" CvTextArgument="Download Pdf" CvType="Text" DesignTimeRectangle="2747, 997, 320, 72" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Download Pdf' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Download Pdf' tag='A' type='' class='dropdown-item ng-star-inserted' check:innerText='Download Pdf' /&gt;" Guid="4a704bbf-9ba9-4f68-aa04-1c2e1c7faa80" SearchSteps="FuzzySelector, CV" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:VerifyExecutionOptions.Target>
+                      <uix:VerifyExecutionOptions.Timeout>
+                        <InArgument x:TypeArguments="x:Double" />
+                      </uix:VerifyExecutionOptions.Timeout>
+                    </uix:VerifyExecutionOptions>
+                  </uix:NClick.VerifyOptions>
+                </uix:NClick>
+                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Download Excel'" sap:VirtualizedContainerService.HintSize="1004.6666666666666,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_36" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7c91725b-7200-46b8-958e-16170d21741c" Version="V3">
+                  <uix:NClick.Target>
+                    <uix:TargetAnchorable BrowserURL="https://sundew.keka.com/#/project-timesheets/analytics/reports/dailytimeentries" CVScreenId="5f88f0db-69c2-4be1-9788-b9b074b570c6" CvTextArea="2777, 949, 186, 24" CvTextArgument="Download Excel" CvType="Text" DesignTimeRectangle="2747, 925, 320, 72" DesignTimeScaleFactor="2" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Download Excel' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Download Excel' tag='A' type='' class='dropdown-item ng-star-inserted' check:innerText='Download Excel' /&gt;" Guid="8cb3b0c5-db71-4b93-93f8-77839e8e8657" InformativeScreenshot="acf01c95f83401f6301b909eff9f9a51.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Project-timesheets | Analytics | Reports | Dailytimeentries' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
                       <uix:TargetAnchorable.Anchors>
                         <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                          <uix:Target CVScreenId="2b5f7b91-dac0-4110-88ae-c8fdc7a95650" CvElementArea="1820, 475, 24, 25" CvType="Icon" DesignTimeRectangle="1820, 475, 27, 27" FullSelectorArgument="&lt;webctrl parentid='download-menu' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='download-menu' tag='SPAN' type='' class='ki-download ki' aaname='' /&gt;" Guid="bd2e6aaf-a6e7-42e1-8f9b-ad97cf34cae6" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAF9SURBVFhH7ZVNSwJRFIb9h4XkIoiW/YRIyyDKjX+glDZG9EGbaJGjKRJBJlkUFFiKhBhBaaFojjPOvN1znU3o2NyhNGoeOJt3Fs+Ze87ccWGEOPKR4MiF6bTaOPOFUdhLGYk4tuVqU0Z6bg35naSRiOPIhXHkf1deuS4wSQiN8ouRdDGV6zoej6+Q8a+jXWsYYX++lMvVGk5nV5GaCaL+8GSkJnImLkkZxDyLyEUkaGrHeNAfS8eu1JtIe0NITAfwlivxrEfOxHTbRd0LuN9OQNe0bj4AyzNXGi1+nR5NLaN6U/wkJxEJo+555HdZM6wRKwgtHDVAs4xPLqGcvODyu804bsMH/I35PW9RTAjJCWogG9jgMirJ4+czLu6fCIkJYTmhvsu4DG7hcMwLacLPl0xUTNiSEx1Z4cf8fJ6zJSZsy7+DgXLa6FalZrvk1/rAb91UrikqsisRPle7FR33oRRj+2DC7z32n+Yfy3X2jQ6j+uHS2E9hGNXbCPAB9fKWOYDxLacAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, CV" />
+                          <uix:Target CVScreenId="5f88f0db-69c2-4be1-9788-b9b074b570c6" CvTextArea="2777, 1019, 164, 26" CvTextArgument="Download Pdf" CvType="Text" DesignTimeRectangle="2747, 997, 320, 72" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Download Pdf' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Download Pdf' tag='A' type='' class='dropdown-item ng-star-inserted' check:innerText='Download Pdf' /&gt;" Guid="6774e3de-3bab-48a3-952d-e93ec440ca9d" SearchSteps="FuzzySelector, CV" />
                         </scg:List>
                       </uix:TargetAnchorable.Anchors>
                     </uix:TargetAnchorable>
@@ -754,43 +1020,83 @@
                     </uix:VerifyExecutionOptions>
                   </uix:NClick.VerifyOptions>
                 </uix:NClick>
-                <Delay Duration="00:00:15" sap:VirtualizedContainerService.HintSize="450,124" sap2010:WorkflowViewState.IdRef="Delay_7" />
-                <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="SUNDEW FILE" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="450,190" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="Employee Timesheets - Sundew.xlsx" />
+                <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="1004.6666666666666,124" sap2010:WorkflowViewState.IdRef="Delay_15" />
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1004.6666666666666,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_32" Level="Info" Message="[&quot;Data manipulation start&quot;]" />
+                <Assign sap:VirtualizedContainerService.HintSize="1004.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_29">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[File_path]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[System.IO.Directory.GetFiles("C:\Users\sunde\Downloads\", "Employee Timesheets - Sundew*.xlsx").OrderByDescending(Function(f) New System.IO.FileInfo(f).CreationTime).FirstOrDefault()]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1004.6666666666666,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_33" Level="Info" Message="[File_path]" />
+                <ui:FileExistsX DisplayName="File Exists" Exists="[sheet_exist]" sap:VirtualizedContainerService.HintSize="1004.6666666666666,168.66666666666666" sap2010:WorkflowViewState.IdRef="FileExistsX_1" Path="[&quot;SUNDEW FILE\&quot;+path.GetFileName(File_path).ToString]" />
+                <If Condition="[sheet_exist]" sap:VirtualizedContainerService.HintSize="1004.6666666666666,462.6666666666667" sap2010:WorkflowViewState.IdRef="If_13">
+                  <If.Then>
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,189.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_113">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="354,104.66666666666667" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[&quot;SUNDEW FILE\&quot;+path.GetFileName(File_path).ToString]" />
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,101.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_114">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Sequence>
+                  </If.Else>
+                </If>
+                <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="SUNDEW FILE" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="1004.6666666666666,190" sap2010:WorkflowViewState.IdRef="MoveFile_2" Overwrite="True" Path="[File_path]" />
               </Sequence>
             </Sequence>
-            <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel used for filtering the data " sap:VirtualizedContainerService.HintSize="722,3396" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_4">
+            <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel used for filtering the data " sap:VirtualizedContainerService.HintSize="1128.6666666666667,4312.666666666667" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_4">
               <ueab:ExcelProcessScopeX.Body>
                 <ActivityAction x:TypeArguments="ui:IExcelProcess">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="688,3283.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="784,4160" sap2010:WorkflowViewState.IdRef="Sequence_37">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="626,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Excel file downloaded and  wroking on it&quot;]" />
-                    <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="626,3019.3333333333335" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_2" ResizeWindow="None" WorkbookPath="C:\Users\SDS\Downloads\Employee Timesheets - Sundew.xlsx">
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="722,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Excel file downloaded and  wroking on it&quot;]" />
+                    <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="722,3896" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_2" ResizeWindow="None" UseTemplate="True" WorkbookPath="[&quot;SUNDEW FILE\&quot;+path.GetFileName(File_path).ToString]">
                       <ueab:ExcelApplicationCard.Body>
                         <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="592,2716" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="688,3570" sap2010:WorkflowViewState.IdRef="Sequence_38">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="530,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Successfully read data from Excel&quot;]" />
-                            <ueab:ReadRangeX DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="530,206.66666666666666" sap2010:WorkflowViewState.IdRef="ReadRangeX_4" Range="[Excel.Sheet(&quot;Employee Timesheets - Sundew&quot;).Range(&quot;&quot;)]" SaveTo="[dt]" />
-                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="530,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Successfully write data on Excel&quot;]" />
-                            <ueab:WriteRangeX Destination="[Excel.Sheet(&quot;Employee Timesheets - Sundew&quot;).Range(&quot;A1&quot;)]" DisplayName="Write DataTable to Excel" sap:VirtualizedContainerService.HintSize="530,196.66666666666666" sap2010:WorkflowViewState.IdRef="WriteRangeX_1" IgnoreEmptySource="False" Source="[dt]" />
-                            <ueab:DeleteRowsX DeleteRowsOption="Specific" DisplayName="Delete Rows" HasHeaders="True" sap:VirtualizedContainerService.HintSize="530,173.33333333333334" sap2010:WorkflowViewState.IdRef="DeleteRowsX_1" Range="[Excel.Sheet(&quot;Employee Timesheets - Sundew&quot;)]" RowPositions="1,2" />
-                            <ueab:ReadRangeX DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="530,206.66666666666666" sap2010:WorkflowViewState.IdRef="ReadRangeX_5" Range="[Excel.Sheet(&quot;Employee Timesheets - Sundew&quot;).Range(&quot;&quot;)]" SaveTo="[dt]" />
-                            <Assign sap:VirtualizedContainerService.HintSize="530,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="626,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Successfully read data from Excel&quot;+&quot;SUNDEW FILE\&quot;+path.GetFileName(File_path).ToString]" />
+                            <ueab:ReadRangeX DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="626,206.66666666666666" sap2010:WorkflowViewState.IdRef="ReadRangeX_4" Range="[Excel.Sheet(&quot;Employee Timesheets - Sundew&quot;).Range(&quot;&quot;)]" SaveTo="[dt]" />
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="626,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Successfully write data on Excel&quot;]" />
+                            <ueab:WriteRangeX Destination="[Excel.Sheet(&quot;Employee Timesheets - Sundew&quot;).Range(&quot;A1&quot;)]" DisplayName="Write DataTable to Excel" sap:VirtualizedContainerService.HintSize="626,196.66666666666666" sap2010:WorkflowViewState.IdRef="WriteRangeX_1" IgnoreEmptySource="False" Source="[dt]" />
+                            <ueab:DeleteRowsX DeleteRowsOption="Specific" DisplayName="Delete Rows" HasHeaders="True" sap:VirtualizedContainerService.HintSize="626,173.33333333333334" sap2010:WorkflowViewState.IdRef="DeleteRowsX_1" Range="[Excel.Sheet(&quot;Employee Timesheets - Sundew&quot;)]" RowPositions="1,2" />
+                            <ueab:ReadRangeX DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="626,206.66666666666666" sap2010:WorkflowViewState.IdRef="ReadRangeX_5" Range="[Excel.Sheet(&quot;Employee Timesheets - Sundew&quot;).Range(&quot;&quot;)]" SaveTo="[dt]" />
+                            <Assign sap:VirtualizedContainerService.HintSize="626,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_27">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[Date_data]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[dt.Rows(0)("Date").ToString]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign sap:VirtualizedContainerService.HintSize="626,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="sd:DataTable">[dt2]</OutArgument>
                               </Assign.To>
@@ -798,8 +1104,8 @@
                                 <InArgument x:TypeArguments="sd:DataTable">[New DataView(dt).ToTable(False,new List(of String)({"Employee Name","Comments"}).ToArray)]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <ueab:WriteRangeX Destination="[Excel.Sheet(&quot;Employee Timesheets - Sundew&quot;).Range(&quot;A1&quot;)]" DisplayName="Write DataTable to Excel" sap:VirtualizedContainerService.HintSize="530,196.66666666666666" sap2010:WorkflowViewState.IdRef="WriteRangeX_2" IgnoreEmptySource="False" Source="[dt2]" />
-                            <ueab:ExcelForEachRowX DisplayName="For Each Excel Row" EmptyRowBehavior="Stop" HasHeaders="True" sap:VirtualizedContainerService.HintSize="530,1175.3333333333333" sap2010:WorkflowViewState.IdRef="ExcelForEachRowX_3" Range="[Excel.Sheet(&quot;Employee Timesheets - Sundew&quot;)]" SaveAfterEachRow="True">
+                            <ueab:WriteRangeX Destination="[Excel.Sheet(&quot;Employee Timesheets - Sundew&quot;).Range(&quot;A1&quot;)]" DisplayName="Write DataTable to Excel" sap:VirtualizedContainerService.HintSize="626,196.66666666666666" sap2010:WorkflowViewState.IdRef="WriteRangeX_2" IgnoreEmptySource="False" Source="[dt2]" />
+                            <ueab:ExcelForEachRowX DisplayName="For Each Excel Row" EmptyRowBehavior="Stop" HasHeaders="True" sap:VirtualizedContainerService.HintSize="626,1394" sap2010:WorkflowViewState.IdRef="ExcelForEachRowX_3" Range="[Excel.Sheet(&quot;Employee Timesheets - Sundew&quot;)]" SaveAfterEachRow="True">
                               <ueab:ExcelForEachRowX.Body>
                                 <ActivityAction x:TypeArguments="ue:CurrentRowQuickHandle, x:Int32">
                                   <ActivityAction.Argument1>
@@ -808,17 +1114,16 @@
                                   <ActivityAction.Argument2>
                                     <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
                                   </ActivityAction.Argument2>
-                                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,954.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="592,1164" sap2010:WorkflowViewState.IdRef="Sequence_50">
                                     <Sequence.Variables>
                                       <Variable x:TypeArguments="x:String" Name="Comments" />
-                                      <Variable x:TypeArguments="x:String" Name="value" />
                                     </Sequence.Variables>
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                    <Assign sap:VirtualizedContainerService.HintSize="530,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
                                       <Assign.To>
                                         <OutArgument x:TypeArguments="x:String">[Ename]</OutArgument>
                                       </Assign.To>
@@ -826,7 +1131,7 @@
                                         <InArgument x:TypeArguments="x:String">[CurrentRow.Item("Employee Name").ToString + " : "]</InArgument>
                                       </Assign.Value>
                                     </Assign>
-                                    <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_9">
+                                    <Assign sap:VirtualizedContainerService.HintSize="530,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_9">
                                       <Assign.To>
                                         <OutArgument x:TypeArguments="x:String">[Comments]</OutArgument>
                                       </Assign.To>
@@ -834,21 +1139,58 @@
                                         <InArgument x:TypeArguments="x:String">[CurrentRow.Item("Comments").ToString.Replace("""","")]</InArgument>
                                       </Assign.Value>
                                     </Assign>
-                                    <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_19">
+                                    <If Condition="[prev_employee&lt;&gt;Ename]" sap:VirtualizedContainerService.HintSize="530,557.3333333333334" sap2010:WorkflowViewState.IdRef="If_9">
+                                      <If.Then>
+                                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,192.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_88">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_19">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:String">[value]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:String">[value+string.Format("{0}{1}{2}{3}",Environment.NewLine, Ename, Environment.NewLine, Comments + Environment.NewLine)]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </Sequence>
+                                      </If.Then>
+                                      <If.Else>
+                                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="496,192.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_89">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_26">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:String">[value]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:String">[value+string.Format("{0}", Comments + Environment.NewLine)]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </Sequence>
+                                      </If.Else>
+                                    </If>
+                                    <Assign sap:VirtualizedContainerService.HintSize="530,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_25">
                                       <Assign.To>
-                                        <OutArgument x:TypeArguments="x:String">[value]</OutArgument>
+                                        <OutArgument x:TypeArguments="x:String">[prev_employee]</OutArgument>
                                       </Assign.To>
                                       <Assign.Value>
-                                        <InArgument x:TypeArguments="x:String">[string.Format("{0}{1}{2}", Ename, Environment.NewLine, Comments + Environment.NewLine)]</InArgument>
+                                        <InArgument x:TypeArguments="x:String">[Ename]</InArgument>
                                       </Assign.Value>
                                     </Assign>
-                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Started writing filter data on notepad&quot;]" />
-                                    <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File to write the final output" FileName="TEST.txt" sap:VirtualizedContainerService.HintSize="434,168.66666666666666" sap2010:WorkflowViewState.IdRef="WriteTextFile_4" Text="[value]" />
-                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,170" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Process end all data fetched and wrote on notepad &quot;]" />
+                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="530,170" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Started writing filter data on notepad&quot;]" />
                                   </Sequence>
                                 </ActivityAction>
                               </ueab:ExcelForEachRowX.Body>
                             </ueab:ExcelForEachRowX>
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="626,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_34" Level="Info" Message="[&quot;Data manipulation end; writing data into text file&quot;]" />
+                            <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File to write the final output" FileName="[In_arg_output_path+&quot;\Keka_Employee_timesheet &quot;+Date_data+&quot;.txt&quot;]" sap:VirtualizedContainerService.HintSize="626,168.66666666666666" sap2010:WorkflowViewState.IdRef="WriteTextFile_5" Text="[value]" />
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="626,170" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Info" Message="[&quot;Process end all data fetched and wrote on notepad &quot;]" />
                           </Sequence>
                         </ActivityAction>
                       </ueab:ExcelApplicationCard.Body>

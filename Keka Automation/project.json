@@ -1,5 +1,5 @@
 {
-  "name": "TRIAL",
+  "name": "Keka Automation",
   "projectId": "0ccd05fc-55cf-48dd-8548-19190490292d",
   "description": "Blank Process",
   "main": "Main.xaml",
@@ -16,7 +16,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "24.10.0.0",
-  "projectVersion": "1.0.0",
+  "projectVersion": "1.0.9",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
