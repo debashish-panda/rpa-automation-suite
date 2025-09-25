@@ -1,0 +1,1156 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="_11_Homeowners" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Payor" Type="InArgument(x:String)" />
+    <x:Property Name="in_Url" Type="InArgument(x:String)" />
+    <x:Property Name="io_LogTable" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="In_arg_retry_count" Type="InArgument(x:Int32)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>899,4967</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>_11_Homeowners_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>System.Numerics</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>OS.Fuzzy.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="_11_Homeowners" sap:VirtualizedContainerService.HintSize="909,4902" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="847,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;12_Homeowners Insurance Requested page started&quot;]" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="847,57" sap2010:WorkflowViewState.IdRef="CommentOut_9">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="500,404" sap2010:WorkflowViewState.IdRef="Sequence_38">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,316" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+            <TryCatch.Try>
+              <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: IDTE000002 - Test ID" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="00a597dc-1eef-4713-bd47-36f534d5dc0a" Version="V2" WindowResize="Maximize">
+                <uix:NApplicationCard.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                    </ActivityAction.Argument>
+                    <Sequence sap:VirtualizedContainerService.HintSize="574,2608.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="512,2521.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:String" Name="PayorPriorterm" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Insurance Requested'" sap:VirtualizedContainerService.HintSize="450,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="1d190739-a849-4e24-9f12-1f4793abf2d7" CvTextArea="37, 529, 134, 17" CvTextArgument="Insurance Requested" CvType="Text" DesignTimeRectangle="38, 527, 168, 19" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='*Insurance Requested*' class='text' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='*Insurance Requested*' class='text' tag='SPAN' type='' check:text='Insurance Requested' /&gt;" Guid="3155d40d-f830-4b34-9706-d3b4e8810f9a" InformativeScreenshot="3a6baa51d6aa19e0639f1ac988bde5fa.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="1d190739-a849-4e24-9f12-1f4793abf2d7" CvTextArea="51, 503, 91, 13" CvTextArgument="Homeowners" CvType="Text" DesignTimeRectangle="52, 500, 154, 19" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Homeowners' class='text' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Homeowners' class='text' tag='SPAN' type='' check:innerText='Homeowners' /&gt;" Guid="a4fcb0ef-9f96-4e52-a03b-49f0b76f149c" SearchSteps="FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NClick.Target>
+                          <uix:NClick.VerifyOptions>
+                            <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionOptions.Retry>
+                              <uix:VerifyExecutionOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionOptions.Timeout>
+                            </uix:VerifyExecutionOptions>
+                          </uix:NClick.VerifyOptions>
+                        </uix:NClick>
+                        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+                          <ui:CommentOut.Body>
+                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,364" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Estimated annual premium'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="353.6,277.6" sap2010:WorkflowViewState.IdRef="NTypeInto_15" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Text="[in_PolicyPremium]" Version="V3">
+                                <uix:NTypeInto.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="28214cd8-ee2c-49e1-87d6-da573a56b2cd" CvElementArea="585, 641, 171, 35" CvType="InputBox" DesignTimeRectangle="589, 643, 166, 31" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-currency-edit&amp;gt;div&amp;gt;input' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl type='text' tag='INPUT' class='string-edit ng-pristine ng-valid ng-touched' aaname='' /&gt;" Guid="5af165f7-fd41-4295-95c5-98dc9ed34cc2" InformativeScreenshot="394ce606bd89b904ac37e2fc091dc3b2.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                    <uix:TargetAnchorable.Anchors>
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                        <uix:Target CVScreenId="28214cd8-ee2c-49e1-87d6-da573a56b2cd" CvTextArea="375, 648, 205, 20" CvTextArgument="Estimated annual premium" CvType="Text" DesignTimeRectangle="311, 647, 269, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Estimated annual premium' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Estimated annual premium' class='text' tag='DIV' type='' check:innerText='Estimated annual premium' /&gt;" Guid="2935d73a-400a-4d44-a20b-f4642cfcc33d" SearchSteps="FuzzySelector, CV" />
+                                      </scg:List>
+                                    </uix:TargetAnchorable.Anchors>
+                                  </uix:TargetAnchorable>
+                                </uix:NTypeInto.Target>
+                                <uix:NTypeInto.VerifyOptions>
+                                  <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                    <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                      <InArgument x:TypeArguments="x:Boolean" />
+                                    </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                    <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                      <InArgument x:TypeArguments="x:Double" />
+                                    </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                  </uix:VerifyExecutionTypeIntoOptions>
+                                </uix:NTypeInto.VerifyOptions>
+                              </uix:NTypeInto>
+                            </Sequence>
+                          </ui:CommentOut.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:CommentOut>
+                        <uix:NGetText DisplayName="Get Text 'Payor'" sap:VirtualizedContainerService.HintSize="450,191.33333333333334" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" TextString="[PayorPriorterm]" Version="V3">
+                          <uix:NGetText.Target>
+                            <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="a6eb0577-a00c-4bb8-ad32-2f32b88ea6b2" CvTextArea="811, 538, 75, 19" CvType="AnyWordGroup" DesignTimeRectangle="812, 534, 220, 30" DesignTimeScaleFactor="1.5" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Insured' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='text' tag='DIV' type='' /&gt;" Guid="9748ffd2-1fa1-4ac4-856c-990326acf2f0" InformativeScreenshot="0accd92230170598924207b42da9fd89.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="a6eb0577-a00c-4bb8-ad32-2f32b88ea6b2" CvTextArea="645, 540, 54, 22" CvTextArgument="Payor" CvType="Text" DesignTimeRectangle="636, 537, 62, 24" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Payor' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Payor' class='text' tag='DIV' type='' check:innerText='Payor' /&gt;" Guid="4d781823-e77c-4233-8680-e662b86d9be4" SearchSteps="FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NGetText.Target>
+                        </uix:NGetText>
+                        <If Condition="[(in_Payor.ToLower() = &quot;bill&quot;) And (PayorPriorterm &lt;&gt; &quot;Mortgagee&quot;)]" DisplayName="If Mortgage data is present" sap:VirtualizedContainerService.HintSize="450,1354.6666666666667" sap2010:WorkflowViewState.IdRef="If_5">
+                          <If.Then>
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,591.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Payor'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_16" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Text="MG" Version="V3">
+                                <uix:NTypeInto.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" DesignTimeRectangle="589, 509, 60, 31" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl idx='2' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl type='text' tag='INPUT' class='ng-pristine ng-valid ng-touched' aaname='' /&gt;" Guid="3324274b-86f6-4cc4-a23f-7fbfefe2dde6" InformativeScreenshot="edd92649529dde121a092aada3d92fe0.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                                    <uix:TargetAnchorable.Anchors>
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                        <uix:Target CVScreenId="4b04cc08-6db4-4ff5-8ea5-7400240e805f" CvTextArea="536, 515, 45, 20" CvTextArgument="Payor" CvType="Text" DesignTimeRectangle="530, 513, 51, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Payor' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Payor' class='text' tag='DIV' type='' check:innerText='Payor' /&gt;" Guid="893c3c4d-486b-4262-bb17-cb84045de7d6" SearchSteps="FuzzySelector, CV" />
+                                      </scg:List>
+                                    </uix:TargetAnchorable.Anchors>
+                                  </uix:TargetAnchorable>
+                                </uix:NTypeInto.Target>
+                                <uix:NTypeInto.VerifyOptions>
+                                  <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                    <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                      <InArgument x:TypeArguments="x:Boolean" />
+                                    </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                    <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                      <InArgument x:TypeArguments="x:Double" />
+                                    </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                  </uix:VerifyExecutionTypeIntoOptions>
+                                </uix:NTypeInto.VerifyOptions>
+                              </uix:NTypeInto>
+                              <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Payor&quot;,PayorPriorterm, &quot;MG&quot;, &quot;Yes&quot; }]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="354,214" sap2010:WorkflowViewState.IdRef="AddDataRow_5" />
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,591.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Payor'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_17" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Text="IN" Version="V3">
+                                <uix:NTypeInto.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="134f10ce-a3f8-43b9-8ce6-c82c9a1dc215" CvElementArea="586, 508, 88, 35" CvType="InputBox" DesignTimeRectangle="589, 509, 60, 31" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl idx='2' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl type='text' tag='INPUT' class='ng-valid ng-touched ng-dirty' aaname='' /&gt;" Guid="aab7abc5-7637-4911-b490-de410dc020bf" InformativeScreenshot="036d088f0c57494c768834c5c05a3dc0.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4">
+                                    <uix:TargetAnchorable.Anchors>
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                        <uix:Target CVScreenId="134f10ce-a3f8-43b9-8ce6-c82c9a1dc215" CvTextArea="538, 515, 43, 20" CvTextArgument="Payor" CvType="Text" DesignTimeRectangle="530, 513, 51, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Payor' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Payor' class='text' tag='DIV' type='' check:innerText='Payor' /&gt;" Guid="016fbf94-d809-456b-8792-de24097dd571" SearchSteps="FuzzySelector, CV" />
+                                      </scg:List>
+                                    </uix:TargetAnchorable.Anchors>
+                                  </uix:TargetAnchorable>
+                                </uix:NTypeInto.Target>
+                                <uix:NTypeInto.VerifyOptions>
+                                  <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                    <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                      <InArgument x:TypeArguments="x:Boolean" />
+                                    </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                    <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                      <InArgument x:TypeArguments="x:Double" />
+                                    </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                  </uix:VerifyExecutionTypeIntoOptions>
+                                </uix:NTypeInto.VerifyOptions>
+                              </uix:NTypeInto>
+                              <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Payor&quot;,PayorPriorterm, &quot;IN&quot;, &quot;Yes&quot; }]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="354,214" sap2010:WorkflowViewState.IdRef="AddDataRow_6" />
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Select form # or type'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="450,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_18" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Text="03" Version="V3">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="07e42563-0345-4b7e-9c2c-22651050e513" CvElementArea="586, 542, 87, 34" CvType="InputBox" DesignTimeRectangle="589, 543, 60, 31" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='ng-pristine ng-valid ng-touched' aaname='' /&gt;" Guid="e6690f98-0030-4e1b-80cd-7296804e3378" InformativeScreenshot="0ff88bfb0620184cf79e6cc6f361dd9a.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="07e42563-0345-4b7e-9c2c-22651050e513" CvTextArea="423, 548, 157, 20" CvTextArgument="Select form # or type" CvType="Text" DesignTimeRectangle="410, 547, 170, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Select form # or type' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Select form # or type' class='text' tag='DIV' type='' check:innerText='Select form # or type' /&gt;" Guid="5fab4bbf-a98e-4c87-9bd1-141bd7569386" SearchSteps="FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                          <uix:NTypeInto.VerifyOptions>
+                            <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionTypeIntoOptions.Retry>
+                              <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                            </uix:VerifyExecutionTypeIntoOptions>
+                          </uix:NTypeInto.VerifyOptions>
+                        </uix:NTypeInto>
+                        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+                          <ui:CommentOut.Body>
+                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512,976" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If Condition="[in_PolicyType=&quot;HO3&quot;]" DisplayName="If condition for Select Form " sap:VirtualizedContainerService.HintSize="449.6,889.6" sap2010:WorkflowViewState.IdRef="If_6">
+                                <If.Then>
+                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,364" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Select form # or type'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="353.6,277.6" sap2010:WorkflowViewState.IdRef="NTypeInto_19" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Text="03" Version="V3">
+                                      <uix:NTypeInto.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="07e42563-0345-4b7e-9c2c-22651050e513" CvElementArea="586, 542, 87, 34" CvType="InputBox" DesignTimeRectangle="589, 543, 60, 31" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='ng-pristine ng-valid ng-touched' aaname='' /&gt;" Guid="e6690f98-0030-4e1b-80cd-7296804e3378" InformativeScreenshot="0ff88bfb0620184cf79e6cc6f361dd9a.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CVScreenId="07e42563-0345-4b7e-9c2c-22651050e513" CvTextArea="423, 548, 157, 20" CvTextArgument="Select form # or type" CvType="Text" DesignTimeRectangle="410, 547, 170, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Select form # or type' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Select form # or type' class='text' tag='DIV' type='' check:innerText='Select form # or type' /&gt;" Guid="5fab4bbf-a98e-4c87-9bd1-141bd7569386" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NTypeInto.Target>
+                                      <uix:NTypeInto.VerifyOptions>
+                                        <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                          <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                            <InArgument x:TypeArguments="x:Boolean" />
+                                          </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                          <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                            <InArgument x:TypeArguments="x:Double" />
+                                          </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                        </uix:VerifyExecutionTypeIntoOptions>
+                                      </uix:NTypeInto.VerifyOptions>
+                                    </uix:NTypeInto>
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,364" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Select form # or type'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="353.6,277.6" sap2010:WorkflowViewState.IdRef="NTypeInto_20" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Text="BA" Version="V3">
+                                      <uix:NTypeInto.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="07e42563-0345-4b7e-9c2c-22651050e513" CvElementArea="586, 542, 87, 34" CvType="InputBox" DesignTimeRectangle="589, 543, 60, 31" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='ng-pristine ng-valid ng-touched' aaname='' /&gt;" Guid="f4d93d6d-6c0b-49dd-a322-bea5a830549a" InformativeScreenshot="0ff88bfb0620184cf79e6cc6f361dd9a.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CVScreenId="07e42563-0345-4b7e-9c2c-22651050e513" CvTextArea="423, 548, 157, 20" CvTextArgument="Select form # or type" CvType="Text" DesignTimeRectangle="410, 547, 170, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Select form # or type' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Select form # or type' class='text' tag='DIV' type='' check:innerText='Select form # or type' /&gt;" Guid="9e2dbd71-bddd-4e2c-a63c-2fd5e63c1ad9" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NTypeInto.Target>
+                                      <uix:NTypeInto.VerifyOptions>
+                                        <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                          <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                            <InArgument x:TypeArguments="x:Boolean" />
+                                          </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                          <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                            <InArgument x:TypeArguments="x:Double" />
+                                          </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                        </uix:VerifyExecutionTypeIntoOptions>
+                                      </uix:NTypeInto.VerifyOptions>
+                                    </uix:NTypeInto>
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </ui:CommentOut.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:CommentOut>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Rating/Underwriting'" sap:VirtualizedContainerService.HintSize="450,222.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="1877cfca-e329-4189-b197-fcd5859aff0d" CvTextArea="38, 553, 128, 17" CvTextArgument="Rating/Underwriting" CvType="Text" DesignTimeRectangle="38, 551, 168, 19" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Rating/Underwriting' class='text' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Rating/Underwriting' class='text' tag='SPAN' type='' check:innerText='Rating/Underwriting' /&gt;" Guid="4fc64db4-1b12-43b0-8bb2-745fe7d34562" InformativeScreenshot="0463bf29eed2cbbc13d563ff1903b33b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="1877cfca-e329-4189-b197-fcd5859aff0d" CvTextArea="51, 503, 91, 13" CvTextArgument="Homeowners" CvType="Text" DesignTimeRectangle="52, 500, 154, 19" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Homeowners' class='text' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Homeowners' class='text' tag='SPAN' type='' check:innerText='Homeowners' /&gt;" Guid="1ef5347f-de0a-4de5-8bf7-620009ea6837" SearchSteps="FuzzySelector" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NClick.Target>
+                          <uix:NClick.VerifyOptions>
+                            <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionOptions.Retry>
+                              <uix:VerifyExecutionOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionOptions.Timeout>
+                            </uix:VerifyExecutionOptions>
+                          </uix:NClick.VerifyOptions>
+                        </uix:NClick>
+                      </Sequence>
+                    </Sequence>
+                  </ActivityAction>
+                </uix:NApplicationCard.Body>
+                <uix:NApplicationCard.TargetApp>
+                  <uix:TargetApp Area="1912, -8, 1936, 1048" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="9deb829cf5e116b37813ff3e94ec5e19.jpg" Selector="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" Title="IDTE000002 - Test ID" Url="[in_Url]" />
+                </uix:NApplicationCard.TargetApp>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NApplicationCard>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,23" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                  <Sequence sap:VirtualizedContainerService.HintSize="520,679" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="458,175" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Warn" Message="[&quot;System exception at 12_homeowners_insurance&quot;]" />
+                    <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="458,336" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="[In_arg_retry_count]">
+                      <ui:RetryScope.ActivityBody>
+                        <ActivityAction>
+                          <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,136" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: IDTE000002 - Test ID" sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="00a597dc-1eef-4713-bd47-36f534d5dc0a" Version="V2" WindowResize="Maximize">
+                              <uix:NApplicationCard.Body>
+                                <ActivityAction x:TypeArguments="x:Object">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                                  </ActivityAction.Argument>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="574,2608.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="512,2521.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                      <Sequence.Variables>
+                                        <Variable x:TypeArguments="x:String" Name="PayorPriorterm" />
+                                      </Sequence.Variables>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Insurance Requested'" sap:VirtualizedContainerService.HintSize="450,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Version="V3">
+                                        <uix:NClick.Target>
+                                          <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="1d190739-a849-4e24-9f12-1f4793abf2d7" CvTextArea="37, 529, 134, 17" CvTextArgument="Insurance Requested" CvType="Text" DesignTimeRectangle="38, 527, 168, 19" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='*Insurance Requested*' class='text' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='*Insurance Requested*' class='text' tag='SPAN' type='' check:text='Insurance Requested' /&gt;" Guid="3155d40d-f830-4b34-9706-d3b4e8810f9a" InformativeScreenshot="3a6baa51d6aa19e0639f1ac988bde5fa.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                            <uix:TargetAnchorable.Anchors>
+                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                <uix:Target CVScreenId="1d190739-a849-4e24-9f12-1f4793abf2d7" CvTextArea="51, 503, 91, 13" CvTextArgument="Homeowners" CvType="Text" DesignTimeRectangle="52, 500, 154, 19" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Homeowners' class='text' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Homeowners' class='text' tag='SPAN' type='' check:innerText='Homeowners' /&gt;" Guid="a4fcb0ef-9f96-4e52-a03b-49f0b76f149c" SearchSteps="FuzzySelector, CV" />
+                                              </scg:List>
+                                            </uix:TargetAnchorable.Anchors>
+                                          </uix:TargetAnchorable>
+                                        </uix:NClick.Target>
+                                        <uix:NClick.VerifyOptions>
+                                          <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                            <uix:VerifyExecutionOptions.Retry>
+                                              <InArgument x:TypeArguments="x:Boolean" />
+                                            </uix:VerifyExecutionOptions.Retry>
+                                            <uix:VerifyExecutionOptions.Timeout>
+                                              <InArgument x:TypeArguments="x:Double" />
+                                            </uix:VerifyExecutionOptions.Timeout>
+                                          </uix:VerifyExecutionOptions>
+                                        </uix:NClick.VerifyOptions>
+                                      </uix:NClick>
+                                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_7">
+                                        <ui:CommentOut.Body>
+                                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,364" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Estimated annual premium'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="353.6,277.6" sap2010:WorkflowViewState.IdRef="NTypeInto_21" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Text="[in_PolicyPremium]" Version="V3">
+                                              <uix:NTypeInto.Target>
+                                                <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="28214cd8-ee2c-49e1-87d6-da573a56b2cd" CvElementArea="585, 641, 171, 35" CvType="InputBox" DesignTimeRectangle="589, 643, 166, 31" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-currency-edit&amp;gt;div&amp;gt;input' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl type='text' tag='INPUT' class='string-edit ng-pristine ng-valid ng-touched' aaname='' /&gt;" Guid="5af165f7-fd41-4295-95c5-98dc9ed34cc2" InformativeScreenshot="394ce606bd89b904ac37e2fc091dc3b2.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                                  <uix:TargetAnchorable.Anchors>
+                                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                      <uix:Target CVScreenId="28214cd8-ee2c-49e1-87d6-da573a56b2cd" CvTextArea="375, 648, 205, 20" CvTextArgument="Estimated annual premium" CvType="Text" DesignTimeRectangle="311, 647, 269, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Estimated annual premium' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Estimated annual premium' class='text' tag='DIV' type='' check:innerText='Estimated annual premium' /&gt;" Guid="2935d73a-400a-4d44-a20b-f4642cfcc33d" SearchSteps="FuzzySelector, CV" />
+                                                    </scg:List>
+                                                  </uix:TargetAnchorable.Anchors>
+                                                </uix:TargetAnchorable>
+                                              </uix:NTypeInto.Target>
+                                              <uix:NTypeInto.VerifyOptions>
+                                                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                    <InArgument x:TypeArguments="x:Boolean" />
+                                                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                    <InArgument x:TypeArguments="x:Double" />
+                                                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                </uix:VerifyExecutionTypeIntoOptions>
+                                              </uix:NTypeInto.VerifyOptions>
+                                            </uix:NTypeInto>
+                                          </Sequence>
+                                        </ui:CommentOut.Body>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </ui:CommentOut>
+                                      <uix:NGetText DisplayName="Get Text 'Payor'" sap:VirtualizedContainerService.HintSize="450,191.33333333333334" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" TextString="[PayorPriorterm]" Version="V3">
+                                        <uix:NGetText.Target>
+                                          <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="a6eb0577-a00c-4bb8-ad32-2f32b88ea6b2" CvTextArea="811, 538, 75, 19" CvType="AnyWordGroup" DesignTimeRectangle="812, 534, 220, 30" DesignTimeScaleFactor="1.5" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Insured' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='text' tag='DIV' type='' /&gt;" Guid="9748ffd2-1fa1-4ac4-856c-990326acf2f0" InformativeScreenshot="0accd92230170598924207b42da9fd89.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                            <uix:TargetAnchorable.Anchors>
+                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                <uix:Target CVScreenId="a6eb0577-a00c-4bb8-ad32-2f32b88ea6b2" CvTextArea="645, 540, 54, 22" CvTextArgument="Payor" CvType="Text" DesignTimeRectangle="636, 537, 62, 24" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Payor' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Payor' class='text' tag='DIV' type='' check:innerText='Payor' /&gt;" Guid="4d781823-e77c-4233-8680-e662b86d9be4" SearchSteps="FuzzySelector, CV" />
+                                              </scg:List>
+                                            </uix:TargetAnchorable.Anchors>
+                                          </uix:TargetAnchorable>
+                                        </uix:NGetText.Target>
+                                      </uix:NGetText>
+                                      <If Condition="[(in_Payor.ToLower() = &quot;bill&quot;) And (PayorPriorterm &lt;&gt; &quot;Mortgagee&quot;)]" DisplayName="If Mortgage data is present" sap:VirtualizedContainerService.HintSize="450,1354.6666666666667" sap2010:WorkflowViewState.IdRef="If_7">
+                                        <If.Then>
+                                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,591.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Payor'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_22" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Text="MG" Version="V3">
+                                              <uix:NTypeInto.Target>
+                                                <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" DesignTimeRectangle="589, 509, 60, 31" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl idx='2' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl type='text' tag='INPUT' class='ng-pristine ng-valid ng-touched' aaname='' /&gt;" Guid="3324274b-86f6-4cc4-a23f-7fbfefe2dde6" InformativeScreenshot="edd92649529dde121a092aada3d92fe0.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                                                  <uix:TargetAnchorable.Anchors>
+                                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                      <uix:Target CVScreenId="4b04cc08-6db4-4ff5-8ea5-7400240e805f" CvTextArea="536, 515, 45, 20" CvTextArgument="Payor" CvType="Text" DesignTimeRectangle="530, 513, 51, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Payor' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Payor' class='text' tag='DIV' type='' check:innerText='Payor' /&gt;" Guid="893c3c4d-486b-4262-bb17-cb84045de7d6" SearchSteps="FuzzySelector, CV" />
+                                                    </scg:List>
+                                                  </uix:TargetAnchorable.Anchors>
+                                                </uix:TargetAnchorable>
+                                              </uix:NTypeInto.Target>
+                                              <uix:NTypeInto.VerifyOptions>
+                                                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                    <InArgument x:TypeArguments="x:Boolean" />
+                                                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                    <InArgument x:TypeArguments="x:Double" />
+                                                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                </uix:VerifyExecutionTypeIntoOptions>
+                                              </uix:NTypeInto.VerifyOptions>
+                                            </uix:NTypeInto>
+                                            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Payor&quot;,PayorPriorterm, &quot;MG&quot;, &quot;Yes&quot; }]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="354,214" sap2010:WorkflowViewState.IdRef="AddDataRow_7" />
+                                          </Sequence>
+                                        </If.Then>
+                                        <If.Else>
+                                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,591.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Payor'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_23" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Text="IN" Version="V3">
+                                              <uix:NTypeInto.Target>
+                                                <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="134f10ce-a3f8-43b9-8ce6-c82c9a1dc215" CvElementArea="586, 508, 88, 35" CvType="InputBox" DesignTimeRectangle="589, 509, 60, 31" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl idx='2' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl type='text' tag='INPUT' class='ng-valid ng-touched ng-dirty' aaname='' /&gt;" Guid="aab7abc5-7637-4911-b490-de410dc020bf" InformativeScreenshot="036d088f0c57494c768834c5c05a3dc0.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4">
+                                                  <uix:TargetAnchorable.Anchors>
+                                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                      <uix:Target CVScreenId="134f10ce-a3f8-43b9-8ce6-c82c9a1dc215" CvTextArea="538, 515, 43, 20" CvTextArgument="Payor" CvType="Text" DesignTimeRectangle="530, 513, 51, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Payor' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Payor' class='text' tag='DIV' type='' check:innerText='Payor' /&gt;" Guid="016fbf94-d809-456b-8792-de24097dd571" SearchSteps="FuzzySelector, CV" />
+                                                    </scg:List>
+                                                  </uix:TargetAnchorable.Anchors>
+                                                </uix:TargetAnchorable>
+                                              </uix:NTypeInto.Target>
+                                              <uix:NTypeInto.VerifyOptions>
+                                                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                    <InArgument x:TypeArguments="x:Boolean" />
+                                                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                    <InArgument x:TypeArguments="x:Double" />
+                                                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                </uix:VerifyExecutionTypeIntoOptions>
+                                              </uix:NTypeInto.VerifyOptions>
+                                            </uix:NTypeInto>
+                                            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Payor&quot;,PayorPriorterm, &quot;IN&quot;, &quot;Yes&quot; }]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="354,214" sap2010:WorkflowViewState.IdRef="AddDataRow_8" />
+                                          </Sequence>
+                                        </If.Else>
+                                      </If>
+                                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Select form # or type'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="450,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_24" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Text="03" Version="V3">
+                                        <uix:NTypeInto.Target>
+                                          <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="07e42563-0345-4b7e-9c2c-22651050e513" CvElementArea="586, 542, 87, 34" CvType="InputBox" DesignTimeRectangle="589, 543, 60, 31" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='ng-pristine ng-valid ng-touched' aaname='' /&gt;" Guid="e6690f98-0030-4e1b-80cd-7296804e3378" InformativeScreenshot="0ff88bfb0620184cf79e6cc6f361dd9a.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                            <uix:TargetAnchorable.Anchors>
+                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                <uix:Target CVScreenId="07e42563-0345-4b7e-9c2c-22651050e513" CvTextArea="423, 548, 157, 20" CvTextArgument="Select form # or type" CvType="Text" DesignTimeRectangle="410, 547, 170, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Select form # or type' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Select form # or type' class='text' tag='DIV' type='' check:innerText='Select form # or type' /&gt;" Guid="5fab4bbf-a98e-4c87-9bd1-141bd7569386" SearchSteps="FuzzySelector, CV" />
+                                              </scg:List>
+                                            </uix:TargetAnchorable.Anchors>
+                                          </uix:TargetAnchorable>
+                                        </uix:NTypeInto.Target>
+                                        <uix:NTypeInto.VerifyOptions>
+                                          <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                            <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                              <InArgument x:TypeArguments="x:Boolean" />
+                                            </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                            <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                              <InArgument x:TypeArguments="x:Double" />
+                                            </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                          </uix:VerifyExecutionTypeIntoOptions>
+                                        </uix:NTypeInto.VerifyOptions>
+                                      </uix:NTypeInto>
+                                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_8">
+                                        <ui:CommentOut.Body>
+                                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512,976" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <If Condition="[in_PolicyType=&quot;HO3&quot;]" DisplayName="If condition for Select Form " sap:VirtualizedContainerService.HintSize="449.6,889.6" sap2010:WorkflowViewState.IdRef="If_8">
+                                              <If.Then>
+                                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,364" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Select form # or type'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="353.6,277.6" sap2010:WorkflowViewState.IdRef="NTypeInto_25" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Text="03" Version="V3">
+                                                    <uix:NTypeInto.Target>
+                                                      <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="07e42563-0345-4b7e-9c2c-22651050e513" CvElementArea="586, 542, 87, 34" CvType="InputBox" DesignTimeRectangle="589, 543, 60, 31" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='ng-pristine ng-valid ng-touched' aaname='' /&gt;" Guid="e6690f98-0030-4e1b-80cd-7296804e3378" InformativeScreenshot="0ff88bfb0620184cf79e6cc6f361dd9a.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                                        <uix:TargetAnchorable.Anchors>
+                                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                            <uix:Target CVScreenId="07e42563-0345-4b7e-9c2c-22651050e513" CvTextArea="423, 548, 157, 20" CvTextArgument="Select form # or type" CvType="Text" DesignTimeRectangle="410, 547, 170, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Select form # or type' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Select form # or type' class='text' tag='DIV' type='' check:innerText='Select form # or type' /&gt;" Guid="5fab4bbf-a98e-4c87-9bd1-141bd7569386" SearchSteps="FuzzySelector, CV" />
+                                                          </scg:List>
+                                                        </uix:TargetAnchorable.Anchors>
+                                                      </uix:TargetAnchorable>
+                                                    </uix:NTypeInto.Target>
+                                                    <uix:NTypeInto.VerifyOptions>
+                                                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                                        <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                          <InArgument x:TypeArguments="x:Boolean" />
+                                                        </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                          <InArgument x:TypeArguments="x:Double" />
+                                                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                      </uix:VerifyExecutionTypeIntoOptions>
+                                                    </uix:NTypeInto.VerifyOptions>
+                                                  </uix:NTypeInto>
+                                                </Sequence>
+                                              </If.Then>
+                                              <If.Else>
+                                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,364" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Select form # or type'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="353.6,277.6" sap2010:WorkflowViewState.IdRef="NTypeInto_26" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Text="BA" Version="V3">
+                                                    <uix:NTypeInto.Target>
+                                                      <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="07e42563-0345-4b7e-9c2c-22651050e513" CvElementArea="586, 542, 87, 34" CvType="InputBox" DesignTimeRectangle="589, 543, 60, 31" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='ng-pristine ng-valid ng-touched' aaname='' /&gt;" Guid="f4d93d6d-6c0b-49dd-a322-bea5a830549a" InformativeScreenshot="0ff88bfb0620184cf79e6cc6f361dd9a.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                                        <uix:TargetAnchorable.Anchors>
+                                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                            <uix:Target CVScreenId="07e42563-0345-4b7e-9c2c-22651050e513" CvTextArea="423, 548, 157, 20" CvTextArgument="Select form # or type" CvType="Text" DesignTimeRectangle="410, 547, 170, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Select form # or type' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Select form # or type' class='text' tag='DIV' type='' check:innerText='Select form # or type' /&gt;" Guid="9e2dbd71-bddd-4e2c-a63c-2fd5e63c1ad9" SearchSteps="FuzzySelector, CV" />
+                                                          </scg:List>
+                                                        </uix:TargetAnchorable.Anchors>
+                                                      </uix:TargetAnchorable>
+                                                    </uix:NTypeInto.Target>
+                                                    <uix:NTypeInto.VerifyOptions>
+                                                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                                        <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                          <InArgument x:TypeArguments="x:Boolean" />
+                                                        </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                          <InArgument x:TypeArguments="x:Double" />
+                                                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                      </uix:VerifyExecutionTypeIntoOptions>
+                                                    </uix:NTypeInto.VerifyOptions>
+                                                  </uix:NTypeInto>
+                                                </Sequence>
+                                              </If.Else>
+                                            </If>
+                                          </Sequence>
+                                        </ui:CommentOut.Body>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </ui:CommentOut>
+                                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Rating/Underwriting'" sap:VirtualizedContainerService.HintSize="450,222.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Version="V3">
+                                        <uix:NClick.Target>
+                                          <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="1877cfca-e329-4189-b197-fcd5859aff0d" CvTextArea="38, 553, 128, 17" CvTextArgument="Rating/Underwriting" CvType="Text" DesignTimeRectangle="38, 551, 168, 19" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Rating/Underwriting' class='text' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Rating/Underwriting' class='text' tag='SPAN' type='' check:innerText='Rating/Underwriting' /&gt;" Guid="4fc64db4-1b12-43b0-8bb2-745fe7d34562" InformativeScreenshot="0463bf29eed2cbbc13d563ff1903b33b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                            <uix:TargetAnchorable.Anchors>
+                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                <uix:Target CVScreenId="1877cfca-e329-4189-b197-fcd5859aff0d" CvTextArea="51, 503, 91, 13" CvTextArgument="Homeowners" CvType="Text" DesignTimeRectangle="52, 500, 154, 19" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Homeowners' class='text' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Homeowners' class='text' tag='SPAN' type='' check:innerText='Homeowners' /&gt;" Guid="1ef5347f-de0a-4de5-8bf7-620009ea6837" SearchSteps="FuzzySelector" />
+                                              </scg:List>
+                                            </uix:TargetAnchorable.Anchors>
+                                          </uix:TargetAnchorable>
+                                        </uix:NClick.Target>
+                                        <uix:NClick.VerifyOptions>
+                                          <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                            <uix:VerifyExecutionOptions.Retry>
+                                              <InArgument x:TypeArguments="x:Boolean" />
+                                            </uix:VerifyExecutionOptions.Retry>
+                                            <uix:VerifyExecutionOptions.Timeout>
+                                              <InArgument x:TypeArguments="x:Double" />
+                                            </uix:VerifyExecutionOptions.Timeout>
+                                          </uix:VerifyExecutionOptions>
+                                        </uix:NClick.VerifyOptions>
+                                      </uix:NClick>
+                                    </Sequence>
+                                  </Sequence>
+                                </ActivityAction>
+                              </uix:NApplicationCard.Body>
+                              <uix:NApplicationCard.TargetApp>
+                                <uix:TargetApp Area="1912, -8, 1936, 1048" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="9deb829cf5e116b37813ff3e94ec5e19.jpg" Selector="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" Title="IDTE000002 - Test ID" Url="[in_Url]" />
+                              </uix:NApplicationCard.TargetApp>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </uix:NApplicationCard>
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:RetryScope.ActivityBody>
+                      <ui:RetryScope.Condition>
+                        <ActivityFunc x:TypeArguments="x:Boolean" />
+                      </ui:RetryScope.Condition>
+                    </ui:RetryScope>
+                  </Sequence>
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="847,4417" sap2010:WorkflowViewState.IdRef="RetryScope_3" NumberOfRetries="[In_arg_retry_count]">
+      <ui:RetryScope.ActivityBody>
+        <ActivityAction>
+          <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="805,4210" sap2010:WorkflowViewState.IdRef="Sequence_49">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="743,4122" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+              <TryCatch.Try>
+                <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: IDTE000002 - Test ID" sap:VirtualizedContainerService.HintSize="704,3870" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="00a597dc-1eef-4713-bd47-36f534d5dc0a" Version="V2" WindowResize="Maximize">
+                  <uix:NApplicationCard.Body>
+                    <ActivityAction x:TypeArguments="x:Object">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                      </ActivityAction.Argument>
+                      <Sequence sap:VirtualizedContainerService.HintSize="670,3653" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="608,3563" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:String" Name="PayorPriorterm" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Insurance Requested'" sap:VirtualizedContainerService.HintSize="546,225" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Version="V3">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="1d190739-a849-4e24-9f12-1f4793abf2d7" CvTextArea="37, 529, 134, 17" CvTextArgument="Insurance Requested" CvType="Text" DesignTimeRectangle="28, 417, 106, 13" DesignTimeScaleFactor="0.6666666865348816" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='*Insurance Requested*' class='text' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='*Insurance Requested*' class='text' tag='SPAN' type='' check:text='Insurance Requested' /&gt;" Guid="3155d40d-f830-4b34-9706-d3b4e8810f9a" InformativeScreenshot="3aa8419a9584b8d92666e4de851e914e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                    <uix:Target CVScreenId="1d190739-a849-4e24-9f12-1f4793abf2d7" CvTextArea="51, 503, 91, 13" CvTextArgument="Homeowners" CvType="Text" DesignTimeRectangle="37, 399, 97, 13" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Homeowners' class='text' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Homeowners' class='text' tag='SPAN' type='' check:innerText='Homeowners' /&gt;" Guid="a4fcb0ef-9f96-4e52-a03b-49f0b76f149c" SearchSteps="FuzzySelector, CV" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                            <uix:NClick.VerifyOptions>
+                              <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                <uix:VerifyExecutionOptions.Retry>
+                                  <InArgument x:TypeArguments="x:Boolean" />
+                                </uix:VerifyExecutionOptions.Retry>
+                                <uix:VerifyExecutionOptions.Timeout>
+                                  <InArgument x:TypeArguments="x:Double" />
+                                </uix:VerifyExecutionOptions.Timeout>
+                              </uix:VerifyExecutionOptions>
+                            </uix:NClick.VerifyOptions>
+                          </uix:NClick>
+                          <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="546,237" sap2010:WorkflowViewState.IdRef="Sequence_53">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Delay DisplayName=" Delay 3 seconds" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="388,115" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                          </Sequence>
+                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="546,57" sap2010:WorkflowViewState.IdRef="CommentOut_10">
+                            <ui:CommentOut.Body>
+                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,364" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Estimated annual premium'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="353.6,277.6" sap2010:WorkflowViewState.IdRef="NTypeInto_27" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Text="[in_PolicyPremium]" Version="V3">
+                                  <uix:NTypeInto.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="28214cd8-ee2c-49e1-87d6-da573a56b2cd" CvElementArea="585, 641, 171, 35" CvType="InputBox" DesignTimeRectangle="589, 643, 166, 31" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-currency-edit&amp;gt;div&amp;gt;input' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl type='text' tag='INPUT' class='string-edit ng-pristine ng-valid ng-touched' aaname='' /&gt;" Guid="5af165f7-fd41-4295-95c5-98dc9ed34cc2" InformativeScreenshot="394ce606bd89b904ac37e2fc091dc3b2.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target CVScreenId="28214cd8-ee2c-49e1-87d6-da573a56b2cd" CvTextArea="375, 648, 205, 20" CvTextArgument="Estimated annual premium" CvType="Text" DesignTimeRectangle="311, 647, 269, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Estimated annual premium' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Estimated annual premium' class='text' tag='DIV' type='' check:innerText='Estimated annual premium' /&gt;" Guid="2935d73a-400a-4d44-a20b-f4642cfcc33d" SearchSteps="FuzzySelector, CV" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NTypeInto.Target>
+                                  <uix:NTypeInto.VerifyOptions>
+                                    <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                      <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                        <InArgument x:TypeArguments="x:Boolean" />
+                                      </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                      <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                        <InArgument x:TypeArguments="x:Double" />
+                                      </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                    </uix:VerifyExecutionTypeIntoOptions>
+                                  </uix:NTypeInto.VerifyOptions>
+                                </uix:NTypeInto>
+                              </Sequence>
+                            </ui:CommentOut.Body>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:CommentOut>
+                          <uix:NGetText DisplayName="Get Text 'Payor'" sap:VirtualizedContainerService.HintSize="546,189" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" TextString="[PayorPriorterm]" Version="V3">
+                            <uix:NGetText.Target>
+                              <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="a6eb0577-a00c-4bb8-ad32-2f32b88ea6b2" CvTextArea="811, 538, 75, 19" CvType="AnyWordGroup" DesignTimeRectangle="812, 534, 220, 30" DesignTimeScaleFactor="1.5" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Insured' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='text' tag='DIV' type='' /&gt;" Guid="9748ffd2-1fa1-4ac4-856c-990326acf2f0" InformativeScreenshot="0accd92230170598924207b42da9fd89.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target CVScreenId="a6eb0577-a00c-4bb8-ad32-2f32b88ea6b2" CvTextArea="645, 540, 54, 22" CvTextArgument="Payor" CvType="Text" DesignTimeRectangle="636, 537, 62, 24" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Payor' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Payor' class='text' tag='DIV' type='' check:innerText='Payor' /&gt;" Guid="4d781823-e77c-4233-8680-e662b86d9be4" SearchSteps="FuzzySelector, CV" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NGetText.Target>
+                          </uix:NGetText>
+                          <If Condition="[(in_Payor.ToLower() = &quot;bill&quot;) And (PayorPriorterm.ToLower &lt;&gt; &quot;mortgagee&quot;)]" DisplayName="If Mortgage data is present" sap:VirtualizedContainerService.HintSize="546,1690" sap2010:WorkflowViewState.IdRef="If_9">
+                            <If.Then>
+                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,583" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Payor'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,286" sap2010:WorkflowViewState.IdRef="NTypeInto_28" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Text="MG" Version="V3">
+                                  <uix:NTypeInto.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" DesignTimeRectangle="589, 509, 60, 31" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl idx='2' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl type='text' tag='INPUT' class='ng-pristine ng-valid ng-touched' aaname='' /&gt;" Guid="3324274b-86f6-4cc4-a23f-7fbfefe2dde6" InformativeScreenshot="edd92649529dde121a092aada3d92fe0.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target CVScreenId="4b04cc08-6db4-4ff5-8ea5-7400240e805f" CvTextArea="536, 515, 45, 20" CvTextArgument="Payor" CvType="Text" DesignTimeRectangle="530, 513, 51, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Payor' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Payor' class='text' tag='DIV' type='' check:innerText='Payor' /&gt;" Guid="893c3c4d-486b-4262-bb17-cb84045de7d6" SearchSteps="FuzzySelector, CV" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NTypeInto.Target>
+                                  <uix:NTypeInto.VerifyOptions>
+                                    <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                      <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                        <InArgument x:TypeArguments="x:Boolean" />
+                                      </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                      <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                        <InArgument x:TypeArguments="x:Double" />
+                                      </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                    </uix:VerifyExecutionTypeIntoOptions>
+                                  </uix:NTypeInto.VerifyOptions>
+                                </uix:NTypeInto>
+                                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Payor&quot;,PayorPriorterm, &quot;MG&quot;, &quot;Yes&quot; }]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="354,209" sap2010:WorkflowViewState.IdRef="AddDataRow_9" />
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="512,937" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Payor'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="450,286" sap2010:WorkflowViewState.IdRef="NTypeInto_29" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Text="IN" Version="V3">
+                                  <uix:NTypeInto.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="134f10ce-a3f8-43b9-8ce6-c82c9a1dc215" CvElementArea="586, 508, 88, 35" CvType="InputBox" DesignTimeRectangle="589, 509, 60, 31" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl idx='2' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl type='text' tag='INPUT' class='ng-valid ng-touched ng-dirty' aaname='' /&gt;" Guid="aab7abc5-7637-4911-b490-de410dc020bf" InformativeScreenshot="036d088f0c57494c768834c5c05a3dc0.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target CVScreenId="134f10ce-a3f8-43b9-8ce6-c82c9a1dc215" CvTextArea="538, 515, 43, 20" CvTextArgument="Payor" CvType="Text" DesignTimeRectangle="530, 513, 51, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Payor' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Payor' class='text' tag='DIV' type='' check:innerText='Payor' /&gt;" Guid="016fbf94-d809-456b-8792-de24097dd571" SearchSteps="FuzzySelector, CV" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NTypeInto.Target>
+                                  <uix:NTypeInto.VerifyOptions>
+                                    <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                      <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                        <InArgument x:TypeArguments="x:Boolean" />
+                                      </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                      <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                        <InArgument x:TypeArguments="x:Double" />
+                                      </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                    </uix:VerifyExecutionTypeIntoOptions>
+                                  </uix:NTypeInto.VerifyOptions>
+                                </uix:NTypeInto>
+                                <If Condition="[PayorPriorterm.tolower=&quot;insured&quot;]" sap:VirtualizedContainerService.HintSize="450,562.6666666666666" sap2010:WorkflowViewState.IdRef="If_11">
+                                  <If.Then>
+                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,101.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </Sequence>
+                                  </If.Then>
+                                  <If.Else>
+                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,298.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_51">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Payor&quot;,PayorPriorterm, &quot;IN&quot;, &quot;Yes&quot; }]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="354,214" sap2010:WorkflowViewState.IdRef="AddDataRow_10" />
+                                    </Sequence>
+                                  </If.Else>
+                                </If>
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                          <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="546,240" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Delay DisplayName=" Delay 1 second" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="388,117.33333333333333" sap2010:WorkflowViewState.IdRef="Delay_4" />
+                          </Sequence>
+                          <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="546,237.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_54">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Delay DisplayName=" Delay 1 second" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="388,117.33333333333333" sap2010:WorkflowViewState.IdRef="Delay_3" />
+                          </Sequence>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Select form # or type'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="546,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_30" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Text="03" Version="V3">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="07e42563-0345-4b7e-9c2c-22651050e513" CvElementArea="586, 542, 87, 34" CvType="InputBox" DesignTimeRectangle="589, 543, 60, 31" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='ng-pristine ng-valid ng-touched' aaname='' /&gt;" Guid="e6690f98-0030-4e1b-80cd-7296804e3378" InformativeScreenshot="0ff88bfb0620184cf79e6cc6f361dd9a.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target CVScreenId="07e42563-0345-4b7e-9c2c-22651050e513" CvTextArea="423, 548, 157, 20" CvTextArgument="Select form # or type" CvType="Text" DesignTimeRectangle="410, 547, 170, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Select form # or type' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Select form # or type' class='text' tag='DIV' type='' check:innerText='Select form # or type' /&gt;" Guid="5fab4bbf-a98e-4c87-9bd1-141bd7569386" SearchSteps="FuzzySelector, CV" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NTypeInto.Target>
+                            <uix:NTypeInto.VerifyOptions>
+                              <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                  <InArgument x:TypeArguments="x:Boolean" />
+                                </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                  <InArgument x:TypeArguments="x:Double" />
+                                </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                              </uix:VerifyExecutionTypeIntoOptions>
+                            </uix:NTypeInto.VerifyOptions>
+                          </uix:NTypeInto>
+                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="546,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_11">
+                            <ui:CommentOut.Body>
+                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512,976" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If Condition="[in_PolicyType=&quot;HO3&quot;]" DisplayName="If condition for Select Form " sap:VirtualizedContainerService.HintSize="449.6,889.6" sap2010:WorkflowViewState.IdRef="If_10">
+                                  <If.Then>
+                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,364" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Select form # or type'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="353.6,277.6" sap2010:WorkflowViewState.IdRef="NTypeInto_31" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Text="03" Version="V3">
+                                        <uix:NTypeInto.Target>
+                                          <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="07e42563-0345-4b7e-9c2c-22651050e513" CvElementArea="586, 542, 87, 34" CvType="InputBox" DesignTimeRectangle="589, 543, 60, 31" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='ng-pristine ng-valid ng-touched' aaname='' /&gt;" Guid="e6690f98-0030-4e1b-80cd-7296804e3378" InformativeScreenshot="0ff88bfb0620184cf79e6cc6f361dd9a.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                            <uix:TargetAnchorable.Anchors>
+                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                <uix:Target CVScreenId="07e42563-0345-4b7e-9c2c-22651050e513" CvTextArea="423, 548, 157, 20" CvTextArgument="Select form # or type" CvType="Text" DesignTimeRectangle="410, 547, 170, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Select form # or type' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Select form # or type' class='text' tag='DIV' type='' check:innerText='Select form # or type' /&gt;" Guid="5fab4bbf-a98e-4c87-9bd1-141bd7569386" SearchSteps="FuzzySelector, CV" />
+                                              </scg:List>
+                                            </uix:TargetAnchorable.Anchors>
+                                          </uix:TargetAnchorable>
+                                        </uix:NTypeInto.Target>
+                                        <uix:NTypeInto.VerifyOptions>
+                                          <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                            <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                              <InArgument x:TypeArguments="x:Boolean" />
+                                            </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                            <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                              <InArgument x:TypeArguments="x:Double" />
+                                            </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                          </uix:VerifyExecutionTypeIntoOptions>
+                                        </uix:NTypeInto.VerifyOptions>
+                                      </uix:NTypeInto>
+                                    </Sequence>
+                                  </If.Then>
+                                  <If.Else>
+                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,364" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Select form # or type'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="353.6,277.6" sap2010:WorkflowViewState.IdRef="NTypeInto_32" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Text="BA" Version="V3">
+                                        <uix:NTypeInto.Target>
+                                          <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="07e42563-0345-4b7e-9c2c-22651050e513" CvElementArea="586, 542, 87, 34" CvType="InputBox" DesignTimeRectangle="589, 543, 60, 31" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='ng-pristine ng-valid ng-touched' aaname='' /&gt;" Guid="f4d93d6d-6c0b-49dd-a322-bea5a830549a" InformativeScreenshot="0ff88bfb0620184cf79e6cc6f361dd9a.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                            <uix:TargetAnchorable.Anchors>
+                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                <uix:Target CVScreenId="07e42563-0345-4b7e-9c2c-22651050e513" CvTextArea="423, 548, 157, 20" CvTextArgument="Select form # or type" CvType="Text" DesignTimeRectangle="410, 547, 170, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Select form # or type' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Select form # or type' class='text' tag='DIV' type='' check:innerText='Select form # or type' /&gt;" Guid="9e2dbd71-bddd-4e2c-a63c-2fd5e63c1ad9" SearchSteps="FuzzySelector, CV" />
+                                              </scg:List>
+                                            </uix:TargetAnchorable.Anchors>
+                                          </uix:TargetAnchorable>
+                                        </uix:NTypeInto.Target>
+                                        <uix:NTypeInto.VerifyOptions>
+                                          <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                            <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                              <InArgument x:TypeArguments="x:Boolean" />
+                                            </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                            <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                              <InArgument x:TypeArguments="x:Double" />
+                                            </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                          </uix:VerifyExecutionTypeIntoOptions>
+                                        </uix:NTypeInto.VerifyOptions>
+                                      </uix:NTypeInto>
+                                    </Sequence>
+                                  </If.Else>
+                                </If>
+                              </Sequence>
+                            </ui:CommentOut.Body>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:CommentOut>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Rating/Underwriting'" sap:VirtualizedContainerService.HintSize="546,222.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_11" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="00a597dc-1eef-4713-bd47-36f534d5dc0a" Version="V3">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="1877cfca-e329-4189-b197-fcd5859aff0d" CvTextArea="38, 553, 128, 17" CvTextArgument="Rating/Underwriting" CvType="Text" DesignTimeRectangle="38, 551, 168, 19" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Rating/Underwriting' class='text' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Rating/Underwriting' class='text' tag='SPAN' type='' check:innerText='Rating/Underwriting' /&gt;" Guid="4fc64db4-1b12-43b0-8bb2-745fe7d34562" InformativeScreenshot="0463bf29eed2cbbc13d563ff1903b33b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target CVScreenId="1877cfca-e329-4189-b197-fcd5859aff0d" CvTextArea="51, 503, 91, 13" CvTextArgument="Homeowners" CvType="Text" DesignTimeRectangle="52, 500, 154, 19" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Homeowners' class='text' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Homeowners' class='text' tag='SPAN' type='' check:innerText='Homeowners' /&gt;" Guid="1ef5347f-de0a-4de5-8bf7-620009ea6837" SearchSteps="FuzzySelector" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                            <uix:NClick.VerifyOptions>
+                              <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                <uix:VerifyExecutionOptions.Retry>
+                                  <InArgument x:TypeArguments="x:Boolean" />
+                                </uix:VerifyExecutionOptions.Retry>
+                                <uix:VerifyExecutionOptions.Timeout>
+                                  <InArgument x:TypeArguments="x:Double" />
+                                </uix:VerifyExecutionOptions.Timeout>
+                              </uix:VerifyExecutionOptions>
+                            </uix:NClick.VerifyOptions>
+                          </uix:NClick>
+                        </Sequence>
+                      </Sequence>
+                    </ActivityAction>
+                  </uix:NApplicationCard.Body>
+                  <uix:NApplicationCard.TargetApp>
+                    <uix:TargetApp Area="1912, -8, 1936, 1048" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="9deb829cf5e116b37813ff3e94ec5e19.jpg" Selector="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" Title="IDTE000002 - Test ID" Url="[in_Url]" />
+                  </uix:NApplicationCard.TargetApp>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NApplicationCard>
+              </TryCatch.Try>
+              <TryCatch.Catches>
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="708.6666666666666,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ActivityAction x:TypeArguments="s:Exception">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                    </ActivityAction.Argument>
+                    <Sequence sap:VirtualizedContainerService.HintSize="416,220" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Warn" Message="[&quot;System exception at 12_homeowners_insurance&quot;+&quot;+&quot;+exception.Message]" />
+                      <Rethrow DisplayName="Rethrow Get transaction item faulted" sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+                    </Sequence>
+                  </ActivityAction>
+                </Catch>
+              </TryCatch.Catches>
+            </TryCatch>
+          </Sequence>
+        </ActivityAction>
+      </ui:RetryScope.ActivityBody>
+      <ui:RetryScope.Condition>
+        <ActivityFunc x:TypeArguments="x:Boolean" />
+      </ui:RetryScope.Condition>
+    </ui:RetryScope>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="846.6666666666666,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;12_Homeowners Insurance Requested page success&quot;]" />
+  </Sequence>
+</Activity>

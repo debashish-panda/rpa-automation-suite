@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>761.6,4024</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="50">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Windows.Forms</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Reflection</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="80">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="416,3959.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="var_Date_Of_Business">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="SourceIdRef">InvokeWorkflowFile_15</x:String>
+            <x:String x:Key="SourcePropertyName">out_Date_of_Business</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Variable>
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="353.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started AMS 360 Process&quot;]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Zenith Web\1_Customer page(Autosaved).xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="353.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Zenith Web\1_Customer page(Autosaved).xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Url">https://www.ams360.com/*</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_PolicyNumber">Z133917107</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_InsuredName" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Zenith Web\2_policy page.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="353.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Zenith Web\2_policy page.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Effective_Date">01/01/2034</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_term">01/01/203401/01/2035</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_policy_num">Z133917107</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Zenith Web\3_Renew page.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="353.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Zenith Web\3_Renew page.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Url">C:\Users\sunde\AppData\Local\AMS Services, Inc\AMS 360\workstationcoordinator.exe</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Policy_number">Z133917107</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Effective_date">01/01/2028</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Expiration_date">01/01/2029</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Billing_Method">DIRECT BILL</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_type_Business">Commercial Lines</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_transaction">Renew policy</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Pay_plan">Annual</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_State" />
+        <InArgument x:TypeArguments="x:String" x:Key="in_DIvision" />
+        <InArgument x:TypeArguments="x:String" x:Key="in_Department" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="4TransactionPremiumsPage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="353.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Zenith Web\4TransactionPremiumsPage.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Premium">1600</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_line_Of_Business">FSA-Section 125 Plan(other)</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_full_Term_Premium">1700</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Zenith Web\5_Basic_Policy_Informaion.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="353.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Zenith Web\5_Basic_Policy_Informaion.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ExpDate" xml:space="preserve"> 1/1/2044</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_PolicyNumber">Z133917107</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_EffectiveDate">1/1/2031</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Policy_extension">6</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Policy_Premuim">800</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Zenith Web\6_First_Name_Insured.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="353.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Zenith Web\6_First_Name_Insured.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_firm_name">kddhhdhjd</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_score">90</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="In_log_table" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_declaration_name">jjsdbdbjd</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_address_line_1">ndjdjdjdk</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_city">sijsdssdjhh</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_state">FL</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_zip">7045</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="In_arg_retry_count">3</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Entity_Type" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_first_name">sudhnashu</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_middle_name">lkumar</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_last_name">bhagat</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Zenith Web\7_Commercial Supplement.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="353.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="Zenith Web\7_Commercial Supplement.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Fein_No">4522</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_Address">fjhfyfyufufyf</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_City" />
+        <InArgument x:TypeArguments="x:String" x:Key="in_state">ME</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Dba_Name" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Zenith Web\9_Sunbiz_Automation.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="353.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="Zenith Web\9_Sunbiz_Automation.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Fein_No">59-3361144</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Insured_Name" />
+        <OutArgument x:TypeArguments="x:String" x:Key="out_Date_of_Business">[var_Date_Of_Business]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Zenith Web\8_125,130 Applicant Information.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="353.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Zenith Web\8_125,130 Applicant Information.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Date_Of_Business">[var_Date_Of_Business]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Fein_No">59-347301</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Naics_No">45456</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Sic">455456</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Ncci_Id">1545</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_type_of_Business">Rental</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Nature_Of_Business" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Zenith Web\12_Commerical Location.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="353.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Zenith Web\12_Commerical Location.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="In_arg_Dt_Commercial_location" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="13_prior_carrier.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="353.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="13_prior_carrier.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_policy_number">Z133917107</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_effective_date">1/1/2028</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_expiration_date">1/1/2029</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="In_arg_prior_carrer_table" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="353.6,88" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="14_15_16_17_worker_compensation_state.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="353.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="14_15_16_17_worker_compensation_state.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_state">AL</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_each_accident_limit">150</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_disease_policy_limit">230</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_disease_each_employee">310</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_State_type">exclude</InArgument>
+        <InArgument x:TypeArguments="scg:List(x:String)" x:Key="In_arg_list_other_states">[New List(Of String) From {"CO", "KS"}]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_retroactive_date" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_each_accident_increased" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_disease_policy_increased" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_disease_each_employee_increased" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_emp_id" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="18_classification_rating - Invoke Workflow File (Zenith Web\18_classification_rating.xaml)" sap:VirtualizedContainerService.HintSize="353.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_17" UnSafe="False" WorkflowFileName="Zenith Web\18_classification_rating.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="In_arg_Dt_classification" />
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_arg_commercial_location" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="19_Premium_Calculation - Invoke Workflow File (Zenith Web\19_Premium_Calculation.xaml)" sap:VirtualizedContainerService.HintSize="353.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="Zenith Web\19_Premium_Calculation.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_Deductible_value" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_USLH_value" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_Voluntary_compensation" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_Foreign_coverage" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_Managed_care_option" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_Experience_modification" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_loss_constant" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_assigned_risk_surcharge" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_arap" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_premium_discount" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_expense_constant" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_other_coverage_1_type" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_other_coverage_2_type" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_other_coverage_3_type" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_other_coverage_1_value" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_other_coverage_2_value" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_other_coverage_3_value" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="20_invidual_excluded - Invoke Workflow File (Zenith Web\20_invidual_excluded.xaml)" sap:VirtualizedContainerService.HintSize="353.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" UnSafe="False" WorkflowFileName="Zenith Web\20_invidual_excluded.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="In_arg_dt_included_excluded" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="21_Forms_and_Endorsement - Invoke Workflow File (Zenith Web\21_Forms_and_Endorsement.xaml)" sap:VirtualizedContainerService.HintSize="353.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_20" UnSafe="False" WorkflowFileName="Zenith Web\21_Forms_and_Endorsement.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="In_arg_forms_and_endorsement" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_score" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="22_Activity_page - Invoke Workflow File (Zenith Web\22_Activity_page.xaml)" sap:VirtualizedContainerService.HintSize="353.6,197.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="Zenith Web\22_Activity_page.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_year_from" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_year_to" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_Insurance_company" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_file_path" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_effective_date" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_premium_amount" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+  </Sequence>
+</Activity>

@@ -1,0 +1,435 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Pop_Up" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1144.8,559.2" sap2010:WorkflowViewState.IdRef="Pop_Up_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>OS.Fuzzy.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Pop_Up" sap:VirtualizedContainerService.HintSize="416,221.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:UiElement" Name="ui_click" />
+      <Variable x:TypeArguments="x:Boolean" Name="app_ele" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="353.6,84.8" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,164.8" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Workers Compensation" sap:VirtualizedContainerService.HintSize="353.6,76" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="9ec9c83a-b386-483c-9390-9b33dfa125d5" Version="V2" WindowResize="Maximize">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,279.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="ui:UiElement" Name="pop_1" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'Static'" FoundElement="[pop_1]" sap:VirtualizedContainerService.HintSize="353.6,139.2" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_3">
+                    <ui:WaitUiElementAppear.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="8ff278c4-42d1-4817-beef-ac4772459fe4" InformativeScreenshot="00ec1714864af37de0e931b62840dacf">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:WaitUiElementAppear.Target>
+                  </ui:WaitUiElementAppear>
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="353.6,49.6" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="1352,1056" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NCheckState DisplayName="Check App State 'AMS360 - message'" Exists="[app_ele]" sap:VirtualizedContainerService.HintSize="1289.6,967.2" sap2010:WorkflowViewState.IdRef="NCheckState_1" InUiElement="[pop_1]" ScopeIdentifier="9ec9c83a-b386-483c-9390-9b33dfa125d5" Version="V3">
+                          <uix:NCheckState.IfExists>
+                            <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="787.2,745.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="724.8,176" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[app_ele]" />
+                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="724.8,84.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                                <ui:CommentOut.Body>
+                                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,164.8" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'dialog  AMS360 - message'" FoundElement="[ui_click]" sap:VirtualizedContainerService.HintSize="353.6,76" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1">
+                                      <ui:WaitUiElementAppear.Target>
+                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="66bd628c-638d-4bdf-8985-4a74e6329e63" InformativeScreenshot="221570b0e25c3f739dc2281dc438b151">
+                                          <ui:Target.TimeoutMS>
+                                            <InArgument x:TypeArguments="x:Int32" />
+                                          </ui:Target.TimeoutMS>
+                                          <ui:Target.WaitForReady>
+                                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                                          </ui:Target.WaitForReady>
+                                        </ui:Target>
+                                      </ui:WaitUiElementAppear.Target>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:WaitUiElementAppear>
+                                  </Sequence>
+                                </ui:CommentOut.Body>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:CommentOut>
+                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="724.8,84.8" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                                <ui:CommentOut.Body>
+                                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,164.8" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click" sap:VirtualizedContainerService.HintSize="353.6,76" sap2010:WorkflowViewState.IdRef="NClick_2" InUiElement="[ui_click]" InteractionMode="WindowMessages" KeyModifiers="None" MouseButton="Left" Version="V3">
+                                      <uix:NClick.VerifyOptions>
+                                        <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                          <uix:VerifyExecutionOptions.Retry>
+                                            <InArgument x:TypeArguments="x:Boolean" />
+                                          </uix:VerifyExecutionOptions.Retry>
+                                          <uix:VerifyExecutionOptions.Timeout>
+                                            <InArgument x:TypeArguments="x:Double" />
+                                          </uix:VerifyExecutionOptions.Timeout>
+                                        </uix:VerifyExecutionOptions>
+                                      </uix:NClick.VerifyOptions>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </uix:NClick>
+                                  </Sequence>
+                                </ui:CommentOut.Body>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:CommentOut>
+                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="724.8,84.8" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                                <ui:CommentOut.Body>
+                                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,269.6" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" Activate="True" DisplayName="Send Hotkey 'workstationcoordinator....'" sap:VirtualizedContainerService.HintSize="353.6,180.8" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="f4" KeyModifiers="Alt" SendWindowMessages="True" SpecialKey="True">
+                                      <ui:SendHotkey.Target>
+                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="eafaf85c-b24e-46a5-92e2-7a3bc9609c06" InformativeScreenshot="186b3aa8d7c82f657e94195cb9f1b4ab">
+                                          <ui:Target.TimeoutMS>
+                                            <InArgument x:TypeArguments="x:Int32" />
+                                          </ui:Target.TimeoutMS>
+                                          <ui:Target.WaitForReady>
+                                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                                          </ui:Target.WaitForReady>
+                                        </ui:Target>
+                                      </ui:SendHotkey.Target>
+                                    </ui:SendHotkey>
+                                  </Sequence>
+                                </ui:CommentOut.Body>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:CommentOut>
+                              <ui:AnchorBase AnchorPosition="OnTop" DisplayName="Anchor Base" sap:VirtualizedContainerService.HintSize="724.8,224.8" sap2010:WorkflowViewState.IdRef="AnchorBase_1">
+                                <ui:AnchorBase.Action>
+                                  <ActivityAction x:TypeArguments="ui:Anchor">
+                                    <ActivityAction.Argument>
+                                      <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+                                    </ActivityAction.Argument>
+                                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True" UnblockInput="False">
+                                      <ui:Click.CursorPosition>
+                                        <ui:CursorPosition Position="Center">
+                                          <ui:CursorPosition.OffsetX>
+                                            <InArgument x:TypeArguments="x:Int32" />
+                                          </ui:CursorPosition.OffsetX>
+                                          <ui:CursorPosition.OffsetY>
+                                            <InArgument x:TypeArguments="x:Int32" />
+                                          </ui:CursorPosition.OffsetY>
+                                        </ui:CursorPosition>
+                                      </ui:Click.CursorPosition>
+                                      <ui:Click.Target>
+                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="f918d474-ab07-4973-ae4c-aa555ac92c9a" InformativeScreenshot="c327f56eb0f190f7bacbd45c9e427cb0">
+                                          <ui:Target.TimeoutMS>
+                                            <InArgument x:TypeArguments="x:Int32" />
+                                          </ui:Target.TimeoutMS>
+                                          <ui:Target.WaitForReady>
+                                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                                          </ui:Target.WaitForReady>
+                                        </ui:Target>
+                                      </ui:Click.Target>
+                                    </ui:Click>
+                                  </ActivityAction>
+                                </ui:AnchorBase.Action>
+                                <ui:AnchorBase.AnchorProvider>
+                                  <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'Static'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_2">
+                                    <ui:WaitUiElementAppear.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="8ff278c4-42d1-4817-beef-ac4772459fe4" InformativeScreenshot="00ec1714864af37de0e931b62840dacf">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:WaitUiElementAppear.Target>
+                                  </ui:WaitUiElementAppear>
+                                </ui:AnchorBase.AnchorProvider>
+                              </ui:AnchorBase>
+                            </Sequence>
+                          </uix:NCheckState.IfExists>
+                          <uix:NCheckState.IfNotExists>
+                            <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="449.6,106.4" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </Sequence>
+                          </uix:NCheckState.IfNotExists>
+                          <uix:NCheckState.Target>
+                            <uix:TargetAnchorable DesignTimeRectangle="0, 0, 399, 199" DesignTimeScaleFactor="1.25" Guid="b312c19c-1deb-43f6-8011-9ab28075d6d8" InformativeScreenshot="32c73d9a46cff6f1c9081191d124ab21.png" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' cls='#32770' title='AMS360 - message' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Visible">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                  <uix:Target CVScreenId="e760ad80-613f-43b6-a525-ba4be987b7bd" CvElementArea="275, 149, 93, 28" CvTextArea="311, 155, 21, 13" CvTextArgument="OK" CvType="Button" DesignTimeRectangle="277, 149, 94, 29" ElementType="Button" FullSelectorArgument="&lt;wnd ctrlid='2' title='OK' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='2' title='OK' check:text='OK' /&gt;" Guid="d141cc17-c5f5-432c-9477-b64295c3131d" SearchSteps="Selector, FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                              <uix:TargetAnchorable.FuzzySelectorArgument>
+                                <InArgument x:TypeArguments="x:String">
+                                  <Literal x:TypeArguments="x:String" Value="" />
+                                </InArgument>
+                              </uix:TargetAnchorable.FuzzySelectorArgument>
+                            </uix:TargetAnchorable>
+                          </uix:NCheckState.Target>
+                        </uix:NCheckState>
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:CommentOut>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-8, 53, 1935, 975" FilePath="C:\Users\sunde\AppData\Local\AMS Services, Inc\AMS 360\workstationcoordinator.exe" IconBase64="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" InformativeScreenshot="cb61cf186e4981f7eb0638adf3b67566.png" Selector="&lt;wnd app='workstationcoordinator.exe' ctrlname='frmBPolParent' /&gt;&lt;wnd ctrlname='mdiClient1' /&gt;&lt;wnd ctrlname='frmWorkersComp' /&gt;" />
+            </uix:NApplicationCard.TargetApp>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NApplicationCard>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="353.6,48" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,136.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Policy - 95 AND VINE LLC - Z134715607 - (1/1/2068 - 1/1/2069) - [Workers Compensati" sap:VirtualizedContainerService.HintSize="353.6,48" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" ScopeGuid="f791e86e-d0b7-40b6-b6ca-d63a87b1fbd8" Version="V2">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,534.4" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'State: State:'" sap:VirtualizedContainerService.HintSize="353.6,225.6" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f791e86e-d0b7-40b6-b6ca-d63a87b1fbd8" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="13, 101, 1915, 896" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;wnd ctrlname='frmWorkersComp' /&gt;&lt;wnd ctrlname='m_oPanelMain' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='frmWorkersComp' /&gt;&lt;wnd ctrlname='m_oPanelMain' check:fulltext='State:&amp;#xD;&amp;#xA;State:&amp;#xD;&amp;#xA;Open&amp;#xD;&amp;#xA;Retro Rating Plan:&amp;#xD;&amp;#xA;Retro Rating Plan:&amp;#xD;&amp;#xA;# of Years Retro in Effect:&amp;#xD;&amp;#xA;# of Years Retro in Effect:&amp;#xD;&amp;#xA;Anniversary Rating Date:&amp;#xD;&amp;#xA;Anniversary Rating Date:&amp;#xD;&amp;#xA;Additional Company Information:&amp;#xD;&amp;#xA;Additional Company Information:&amp;#xD;&amp;#xA;Additional Plan Information&amp;#xD;&amp;#xA;Is the Insured a member of a Safety Group?&amp;#xD;&amp;#xA;Yes&amp;#xD;&amp;#xA;No&amp;#xD;&amp;#xA;Dividend Plan or Safety Group:&amp;#xD;&amp;#xA;Dividend Plan or Safety Group:&amp;#xD;&amp;#xA;Is Policy to be set on a Participating Basis?&amp;#xD;&amp;#xA;Yes&amp;#xD;&amp;#xA;No&amp;#xD;&amp;#xA;Identification Numbers:&amp;#xD;&amp;#xA;Employer Id:&amp;#xD;&amp;#xA;Employer Id:&amp;#xD;&amp;#xA;NCCI Id:&amp;#xD;&amp;#xA;NCCI Id:&amp;#xD;&amp;#xA;Other Rating Bureau Id or State Employer Reg #:&amp;#xD;&amp;#xA;Other Rating Bureau Id or State Employer Reg #:&amp;#xD;&amp;#xA;Add&amp;#xD;&amp;#xA;Add&amp;#xD;&amp;#xA;Cancel&amp;#xD;&amp;#xA;Cancel&amp;#xD;&amp;#xA;Add...&amp;#xD;&amp;#xA;Add...&amp;#xD;&amp;#xA;*State:&amp;#xD;&amp;#xA;MD&amp;#xD;&amp;#xA;Open&amp;#xD;&amp;#xA;AB&amp;#xD;&amp;#xA;AK&amp;#xD;&amp;#xA;AL&amp;#xD;&amp;#xA;AR&amp;#xD;&amp;#xA;AS&amp;#xD;&amp;#xA;AZ&amp;#xD;&amp;#xA;BC&amp;#xD;&amp;#xA;CA&amp;#xD;&amp;#xA;CO&amp;#xD;&amp;#xA;CT&amp;#xD;&amp;#xA;DC&amp;#xD;&amp;#xA;DE&amp;#xD;&amp;#xA;FL&amp;#xD;&amp;#xA;FM&amp;#xD;&amp;#xA;GA&amp;#xD;&amp;#xA;GU&amp;#xD;&amp;#xA;HI&amp;#xD;&amp;#xA;IA&amp;#xD;&amp;#xA;ID&amp;#xD;&amp;#xA;IL&amp;#xD;&amp;#xA;IN&amp;#xD;&amp;#xA;KS&amp;#xD;&amp;#xA;KY&amp;#xD;&amp;#xA;LA&amp;#xD;&amp;#xA;MA&amp;#xD;&amp;#xA;MB&amp;#xD;&amp;#xA;MD&amp;#xD;&amp;#xA;ME&amp;#xD;&amp;#xA;MH&amp;#xD;&amp;#xA;MI&amp;#xD;&amp;#xA;MN&amp;#xD;&amp;#xA;MO&amp;#xD;&amp;#xA;MP&amp;#xD;&amp;#xA;MS&amp;#xD;&amp;#xA;MT&amp;#xD;&amp;#xA;NB&amp;#xD;&amp;#xA;NC&amp;#xD;&amp;#xA;ND&amp;#xD;&amp;#xA;NE&amp;#xD;&amp;#xA;NH&amp;#xD;&amp;#xA;NJ&amp;#xD;&amp;#xA;NL&amp;#xD;&amp;#xA;NM&amp;#xD;&amp;#xA;NS&amp;#xD;&amp;#xA;NT&amp;#xD;&amp;#xA;NU&amp;#xD;&amp;#xA;NV&amp;#xD;&amp;#xA;NY&amp;#xD;&amp;#xA;OH&amp;#xD;&amp;#xA;OK&amp;#xD;&amp;#xA;ON&amp;#xD;&amp;#xA;OR&amp;#xD;&amp;#xA;PA&amp;#xD;&amp;#xA;PE&amp;#xD;&amp;#xA;PR&amp;#xD;&amp;#xA;PW&amp;#xD;&amp;#xA;QC&amp;#xD;&amp;#xA;RI&amp;#xD;&amp;#xA;SC&amp;#xD;&amp;#xA;SD&amp;#xD;&amp;#xA;SK&amp;#xD;&amp;#xA;TN&amp;#xD;&amp;#xA;TX&amp;#xD;&amp;#xA;UT&amp;#xD;&amp;#xA;VA&amp;#xD;&amp;#xA;VI&amp;#xD;&amp;#xA;VT&amp;#xD;&amp;#xA;WA&amp;#xD;&amp;#xA;WI&amp;#xD;&amp;#xA;WV&amp;#xD;&amp;#xA;WY&amp;#xD;&amp;#xA;XX&amp;#xD;&amp;#xA;YT&amp;#xD;&amp;#xA;Other States Insurance Coverage&amp;#xD;&amp;#xA;Included&amp;#xD;&amp;#xA;Excluded&amp;#xD;&amp;#xA;grdWorkersComp_WCompOtherStatesIns_WCompGrdOtherStatesHeader&amp;#xD;&amp;#xA;State&amp;#xD;&amp;#xA;Included/Excluded&amp;#xD;&amp;#xA;grdWorkersComp_WCompOtherStatesIns_WCompGrdOtherStates-XGDataRow0&amp;#xD;&amp;#xA;AR&amp;#xD;&amp;#xA;Exclude&amp;#xD;&amp;#xA;State:&amp;#xD;&amp;#xA;State:&amp;#xD;&amp;#xA;Open&amp;#xD;&amp;#xA;Rating Basis:&amp;#xD;&amp;#xA;Rating Basis:&amp;#xD;&amp;#xA;Open&amp;#xD;&amp;#xA;Location #:&amp;#xD;&amp;#xA;Location #:&amp;#xD;&amp;#xA;Open&amp;#xD;&amp;#xA;Exposure (Remuneration):&amp;#xD;&amp;#xA;Exposure (Remuneration):&amp;#xD;&amp;#xA;Class Code:&amp;#xD;&amp;#xA;Class Code:&amp;#xD;&amp;#xA;Rate:&amp;#xD;&amp;#xA;Rate:&amp;#xD;&amp;#xA;Categories, Duties, Classification:&amp;#xD;&amp;#xA;Premium:&amp;#xD;&amp;#xA;Premium:&amp;#xD;&amp;#xA;Premium:&amp;#xD;&amp;#xA;Number of Employees&amp;#xD;&amp;#xA;Total:&amp;#xD;&amp;#xA;Total:&amp;#xD;&amp;#xA;# of Full-Time:&amp;#xD;&amp;#xA;# of Full-Time:&amp;#xD;&amp;#xA;# of Part-Time:&amp;#xD;&amp;#xA;# of Part-Time:&amp;#xD;&amp;#xA;Coverage:&amp;#xD;&amp;#xA;Coverage:&amp;#xD;&amp;#xA;Open&amp;#xD;&amp;#xA;Sort Order #:&amp;#xD;&amp;#xA;Sort Order #:&amp;#xD;&amp;#xA;Limit 1:&amp;#xD;&amp;#xA;Limit 1:&amp;#xD;&amp;#xA;Limit 2:&amp;#xD;&amp;#xA;Limit 2:&amp;#xD;&amp;#xA;Limit 3:&amp;#xD;&amp;#xA;Limit 3:&amp;#xD;&amp;#xA;Exposure:&amp;#xD;&amp;#xA;Exposure:&amp;#xD;&amp;#xA;Rate:&amp;#xD;&amp;#xA;Rate:&amp;#xD;&amp;#xA;Premium:&amp;#xD;&amp;#xA;Premium:&amp;#xD;&amp;#xA;Deductible Information&amp;#xD;&amp;#xA;Type:&amp;#xD;&amp;#xA;Type:&amp;#xD;&amp;#xA;Open&amp;#xD;&amp;#xA;Amount:&amp;#xD;&amp;#xA;Amount:&amp;#xD;&amp;#xA;Miscellaneous Information:&amp;#xD;&amp;#xA;Miscellaneous Information:&amp;#xD;&amp;#xA;Rate Description:&amp;#xD;&amp;#xA;Rate Description:&amp;#xD;&amp;#xA;Description:&amp;#xD;&amp;#xA;Description:&amp;#xD;&amp;#xA;Factor:&amp;#xD;&amp;#xA;Factor:&amp;#xD;&amp;#xA;New&amp;#xD;&amp;#xA;New&amp;#xD;&amp;#xA;Edit&amp;#xD;&amp;#xA;Edit&amp;#xD;&amp;#xA;Delete&amp;#xD;&amp;#xA;Delete&amp;#xD;&amp;#xA;Name:&amp;#xD;&amp;#xA;Name:&amp;#xD;&amp;#xA;Open&amp;#xD;&amp;#xA;Individual Coverage Status&amp;#xD;&amp;#xA;Included&amp;#xD;&amp;#xA;Excluded&amp;#xD;&amp;#xA;Title/Relationship:&amp;#xD;&amp;#xA;Title/Relationship:&amp;#xD;&amp;#xA;Duties:&amp;#xD;&amp;#xA;Duties:&amp;#xD;&amp;#xA;Date of Birth:&amp;#xD;&amp;#xA;Date of Birth:&amp;#xD;&amp;#xA;% of Ownership:&amp;#xD;&amp;#xA;% of Ownership:&amp;#xD;&amp;#xA;Class Code:&amp;#xD;&amp;#xA;Class Code:&amp;#xD;&amp;#xA;Remuneration:&amp;#xD;&amp;#xA;Remuneration:&amp;#xD;&amp;#xA;grdWorkersComp_WCompIndivInclExcl_WCompGrdIndivInclExclHeader&amp;#xD;&amp;#xA;Name&amp;#xD;&amp;#xA;Date of Birth&amp;#xD;&amp;#xA;Title/Relationship&amp;#xD;&amp;#xA;Included/Excluded&amp;#xD;&amp;#xA;grdWorkersComp_WCompIndivInclExcl_WCompGrdIndivInclExcl-XGDataRow0&amp;#xD;&amp;#xA;MARTIN CLARK&amp;#xD;&amp;#xA;Value=# Row=0 Column=Date of Birth&amp;#xD;&amp;#xA;Member&amp;#xD;&amp;#xA;Exclude&amp;#xD;&amp;#xA;Coverage Level&amp;#xD;&amp;#xA;Line of Business&amp;#xD;&amp;#xA;State&amp;#xD;&amp;#xA;Delete&amp;#xD;&amp;#xA;Open&amp;#xD;&amp;#xA;Delete&amp;#xD;&amp;#xA;Location&amp;#xD;&amp;#xA;Open&amp;#xD;&amp;#xA;Coverage:&amp;#xD;&amp;#xA;Coverage:&amp;#xD;&amp;#xA;Open&amp;#xD;&amp;#xA;Sort Order #:&amp;#xD;&amp;#xA;Sort Order #:&amp;#xD;&amp;#xA;Limit 1:&amp;#xD;&amp;#xA;Limit 1:&amp;#xD;&amp;#xA;Limit 2:&amp;#xD;&amp;#xA;Limit 2:&amp;#xD;&amp;#xA;Limit 3:&amp;#xD;&amp;#xA;Limit 3:&amp;#xD;&amp;#xA;Exposure:&amp;#xD;&amp;#xA;Exposure:&amp;#xD;&amp;#xA;Rate:&amp;#xD;&amp;#xA;Rate:&amp;#xD;&amp;#xA;Premium:&amp;#xD;&amp;#xA;Premium:&amp;#xD;&amp;#xA;Deductible Information&amp;#xD;&amp;#xA;Type:&amp;#xD;&amp;#xA;Type:&amp;#xD;&amp;#xA;Open&amp;#xD;&amp;#xA;Amount:&amp;#xD;&amp;#xA;Amount:&amp;#xD;&amp;#xA;Basis:&amp;#xD;&amp;#xA;Basis:&amp;#xD;&amp;#xA;Open&amp;#xD;&amp;#xA;Applies To:&amp;#xD;&amp;#xA;Applies To:&amp;#xD;&amp;#xA;Open&amp;#xD;&amp;#xA;Miscellaneous Information:&amp;#xD;&amp;#xA;Miscellaneous Information:&amp;#xD;&amp;#xA;Description:&amp;#xD;&amp;#xA;Description:&amp;#xD;&amp;#xA;Factor:&amp;#xD;&amp;#xA;Factor:&amp;#xD;&amp;#xA;New&amp;#xD;&amp;#xA;New&amp;#xD;&amp;#xA;Edit&amp;#xD;&amp;#xA;Edit&amp;#xD;&amp;#xA;Delete&amp;#xD;&amp;#xA;Delete&amp;#xD;&amp;#xA;Filter&amp;#xD;&amp;#xA;Type:&amp;#xD;&amp;#xA;Type:&amp;#xD;&amp;#xA;Open&amp;#xD;&amp;#xA;Type:&amp;#xD;&amp;#xA;Open&amp;#xD;&amp;#xA;Name:&amp;#xD;&amp;#xA;Name:&amp;#xD;&amp;#xA;Update from Cust Holder Setup&amp;#xD;&amp;#xA;Type:&amp;#xD;&amp;#xA;Type:&amp;#xD;&amp;#xA;Open&amp;#xD;&amp;#xA;Type:&amp;#xD;&amp;#xA;Name:&amp;#xD;&amp;#xA;Name:&amp;#xD;&amp;#xA;Name:&amp;#xD;&amp;#xA;Contact:&amp;#xD;&amp;#xA;Contact:&amp;#xD;&amp;#xA;Contact:&amp;#xD;&amp;#xA;Address:&amp;#xD;&amp;#xA;Address:&amp;#xD;&amp;#xA;Address:&amp;#xD;&amp;#xA;Open&amp;#xD;&amp;#xA;Address:&amp;#xD;&amp;#xA;Phone Numbers and Email&amp;#xD;&amp;#xA;Address:&amp;#xD;&amp;#xA;Phone:&amp;#xD;&amp;#xA;Phone:&amp;#xD;&amp;#xA;Phone:&amp;#xD;&amp;#xA;Ext:&amp;#xD;&amp;#xA;Ext:&amp;#xD;&amp;#xA;Fax:&amp;#xD;&amp;#xA;Fax:&amp;#xD;&amp;#xA;Ext:&amp;#xD;&amp;#xA;Email:&amp;#xD;&amp;#xA;City:&amp;#xD;&amp;#xA;Write Additional Interest to Setup&amp;#xD;&amp;#xA;Interest&amp;#xD;&amp;#xA;Rank:&amp;#xD;&amp;#xA;Rank:&amp;#xD;&amp;#xA;Payor&amp;#xD;&amp;#xA;State:&amp;#xD;&amp;#xA;Certificate&amp;#xD;&amp;#xA;Required&amp;#xD;&amp;#xA;Date:&amp;#xD;&amp;#xA;7/6/2001&amp;#xD;&amp;#xA;Issued&amp;#xD;&amp;#xA;Date:&amp;#xD;&amp;#xA;7/6/2001&amp;#xD;&amp;#xA;Policy&amp;#xD;&amp;#xA;Required&amp;#xD;&amp;#xA;Date:&amp;#xD;&amp;#xA;7/6/2001&amp;#xD;&amp;#xA;Issued&amp;#xD;&amp;#xA;Date:&amp;#xD;&amp;#xA;7/6/2001&amp;#xD;&amp;#xA;Zip:&amp;#xD;&amp;#xA;Loan Information&amp;#xD;&amp;#xA;Reference/Loan #:&amp;#xD;&amp;#xA;Reference/Loan #:&amp;#xD;&amp;#xA;Final Payment:&amp;#xD;&amp;#xA;10/1/2001&amp;#xD;&amp;#xA;Item&amp;#xD;&amp;#xA;Description:&amp;#xD;&amp;#xA;Description:&amp;#xD;&amp;#xA;Interest in Item Number  (if not Location, Building, Vehicle, Boat, or Scheduled Item):&amp;#xD;&amp;#xA;Interest in Item Number  (if not Location, Building, Vehicle, Boat, or Scheduled Item):&amp;#xD;&amp;#xA;Desc of Operations/Special Conditions&amp;#xD;&amp;#xA;Interest in Item Number  (if not Location, Building, Vehicle, Boat, or Scheduled Item):&amp;#xD;&amp;#xA;Open&amp;#xD;&amp;#xA;Insert&amp;#xD;&amp;#xA;Replace&amp;#xD;&amp;#xA;Interest in Item Number  (if not Location, Building, Vehicle, Boat, or Scheduled Item):&amp;#xD;&amp;#xA;Text Setup&amp;#xD;&amp;#xA;Text Setup&amp;#xD;&amp;#xA;Text:&amp;#xD;&amp;#xA;Additional Information&amp;#xD;&amp;#xA;Text:&amp;#xD;&amp;#xA;Text:&amp;#xD;&amp;#xA;Text:&amp;#xD;&amp;#xA;Group Name:&amp;#xD;&amp;#xA;Job Type:&amp;#xD;&amp;#xA;Licensed&amp;#xD;&amp;#xA;Job #:&amp;#xD;&amp;#xA;Bonded&amp;#xD;&amp;#xA;Project End Date:&amp;#xD;&amp;#xA;CCHG.GroupName&amp;#xD;&amp;#xA;Written Notice&amp;#xD;&amp;#xA;CCHG.GroupName&amp;#xD;&amp;#xA;# of Days:&amp;#xD;&amp;#xA;Options&amp;#xD;&amp;#xA;Method of Distribution:&amp;#xD;&amp;#xA;Method of Distribution:&amp;#xD;&amp;#xA;Open&amp;#xD;&amp;#xA;X over &amp;quot;endeavor to&amp;quot;&amp;#xD;&amp;#xA;X over &amp;quot;But failure...through rep&amp;quot;&amp;#xD;&amp;#xA;X over &amp;quot;Workers comp and...&amp;quot;&amp;#xD;&amp;#xA;grdWorkersComp_AddtlInterests_GrdAddtlInterestsHeader&amp;#xD;&amp;#xA;Type&amp;#xD;&amp;#xA;Name&amp;#xD;&amp;#xA;Address&amp;#xD;&amp;#xA;City&amp;#xD;&amp;#xA;State&amp;#xD;&amp;#xA;Zip&amp;#xD;&amp;#xA;Rank&amp;#xD;&amp;#xA;# of Days&amp;#xD;&amp;#xA;Method of Distribution&amp;#xD;&amp;#xA;grdWorkersComp_AddtlInterests_GrdAddtlInterests-XGDataRow0&amp;#xD;&amp;#xA;Copy multiple holders&amp;#xD;&amp;#xA;Copy multiple holders&amp;#xD;&amp;#xA;Form #:&amp;#xD;&amp;#xA;Form #:&amp;#xD;&amp;#xA;Edition Date (MM/YYYY):&amp;#xD;&amp;#xA;Edition Date (MM/YYYY):&amp;#xD;&amp;#xA;Form Name:&amp;#xD;&amp;#xA;Form Name:&amp;#xD;&amp;#xA;Description:&amp;#xD;&amp;#xA;Description:&amp;#xD;&amp;#xA;Question:&amp;#xD;&amp;#xA;Answer:&amp;#xD;&amp;#xA;Answer Data Type:&amp;#xD;&amp;#xA;Answer Data Type:&amp;#xD;&amp;#xA;Answer Data Type:&amp;#xD;&amp;#xA;Answer Data Type:' /&gt;" Guid="7b441105-a43f-4f63-9689-bbf3c764639b" InformativeScreenshot="439b22ffabcb8077d97824171bbd8cf6.png" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' ctrlname='frmBPolParent' /&gt;&lt;wnd ctrlname='mdiClient1' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'OK'" sap:VirtualizedContainerService.HintSize="353.6,218.4" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f791e86e-d0b7-40b6-b6ca-d63a87b1fbd8" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable CVScreenId="b45f2125-8d16-4fb0-a832-90705065f6d3" CvElementArea="275, 149, 93, 28" CvTextArea="311, 155, 21, 13" CvTextArgument="OK" CvType="Button" DesignTimeRectangle="277, 149, 94, 29" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="&lt;wnd ctrlid='2' title='OK' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='2' title='OK' check:text='OK' /&gt;" Guid="1e554527-b10e-4ddd-b0c0-02d158836f9e" InformativeScreenshot="763478b63a0c35d50899fa7565612685.png" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' cls='#32770' title='AMS360 - message' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="0, 0, 0, 0" FilePath="C:\Users\sunde\AppData\Local\AMS Services, Inc\AMS 360\workstationcoordinator.exe" IconBase64="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" InformativeScreenshot="033278de825ccc330ce783aae5d48e54.png" Selector="&lt;wnd app='workstationcoordinator.exe' ctrlname='frmBPolParent' /&gt;" Title="Policy - 95 AND VINE LLC - Z134715607 - (1/1/2068 - 1/1/2069) - [Workers Compensation]" />
+            </uix:NApplicationCard.TargetApp>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NApplicationCard>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+  </Sequence>
+</Activity>

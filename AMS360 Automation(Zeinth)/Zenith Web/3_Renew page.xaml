@@ -1,0 +1,963 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="_3_Renew_page" this:_3_Renew_page.in_Url="C:\Users\sunde\AppData\Local\AMS Services, Inc\AMS 360\workstationcoordinator.exe" this:_3_Renew_page.in_Policy_number="Z133917107" this:_3_Renew_page.in_Effective_date="01/01/2028" this:_3_Renew_page.in_Expiration_date="01/01/2029" this:_3_Renew_page.in_Billing_Method="DIRECT BILL" this:_3_Renew_page.in_type_Business="Commercial Lines" this:_3_Renew_page.in_transaction="Renew policy" this:_3_Renew_page.in_Pay_plan="Annual" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Url" Type="InArgument(x:String)" />
+    <x:Property Name="in_Policy_number" Type="InArgument(x:String)" />
+    <x:Property Name="in_Effective_date" Type="InArgument(x:String)" />
+    <x:Property Name="in_Expiration_date" Type="InArgument(x:String)" />
+    <x:Property Name="in_Billing_Method" Type="InArgument(x:String)" />
+    <x:Property Name="in_type_Business" Type="InArgument(x:String)" />
+    <x:Property Name="in_transaction" Type="InArgument(x:String)" />
+    <x:Property Name="in_Pay_plan" Type="InArgument(x:String)" />
+    <x:Property Name="in_State" Type="InArgument(x:String)" />
+    <x:Property Name="in_DIvision" Type="InArgument(x:String)" />
+    <x:Property Name="in_Department" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1412,3539.3333333333335</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>_3_Renew_page_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="_3_Renew_page" sap:VirtualizedContainerService.HintSize="608,3474.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="546,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Renew Page started&quot;]" />
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Create Renewal/Rewrite Policy - Z137355404" sap:VirtualizedContainerService.HintSize="546,3210" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="566ce037-4192-4df0-b2cf-567e34b669bf" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="512,2890" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="parent_Company" />
+              <Variable x:TypeArguments="x:String" Name="ext_Policy_num" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NGetText DisplayName="Get Text '*Policy #'" sap:VirtualizedContainerService.HintSize="450,191.33333333333334" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="566ce037-4192-4df0-b2cf-567e34b669bf" TextString="[ext_Policy_num]" Version="V3">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable CVScreenId="764df88c-c724-49d0-82d8-f83bd54314e7" CvElementArea="159, 291, 243, 27" CvType="InputBox" DesignTimeRectangle="161, 293, 240, 26" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='txtCopyPolicy_CopyPolCopyPol_BPolPolNo' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='txtCopyPolicy_CopyPolCopyPol_BPolPolNo' /&gt;" Guid="a06b5760-3e12-4a99-9342-e56f8e6e408a" InformativeScreenshot="8f1dcfdc5bf0fc65cd8bf9aebffe5f9e.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' ctrlname='CopyPolicy' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                      <uix:Target CVScreenId="764df88c-c724-49d0-82d8-f83bd54314e7" CvTextArea="33, 297, 72, 17" CvTextArgument="*Policy #:" CvType="Text" DesignTimeRectangle="31, 293, 120, 26" ElementType="Text" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_BPolPolNo' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_BPolPolNo' check:text='*Policy #:' /&gt;" Guid="bf56d4b6-59ba-4e5d-98d3-1b975531b730" SearchSteps="Selector, FuzzySelector, CV" />
+                      <uix:Target CVScreenId="764df88c-c724-49d0-82d8-f83bd54314e7" CvTextArea="22, 262, 395, 15" CvTextArgument="To create the Renewal, enter the following information:" CvType="Text" DesignTimeRectangle="21, 263, 660, 20" ElementType="Text" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCopyPolToCreate' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCopyPolToCreate' check:text='To create the Renewal, enter the following information:' /&gt;" Guid="7d6e0c5e-a1ce-41d8-a4db-0647af168b70" SearchSteps="Selector, FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetText.Target>
+            </uix:NGetText>
+            <If Condition="[ext_Policy_num.Equals(in_Policy_number)]" DisplayName="If ext policy no diff" sap:VirtualizedContainerService.HintSize="450,974" sap2010:WorkflowViewState.IdRef="If_3">
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,254.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,170" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;policy number is same as document&quot;]" />
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,547.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;policy no is not same &quot;]" />
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into '*Policy #'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,283.3333333333333" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="HardwareEvents" ScopeIdentifier="566ce037-4192-4df0-b2cf-567e34b669bf" Text="[in_Policy_number]" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable CVScreenId="20b67d20-9d8a-4e0a-b115-cfb5aed6fb2e" CvElementArea="128, 233, 194, 21" CvType="InputBox" DesignTimeRectangle="129, 234, 192, 21" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='txtCopyPolicy_CopyPolCopyPol_BPolPolNo' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='txtCopyPolicy_CopyPolCopyPol_BPolPolNo' /&gt;" Guid="cac2ce82-3147-4d24-8566-efa1ce9a2d13" InformativeScreenshot="c9b761c6803aaab5c2732b5113c02aac.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' ctrlname='CopyPolicy' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="20b67d20-9d8a-4e0a-b115-cfb5aed6fb2e" CvTextArea="27, 238, 58, 14" CvTextArgument="*Policy #:" CvType="Text" DesignTimeRectangle="25, 234, 96, 21" ElementType="Text" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_BPolPolNo' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_BPolPolNo' check:text='*Policy #:' /&gt;" Guid="1d019176-318c-4456-8187-529f8d9d0a16" SearchSteps="Selector, FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                    <uix:NTypeInto.VerifyOptions>
+                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionTypeIntoOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionTypeIntoOptions.Retry>
+                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                      </uix:VerifyExecutionTypeIntoOptions>
+                    </uix:NTypeInto.VerifyOptions>
+                  </uix:NTypeInto>
+                </Sequence>
+              </If.Else>
+            </If>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into '*Effective Date'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="450,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="HardwareEvents" ScopeIdentifier="566ce037-4192-4df0-b2cf-567e34b669bf" Text="[in_Effective_date]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable CVScreenId="9241f61d-82ff-4b2a-9169-12de44859036" CvElementArea="127, 257, 99, 24" CvType="InputBox" DesignTimeRectangle="129, 259, 81, 21" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='datCopyPolicy_CopyPolCopyPol_BPolPolEffDate' /&gt;&lt;wnd ctrlname='ZZZm_txtDateValue' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='datCopyPolicy_CopyPolCopyPol_BPolPolEffDate' /&gt;&lt;wnd ctrlname='ZZZm_txtDateValue' /&gt;" Guid="feea868c-98e3-4aa7-87a8-bf4d50fe9dcf" InformativeScreenshot="6ea1949cf14927167c25a7129b14c6d8.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' ctrlname='CopyPolicy' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="9241f61d-82ff-4b2a-9169-12de44859036" CvTextArea="27, 263, 92, 12" CvTextArgument="*Effective Date:" CvType="Text" DesignTimeRectangle="25, 258, 104, 23" ElementType="Text" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_BPolPolEffDate' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_BPolPolEffDate' check:text='*Effective Date:' /&gt;" Guid="4221db79-c834-498f-8e8e-c9721f777f55" SearchSteps="Selector, FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Expiration Date'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="450,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="HardwareEvents" ScopeIdentifier="566ce037-4192-4df0-b2cf-567e34b669bf" Text="[in_Expiration_date]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable CVScreenId="995855f8-983b-4d80-8e66-bdb9300808ad" CvElementArea="127, 281, 99, 24" CvType="InputBox" DesignTimeRectangle="129, 283, 81, 21" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='datCopyPolicy_CopyPolCopyPol_BPolPolExpDate' /&gt;&lt;wnd ctrlname='ZZZm_txtDateValue' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='datCopyPolicy_CopyPolCopyPol_BPolPolExpDate' /&gt;&lt;wnd ctrlname='ZZZm_txtDateValue' /&gt;" Guid="db7af3fc-d3e3-4205-8cab-e99d528558c2" InformativeScreenshot="bcb65323de7b8040b821bbca03d97a4d.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' ctrlname='CopyPolicy' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="995855f8-983b-4d80-8e66-bdb9300808ad" CvTextArea="28, 287, 92, 14" CvTextArgument="Expiration Date:" CvType="Text" DesignTimeRectangle="25, 282, 104, 23" ElementType="Text" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_BPolPolExpDate' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_BPolPolExpDate' check:text='Expiration Date:' /&gt;" Guid="aaa33a70-1d54-408d-b691-5d3fe3166506" SearchSteps="Selector, FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,269.6" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NSelectItem DisplayName="Select Item '*Type of Business'" sap:VirtualizedContainerService.HintSize="353.6,180.8" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="[in_type_Business]" ScopeIdentifier="566ce037-4192-4df0-b2cf-567e34b669bf" Version="V3">
+                    <uix:NSelectItem.Items>
+                      <scg:List x:TypeArguments="x:String" Capacity="7">
+                        <x:String>Benefits</x:String>
+                        <x:String>Commercial Lines</x:String>
+                        <x:String>Financial Services</x:String>
+                        <x:String>Health</x:String>
+                        <x:String>Life</x:String>
+                        <x:String>Non Property &amp; Casualty</x:String>
+                        <x:String>Personal Lines</x:String>
+                      </scg:List>
+                    </uix:NSelectItem.Items>
+                    <uix:NSelectItem.Target>
+                      <uix:TargetAnchorable CVScreenId="d5336a0b-711d-4936-a5cf-a6d8c46b9e6e" CvElementArea="460, 233, 190, 23" CvType="InputBox" DesignTimeRectangle="461, 234, 188, 21" DesignTimeScaleFactor="1" ElementType="DropDown" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_CopyPolCmbBPolTypeOfBus' /&gt;&lt;ctrl role='combo box' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_CopyPolCmbBPolTypeOfBus' /&gt;&lt;ctrl role='combo box' automationid='' /&gt;" Guid="076ecb82-f0ed-4e7e-ac2a-8daa7d6cf2c7" InformativeScreenshot="5f5b12ab4164c4b23463c91d07a9bd24.png" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' ctrlname='CopyPolicy' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="d5336a0b-711d-4936-a5cf-a6d8c46b9e6e" CvTextArea="347, 239, 108, 13" CvTextArgument="*Type of Business:" CvType="Text" DesignTimeRectangle="345, 234, 120, 21" ElementType="Text" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCmbBPolTypeOfBus' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCmbBPolTypeOfBus' check:text='*Type of Business:' /&gt;" Guid="c1047649-0ce2-4b69-a314-084337988661" SearchSteps="Selector, FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NSelectItem.Target>
+                  </uix:NSelectItem>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,269.6" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NSelectItem DisplayName="Select Item '*Transaction'" sap:VirtualizedContainerService.HintSize="353.6,180.8" sap2010:WorkflowViewState.IdRef="NSelectItem_2" Item="[in_transaction]" ScopeIdentifier="566ce037-4192-4df0-b2cf-567e34b669bf" Version="V3">
+                    <uix:NSelectItem.Items>
+                      <scg:List x:TypeArguments="x:String" Capacity="26">
+                        <x:String>Anniversary re-rate</x:String>
+                        <x:String>Binder Billable</x:String>
+                        <x:String>Binder Endorsement</x:String>
+                        <x:String>Binder New Business</x:String>
+                        <x:String>Binder Renewal</x:String>
+                        <x:String>Cancellation confirmation</x:String>
+                        <x:String>Cancellation request</x:String>
+                        <x:String>New business</x:String>
+                        <x:String>New business quote</x:String>
+                        <x:String>Non-renewal notified Agency</x:String>
+                        <x:String>Non-renewal notified PolHolder</x:String>
+                        <x:String>Policy (unspecified)</x:String>
+                        <x:String>Policy change</x:String>
+                        <x:String>Policy change quote</x:String>
+                        <x:String>Policy inquiry</x:String>
+                        <x:String>Policy Synchronization</x:String>
+                        <x:String>Policy Synchronization Request</x:String>
+                        <x:String>Premium audit</x:String>
+                        <x:String>Reinstatement</x:String>
+                        <x:String>Reissue</x:String>
+                        <x:String>Renew policy</x:String>
+                        <x:String>Renewal quote</x:String>
+                        <x:String>Renewal request</x:String>
+                        <x:String>Renewal requote</x:String>
+                        <x:String>Reversal of non-renewal</x:String>
+                        <x:String>Rewrite</x:String>
+                      </scg:List>
+                    </uix:NSelectItem.Items>
+                    <uix:NSelectItem.Target>
+                      <uix:TargetAnchorable CVScreenId="e4583c09-769c-4ef6-84f9-a8f9f0c27dc0" CvElementArea="460, 257, 189, 23" CvType="InputBox" DesignTimeRectangle="461, 258, 188, 21" DesignTimeScaleFactor="1" ElementType="DropDown" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_CopyPolCmbTransaction' /&gt;&lt;ctrl name='*Transaction:' role='combo box' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_CopyPolCmbTransaction' /&gt;&lt;ctrl name='*Transaction:' role='combo box' automationid='' /&gt;" Guid="a090fd8b-664c-4990-b2b8-98e13c8030d0" InformativeScreenshot="383a861ef8010cbf6f09b6fc56ed50a2.png" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' ctrlname='CopyPolicy' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="e4583c09-769c-4ef6-84f9-a8f9f0c27dc0" CvTextArea="347, 262, 77, 12" CvTextArgument="*Transaction:" CvType="Text" DesignTimeRectangle="345, 258, 88, 21" ElementType="Text" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCmbTransaction' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCmbTransaction' check:text='*Transaction:' /&gt;" Guid="9ca9bd4b-4cc2-40e1-bed5-686fb10522ed" SearchSteps="Selector, FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NSelectItem.Target>
+                  </uix:NSelectItem>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,366.4" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into '*Description'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="353.6,277.6" sap2010:WorkflowViewState.IdRef="NTypeInto_4" InteractionMode="HardwareEvents" ScopeIdentifier="566ce037-4192-4df0-b2cf-567e34b669bf" Text="Renew policy" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable CVScreenId="e4583c09-769c-4ef6-84f9-a8f9f0c27dc0" CvElementArea="461, 282, 189, 23" CvType="InputBox" DesignTimeRectangle="461, 283, 188, 21" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='txtCopyPolicy_CopyPolCopyPol_PolTDescription' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='txtCopyPolicy_CopyPolCopyPol_PolTDescription' /&gt;" Guid="b006e471-1f7a-4f5f-b4ed-c13088fdbf46" InformativeScreenshot="41b45bd54f8176f5c3d59165f0d81d93.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' ctrlname='CopyPolicy' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="e4583c09-769c-4ef6-84f9-a8f9f0c27dc0" CvTextArea="348, 286, 75, 14" CvTextArgument="*Description:" CvType="Text" DesignTimeRectangle="345, 282, 88, 21" ElementType="Text" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_PolTDescription' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_PolTDescription' check:text='*Description:' /&gt;" Guid="c5309588-86b4-4a24-a559-2065e2882edf" SearchSteps="Selector, FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                    <uix:NTypeInto.VerifyOptions>
+                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionTypeIntoOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionTypeIntoOptions.Retry>
+                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                      </uix:VerifyExecutionTypeIntoOptions>
+                    </uix:NTypeInto.VerifyOptions>
+                  </uix:NTypeInto>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512,789.6" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If Condition="[in_Billing_Method.ToUpper.Trim =&quot;DIRECT BILL&quot;]" DisplayName="If billing Method is direct or Agency  Bill" sap:VirtualizedContainerService.HintSize="449.6,700.8" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,269.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NSelectItem DisplayName="Select Item '*Bill Method'" sap:VirtualizedContainerService.HintSize="353.6,180.8" sap2010:WorkflowViewState.IdRef="NSelectItem_3" Item="Direct bill" ScopeIdentifier="566ce037-4192-4df0-b2cf-567e34b669bf" Version="V3">
+                          <uix:NSelectItem.Items>
+                            <scg:List x:TypeArguments="x:String" Capacity="2">
+                              <x:String>Agency bill</x:String>
+                              <x:String>Direct bill</x:String>
+                            </scg:List>
+                          </uix:NSelectItem.Items>
+                          <uix:NSelectItem.Target>
+                            <uix:TargetAnchorable CVScreenId="6d211467-d45e-4193-873c-23d8e66db240" CvElementArea="780, 273, 178, 24" CvType="InputBox" DesignTimeRectangle="781, 274, 176, 21" DesignTimeScaleFactor="1" ElementType="DropDown" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolGrpBilling' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_CopyPolCmbCopyPolBillMth' /&gt;&lt;ctrl name='*Bill Method:' role='combo box' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolGrpBilling' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_CopyPolCmbCopyPolBillMth' /&gt;&lt;ctrl name='*Bill Method:' role='combo box' automationid='' /&gt;" Guid="80e243dd-baa8-46a4-b7d2-d820f5e79dc8" ImageBase64="" InformativeScreenshot="ebd8236bf92a8ecb07f8aeb9a6270ffe.png" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' ctrlname='CopyPolicy' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="6d211467-d45e-4193-873c-23d8e66db240" CvTextArea="685, 278, 74, 12" CvTextArgument="*Bill Method:" CvType="Text" DesignTimeRectangle="683, 274, 88, 21" ElementType="Text" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolGrpBilling' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCmbCopyPolBillMth' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolGrpBilling' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCmbCopyPolBillMth' check:text='*Bill Method:' /&gt;" Guid="a9ff131c-8255-4dd3-9e2d-a05e9bb90366" SearchSteps="Selector, FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NSelectItem.Target>
+                        </uix:NSelectItem>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,269.6" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NSelectItem DisplayName="Select Item '*Bill Method'" sap:VirtualizedContainerService.HintSize="353.6,180.8" sap2010:WorkflowViewState.IdRef="NSelectItem_5" Item="Agency bill" ScopeIdentifier="566ce037-4192-4df0-b2cf-567e34b669bf" Version="V3">
+                          <uix:NSelectItem.Items>
+                            <scg:List x:TypeArguments="x:String" Capacity="2">
+                              <x:String>Agency bill</x:String>
+                              <x:String>Direct bill</x:String>
+                            </scg:List>
+                          </uix:NSelectItem.Items>
+                          <uix:NSelectItem.Target>
+                            <uix:TargetAnchorable CVScreenId="6d211467-d45e-4193-873c-23d8e66db240" CvElementArea="780, 273, 178, 24" CvType="InputBox" DesignTimeRectangle="781, 274, 176, 21" DesignTimeScaleFactor="1" ElementType="DropDown" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolGrpBilling' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_CopyPolCmbCopyPolBillMth' /&gt;&lt;ctrl name='*Bill Method:' role='combo box' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolGrpBilling' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_CopyPolCmbCopyPolBillMth' /&gt;&lt;ctrl name='*Bill Method:' role='combo box' automationid='' /&gt;" Guid="bd873034-df62-49ae-a2d8-8af45a2e45c4" ImageBase64="" InformativeScreenshot="b60ce21c71f69d7692a0c1693514f4fe.png" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' ctrlname='CopyPolicy' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="6d211467-d45e-4193-873c-23d8e66db240" CvTextArea="685, 278, 74, 12" CvTextArgument="*Bill Method:" CvType="Text" DesignTimeRectangle="683, 274, 88, 21" ElementType="Text" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolGrpBilling' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCmbCopyPolBillMth' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolGrpBilling' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCmbCopyPolBillMth' check:text='*Bill Method:' /&gt;" Guid="25787fc3-a496-4861-9aca-0d5fd3be2439" SearchSteps="Selector, FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NSelectItem.Target>
+                        </uix:NSelectItem>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,269.6" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NSelectItem DisplayName="Select Pay Plan" sap:VirtualizedContainerService.HintSize="353.6,180.8" sap2010:WorkflowViewState.IdRef="NSelectItem_11" Item="[in_Pay_plan]" ScopeIdentifier="566ce037-4192-4df0-b2cf-567e34b669bf" Version="V3">
+                    <uix:NSelectItem.Items>
+                      <scg:List x:TypeArguments="x:String" Capacity="13">
+                        <x:String>Annual</x:String>
+                        <x:String>Bi-Monthly</x:String>
+                        <x:String>Full Pay</x:String>
+                        <x:String>Monthly</x:String>
+                        <x:String>Nine (9) Equal Payments</x:String>
+                        <x:String>Other</x:String>
+                        <x:String>Premium Finance</x:String>
+                        <x:String>Quarterly</x:String>
+                        <x:String>Semi-Annual</x:String>
+                        <x:String>Seven (7) Payments</x:String>
+                        <x:String>Ten (10) Payments</x:String>
+                        <x:String>Three Payments</x:String>
+                        <x:String>Two Payments</x:String>
+                      </scg:List>
+                    </uix:NSelectItem.Items>
+                    <uix:NSelectItem.Target>
+                      <uix:TargetAnchorable CVScreenId="69ffc6a8-9f4f-4b9e-83cf-ef2697e7dd2a" CvElementArea="975, 371, 221, 29" CvType="InputBox" DesignTimeRectangle="976, 372, 220, 26" DesignTimeScaleFactor="1.25" ElementType="DropDown" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolGrpBilling' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_CopyPolCmbCopyPolPayPlan' /&gt;&lt;ctrl name='Pay Plan:' role='combo box' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolGrpBilling' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_CopyPolCmbCopyPolPayPlan' /&gt;&lt;ctrl name='Pay Plan:' role='combo box' automationid='' /&gt;" Guid="f0d3ce78-4862-41d1-b636-1d8476fd9e44" InformativeScreenshot="7b3c4793db66b48146ebbacc31779454.png" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' ctrlname='CopyPolicy' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                            <uix:Target CVScreenId="69ffc6a8-9f4f-4b9e-83cf-ef2697e7dd2a" CvTextArea="856, 377, 67, 17" CvTextArgument="Pay Plan:" CvType="Text" DesignTimeRectangle="854, 373, 80, 26" ElementType="Text" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolGrpBilling' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCmbCopyPolPayPlan' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolGrpBilling' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCmbCopyPolPayPlan' check:text='Pay Plan:' /&gt;" Guid="d4c52a1f-34f7-4a56-b430-9819f69d1caf" SearchSteps="Selector, FuzzySelector, CV" />
+                            <uix:Target CVScreenId="69ffc6a8-9f4f-4b9e-83cf-ef2697e7dd2a" CvTextArea="856, 347, 92, 15" CvTextArgument="*Bill Method:" CvType="Text" DesignTimeRectangle="854, 343, 110, 26" ElementType="Text" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolGrpBilling' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCmbCopyPolBillMth' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolGrpBilling' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCmbCopyPolBillMth' check:text='*Bill Method:' /&gt;" Guid="94f0216f-066b-47fe-8a1f-69e6fdbc2568" SearchSteps="Selector, FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NSelectItem.Target>
+                  </uix:NSelectItem>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,305.6" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Company'" sap:VirtualizedContainerService.HintSize="353.6,216.8" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="566ce037-4192-4df0-b2cf-567e34b669bf" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable CVScreenId="312f3dda-836a-4c48-afdc-3dad42e72996" CvElementArea="348, 356, 18, 18" CvTextArea="369, 359, 65, 11" CvTextArgument="*Insurance" CvType="RadioButton" DesignTimeRectangle="348, 356, 86, 18" DesignTimeScaleFactor="1" ElementType="RadioButton" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolicyGrpCoType' /&gt;&lt;wnd ctrlname='radCopyPolicy_CopyPolCopyPolCopyPolicyGrpCoTypeInsurance_BPolCoType' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolicyGrpCoType' /&gt;&lt;wnd ctrlname='radCopyPolicy_CopyPolCopyPolCopyPolicyGrpCoTypeInsurance_BPolCoType' check:fulltext='*Insurance' /&gt;" Guid="698f0a38-cac0-4612-b61d-54f9854ab3e8" InformativeScreenshot="5e74f6f0e8c08fbe087e578ea90e2df4.png" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' ctrlname='CopyPolicy' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="312f3dda-836a-4c48-afdc-3dad42e72996" CvTextArea="351, 339, 57, 13" CvTextArgument="Company" CvType="Text" DesignTimeRectangle="351, 339, 57, 13" ElementType="Text" Guid="d2aba7ac-5008-4b01-acad-6fe9264039d2" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_7">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,269.6" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NGetText DisplayName="Get Text '*Parent'" sap:VirtualizedContainerService.HintSize="353.6,180.8" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="566ce037-4192-4df0-b2cf-567e34b669bf" TextString="[parent_Company]" Version="V3">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable CVScreenId="901e7b96-1aaf-4655-9181-a6fd1026e697" CvElementArea="430, 377, 210, 23" CvType="InputBox" DesignTimeRectangle="431, 378, 208, 21" DesignTimeScaleFactor="1" ElementType="DropDown" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolicyGrpCoType' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_CopyPolCmbParentCo' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolicyGrpCoType' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_CopyPolCmbParentCo' /&gt;" Guid="feddfa5f-e3fb-41f7-acb3-91a7fbcab468" InformativeScreenshot="f933c4cf29c13ed0e95cc53726a89bc3.png" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' ctrlname='CopyPolicy' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="901e7b96-1aaf-4655-9181-a6fd1026e697" CvTextArea="353, 383, 49, 11" CvTextArgument="*Parent:" CvType="Text" DesignTimeRectangle="351, 378, 56, 21" ElementType="Text" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolicyGrpCoType' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCmbParentCo' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolicyGrpCoType' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCmbParentCo' check:text='*Parent:' /&gt;" Guid="7d2568c1-081c-483d-b2c0-966e72dc05e7" SearchSteps="Selector, FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NGetText.Target>
+                  </uix:NGetText>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_9">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512,1284" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If Condition="[parent_Company=&quot;Zenith, Insurance Company, Zenith&quot;]" DisplayName="checking parent company is Zenith" sap:VirtualizedContainerService.HintSize="449.6,1195.2" sap2010:WorkflowViewState.IdRef="If_2">
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,256" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="353.6,167.2" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Parent company is zenith&quot;]" />
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,777.6" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NSelectItem DisplayName="Select Item '*Parent'" sap:VirtualizedContainerService.HintSize="353.6,189.6" sap2010:WorkflowViewState.IdRef="NSelectItem_6" Item="Zenith, Insurance Company, Zenith" ScopeIdentifier="566ce037-4192-4df0-b2cf-567e34b669bf" Version="V3">
+                          <uix:NSelectItem.Items>
+                            <scg:List x:TypeArguments="x:String" Capacity="50">
+                              <x:String>Bankers, Insurance Company, Banker</x:String>
+                              <x:String>Builders Insurance Group, Insurance Company, BLDG</x:String>
+                              <x:String>Chubb Insurance Group, Insurance Company, Chubb</x:String>
+                              <x:String>Citizens, Insurance Company, CITI</x:String>
+                              <x:String>CNA Insurance, Insurance Company, CNA</x:String>
+                              <x:String>Cumberland, Insurance Company, CUG</x:String>
+                              <x:String>Cypress Property &amp; Casualty Insurance, Insurance Company, Cyper</x:String>
+                              <x:String>FedNat Insurance Company, Insurance Company, Fed</x:String>
+                              <x:String>Flood, Insurance Company, FLOOD</x:String>
+                              <x:String>Florida Citrus Business &amp; Industries Fund, Insurance Company, FCB</x:String>
+                              <x:String>Florida Family Insurance Company, Insurance Company, FLF</x:String>
+                              <x:String>Foremost Insurance Group, Insurance Company, Fore</x:String>
+                              <x:String>Frontline, Insurance Company, FRONT</x:String>
+                              <x:String>GeoVera, Insurance Company, GeoVer</x:String>
+                              <x:String>Hanover Insurance, Insurance Company, Hanove</x:String>
+                              <x:String>Hartford Insurance Company, Insurance Company, Hartfo</x:String>
+                              <x:String>Infinity, Insurance Company, Infini</x:String>
+                              <x:String>International Marine Underwritters, Insurance Company, IMU</x:String>
+                              <x:String>Liberty Mutual, Insurance Company, Libert</x:String>
+                              <x:String>Markel Insurance Company, Insurance Company, Markel</x:String>
+                              <x:String>Markel Insurance, Insurance Company, Mark</x:String>
+                              <x:String>MERCER INS CO OF NEW JERSEY, INC, Insurance Company, MERCER</x:String>
+                              <x:String>Mercury, Insurance Company, Merc</x:String>
+                              <x:String>Montgomery Insurance, Insurance Company, Mont</x:String>
+                              <x:String>National Liability, Insurance Company, Natll</x:String>
+                              <x:String>Nationwide/Allied, Insurance Company, Allied</x:String>
+                              <x:String>NY Marine &amp; General Insurance Company, Insurance Company, NYM</x:String>
+                              <x:String>Old Dominion, Insurance Company, OldD</x:String>
+                              <x:String>Owners, Insurance Company, OWNERS</x:String>
+                              <x:String>People'S Trust, Insurance Company, PPT</x:String>
+                              <x:String>Philadelphia Insurance, Insurance Company, Philad</x:String>
+                              <x:String>Plymouth Rock Insurance Co, Insurance Company, PLY</x:String>
+                              <x:String>Progressive, Insurance Company, PROG</x:String>
+                              <x:String>Quaker Special Risk, Insurance Company, Quaker</x:String>
+                              <x:String>Republic – Vanguard Insurance Company, Insurance Company, Van</x:String>
+                              <x:String>RSUI Insurance Company, Insurance Company, RSUI</x:String>
+                              <x:String>Safeco Insurance, Insurance Company, Safeco</x:String>
+                              <x:String>Seacoast Broker, Insurance Company, Seac</x:String>
+                              <x:String>Security First, Insurance Company, SECF</x:String>
+                              <x:String>Southern Owners, Insurance Company, SOUTH</x:String>
+                              <x:String>Summit Consulting Inc., Insurance Company, summit</x:String>
+                              <x:String>Tower Hill Insurance Group, Insurance Company, TOWER</x:String>
+                              <x:String>Travelers Insurance Co, Insurance Company, TRAV</x:String>
+                              <x:String>United States Liability Insurance Co, Insurance Company, USLI</x:String>
+                              <x:String>Universal Property and Casualty, Insurance Company, UNI</x:String>
+                              <x:String>Utica National Insurance Group, Insurance Company, Utica</x:String>
+                              <x:String>Westfield, Insurance Company, West</x:String>
+                              <x:String>Weston Insurance, Insurance Company, Weston</x:String>
+                              <x:String>White Pine Insurance Company, Insurance Company, White</x:String>
+                              <x:String>Zenith, Insurance Company, Zenith</x:String>
+                            </scg:List>
+                          </uix:NSelectItem.Items>
+                          <uix:NSelectItem.Target>
+                            <uix:TargetAnchorable CVScreenId="9e18de79-1471-41ef-949e-0b898ab4c814" CvElementArea="430, 377, 209, 23" CvType="InputBox" DesignTimeRectangle="431, 378, 208, 21" DesignTimeScaleFactor="1" ElementType="DropDown" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolicyGrpCoType' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_CopyPolCmbParentCo' /&gt;&lt;ctrl name='*Parent:' role='combo box' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolicyGrpCoType' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_CopyPolCmbParentCo' /&gt;&lt;ctrl name='*Parent:' role='combo box' automationid='' /&gt;" Guid="82ba285a-8afb-4a5f-b3b3-5ded0d84a3fa" ImageBase64="" InformativeScreenshot="d5d89481eded0088e38f7d53999d4cb5.png" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' ctrlname='CopyPolicy' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="9e18de79-1471-41ef-949e-0b898ab4c814" CvTextArea="353, 383, 49, 11" CvTextArgument="*Parent:" CvType="Text" DesignTimeRectangle="351, 378, 56, 21" ElementType="Text" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolicyGrpCoType' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCmbParentCo' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolicyGrpCoType' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCmbParentCo' check:text='*Parent:' /&gt;" Guid="a8248a96-2d48-419b-983a-d12f6231984e" SearchSteps="Selector, FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NSelectItem.Target>
+                        </uix:NSelectItem>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '*Parent'" sap:VirtualizedContainerService.HintSize="353.6,225.6" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="566ce037-4192-4df0-b2cf-567e34b669bf" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable CVScreenId="7744097c-1085-4e49-97b3-b123104e9444" CvElementArea="430, 377, 210, 23" CvType="InputBox" DesignTimeRectangle="431, 378, 208, 21" DesignTimeScaleFactor="1" ElementType="DropDown" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolicyGrpCoType' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_CopyPolCmbParentCo' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolicyGrpCoType' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_CopyPolCmbParentCo' /&gt;" Guid="ebefbc8d-0eda-4182-b9fd-80e986473675" InformativeScreenshot="86bb1ed124fa4d3d2893487376b75160.png" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' ctrlname='CopyPolicy' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="7744097c-1085-4e49-97b3-b123104e9444" CvTextArea="353, 383, 49, 11" CvTextArgument="*Parent:" CvType="Text" DesignTimeRectangle="351, 378, 56, 21" ElementType="Text" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolicyGrpCoType' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCmbParentCo' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolicyGrpCoType' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCmbParentCo' check:text='*Parent:' /&gt;" Guid="90a5604b-cc0d-4c47-9fa5-a6b290f28b40" SearchSteps="Selector, FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NClick.Target>
+                          <uix:NClick.VerifyOptions>
+                            <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionOptions.Retry>
+                              <uix:VerifyExecutionOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionOptions.Timeout>
+                            </uix:VerifyExecutionOptions>
+                          </uix:NClick.VerifyOptions>
+                        </uix:NClick>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click 'Zenith, Insurance'" sap:VirtualizedContainerService.HintSize="353.6,225.6" sap2010:WorkflowViewState.IdRef="NClick_5" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="566ce037-4192-4df0-b2cf-567e34b669bf" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable CVScreenId="886a36c3-daa5-45d9-85df-58d4c165c34e" CvTextArea="2, 378, 205, 14" CvTextArgument="Zenith, Insurance Company, Zenith" CvType="Text" DesignTimeRectangle="1, 378, 381, 13" DesignTimeScaleFactor="1" ElementType="ListItem" FullSelectorArgument="&lt;ctrl name='*Parent:' role='list' /&gt;&lt;ctrl name='Zenith, Insurance Company, Zenith' role='list item' /&gt;" FuzzySelectorArgument="&lt;ctrl name='*Parent:' role='list' /&gt;&lt;ctrl name='Zenith, Insurance Company, Zenith' role='list item' automationid='' check:text='Zenith, Insurance Company, Zenith' /&gt;" Guid="f1572dfe-8933-4466-bab5-1c8e4a6fba08" InformativeScreenshot="ddb218369f97f112190d799c14a1f371.png" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' cls='ComboLBox' idx='*' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                  <uix:Target CVScreenId="886a36c3-daa5-45d9-85df-58d4c165c34e" CvTextArea="2, 106, 228, 12" CvTextArgument="Owners, Insurance Company, OWNERS" CvType="Text" DesignTimeRectangle="1, 105, 381, 13" ElementType="ListItem" FullSelectorArgument="&lt;ctrl name='*Parent:' role='list' /&gt;&lt;ctrl name='Owners, Insurance Company, OWNERS' role='list item' /&gt;" FuzzySelectorArgument="&lt;ctrl name='*Parent:' role='list' /&gt;&lt;ctrl name='Owners, Insurance Company, OWNERS' role='list item' automationid='' check:text='Owners, Insurance Company, OWNERS' /&gt;" Guid="afcb0691-f270-4631-a9c5-a28d6c39318a" SearchSteps="Selector, FuzzySelector, CV" />
+                                  <uix:Target CVScreenId="36133b98-14bf-433e-8b49-9209aa3bef47" CvTextArea="2, 119, 293, 13" CvTextArgument="Montgomery Insurance, Insurance Company, Mont" CvType="Text" DesignTimeRectangle="1, 40, 381, 13" ElementType="ListItem" FullSelectorArgument="&lt;ctrl name='*Parent:' role='list' /&gt;&lt;ctrl name='Montgomery Insurance, Insurance Company, Mont' role='list item' /&gt;" FuzzySelectorArgument="&lt;ctrl name='*Parent:' role='list' /&gt;&lt;ctrl name='Montgomery Insurance, Insurance Company, Mont' role='list item' automationid='' check:text='Montgomery Insurance, Insurance Company, Mont' /&gt;" Guid="75be7705-69a8-4765-9989-f658779688a8" SearchSteps="Selector, FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NClick.Target>
+                          <uix:NClick.VerifyOptions>
+                            <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionOptions.Retry>
+                              <uix:VerifyExecutionOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionOptions.Timeout>
+                            </uix:VerifyExecutionOptions>
+                          </uix:NClick.VerifyOptions>
+                        </uix:NClick>
+                        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="353.6,48" sap2010:WorkflowViewState.IdRef="CommentOut_8">
+                          <ui:CommentOut.Body>
+                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,269.6" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NSelectItem DisplayName="Select Item '*Writing'" sap:VirtualizedContainerService.HintSize="353.6,180.8" sap2010:WorkflowViewState.IdRef="NSelectItem_10" Item="Zenith, Insurance Company, Zenith" ScopeIdentifier="566ce037-4192-4df0-b2cf-567e34b669bf" Version="V3">
+                                <uix:NSelectItem.Items>
+                                  <scg:List x:TypeArguments="x:String" Capacity="2">
+                                    <x:String>Zenith Insurance Company, Writing Company, Zen</x:String>
+                                    <x:String>Zenith, Insurance Company, Zenith</x:String>
+                                  </scg:List>
+                                </uix:NSelectItem.Items>
+                                <uix:NSelectItem.Target>
+                                  <uix:TargetAnchorable CVScreenId="9e18de79-1471-41ef-949e-0b898ab4c814" CvElementArea="430, 402, 209, 22" CvType="InputBox" DesignTimeRectangle="431, 402, 208, 21" DesignTimeScaleFactor="1" ElementType="DropDown" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolicyGrpCoType' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_CopyPolCmbWritingCo' /&gt;&lt;ctrl name='*Writing:' role='combo box' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolicyGrpCoType' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_CopyPolCmbWritingCo' /&gt;&lt;ctrl name='*Writing:' role='combo box' automationid='' /&gt;" Guid="3dc56474-dbf2-4f72-9cdb-8db98239b972" ImageBase64="" InformativeScreenshot="4253b4062f2cf1df4261481352b8e46a.png" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' ctrlname='CopyPolicy' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                                    <uix:TargetAnchorable.Anchors>
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                        <uix:Target CVScreenId="9e18de79-1471-41ef-949e-0b898ab4c814" CvTextArea="353, 406, 52, 14" CvTextArgument="*Writing:" CvType="Text" DesignTimeRectangle="351, 402, 72, 21" ElementType="Text" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolicyGrpCoType' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCmbWritingCo' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolicyGrpCoType' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCmbWritingCo' check:text='*Writing:' /&gt;" Guid="07c39f3c-d280-4b46-9e33-0eaa28546380" SearchSteps="Selector, FuzzySelector, CV" />
+                                      </scg:List>
+                                    </uix:TargetAnchorable.Anchors>
+                                  </uix:TargetAnchorable>
+                                </uix:NSelectItem.Target>
+                              </uix:NSelectItem>
+                            </Sequence>
+                          </ui:CommentOut.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:CommentOut>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_10">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,269.6" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NSelectItem DisplayName="Select Item 'Issue State'" sap:VirtualizedContainerService.HintSize="353.6,180.8" sap2010:WorkflowViewState.IdRef="NSelectItem_12" Item="[in_State]" ScopeIdentifier="566ce037-4192-4df0-b2cf-567e34b669bf" Version="V3">
+                    <uix:NSelectItem.Items>
+                      <scg:List x:TypeArguments="x:String" Capacity="50">
+                        <x:String>AB</x:String>
+                        <x:String>AK</x:String>
+                        <x:String>AL</x:String>
+                        <x:String>AR</x:String>
+                        <x:String>AS</x:String>
+                        <x:String>AZ</x:String>
+                        <x:String>BC</x:String>
+                        <x:String>CA</x:String>
+                        <x:String>CO</x:String>
+                        <x:String>CT</x:String>
+                        <x:String>DC</x:String>
+                        <x:String>DE</x:String>
+                        <x:String>FL</x:String>
+                        <x:String>FM</x:String>
+                        <x:String>GA</x:String>
+                        <x:String>GU</x:String>
+                        <x:String>HI</x:String>
+                        <x:String>IA</x:String>
+                        <x:String>ID</x:String>
+                        <x:String>IL</x:String>
+                        <x:String>IN</x:String>
+                        <x:String>KS</x:String>
+                        <x:String>KY</x:String>
+                        <x:String>LA</x:String>
+                        <x:String>MA</x:String>
+                        <x:String>MB</x:String>
+                        <x:String>MD</x:String>
+                        <x:String>ME</x:String>
+                        <x:String>MH</x:String>
+                        <x:String>MI</x:String>
+                        <x:String>MN</x:String>
+                        <x:String>MO</x:String>
+                        <x:String>MP</x:String>
+                        <x:String>MS</x:String>
+                        <x:String>MT</x:String>
+                        <x:String>NB</x:String>
+                        <x:String>NC</x:String>
+                        <x:String>ND</x:String>
+                        <x:String>NE</x:String>
+                        <x:String>NH</x:String>
+                        <x:String>NJ</x:String>
+                        <x:String>NL</x:String>
+                        <x:String>NM</x:String>
+                        <x:String>NS</x:String>
+                        <x:String>NT</x:String>
+                        <x:String>NU</x:String>
+                        <x:String>NV</x:String>
+                        <x:String>NY</x:String>
+                        <x:String>OH</x:String>
+                        <x:String>OK</x:String>
+                      </scg:List>
+                    </uix:NSelectItem.Items>
+                    <uix:NSelectItem.Target>
+                      <uix:TargetAnchorable CVScreenId="5655e9c9-c1d3-45d0-9ff5-795aca609fc5" CvElementArea="157, 421, 129, 29" CvType="InputBox" DesignTimeRectangle="160, 423, 126, 27" DesignTimeScaleFactor="1.25" ElementType="DropDown" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='cntrlCopyPolicy_CopyPolCopyPol_BPolSubscription' /&gt;&lt;wnd ctrlname='layoutSubscription' /&gt;&lt;wnd ctrlname='cmbPolicySub_PolicySubCmbIssueState' /&gt;&lt;ctrl role='combo box' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='cntrlCopyPolicy_CopyPolCopyPol_BPolSubscription' /&gt;&lt;wnd ctrlname='layoutSubscription' /&gt;&lt;wnd ctrlname='cmbPolicySub_PolicySubCmbIssueState' /&gt;&lt;ctrl role='combo box' automationid='' /&gt;" Guid="1524ae27-fdbb-40db-851a-6ed2b035bc10" InformativeScreenshot="61b011f37eb3489ab915499035065b1c.png" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' ctrlname='CopyPolicy' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                            <uix:Target CVScreenId="5655e9c9-c1d3-45d0-9ff5-795aca609fc5" CvTextArea="32, 430, 88, 13" CvTextArgument="Issue State:" CvType="Text" DesignTimeRectangle="30, 428, 96, 17" ElementType="Text" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='cntrlCopyPolicy_CopyPolCopyPol_BPolSubscription' /&gt;&lt;wnd ctrlname='layoutSubscription' /&gt;&lt;wnd ctrlname='lblIssueState' /&gt;&lt;ctrl name='Issue State:' role='text' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='cntrlCopyPolicy_CopyPolCopyPol_BPolSubscription' /&gt;&lt;wnd ctrlname='layoutSubscription' /&gt;&lt;wnd ctrlname='lblIssueState' /&gt;&lt;ctrl name='Issue State:' role='text' automationid='' check:text='Issue State:' /&gt;" Guid="0a7c70fc-5fec-4dcc-82c2-d79af76273b2" SearchSteps="Selector, FuzzySelector, CV" />
+                            <uix:Target CVScreenId="5655e9c9-c1d3-45d0-9ff5-795aca609fc5" CvTextArea="32, 461, 107, 13" CvTextArgument="Carrier Status:" CvType="Text" DesignTimeRectangle="30, 460, 116, 16" ElementType="Text" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='cntrlCopyPolicy_CopyPolCopyPol_BPolSubscription' /&gt;&lt;wnd ctrlname='layoutSubscription' /&gt;&lt;wnd ctrlname='lblCarrierStatus' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='cntrlCopyPolicy_CopyPolCopyPol_BPolSubscription' /&gt;&lt;wnd ctrlname='layoutSubscription' /&gt;&lt;wnd ctrlname='lblCarrierStatus' check:text='Carrier Status:' /&gt;" Guid="579ced49-1f3c-4ebc-886d-e97ab8a874d3" SearchSteps="Selector, FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NSelectItem.Target>
+                  </uix:NSelectItem>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_11">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,269.6" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NSelectItem DisplayName="Select Item '*Division'" sap:VirtualizedContainerService.HintSize="353.6,180.8" sap2010:WorkflowViewState.IdRef="NSelectItem_13" Item="Agency" ScopeIdentifier="566ce037-4192-4df0-b2cf-567e34b669bf" Version="V3">
+                    <uix:NSelectItem.Items>
+                      <scg:List x:TypeArguments="x:String" Capacity="1">
+                        <x:String>Agency</x:String>
+                      </scg:List>
+                    </uix:NSelectItem.Items>
+                    <uix:NSelectItem.Target>
+                      <uix:TargetAnchorable CVScreenId="ec5d79ee-5c06-44a5-854d-26411ebb4b93" CvElementArea="126, 598, 280, 29" CvType="InputBox" DesignTimeRectangle="128, 600, 278, 26" DesignTimeScaleFactor="1.25" ElementType="DropDown" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='amsBusinessUnit' /&gt;&lt;wnd ctrlname='grpBusinessUnit' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_BusinessUnitCmbDivision' /&gt;&lt;ctrl role='combo box' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='amsBusinessUnit' /&gt;&lt;wnd ctrlname='grpBusinessUnit' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_BusinessUnitCmbDivision' /&gt;&lt;ctrl role='combo box' automationid='' /&gt;" Guid="b73fc77b-b793-41e9-ac19-175feb069231" InformativeScreenshot="e90b89d3c2b89039e02226be5a068b17.png" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' ctrlname='CopyPolicy' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                            <uix:Target CVScreenId="ec5d79ee-5c06-44a5-854d-26411ebb4b93" CvTextArea="41, 605, 71, 15" CvTextArgument="*Division:" CvType="Text" DesignTimeRectangle="39, 600, 80, 26" ElementType="Text" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='amsBusinessUnit' /&gt;&lt;wnd ctrlname='grpBusinessUnit' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_BusinessUnitCmbDivision' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='amsBusinessUnit' /&gt;&lt;wnd ctrlname='grpBusinessUnit' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_BusinessUnitCmbDivision' check:text='*Division:' /&gt;" Guid="12bbcec9-ecc4-4ff1-a15c-5f3adcce127a" SearchSteps="Selector, FuzzySelector, CV" />
+                            <uix:Target CVScreenId="ec5d79ee-5c06-44a5-854d-26411ebb4b93" CvTextArea="38, 581, 98, 13" CvTextArgument="Business Unit" CvType="Text" DesignTimeRectangle="38, 581, 98, 13" ElementType="Text" Guid="bda3d691-34e8-4441-83e6-428ce0e47a3b" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NSelectItem.Target>
+                  </uix:NSelectItem>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_12">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,269.6" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NSelectItem DisplayName="Select Item '*Dept'" sap:VirtualizedContainerService.HintSize="353.6,180.8" sap2010:WorkflowViewState.IdRef="NSelectItem_14" Item="Commercial Lines" ScopeIdentifier="566ce037-4192-4df0-b2cf-567e34b669bf" Version="V3">
+                    <uix:NSelectItem.Items>
+                      <scg:List x:TypeArguments="x:String" Capacity="2">
+                        <x:String>Commercial Lines</x:String>
+                        <x:String>Personal Lines</x:String>
+                      </scg:List>
+                    </uix:NSelectItem.Items>
+                    <uix:NSelectItem.Target>
+                      <uix:TargetAnchorable CVScreenId="ec5d79ee-5c06-44a5-854d-26411ebb4b93" CvElementArea="127, 628, 280, 29" CvType="InputBox" DesignTimeRectangle="128, 630, 278, 26" DesignTimeScaleFactor="1.25" ElementType="DropDown" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='amsBusinessUnit' /&gt;&lt;wnd ctrlname='grpBusinessUnit' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_BusinessUnitCmbDept' /&gt;&lt;ctrl role='combo box' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='amsBusinessUnit' /&gt;&lt;wnd ctrlname='grpBusinessUnit' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_BusinessUnitCmbDept' /&gt;&lt;ctrl role='combo box' automationid='' /&gt;" Guid="17d9b94b-8177-4a96-930d-cc2d98a34656" InformativeScreenshot="ce8c17adb52909c7c39151a98ef4e323.png" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' ctrlname='CopyPolicy' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                            <uix:Target CVScreenId="ec5d79ee-5c06-44a5-854d-26411ebb4b93" CvTextArea="41, 636, 48, 15" CvTextArgument="*Dept:" CvType="Text" DesignTimeRectangle="39, 630, 80, 26" ElementType="Text" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='amsBusinessUnit' /&gt;&lt;wnd ctrlname='grpBusinessUnit' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_BusinessUnitCmbDept' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='amsBusinessUnit' /&gt;&lt;wnd ctrlname='grpBusinessUnit' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_BusinessUnitCmbDept' check:text='*Dept:' /&gt;" Guid="933ce905-041d-4f24-8e1a-b366934679de" SearchSteps="Selector, FuzzySelector, CV" />
+                            <uix:Target CVScreenId="ec5d79ee-5c06-44a5-854d-26411ebb4b93" CvTextArea="41, 605, 71, 15" CvTextArgument="*Division:" CvType="Text" DesignTimeRectangle="39, 600, 80, 26" ElementType="Text" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='amsBusinessUnit' /&gt;&lt;wnd ctrlname='grpBusinessUnit' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_BusinessUnitCmbDivision' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='amsBusinessUnit' /&gt;&lt;wnd ctrlname='grpBusinessUnit' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_BusinessUnitCmbDivision' check:text='*Division:' /&gt;" Guid="3ee291e8-d6fd-4b93-a648-391ece4918f1" SearchSteps="Selector, FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NSelectItem.Target>
+                  </uix:NSelectItem>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_13">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,269.6" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NSelectItem DisplayName="Select Item 'Pay Plan'" sap:VirtualizedContainerService.HintSize="353.6,180.8" sap2010:WorkflowViewState.IdRef="NSelectItem_8" Item="[in_Pay_plan]" ScopeIdentifier="566ce037-4192-4df0-b2cf-567e34b669bf" Version="V3">
+                    <uix:NSelectItem.Items>
+                      <scg:List x:TypeArguments="x:String" Capacity="13">
+                        <x:String>Annual</x:String>
+                        <x:String>Bi-Monthly</x:String>
+                        <x:String>Full Pay</x:String>
+                        <x:String>Monthly</x:String>
+                        <x:String>Nine (9) Equal Payments</x:String>
+                        <x:String>Other</x:String>
+                        <x:String>Premium Finance</x:String>
+                        <x:String>Quarterly</x:String>
+                        <x:String>Semi-Annual</x:String>
+                        <x:String>Seven (7) Payments</x:String>
+                        <x:String>Ten (10) Payments</x:String>
+                        <x:String>Three Payments</x:String>
+                        <x:String>Two Payments</x:String>
+                      </scg:List>
+                    </uix:NSelectItem.Items>
+                    <uix:NSelectItem.Target>
+                      <uix:TargetAnchorable CVScreenId="01e5249c-68b4-4e0a-babc-150726219020" CvElementArea="780, 297, 177, 23" CvType="InputBox" DesignTimeRectangle="781, 298, 176, 21" DesignTimeScaleFactor="1" ElementType="DropDown" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolGrpBilling' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_CopyPolCmbCopyPolPayPlan' /&gt;&lt;ctrl name='Pay Plan:' role='combo box' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolGrpBilling' /&gt;&lt;wnd ctrlname='cmbCopyPolicy_CopyPolCopyPol_CopyPolCmbCopyPolPayPlan' /&gt;&lt;ctrl name='Pay Plan:' role='combo box' automationid='' /&gt;" Guid="b6304329-2201-4c4b-8dfc-40e7c10cab0f" InformativeScreenshot="e2139858e44b0dcae7db88b209562abd.png" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' ctrlname='CopyPolicy' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="01e5249c-68b4-4e0a-babc-150726219020" CvTextArea="685, 302, 54, 14" CvTextArgument="Pay Plan:" CvType="Text" DesignTimeRectangle="683, 298, 64, 21" ElementType="Text" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolGrpBilling' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCmbCopyPolPayPlan' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='grpCopyPolicy_CopyPolCopyPol_CopyPolGrpBilling' /&gt;&lt;wnd ctrlname='lblCopyPolicy_CopyPolCopyPol_CopyPolCmbCopyPolPayPlan' check:text='Pay Plan:' /&gt;" Guid="0b936c65-27c4-4c3f-a3a7-e7baec764892" SearchSteps="Selector, FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NSelectItem.Target>
+                  </uix:NSelectItem>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '&amp;OK'" sap:VirtualizedContainerService.HintSize="450,191.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_6" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="566ce037-4192-4df0-b2cf-567e34b669bf" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable CVScreenId="093f1a02-2fea-4849-9e2a-79007f5dc896" CvElementArea="459, 738, 95, 29" CvTextArea="494, 745, 23, 15" CvTextArgument="OK" CvType="Button" DesignTimeRectangle="461, 739, 94, 29" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='btnCopyPolicy_CopyPolCopyPol_CopyPolOK' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='btnCopyPolicy_CopyPolCopyPol_CopyPolOK' check:text='&amp;amp;OK' /&gt;" Guid="ec067bbc-2585-4300-89fb-15305e136a70" InformativeScreenshot="9de32dfdc1c353068da4258d03ab8922.png" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' ctrlname='CopyPolicy' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="093f1a02-2fea-4849-9e2a-79007f5dc896" CvElementArea="591, 738, 93, 29" CvTextArea="611, 745, 50, 15" CvTextArgument="Cancel" CvType="Button" DesignTimeRectangle="592, 739, 94, 29" ElementType="Button" FullSelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='btnCopyPolicy_CopyPolCopyPol_CopyPolCancel' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctCopyPolicy_CopyPolCopyPol' /&gt;&lt;wnd ctrlname='Summary' /&gt;&lt;wnd ctrlname='btnCopyPolicy_CopyPolCopyPol_CopyPolCancel' check:text='&amp;amp;Cancel' /&gt;" Guid="87e51395-4d35-43f3-b9c6-a85cff605739" SearchSteps="Selector, FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,172.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Renew page ended&quot;]" />
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="2464, 195, 1011, 689" FilePath="[in_Url]" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAYwSURBVFhHtZYHTFR3HMcfAqKiORTFUalYa3BUxdY2jg5tY1NMTMTG1VLFCa6AVRxoFXe1qatIHNWzrrhR66ijbq1S7LXWUbTnCQFBFM5TBO44+Pb7u3cvd1RADfpLPvm/9/v/1n++pzyvXI3u2j1tTaw+9/ROU/6tP1CYcROa2HLvQnSWlF3mnMPr9MY57fs43aouxtnt++QeXWCy5WYCpSXE/gxKYH9iwcOUI6b0xLAIZ5gXF47YL2PTnCTbvatAcT559II8hj0/F5bkbSclljPs84lli39I3sWfDSgwAQV3qkZRNgqM58zp+hkhzvCVS05iYFBB6iEzFxXIu/RysFyBNefOs4vAQcXv/q+bDbh3ALi7u3yMS4AbcYDhi7JciwZuzivfR8g5CuudE6ZKlyNra+xS/B0DpAwEbn2ncn0GkNwXONkBOFgL2K88m6OBwPkewNVJrjipc4FTISi8fS7Jma6sWNb6hxQatgC7vYEkH+AQgxwI4DsDVoV9OjWWtHy3X54JHtXuzrQuKbi6RY9jvYFtdHqVJLVAUeqxk860quQsCgyyGVYAW/2AjTR6lWzyBP6cD8veKNeGtByIisD5KGAdDfa+BaRtAqy3ecflqq28i1763W2kX3hs4DonAJs5zZrNoW5lbXJPA2cHqX07W8KW9lu8M72iFKYkJmF7S2DL6y6H+3TI3A88YnB5l0L0TLCLybXipM/d5gF9VjHBkV5Px9HeU6awCF8UX9/sWgb7qUgDfuT0X5pMowc8aqz8BwYSVjOp6IQ9HJVxY/k2GftUNnAQFimINhJPsznG0YuuyAis0cF6YoLZmZ4zcGY+sNIXWMvdup1JpN3Eke7oClyI5f2eoyJ67Vn06XtdXOYxS2AhgmYjz98zucbDy6qeOeynJ8KZXlHyd7G6b2ngjomXhz3LxV/LVL27Li+5rF3WMS4ji9beK4opNr/0cytgaWNgLg3cWd2W09kFODyca3yF31ze64eHqa1wfpabbRuX/gQvMu3ZPZ7w7zZVv6Ez7OubuwqwL6tlwoIawOmpwD8bOHWtgG/ooHHjJ35YbrB/mnq3y/Pa98ramPao+h1hauuwedfVP7+OS5/QGvkJwW4zEK87iQXcA8m8Mh8yQSo3WmJHYImcDO7o7OOqfhev6LMzy9osbER9f1UnLGxS1mbdB2oceRbdlVXAVAVP1rU1ONOzgBm6eMxnAYta0JCjzT70NL8vBuJqq1xZWb6N/lNgIkdbkY3oZjd0zEbeinZ6Z3pFSZ8YHOIoYDydhcVc062fq+g/4/oFufrKs1n1ITC9wdM2yzu5bOTZqbctbwZ+Fcv+thVM8zNhJtcpikavkhhvZC8Kcd0Bmlii/SMwzw/2SE+UjFBQOvLl4R7Puswxetc17C4FY2ubSqbUQPFwfjZpXEzHqmAXtDjDWMg0X2TGtTbzVJT/U5I+LjjEGumF4kg6ktLRamtjACuLsjJIpdBGbMWnhL6lY9hy2u2jCFvz1wEwxjzjlz1jZGBE/lAvh5MUghgvYFINlEysCXuMD2zjq8M21hvW0V6OViimzj6BNpNqApNJLO+UaH52x3o4iinmLBSO9UXW+KClzjSVy91hAfG5g7xQNJSjGuWBkpjqPFrcoLPqAnPq8xjxKC3g+deQd9FLv9hNZjHR3iiir40z83iUDhljWriO3fPIzcGBQ9PCfGAeyACDPfBkpCesEzgL0/1QOpvJ5vLY/Q97nA62Sb4o4DKKz+NwBdnDA3Bj3NsTnGGfSzxJTaLb0Kvpx5fDGl64FeqFrL4K7g9QkBfuAfOQarAM88SjyOrIH1fT8WyO8HT0PWDBOf0UZIbrcG1E8LX1oU0/Yay6xJdUJx6kQvEiskMbkWYkmHSI7/ba6OM9/c9c61MPqT0VGEMVpPd+mjt9fWD8qjEuhr9p0IcGzqWv/Ha1IkGkMalHapAKRUavI2LcnLQmHUlX0oOEEtnF/cmXZDAZQsLJABJGehEZdTfyDmlD3iBNiBTgQyqVakSq1GZCqpeZaEckYGfyPvmIyO+1IM+i60I6kfZEitcS+xNZApnhFxIpxptIQbWJFCWjaEAaEilQI4DUJ7LedUgtImsus1qBKMp/r9VzVft+2I0AAAAASUVORK5CYII=" InformativeScreenshot="122b608c3f81842c4c2e8c83a6be4540.png" Selector="&lt;wnd app='workstationcoordinator.exe' ctrlname='CopyPolicy' /&gt;" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

@@ -1,0 +1,248 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "UntrimmedOutput&Sequence_38",
+        "ScannedOutput&Sequence_38",
+        "TrimmedOutput&Sequence_38",
+        "InputDocPath&Sequence_38",
+        "str_file_path&Sequence_1",
+        "Taxonomy&Sequence_1",
+        "doc_txt&Sequence_1",
+        "dom&Sequence_1",
+        "class_res&Sequence_1",
+        "val_class&Sequence_1",
+        "Lst_index_required&Sequence_1",
+        "str_range&Sequence_1",
+        "Index&Sequence_1",
+        "lst_splitted_array&Sequence_1",
+        "array_str_final_splitteddoc_paths&Sequence_1",
+        "str_input_folder_path&Sequence_25",
+        "str_file_path&Sequence_26",
+        "Taxonomy&Sequence_26",
+        "doc_txt&Sequence_26",
+        "dom&Sequence_26",
+        "class_res&Sequence_26",
+        "val_class&Sequence_26",
+        "Lst_index_required&Sequence_26",
+        "str_range&Sequence_26",
+        "Index&Sequence_26",
+        "lst_splitted_array&Sequence_26",
+        "array_str_final_splitteddoc_paths&Sequence_26",
+        "final_file_name_eachfile&Sequence_26"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Dispatcher.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "In_file_PATH"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main(Autosaved).xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "str_file_path&Sequence_1",
+        "Taxonomy&Sequence_1",
+        "doc_txt&Sequence_1",
+        "dom&Sequence_1",
+        "class_res&Sequence_1",
+        "val_class&Sequence_1",
+        "Lst_index_required&Sequence_1",
+        "str_range&Sequence_1",
+        "Index&Sequence_1",
+        "str_array_splitted&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "ml_classifier.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "variable1&Sequence_16",
+        "arr_length&Sequence_16",
+        "final_filename&Sequence_16",
+        "arr_str&Sequence_1",
+        "curr_pge_count&Sequence_1",
+        "lst&Sequence_1",
+        "curr_pge_txt&Sequence_18",
+        "i&Sequence_1",
+        "str_input_folder_path&Sequence_2",
+        "str_file_path&Sequence_3",
+        "Taxonomy&Sequence_3",
+        "doc_txt&Sequence_3",
+        "dom&Sequence_3",
+        "class_res&Sequence_3",
+        "val_class&Sequence_3",
+        "Lst_index_required&Sequence_3",
+        "str_range&Sequence_3",
+        "Index&Sequence_3",
+        "lst_splitted_array&Sequence_3",
+        "array_str_final_splitteddoc_paths&Sequence_3",
+        "final_file_name_eachfile&Sequence_3"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Sequence.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "SVEA_page_trimming_optimised.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "j&Sequence_2",
+        "final_filename&Sequence_2",
+        "page_range&Sequence_2",
+        "curr_pge_txt&Sequence_15",
+        "i&Sequence_2",
+        "lst&Sequence_2",
+        "curr_pge_count&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "In_arg_output_folder_path",
+        "In_arg_Input_folder_path"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Document_trimming_zeneith.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "curr_pge_txt&Sequence_9",
+        "i&Sequence_2",
+        "lst&Sequence_2",
+        "curr_pge_count&Sequence_2",
+        "page_range&Sequence_2",
+        "final_filename&Sequence_2",
+        "j&Sequence_2",
+        "curr_pge_txt&Sequence_3"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_UntrimmedPath",
+        "in_ScannedFilePath",
+        "In_arg_output_folder_path",
+        "In_arg_Input_folder_path"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "test.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "doc_txt&Sequence_1",
+        "dom&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Document_trimming_classifier.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "class_res&Sequence_2",
+        "txo&Sequence_2",
+        "dom&Sequence_2",
+        "doc_txt&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "In_arg_output_folder_path",
+        "In_arg_Input_folder_path"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Docoument_trimming_amtrust.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "curr_pge_txt&Sequence_12",
+        "i&Sequence_2",
+        "lst&Sequence_2",
+        "curr_pge_count&Sequence_2",
+        "page_range&Sequence_2",
+        "final_filename&Sequence_2",
+        "j&Sequence_2",
+        "curr_pge_txt&Sequence_3"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_UntrimmedPath",
+        "in_ScannedFilePath",
+        "In_arg_Input_folder_path",
+        "In_arg_output_folder_path"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Document_trimming_hartfort.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "i&Sequence_2",
+        "lst&Sequence_2",
+        "curr_pge_count&Sequence_2",
+        "page_range&Sequence_2",
+        "final_filename&Sequence_2",
+        "j&Sequence_2",
+        "curr_pge_txt&Sequence_3"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_UntrimmedPath",
+        "in_ScannedFilePath",
+        "In_arg_Input_folder_path",
+        "In_arg_output_folder_path"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Document_trimming_travelers.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "i&Sequence_2",
+        "lst&Sequence_2",
+        "curr_pge_count&Sequence_2",
+        "page_range&Sequence_2",
+        "final_filename&Sequence_2",
+        "j&Sequence_2",
+        "curr_pge_txt&Sequence_3"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_UntrimmedPath",
+        "In_arg_Input_folder_path",
+        "In_arg_output_folder_path",
+        "In_arg_scanned_path"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}

@@ -1,0 +1,543 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_SimpleFields" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_FormattedFields" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_optionalCoverage" Type="InArgument(sd:DataTable)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1231,9424</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="50">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Windows.Forms</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>System.Numerics</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="80">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="514.5,9359" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_SimpleFields" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_SimpleFields_Format" />
+      <Variable x:TypeArguments="sd:DataTable" Name="SimplefieldFilter" />
+      <Variable x:TypeArguments="sd:DataTable" Name="FormattedfieldFilter" />
+      <Variable x:TypeArguments="sd:DataTable" Name="OptionalCoverageFieldFilter" />
+      <Variable x:TypeArguments="x:String" Name="P_C_Name" />
+      <Variable x:TypeArguments="sd:DataTable" Name="Logtable" />
+      <Variable x:TypeArguments="x:String" Name="flag_premium_cal" />
+      <Variable x:TypeArguments="x:Int32" Name="page_retry_count" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="452.5,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <ui:BuildDataTable DataTable="[Logtable]" DisplayName="Build Log Table" sap:VirtualizedContainerService.HintSize="452.5,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Description&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Prior_x0020_Term&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Current_x0020_Term&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Any_x0020_Changes&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DatatableFilter - Invoke Workflow File (PGIB Renewal in EPIC\DatatableFetchFromDatabase.xaml)" sap:VirtualizedContainerService.HintSize="452.5,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_30" UnSafe="False" WorkflowFileName="PGIB Renewal in EPIC\DatatableFilter.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_PolicyNumber">[in_TransactionItem.SpecificContent("PolicyNumber").ToString]</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_SimpleFields">[in_SimpleFields]</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_FormattedFields">[in_FormattedFields]</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_OptionalCoverage">[in_optionalCoverage]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_DocumentName">[in_TransactionItem.SpecificContent("DocumentName").ToString]</InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_SimpleFields_Filtered">[SimplefieldFilter]</OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_FormattedFields_Filtered">[FormattedfieldFilter]</OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_OptionalCoverage_Filtered">[OptionalCoverageFieldFilter]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Assign DisplayName="Assign retry mechanism retry count" sap:VirtualizedContainerService.HintSize="452.5,115" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[page_retry_count]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[cint(in_Config.Item("Pageretrycount").tostring)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="1_LocatePageAutomate_Enhanced - Invoke Workflow File (1_LocatePageAutomate_Enhanced.xaml)" sap:VirtualizedContainerService.HintSize="452.5,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_36" UnSafe="False" WorkflowFileName="1_LocatePageAutomate_Enhanced.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_PolicyNumber">[in_TransactionItem.SpecificContent("PolicyNumber").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_PolicyExtension">[SimplefieldFilter.Rows(0)("PolicyExtension").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_URL">[in_Config.Item("EpicURL").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_InsuredName">[in_TransactionItem.SpecificContent("Insured Name").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_address_1" />
+        <InArgument x:TypeArguments="x:Int32" x:Key="In_arg_retry_count">[page_retry_count]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="452.5,234" sap2010:WorkflowViewState.IdRef="Sequence_62">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Delay DisplayName=" Delay 5 seconds" Duration="00:00:05" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="Delay_60" />
+    </Sequence>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="2_policies and Current - Invoke Workflow File (PGIB Renewal in EPIC\2_policies and Current.xaml)" sap:VirtualizedContainerService.HintSize="452.5,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_38" UnSafe="False" WorkflowFileName="PGIB Renewal in EPIC\2_policies and Current.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_PolicyNumber">[in_TransactionItem.SpecificContent("PolicyNumber").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_URL">[in_Config.Item("EpicURL").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="In_arg_retry_count">[page_retry_count]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="452.5,234" sap2010:WorkflowViewState.IdRef="Sequence_61">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Delay DisplayName=" Delay 5 seconds" Duration="00:00:05" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="Delay_59" />
+    </Sequence>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="3_renew_Page - Invoke Workflow File (PGIB Renewal in EPIC\3_renew_Page.xaml)" sap:VirtualizedContainerService.HintSize="452.5,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_39" UnSafe="False" WorkflowFileName="PGIB Renewal in EPIC\3_renew_Page.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_PolicyNumber">[SimplefieldFilter.Rows(0)("PolicyNumber").ToString+SimplefieldFilter.Rows(0)("PolicyExtension").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Effective_Date">[SimplefieldFilter.Rows(0)("EffectiveDate").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Expiration_Date">[SimplefieldFilter.Rows(0)("ExpirationDate").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_renew_Type">Home</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_CarrierName">SVEA</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_PremiumPayableCompany">SVEA</InArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_LogTable">[Logtable]</InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_URL">[in_Config.Item("EpicURL").ToString]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_flag_premium_cal">[flag_premium_cal]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Policy_Premium">[SimplefieldFilter.Rows(0)("PolicyPremium").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="In_arg_retry_count">[page_retry_count]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="4_add_an_activity - Invoke Workflow File (PGIB Renewal in EPIC\4_add_an_activity.xaml)" sap:VirtualizedContainerService.HintSize="452.5,57" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_40" UnSafe="False" WorkflowFileName="PGIB Renewal in EPIC\4_add_an_activity.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Url">[in_Config.Item("EpicURL").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="In_arg_retry_count">[page_retry_count]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="452.5,234" sap2010:WorkflowViewState.IdRef="Sequence_67">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Delay DisplayName=" Delay 10 seconds" Duration="00:00:10" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="Delay_66" />
+    </Sequence>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="5thPage_ErrorSolver - Invoke Workflow File (5thPage_ErrorSolver.xaml)" sap:VirtualizedContainerService.HintSize="452.5,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_37" UnSafe="False" WorkflowFileName="5thPage_ErrorSolver.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_URL">[in_Config.Item("EpicURL").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_RetryCount">[page_retry_count]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="5_policy_Details_Page - Invoke Workflow File (PGIB Renewal in EPIC\5_policy_Details_Page.xaml)" sap:VirtualizedContainerService.HintSize="452.5,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="PGIB Renewal in EPIC\5_policy_Details_Page.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Policy_Premium">[SimplefieldFilter.Rows(0)("PolicyPremium").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_PolicyNumber">[SimplefieldFilter.Rows(0)("PolicyNumber").ToString+SimplefieldFilter.Rows(0)("PolicyExtension").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Url">[in_Config.Item("EpicURL").ToString]</InArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_LogTable">[Logtable]</InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_flag_premium_cal_To_check">[flag_premium_cal]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="In_arg_retry_count">[page_retry_count]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="6_line_Page - Invoke Workflow File (PGIB Renewal in EPIC\6_line_Page.xaml)" sap:VirtualizedContainerService.HintSize="452.5,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="PGIB Renewal in EPIC\6_line_Page.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Billing_Type">direct</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Url">[in_Config.Item("EpicURL").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="In_arg_retry_count">[page_retry_count]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="7-develop on MB env _line_Servicing - Invoke Workflow File (PGIB Renewal in EPIC\7-develop on MB env _line_Servicing.xaml)" sap:VirtualizedContainerService.HintSize="452.5,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_17" UnSafe="False" WorkflowFileName="PGIB Renewal in EPIC\7-develop on MB env _line_Servicing.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Url">[in_Config.Item("EpicURL").ToString]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_P_C_Name">[P_C_Name]</OutArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="In_arg_retry_count">[page_retry_count]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="8_personal Ap Policy section - Invoke Workflow File (PGIB Renewal in EPIC\8_personal Ap Policy section.xaml)" sap:VirtualizedContainerService.HintSize="452.5,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="PGIB Renewal in EPIC\8_personal Ap Policy section.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Url">[in_Config.Item("EpicURL").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="In_arg_retry_count">[page_retry_count]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="9_Personal AP_Applicant - Invoke Workflow File (PGIB Renewal in EPIC\9_Personal AP_Applicant.xaml)" sap:VirtualizedContainerService.HintSize="452.5,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" UnSafe="False" WorkflowFileName="PGIB Renewal in EPIC\9_Personal AP_Applicant.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_InsuredName">[SimplefieldFilter.Rows(0)("InsuredName").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Co_ApplicantName">[SimplefieldFilter.Rows(0)("CoInsuredName").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_Final_Score">[Cint(in_Config.Item("StringScore").ToString)]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_1st_Address">[FormattedfieldFilter.Rows(0)("InsuredMailingAddress").ToString().Split(New String() {"Address Line 1"}, StringSplitOptions.RemoveEmptyEntries).Last().Split(Environment.NewLine.ToCharArray).First().Trim(" ,""".ToCharArray)]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_InsuredMailing_Address">[SimplefieldFilter.Rows(0)("InsuredMailingAddress").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Pincode">[FormattedfieldFilter.Rows(0)("InsuredMailingAddress").ToString().Split(New String() {"Zip Postal Code"}, StringSplitOptions.RemoveEmptyEntries).Last().Split(Environment.NewLine.ToCharArray).First().Trim(" ,""".ToCharArray)]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_City">[FormattedfieldFilter.Rows(0)("InsuredMailingAddress").ToString().Split(New String() {"City"}, StringSplitOptions.RemoveEmptyEntries).Last().Split(Environment.NewLine.ToCharArray).First().Trim(" ,""".ToCharArray)]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_State">[FormattedfieldFilter.Rows(0)("InsuredMailingAddress").ToString().Split(New String() {"State / County / Province"}, StringSplitOptions.RemoveEmptyEntries).Last().Split(Environment.NewLine.ToCharArray).First().Trim(" ,""".ToCharArray)]</InArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="in_LogTable">[Logtable]</InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Url">[in_Config.Item("EpicURL").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="In_arg_retry_count">[page_retry_count]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="10-Co_Applicant - Invoke Workflow File (PGIB Renewal in EPIC\10-Co_Applicant.xaml)" sap:VirtualizedContainerService.HintSize="452.5,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_20" UnSafe="False" WorkflowFileName="PGIB Renewal in EPIC\10-Co_Applicant.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Co_ApplicantName">[SimplefieldFilter.Rows(0)("CoInsuredName").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_1st_Address">[FormattedfieldFilter.Rows(0)("InsuredMailingAddress").ToString().Split(New String() {"Address Line 1"}, StringSplitOptions.RemoveEmptyEntries).Last().Split(Environment.NewLine.ToCharArray).First().Trim(" ,""".ToCharArray)]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_City">[FormattedfieldFilter.Rows(0)("InsuredMailingAddress").ToString().Split(New String() {"City"}, StringSplitOptions.RemoveEmptyEntries).Last().Split(Environment.NewLine.ToCharArray).First().Trim(" ,""".ToCharArray)]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Pincode">[FormattedfieldFilter.Rows(0)("InsuredMailingAddress").ToString().Split(New String() {"Zip Postal Code"}, StringSplitOptions.RemoveEmptyEntries).Last().Split(Environment.NewLine.ToCharArray).First().Trim(" ,""".ToCharArray)]</InArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="in_LogTable">[Logtable]</InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Url">[in_Config.Item("EpicURL").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="In_arg_retry_count">[page_retry_count]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="11_ Location Schedule_Garaging - Invoke Workflow File (PGIB Renewal in EPIC\11_ Location Schedule_Garaging.xaml)" sap:VirtualizedContainerService.HintSize="452.5,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="PGIB Renewal in EPIC\11_ Location Schedule_Garaging.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_Score_Adress">[Cint(in_Config.Item("StringScore").ToString)]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_PropertyLocation">[SimplefieldFilter.Rows(0)("PropertyLocation").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Prop_1st_Address">[FormattedfieldFilter.Rows(0)("PropertyLocation").ToString().Split(New String() {"Address Line 1"}, StringSplitOptions.RemoveEmptyEntries).Last().Split(Environment.NewLine.ToCharArray).First().Trim(" ,""".ToCharArray)]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Prop_City">[FormattedfieldFilter.Rows(0)("PropertyLocation").ToString().Split(New String() {"City"}, StringSplitOptions.RemoveEmptyEntries).Last().Split(Environment.NewLine.ToCharArray).First().Trim(" ,""".ToCharArray)]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Prop_Pincode">[FormattedfieldFilter.Rows(0)("PropertyLocation").ToString().Split(New String() {"Zip Postal Code"}, StringSplitOptions.RemoveEmptyEntries).Last().Split(Environment.NewLine.ToCharArray).First().Trim(" ,""".ToCharArray)]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Url">[in_Config.Item("EpicURL").ToString]</InArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_LogTable">[Logtable]</InOutArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="In_arg_retry_count">[page_retry_count]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="12_Homeowners_Insurace Requested - Invoke Workflow File (PGIB Renewal in EPIC\12_Homeowners_Insurace Requested.xaml)" sap:VirtualizedContainerService.HintSize="452.5,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_22" UnSafe="False" WorkflowFileName="PGIB Renewal in EPIC\12_Homeowners_Insurace Requested.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Payor">[SimplefieldFilter.Rows(0)("Payor").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Url">[in_Config.Item("EpicURL").ToString]</InArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_LogTable">[Logtable]</InOutArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="In_arg_retry_count">[page_retry_count]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="13_Rating_Underwriting_Construction_type - Invoke Workflow File (PGIB Renewal in EPIC\13_Rating_Underwriting_Construction_type.xaml)" sap:VirtualizedContainerService.HintSize="452.5,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" UnSafe="False" WorkflowFileName="PGIB Renewal in EPIC\13_Rating_Underwriting_Construction_type.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_siding_type" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_construction_type">[SimplefieldFilter.Rows(0)("ConstructionType").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_general_usage" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_occupancy" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_sprinkler" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_distance_to_tidal_water" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_visible_to_neighbors" />
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_Distance_tidalwater_type" />
+        <InArgument x:TypeArguments="x:String" x:Key="in_Url">[in_Config.Item("EpicURL").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="In_arg_retry_count">[page_retry_count]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="452.5,397" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,286" sap2010:WorkflowViewState.IdRef="Sequence_43">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="14_protection_Wiring - Invoke Workflow File (PGIB Renewal in EPIC\13_protection_Wiring.xaml)" sap:VirtualizedContainerService.HintSize="354,198" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_23" UnSafe="False" WorkflowFileName="PGIB Renewal in EPIC\14_protection_Wiring.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_protection_Device" />
+              <InArgument x:TypeArguments="x:String" x:Key="in_Smoke" />
+              <InArgument x:TypeArguments="x:String" x:Key="in_Temperature_fire" />
+              <InArgument x:TypeArguments="x:String" x:Key="in_Burglar" />
+              <InArgument x:TypeArguments="x:String" x:Key="in_Protection_Class" />
+              <InArgument x:TypeArguments="x:String" x:Key="in_Distance_to_hydrant" />
+              <InArgument x:TypeArguments="x:String" x:Key="in_Url">[in_Config.Item("EpicURL").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="In_arg_retry_count" />
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="15_General_Credits - Invoke Workflow File (PGIB Renewal in EPIC\15_General_Credits.xaml)" sap:VirtualizedContainerService.HintSize="452.5,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_25" UnSafe="False" WorkflowFileName="PGIB Renewal in EPIC\15_General_Credits.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Year_Built">[SimplefieldFilter.Rows(0)("YearBuilt").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Number_Families">[SimplefieldFilter.Rows(0)("NoOfFamilies").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Total_Living_Area">[SimplefieldFilter.Rows(0)("TotalLivingArea").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Url">[in_Config.Item("EpicURL").ToString]</InArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_LogTable">[Logtable]</InOutArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="In_arg_retry_count">[page_retry_count]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="452.5,234" sap2010:WorkflowViewState.IdRef="Sequence_35">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Delay DisplayName=" Delay 3 seconds" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="Delay_34" />
+    </Sequence>
+    <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="452.5,234" sap2010:WorkflowViewState.IdRef="Sequence_55">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Delay DisplayName=" Delay 5 seconds" Duration="00:00:05" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="Delay_53" />
+    </Sequence>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="16_RoofRenovations - Invoke Workflow File (PGIB Renewal in EPIC\16_RoofRenovations.xaml)" sap:VirtualizedContainerService.HintSize="452.5,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_31" UnSafe="False" WorkflowFileName="PGIB Renewal in EPIC\16_RoofRenovations.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_roof_material">[SimplefieldFilter.Rows(0)("RoofMaterial").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_roof_renovation_year">[SimplefieldFilter.Rows(0)("RenovationRoofYear").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Url">[in_Config.Item("EpicURL").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="In_arg_retry_count">[page_retry_count]</InArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_LogTable">[Logtable]</InOutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="452.5,234" sap2010:WorkflowViewState.IdRef="Sequence_36">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Delay DisplayName=" Delay 3 seconds" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="Delay_35" />
+    </Sequence>
+    <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="452.5,234" sap2010:WorkflowViewState.IdRef="Sequence_56">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Delay DisplayName=" Delay 5 seconds" Duration="00:00:05" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="Delay_54" />
+    </Sequence>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="17_coverage_section - Invoke Workflow File (PGIB Renewal in EPIC\17_coverage_section.xaml)" sap:VirtualizedContainerService.HintSize="452.5,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_26" UnSafe="False" WorkflowFileName="PGIB Renewal in EPIC\17_coverage_section.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Dwelling">[SimplefieldFilter.Rows(0)("Dwelling").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_OtherStructure">[SimplefieldFilter.Rows(0)("OtherStructures").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_PersonalProperty">[SimplefieldFilter.Rows(0)("PersonalProperty").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_LossofUse">[SimplefieldFilter.Rows(0)("LossOfUse").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_PersonalLiability">[SimplefieldFilter.Rows(0)("PersonalLiability").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_MedicalPayments">[SimplefieldFilter.Rows(0)("MedicalPayment").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Url">[in_Config.Item("EpicURL").ToString]</InArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_LogTable">[Logtable]</InOutArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="In_arg_retry_count">[page_retry_count]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_medical_payment_2">[in_TransactionItem.SpecificContent("MedicalPayment").ToString]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="452.5,234" sap2010:WorkflowViewState.IdRef="Sequence_37">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Delay DisplayName=" Delay 3 seconds" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="Delay_36" />
+    </Sequence>
+    <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="452.5,234" sap2010:WorkflowViewState.IdRef="Sequence_57">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Delay DisplayName=" Delay 5 seconds" Duration="00:00:05" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="Delay_55" />
+    </Sequence>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="18_Deductibles - Invoke Workflow File (PGIB Renewal in EPIC\18_Deductibles.xaml)" sap:VirtualizedContainerService.HintSize="452.5,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_27" UnSafe="False" WorkflowFileName="PGIB Renewal in EPIC\18_Deductibles.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Base_Amount">[SimplefieldFilter.Rows(0)("BaseDeduct").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Wind_Hail">[SimplefieldFilter.Rows(0)("WindHailDeduct").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Url">[in_Config.Item("EpicURL").ToString]</InArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_LogTable">[Logtable]</InOutArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="In_arg_retry_count">[page_retry_count]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="452.5,234" sap2010:WorkflowViewState.IdRef="Sequence_38">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Delay DisplayName=" Delay 3 seconds" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="Delay_37" />
+    </Sequence>
+    <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="452.5,234" sap2010:WorkflowViewState.IdRef="Sequence_58">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Delay DisplayName=" Delay 5 seconds" Duration="00:00:05" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="Delay_56" />
+    </Sequence>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="19_other optional coverage - Invoke Workflow File (PGIB Renewal in EPIC\19_other optional coverage.xaml)" sap:VirtualizedContainerService.HintSize="452.5,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_29" UnSafe="False" WorkflowFileName="PGIB Renewal in EPIC\19_other optional coverage.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="In_arg_Dt_Other_Optional_Coverages">[OptionalCoverageFieldFilter]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Url">[in_Config.Item("EpicURL").ToString]</InArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_LogTable">[Logtable]</InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SumpPumpSewerCoverage">[SimplefieldFilter.Rows(0)("SumpPumpSewerCoverage").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_arg_confidence_score">[in_Config.item("StringScore").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="In_arg_retry_count">[page_retry_count]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="452.5,234" sap2010:WorkflowViewState.IdRef="Sequence_39">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Delay DisplayName=" Delay 3 seconds" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="Delay_38" />
+    </Sequence>
+    <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="452.5,234" sap2010:WorkflowViewState.IdRef="Sequence_59">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Delay DisplayName=" Delay 5 seconds" Duration="00:00:05" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="Delay_57" />
+    </Sequence>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="20_AdditionalInterests - Invoke Workflow File (PGIB Renewal in EPIC\20_AdditionalInterests.xaml)" sap:VirtualizedContainerService.HintSize="452.5,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_33" UnSafe="False" WorkflowFileName="PGIB Renewal in EPIC\20_AdditionalInterests.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_3rdLien" />
+        <InArgument x:TypeArguments="x:String" x:Key="in_BillTo" />
+        <InArgument x:TypeArguments="x:String" x:Key="in_Mortgage1Details">[FormattedfieldFilter.Rows(0)("Mortgage1Details").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Mortgage2Details">[FormattedfieldFilter.Rows(0)("Mortgage2Details").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_MG1LoanNumber">[SimplefieldFilter.Rows(0)("Mg1LoanNumber").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_MG2LoanNumber">[SimplefieldFilter.Rows(0)("Mg2LoanNumber").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Url">[in_Config.Item("EpicURL").ToString]</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="io_LogTable">[Logtable]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="In_arg_retry_count">[page_retry_count]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Arg_Confidence_Score">[in_Config.item("StringScore").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_mortgage1_simple">[SimplefieldFilter.Rows(0)("Mortgage1Details").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="In_mortgage2_simple">[SimplefieldFilter.Rows(0)("Mortgage2Details").ToString]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="452.5,234" sap2010:WorkflowViewState.IdRef="Sequence_60">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Delay DisplayName=" Delay 5 seconds" Duration="00:00:05" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="Delay_58" />
+    </Sequence>
+    <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="452.5,234" sap2010:WorkflowViewState.IdRef="Sequence_40">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Delay DisplayName=" Delay 3 seconds" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="Delay_39" />
+    </Sequence>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="21_closing - Invoke Workflow File (PGIB Renewal in EPIC\20_closing.xaml)" sap:VirtualizedContainerService.HintSize="452.5,207" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_41" UnSafe="False" WorkflowFileName="PGIB Renewal in EPIC\21_closing.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Url">[in_Config.Item("EpicURL").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="In_arg_retry_count">[page_retry_count]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="452.5,234" sap2010:WorkflowViewState.IdRef="Sequence_41">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Delay DisplayName=" Delay 3 seconds" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="Delay_40" />
+    </Sequence>
+    <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="452.5,113" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="Data\Output\log report pgib-svea.xlsx" />
+    <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[Logtable]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="452.5,139" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="LogReport" WorkbookPath="Data\Output\log report pgib-svea.xlsx" />
+  </Sequence>
+</Activity>

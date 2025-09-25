@@ -1,0 +1,422 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="_9_Sunbiz_Automation" this:_9_Sunbiz_Automation.in_Fein_No="45-3144430" this:_9_Sunbiz_Automation.in_Insured_Name="TAYTON 0 BRIAN'S, LLC" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ofa="clr-namespace:OS.Fuzzy.Activities;assembly=OS.Fuzzy.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Fein_No" Type="InArgument(x:String)" />
+    <x:Property Name="in_Insured_Name" Type="InArgument(x:String)" />
+    <x:Property Name="out_Date_of_Business" Type="OutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1412,3853.3333333333335</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>_9_Sunbiz_Automation_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>FuzzySharp</x:String>
+      <x:String>OS.Fuzzy.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>OS.Fuzzy.Activities</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>FuzzySharp</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="_9_Sunbiz_Automation" sap:VirtualizedContainerService.HintSize="750,3788.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Division of Corporations - Florida Department of State" sap:VirtualizedContainerService.HintSize="688,1542" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="37128181-53fd-445c-bc79-419cda1503c4" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,1290.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Search Records'" sap:VirtualizedContainerService.HintSize="354,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="37128181-53fd-445c-bc79-419cda1503c4" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://dos.fl.gov/sunbiz/" DesignTimeRectangle="485, 407, 100, 75" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='accessible-megamenu-1725260003963-3' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='accessible-megamenu-1725260003963-3' tag='SPAN' type='' class='vertical-center' aaname='Search Records ' check:innerText='Search Records' /&gt;" Guid="6308c1d0-61c7-4c31-8d32-69b3eab08cec" InformativeScreenshot="739f947e2ba434fe106ad5bd8d81ce4d.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Division of Corporations - Florida Department of State' /&gt;" SearchSteps="FuzzySelector" Version="V3" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                      <uix:Target CVScreenId="04100d18-a95d-4c78-8a6f-34e2b189c59d" CvTextArea="390, 422, 61, 18" CvTextArgument="About" CvType="Text" DesignTimeRectangle="390, 422, 61, 18" ElementType="Text" Guid="2b70a51e-bfc1-4bc6-b5b2-2642266ed5ed" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                      <uix:Target CVScreenId="04100d18-a95d-4c78-8a6f-34e2b189c59d" CvTextArea="652, 422, 66, 19" CvTextArgument="Start a" CvType="Text" DesignTimeRectangle="652, 423, 66, 18" ElementType="Text" Guid="06d16241-3aa3-4193-9eec-15e5f752110a" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'FEI/EIN'" sap:VirtualizedContainerService.HintSize="354,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_5" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="37128181-53fd-445c-bc79-419cda1503c4" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://dos.fl.gov/sunbiz/search/" CVScreenId="267af2d0-c330-42e9-bc02-f4b6d49eb000" CvTextArea="404, 939, 60, 21" CvTextArgument="FEI/EIN" CvType="Text" DesignTimeRectangle="404, 936, 60, 24" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='FEI/EIN' parentid='content' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='FEI/EIN' parentid='content' tag='A' type='' class='' check:innerText='FEI/EIN' /&gt;" Guid="06d706a4-9d0c-4712-afdb-d328d3faa8df" ImageBase64="" InformativeScreenshot="473c67a0b8f580f975c7906870b56a44.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Search Records - Division of Corporations - Florida Department of State' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                      <uix:Target CVScreenId="267af2d0-c330-42e9-bc02-f4b6d49eb000" CvTextArea="402, 910, 202, 18" CvTextArgument="Trademark Owner Name" CvType="Text" DesignTimeRectangle="404, 907, 200, 24" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Trademark Owner Name' parentid='content' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Trademark Owner Name' parentid='content' tag='A' type='' class='' check:innerText='Trademark Owner Name' /&gt;" Guid="7d11f275-d0e6-4ba3-8444-79f1b686f0b7" SearchSteps="FuzzySelector, CV" />
+                      <uix:Target CVScreenId="267af2d0-c330-42e9-bc02-f4b6d49eb000" CvTextArea="402, 969, 235, 17" CvTextArgument="Detail by Document Number" CvType="Text" DesignTimeRectangle="404, 964, 232, 24" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Detail by Document Number' parentid='content' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Detail by Document Number' parentid='content' tag='A' type='' class='' check:innerText='Detail by Document Number' /&gt;" Guid="a9398c5c-86b6-4e3d-bc07-e10cf0b7bfde" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'FEI/EIN'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="37128181-53fd-445c-bc79-419cda1503c4" Text="[in_Fein_No]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://search.sunbiz.org/Inquiry/CorporationSearch/ByFeiNumber" CVScreenId="3590d705-0f84-4107-9d69-9c496d7036d4" CvElementArea="787, 562, 417, 27" CvType="InputBox" DesignTimeRectangle="788, 564, 415, 24" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='SearchTerm' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='SearchTerm' tag='INPUT' type='text' class='' aaname='FEI/EIN:' /&gt;" Guid="c1ef36a8-60c0-47b5-be26-eb1f9806d795" InformativeScreenshot="fc7973165658e08289fdad2d6a9fc214.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Search Corporations, Limited Liability Companies, Limited Partnerships, and Trademarks by FEI Number' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="3590d705-0f84-4107-9d69-9c496d7036d4" CvTextArea="715, 565, 67, 17" CvTextArgument="FEI/EIN:" CvType="Text" DesignTimeRectangle="716, 565, 67, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='' aaname='FEI/EIN:' check:innerText='FEI/EIN:' /&gt;" Guid="2ecc0b47-6395-43aa-b0a0-600da96a5e07" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Search Now'" sap:VirtualizedContainerService.HintSize="354,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_6" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="37128181-53fd-445c-bc79-419cda1503c4" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://search.sunbiz.org/Inquiry/CorporationSearch/ByFeiNumber" CVScreenId="a7b3dfac-4741-4c3b-ae1e-a47a68a89067" CvElementArea="909, 589, 101, 27" CvTextArea="912, 594, 93, 15" CvTextArgument="Search Now" CvType="Button" DesignTimeRectangle="912, 593, 95, 24" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='INPUT' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='submit' class='' aaname='Search Now' check:text='Search Now' /&gt;" Guid="d43a91c2-6206-4b3b-8c21-e8d9f43cf61f" InformativeScreenshot="f160e70961603effa315ebd530dd2cab.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Search Corporations, Limited Liability Companies, Limited Partnerships, and Trademarks by FEI Number' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                      <uix:Target CVScreenId="a7b3dfac-4741-4c3b-ae1e-a47a68a89067" CvTextArea="715, 565, 67, 17" CvTextArgument="FEI/EIN:" CvType="Text" DesignTimeRectangle="716, 567, 67, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='' aaname='FEI/EIN:' check:innerText='FEI/EIN:' /&gt;" Guid="76ad5791-6097-4334-b791-f71f6ee3e138" SearchSteps="FuzzySelector, CV" />
+                      <uix:Target CVScreenId="a7b3dfac-4741-4c3b-ae1e-a47a68a89067" CvTextArea="861, 646, 214, 22" CvTextArgument="Other Search Options" CvType="Text" DesignTimeRectangle="516, 644, 905, 31" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='search-input' tag='H3' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='search-input' tag='H3' type='' class='' aaname='Other Search Options' check:innerText='Other Search Options' /&gt;" Guid="9eaee3d8-a963-4148-8192-d11a619d9506" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="Label 'FEI/EIN Number List'" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Target>
+                    <uix:TargetAnchorable BrowserURL="https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?inquiryType=FeiNumber&amp;searchTerm=593361144" CVScreenId="5c49536f-2abb-4cf4-ae83-6988e1c87a3c" CvTextArea="496, 350, 257, 25" CvTextArgument="FEI/EIN Number List" CvType="Text" DesignTimeRectangle="498, 345, 923, 40" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H2' type='' class='' aaname='FEI/EIN Number List' check:innerText='FEI/EIN Number List' /&gt;" Guid="64d56ae2-6804-4cc7-be43-ca380826395c" InformativeScreenshot="b24dbb7dbd96657f814a233314178dd0.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Search Corporations, Limited Liability Companies, Limited Partnerships, and Trademarks by FEI Number' /&gt;" SearchSteps="FuzzySelector, CV" Version="V3" Visibility="Interactive">
+                      <uix:TargetAnchorable.Anchors>
+                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                          <uix:Target CVScreenId="5c49536f-2abb-4cf4-ae83-6988e1c87a3c" CvTextArea="497, 390, 156, 20" CvTextArgument="FEI/EIN Number" CvType="Text" DesignTimeRectangle="500, 387, 174, 30" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='TH' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TH' class='small-width' aaname='FEI/EIN Number' check:innerText='FEI/EIN Number' /&gt;" Guid="5b35de99-07a2-417b-8099-955eddd948c6" SearchSteps="FuzzySelector, CV" />
+                        </scg:List>
+                      </uix:TargetAnchorable.Anchors>
+                    </uix:TargetAnchorable>
+                  </uix:VerifyExecutionOptions.Target>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click FEIN No" sap:VirtualizedContainerService.HintSize="354,222.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_7" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="37128181-53fd-445c-bc79-419cda1503c4" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?inquiryType=FeiNumber&amp;searchTerm=453144430" CVScreenId="3269be8b-012c-487f-be1c-c9d840651aba" CvTextArea="497, 629, 86, 16" CvTextArgument="453144430" CvType="Text" DesignTimeRectangle="500, 628, 83, 19" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='A' class='' /&gt;" Guid="9435c26c-07a9-43ef-b390-9a5d910db62d" InformativeScreenshot="67bdb0a8027d17f0302236ca2b509c01.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Search Corporations, Limited Liability Companies, Limited Partnerships, and Trademarks by FEI Number' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                      <uix:Target CVScreenId="3269be8b-012c-487f-be1c-c9d840651aba" CvTextArea="496, 556, 258, 23" CvTextArgument="FEI/EIN Number List" CvType="Text" DesignTimeRectangle="498, 550, 923, 40" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H2' type='' class='' aaname='FEI/EIN Number List' check:innerText='FEI/EIN Number List' /&gt;" Guid="d1b89648-89da-4420-9b46-b935424e1b34" SearchSteps="FuzzySelector, CV" />
+                      <uix:Target CVScreenId="3269be8b-012c-487f-be1c-c9d840651aba" CvTextArea="499, 597, 154, 18" CvTextArgument="FEI/EIN Number" CvType="Text" DesignTimeRectangle="500, 592, 160, 30" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='TH' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TH' class='small-width' aaname='FEI/EIN Number' check:innerText='FEI/EIN Number' /&gt;" Guid="f52dc9ce-4df5-4639-bacc-8263b1d127a5" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Edge" IconBase64="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" InformativeScreenshot="62671e2ca3ed0ec2b45ba08ee229e627.jpg" Selector="&lt;html app='msedge.exe' title='Division of Corporations - Florida Department of State' /&gt;" Title="Division of Corporations - Florida Department of State" Url="https://dos.fl.gov/sunbiz/" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <Sequence DisplayName="Sequence Check Date of Business /Insured Name/Mailing " sap:VirtualizedContainerService.HintSize="688,2110.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_7">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: Detail by FEI/EIN Number" sap:VirtualizedContainerService.HintSize="626,1860.6666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="76bf393d-e719-4630-b967-daff5f7f9c60" Version="V2">
+        <uix:NApplicationCard.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="592,1609.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="ext_Insured_FEIN" />
+                <Variable x:TypeArguments="x:Int32" Name="score_Insured" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NGetText ContinueOnError="True" DisplayName="Get Text 'Document Number'" sap:VirtualizedContainerService.HintSize="530,191.33333333333334" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="76bf393d-e719-4630-b967-daff5f7f9c60" TextString="[ext_Insured_FEIN]" Version="V3">
+                <uix:NGetText.Target>
+                  <uix:TargetAnchorable BrowserURL="https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquirytype=FeiNumber&amp;directionType=Initial&amp;searchNameOrder=593549678P990000018690&amp;aggregateId=domp-p99000001869-d790b896-9297-49ea-843b-b0aaba3efa7d&amp;searchTerm=593549678&amp;listNameOrder=593549678P990000018690" CVScreenId="77c352b7-5e3a-44ea-8cab-d1371f06288b" CvTextArea="496, 500, 371, 17" CvType="AnyWordGroup" DesignTimeRectangle="498, 496, 923, 26" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='59-3549678' parentid='maincontent' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='maincontent' tag='SPAN' type='' class='' /&gt;" Guid="6056d582-fc6f-48de-a5f6-1ca38af59343" InformativeScreenshot="deeded85bb2fa7e7f63dc93213b2b943.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Detail by FEI/EIN Number' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                        <uix:Target CVScreenId="77c352b7-5e3a-44ea-8cab-d1371f06288b" CvTextArea="496, 469, 161, 17" CvTextArgument="Document Number" CvType="Text" DesignTimeRectangle="498, 465, 275, 26" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='' aaname='Document Number' check:innerText='Document Number' /&gt;" Guid="774876fa-e91a-4afc-8092-d252f7a930dc" SearchSteps="FuzzySelector, CV" />
+                        <uix:Target CVScreenId="77c352b7-5e3a-44ea-8cab-d1371f06288b" CvTextArea="496, 531, 86, 17" CvTextArgument="Date Filed" CvType="Text" DesignTimeRectangle="498, 527, 275, 27" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Date Filed' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Date Filed' tag='LABEL' type='' class='' check:innerText='Date Filed' /&gt;" Guid="87081107-a848-41b4-9e35-1538596e8e1d" SearchSteps="FuzzySelector, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NGetText.Target>
+              </uix:NGetText>
+              <ofa:Score ContinueOnError="{x:Null}" EvaluatedScore="[score_Insured]" FirstInputString="[ext_Insured_FEIN]" sap:VirtualizedContainerService.HintSize="530,168" sap2010:WorkflowViewState.IdRef="Score_1" Preprocess="True" ScoreAlgorithm="Ratio" SecondInputString="[in_Fein_No]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="530,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[score_Insured]" />
+              <If Condition="[score_Insured&gt;75]" sap:VirtualizedContainerService.HintSize="530,983.3333333333334" sap2010:WorkflowViewState.IdRef="If_2">
+                <If.Then>
+                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,563.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:String" Name="ext_Date_of_Business" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NGetText DisplayName="Get Text Date Filed" sap:VirtualizedContainerService.HintSize="434,191.33333333333334" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="76bf393d-e719-4630-b967-daff5f7f9c60" TextString="[ext_Date_of_Business]" Version="V3">
+                      <uix:NGetText.Target>
+                        <uix:TargetAnchorable BrowserURL="https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquirytype=FeiNumber&amp;directionType=Initial&amp;searchNameOrder=453144430L110001006330&amp;aggregateId=flal-l11000100633-857764c6-c2c6-4415-960c-49e38e2a5519&amp;searchTerm=453144430&amp;listNameOrder=453144430L110001006330" CVScreenId="2700adcf-c445-4ff9-aeb7-ff630f4db45c" CvTextArea="496, 501, 362, 17" CvType="AnyWordGroup" DesignTimeRectangle="498, 497, 923, 27" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='09/01/2011' parentid='maincontent' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='maincontent' tag='SPAN' type='' class='' /&gt;" Guid="bcbb0540-e004-471b-82c1-ad39c87e8293" InformativeScreenshot="629c131e5be246a25a6bf910d9fb430f.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Detail by FEI/EIN Number' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                              <uix:Target CVScreenId="2700adcf-c445-4ff9-aeb7-ff630f4db45c" CvTextArea="496, 470, 136, 17" CvTextArgument="FEI/EIN Number" CvType="Text" DesignTimeRectangle="498, 466, 275, 26" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='FEI/EIN Number' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='FEI/EIN Number' tag='LABEL' type='' class='' check:innerText='FEI/EIN Number' /&gt;" Guid="f0d78f04-8d9c-4b77-ad5a-2baad6d9df3d" SearchSteps="FuzzySelector, CV" />
+                              <uix:Target CVScreenId="2700adcf-c445-4ff9-aeb7-ff630f4db45c" CvTextArea="496, 532, 45, 17" CvTextArgument="State" CvType="Text" DesignTimeRectangle="498, 529, 275, 26" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='State' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='State' tag='LABEL' type='' class='' check:innerText='State' /&gt;" Guid="07d12641-7e5c-4712-8e2c-da4581e10791" SearchSteps="FuzzySelector, CV" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NGetText.Target>
+                    </uix:NGetText>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[ext_Date_of_Business]" />
+                    <Assign sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_1">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_Date_of_Business]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[ext_Date_of_Business]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,254.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,170" sap2010:WorkflowViewState.IdRef="LogMessage_4" Message="[&quot;Extracted Insured FEIN &quot;+&quot; &quot;+ext_Insured_FEIN+&quot; &quot;+&quot;is Difference from Document FEIN no&quot;+&quot; &quot;+in_Fein_No]" />
+                  </Sequence>
+                </If.Else>
+              </If>
+            </Sequence>
+          </ActivityAction>
+        </uix:NApplicationCard.Body>
+        <uix:NApplicationCard.TargetApp>
+          <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Edge" IconBase64="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" InformativeScreenshot="eb0817c373eba06a6ec10d1c3459899f.jpg" Selector="&lt;html app='msedge.exe' title='Detail by FEI/EIN Number' /&gt;" Title="Detail by FEI/EIN Number" Url="https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquirytype=FeiNumber&amp;directionType=Initial&amp;searchNameOrder=453144430L110001006330&amp;aggregateId=flal-l11000100633-857764c6-c2c6-4415-960c-49e38e2a5519&amp;searchTerm=453144430&amp;listNameOrder=453144430L110001006330" />
+        </uix:NApplicationCard.TargetApp>
+      </uix:NApplicationCard>
+      <ui:CloseApplication DisplayName="Close Application 'BODY'" sap:VirtualizedContainerService.HintSize="626,130" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
+        <ui:CloseApplication.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="56133075-2530-4377-9320-b5bcfa141c14" InformativeScreenshot="c1aae8f190860cd69c372deb7a2dfdc0" Selector="&lt;html app='msedge.exe' title='Detail by FEI/EIN Number' /&gt;&lt;webctrl tag='BODY' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:CloseApplication.Target>
+      </ui:CloseApplication>
+    </Sequence>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="688,48" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="574.4,889.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence DisplayName="Compare  FEIN number Corporate Name" sap:VirtualizedContainerService.HintSize="512,800.8" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="449.6,688.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="3894c05a-fe8d-4699-8ebd-755269deb92d" Version="V2" WindowResize="Maximize">
+              <uix:NApplicationCard.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,448.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='FEI/EIN Number' ReferenceIdx='0' Name='FEI/EIN Number'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='FEI/EIN Number Url' ReferenceIdx='1' Name='FEI/EIN Number Url'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Document Number' ReferenceIdx='2' Name='Document Number'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Corporate Name' ReferenceIdx='3' Name='Corporate Name'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='FEI/EIN Number' attr='fulltext' name2='FEI/EIN Number Url' attr2='href' /&gt;&lt;column name='Document Number' attr='fulltext' /&gt;&lt;column name='Corporate Name' attr='fulltext' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="353.6,189.6" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="3894c05a-fe8d-4699-8ebd-755269deb92d" Version="V3">
+                      <uix:NExtractData.Target>
+                        <uix:TargetAnchorable BrowserURL="https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?inquiryType=FeiNumber&amp;searchTerm=593361144" DesignTimeRectangle="498, 588, 923, 681" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;" Guid="36666fe6-66ea-494d-8d7d-31f67bb59974" InformativeScreenshot="671771090b90de2f33ff15f7d7ddeb8b.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Search Corporations, Limited Liability Companies, Limited Partnerships, and Trademarks by FEI Number' /&gt;" SearchSteps="Selector" Version="V3" Visibility="Interactive" />
+                      </uix:NExtractData.Target>
+                    </uix:NExtractData>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="353.6,168.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[ExtractDataTable.RowCount]" />
+                  </Sequence>
+                </ActivityAction>
+              </uix:NApplicationCard.Body>
+              <uix:NApplicationCard.TargetApp>
+                <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" IconBase64="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" InformativeScreenshot="62e3f8530096fa11f4712d6d0fa9c741.jpg" Selector="&lt;html app='msedge.exe' title='Search Corporations, Limited Liability Companies, Limited Partnerships, and Trademarks by FEI Number' /&gt;" Title="Search Corporations, Limited Liability Companies, Limited Partnerships, and Trademarks by FEI Number" Url="https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?inquiryType=FeiNumber&amp;searchTerm=593361144" />
+              </uix:NApplicationCard.TargetApp>
+            </uix:NApplicationCard>
+          </Sequence>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+  </Sequence>
+</Activity>

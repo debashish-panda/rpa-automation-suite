@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="wTO6o_4bi0KWkQ7h6mV29w" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" CVScreenId="eb5c3674-4d57-49f6-bf8f-6aa8d0c17b04" CvTextArea="2, 340, 19, 11" CvTextArgument="MD" CvType="Text" DesignTimeRectangle="1, 339, 125, 13" DesignTimeScaleFactor="1" ElementType="ListItem" FullSelectorArgument="&lt;ctrl name='*State:' role='list' /&gt;&lt;ctrl name='MD' role='list item' /&gt;" FuzzySelectorArgument="&lt;ctrl name='*State:' role='list' /&gt;&lt;ctrl name='MD' role='list item' automationid='' check:text='MD' /&gt;" Guid="fbbc7942-7475-402d-aec0-6ac25b230469" ScopeSelectorArgument="&lt;wnd app='workstationcoordinator.exe' cls='ComboLBox' idx='*' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="8390730238a545dce3c06c59085dcf70.png" xmlns="">0wIvnEV-wY06Z5KlYLrjrOg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">MouseScrollSearchedElement</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

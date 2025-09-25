@@ -1,0 +1,1338 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="_18_Deductibles" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Base_Amount" Type="InArgument(x:String)" />
+    <x:Property Name="in_Wind_Hail" Type="InArgument(x:String)" />
+    <x:Property Name="in_Url" Type="InArgument(x:String)" />
+    <x:Property Name="io_LogTable" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="In_arg_retry_count" Type="InArgument(x:Int32)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1232,7426</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>_18_Deductibles_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>System.Numerics</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>OS.Fuzzy.Activities</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="_18_Deductibles" sap:VirtualizedContainerService.HintSize="1022,7361" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="test_dt" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="960,57" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,171" sap2010:WorkflowViewState.IdRef="Sequence_70">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:BuildDataTable DataTable="[test_dt]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="354,83" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Column1&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Column2&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;cd&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;cc&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="960,57" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,194" sap2010:WorkflowViewState.IdRef="Sequence_71">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_19">
+            <Assign.To>
+              <OutArgument x:TypeArguments="sd:DataTable">[io_LogTable]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="sd:DataTable">[test_dt]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="960,175" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;18_Deductibles started&quot;]" />
+    <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="960,6531" sap2010:WorkflowViewState.IdRef="RetryScope_3" NumberOfRetries="[In_arg_retry_count]">
+      <ui:RetryScope.ActivityBody>
+        <ActivityAction>
+          <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="918,6322" sap2010:WorkflowViewState.IdRef="Sequence_43">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="856,6234" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+              <TryCatch.Try>
+                <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: IDTE000002 - Test ID" sap:VirtualizedContainerService.HintSize="818,5978" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" InteractionMode="DebuggerApi" ScopeGuid="69fa00d6-7981-4b47-adf9-895e30fa8187" Version="V2">
+                  <uix:NApplicationCard.Body>
+                    <ActivityAction x:TypeArguments="x:Object">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="784,5720" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:String" Name="base_deduct_extract" />
+                          <Variable x:TypeArguments="x:String" Name="wind_hail_extract" />
+                          <Variable x:TypeArguments="x:String" Name="tst_dt" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Deductibles'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="722,288" sap2010:WorkflowViewState.IdRef="NTypeInto_21" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" Text="DWELL" Version="V3">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="c8682f1e-8d2b-4c2c-b0f8-0428fd68df18" CvElementArea="344, 480, 123, 27" CvType="InputBox" DesignTimeRectangle="345, 481, 98, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-combo-box&amp;gt;div&amp;gt;input' idx='4' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='suggested ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="4739c061-1605-41eb-8012-48040adee4cd" InformativeScreenshot="6acd0d6f1e16a8ff53fd99fd6ee70a24.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="c8682f1e-8d2b-4c2c-b0f8-0428fd68df18" CvTextArea="250, 404, 90, 16" CvTextArgument="Deductibles" CvType="Text" DesignTimeRectangle="251, 402, 88, 22" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Deductibles' class='title' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Deductibles' class='title' tag='SPAN' type='' check:innerText='Deductibles' /&gt;" Guid="30c1f59a-6a01-43c4-a288-3a8957c07c94" SearchSteps="FuzzySelector" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NTypeInto.Target>
+                          <uix:NTypeInto.VerifyOptions>
+                            <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionTypeIntoOptions.Retry>
+                              <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                            </uix:VerifyExecutionTypeIntoOptions>
+                          </uix:NTypeInto.VerifyOptions>
+                        </uix:NTypeInto>
+                        <uix:NGetText DisplayName="Get Text 'Base'" sap:VirtualizedContainerService.HintSize="722,190" sap2010:WorkflowViewState.IdRef="NGetText_9" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" TextString="[base_deduct_extract]" Version="V3">
+                          <uix:NGetText.Target>
+                            <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="77d3ff21-ca14-432d-8c31-048380b41b47" CvElementArea="1201, 641, 127, 41" CvType="InputBox" DesignTimeRectangle="1204, 643, 122, 38" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-string-edit&amp;gt;div&amp;gt;input' idx='3' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="1f3253de-1a61-425f-a0bf-4c2976bbdf06" InformativeScreenshot="435a6914172f406d4deeaab48fe2f7d2.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                  <uix:Target CVScreenId="77d3ff21-ca14-432d-8c31-048380b41b47" CvTextArea="769, 648, 45, 19" CvTextArgument="Base" CvType="Text" DesignTimeRectangle="756, 646, 58, 24" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Base' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Base' class='text' tag='DIV' type='' check:innerText='Base' /&gt;" Guid="e336aef2-622b-4fc1-bb63-9528b3bff06d" SearchSteps="FuzzySelector, CV" />
+                                  <uix:Target CVScreenId="8fce1dcd-19fe-401f-9547-2fbb92e5af0f" CvTextArea="1222, 585, 82, 19" CvTextArgument="Amount" CvType="Text" DesignTimeRectangle="1204, 580, 122, 30" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' type='' check:innerText='Amount' /&gt;" Guid="a49c4997-dd50-4cd1-9fff-03baead94e26" SearchSteps="FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NGetText.Target>
+                        </uix:NGetText>
+                        <If Condition="[string.IsNullOrEmpty(base_deduct_extract)]" sap:VirtualizedContainerService.HintSize="722,469" sap2010:WorkflowViewState.IdRef="If_21">
+                          <If.Then>
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,194" sap2010:WorkflowViewState.IdRef="Sequence_54">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_11">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[base_deduct_extract]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[Ctype(Nothing, string)]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,104" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                        <If Condition="[not string.IsNullOrEmpty(in_Base_Amount)  andalso CInt(base_deduct_extract) &lt;&gt;cint(in_Base_Amount)]" sap:VirtualizedContainerService.HintSize="722,3457" sap2010:WorkflowViewState.IdRef="If_18">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="592,1541" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Base'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="530,288" sap2010:WorkflowViewState.IdRef="NTypeInto_22" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" Text="FT" Version="V3">
+                                <uix:NTypeInto.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="febde343-757a-4ef0-89dd-98536e3e08f6" CvElementArea="549, 480, 78, 27" CvType="InputBox" DesignTimeRectangle="551, 468, 56, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-combo-box&amp;gt;div&amp;gt;input' idx='3' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="4f845c3b-7930-4dae-966a-68032fc31d9c" InformativeScreenshot="d78b51488a74e99ba3ef0a2072638a77.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                    <uix:TargetAnchorable.Anchors>
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                        <uix:Target CVScreenId="febde343-757a-4ef0-89dd-98536e3e08f6" CvTextArea="514, 486, 30, 12" CvTextArgument="Base" CvType="Text" DesignTimeRectangle="505, 471, 39, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Base' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Base' class='text' tag='DIV' type='' check:innerText='Base' /&gt;" Guid="e55e0a87-2f71-4701-b8f9-06a557fd3ed0" SearchSteps="FuzzySelector, CV" />
+                                        <uix:Target CVScreenId="845ae562-85ab-4094-8752-40f097f0fea3" CvTextArea="569, 430, 33, 15" CvTextArgument="Type" CvType="Text" DesignTimeRectangle="551, 427, 69, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Type' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Type' class='text' tag='DIV' type='' check:innerText='Type' /&gt;" Guid="490a2b5e-b7ad-438b-8864-34c96a8fb270" SearchSteps="FuzzySelector, CV" />
+                                      </scg:List>
+                                    </uix:TargetAnchorable.Anchors>
+                                  </uix:TargetAnchorable>
+                                </uix:NTypeInto.Target>
+                                <uix:NTypeInto.VerifyOptions>
+                                  <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                    <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                      <InArgument x:TypeArguments="x:Boolean" />
+                                    </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                    <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                      <InArgument x:TypeArguments="x:Double" />
+                                    </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                  </uix:VerifyExecutionTypeIntoOptions>
+                                </uix:NTypeInto.VerifyOptions>
+                              </uix:NTypeInto>
+                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Amount'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="530,288" sap2010:WorkflowViewState.IdRef="NTypeInto_23" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" Text="[in_Base_Amount]" Version="V3">
+                                <uix:NTypeInto.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="64d3a361-d931-4a06-9079-901921227cbc" CvElementArea="803, 481, 84, 27" CvType="InputBox" DesignTimeRectangle="804, 469, 81, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-string-edit&amp;gt;div&amp;gt;input' idx='3' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="9b7f29b6-03bc-4fda-8695-f805884ac799" InformativeScreenshot="c440a682404161bbbb7e9863171b9708.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                    <uix:TargetAnchorable.Anchors>
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                        <uix:Target CVScreenId="64d3a361-d931-4a06-9079-901921227cbc" CvTextArea="817, 443, 54, 12" CvTextArgument="Amount" CvType="Text" DesignTimeRectangle="804, 427, 81, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' type='' check:innerText='Amount' /&gt;" Guid="ab933b9a-292d-4b86-9663-75d3416445e7" SearchSteps="FuzzySelector, CV" />
+                                        <uix:Target CVScreenId="845ae562-85ab-4094-8752-40f097f0fea3" CvTextArea="514, 473, 30, 12" CvTextArgument="Base" CvType="Text" DesignTimeRectangle="505, 471, 39, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Base' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Base' class='text' tag='DIV' type='' check:innerText='Base' /&gt;" Guid="02b24a7c-fb11-4fdb-ba09-7ea47c35bef0" SearchSteps="FuzzySelector, CV" />
+                                      </scg:List>
+                                    </uix:TargetAnchorable.Anchors>
+                                  </uix:TargetAnchorable>
+                                </uix:NTypeInto.Target>
+                                <uix:NTypeInto.VerifyOptions>
+                                  <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                    <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                      <InArgument x:TypeArguments="x:Boolean" />
+                                    </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                    <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                      <InArgument x:TypeArguments="x:Double" />
+                                    </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                  </uix:VerifyExecutionTypeIntoOptions>
+                                </uix:NTypeInto.VerifyOptions>
+                              </uix:NTypeInto>
+                              <If Condition="[string.IsNullOrEmpty(base_deduct_extract)]" sap:VirtualizedContainerService.HintSize="530,877" sap2010:WorkflowViewState.IdRef="If_17">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,415" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Assign sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="Assign_9">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[base_deduct_extract]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">NA</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Base deduct&quot;,base_deduct_extract,in_Base_Amount,&quot;Yes&quot;}]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,212" sap2010:WorkflowViewState.IdRef="AddDataRow_17" />
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,300" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Base deduct&quot;,base_deduct_extract,in_Base_Amount,&quot;Yes&quot;}]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="354,212" sap2010:WorkflowViewState.IdRef="AddDataRow_18" />
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="688,1745" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If Condition="[cint(in_Base_Amount)&lt;&gt;cint(base_deduct_extract)]" sap:VirtualizedContainerService.HintSize="626,1657" sap2010:WorkflowViewState.IdRef="If_23">
+                                <If.Then>
+                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,415" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Assign sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="Assign_13">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[in_Base_Amount]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">NA</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Base deduct&quot;,base_deduct_extract,in_Base_Amount,&quot;Yes&quot;}]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,212" sap2010:WorkflowViewState.IdRef="AddDataRow_21" />
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="592,1080" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <If Condition="[string.IsNullOrEmpty(in_Base_Amount) andalso string.IsNullOrEmpty(base_deduct_extract)]" sap:VirtualizedContainerService.HintSize="530,992" sap2010:WorkflowViewState.IdRef="If_24">
+                                      <If.Then>
+                                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,530" sap2010:WorkflowViewState.IdRef="Sequence_60">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="Assign_14">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:String">[in_Base_Amount]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:String">NA</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="Assign_15">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:String">[base_deduct_extract]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:String">NA</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Base deduct&quot;,base_deduct_extract,in_Base_Amount,&quot;No&quot;}]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,212" sap2010:WorkflowViewState.IdRef="AddDataRow_24" />
+                                        </Sequence>
+                                      </If.Then>
+                                      <If.Else>
+                                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,300" sap2010:WorkflowViewState.IdRef="Sequence_61">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Base deduct&quot;,base_deduct_extract,in_Base_Amount,&quot;No&quot;}]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="354,212" sap2010:WorkflowViewState.IdRef="AddDataRow_23" />
+                                        </Sequence>
+                                      </If.Else>
+                                    </If>
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                        <uix:NGetText DisplayName="Get Text 'Wind/hail'" sap:VirtualizedContainerService.HintSize="722,190" sap2010:WorkflowViewState.IdRef="NGetText_10" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" TextString="[wind_hail_extract]" Version="V3">
+                          <uix:NGetText.Target>
+                            <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="9ee9864e-4c9d-4694-b7d1-28acf2ff9874" CvElementArea="1201, 683, 127, 40" CvType="InputBox" DesignTimeRectangle="1204, 685, 122, 37" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-string-edit&amp;gt;div&amp;gt;input' idx='2' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="e36a68d0-514c-49e9-a7ed-860642bd725e" InformativeScreenshot="1ee4e9df963186c729ed784bd11a5527.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                  <uix:Target CVScreenId="9ee9864e-4c9d-4694-b7d1-28acf2ff9874" CvTextArea="726, 690, 88, 19" CvTextArgument="Wind/hail" CvType="Text" DesignTimeRectangle="704, 688, 110, 24" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Wind/hail' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Wind/hail' class='text' tag='DIV' type='' check:innerText='Wind/hail' /&gt;" Guid="cebff750-71b4-4925-9d80-4c8e24f638b1" SearchSteps="FuzzySelector, CV" />
+                                  <uix:Target CVScreenId="d785c2e3-ab3e-4282-b6ab-3dab2a2619ce" CvTextArea="1222, 585, 82, 19" CvTextArgument="Amount" CvType="Text" DesignTimeRectangle="1204, 580, 122, 30" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' type='' check:innerText='Amount' /&gt;" Guid="73a20417-2a0c-44dc-9229-43078809758a" SearchSteps="FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NGetText.Target>
+                        </uix:NGetText>
+                        <If Condition="[string.IsNullOrEmpty(wind_hail_extract)]" sap:VirtualizedContainerService.HintSize="722,469" sap2010:WorkflowViewState.IdRef="If_22">
+                          <If.Then>
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,194" sap2010:WorkflowViewState.IdRef="Sequence_56">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_12">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[wind_hail_extract]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[Ctype(Nothing, string)]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,104" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                        <If Condition="[not string.IsNullOrEmpty(in_Wind_Hail) andalso cint(wind_hail_extract)&lt;&gt;cint(in_Wind_Hail)]" sap:VirtualizedContainerService.HintSize="722,57" sap2010:WorkflowViewState.IdRef="If_20">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="592,1716" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="530,175" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Trace" Message="[&quot;Wind/hail is present in the document&quot;+&quot; &quot;+&quot;and the amount is&quot;+in_Wind_Hail]" />
+                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Wind/hail'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="530,288" sap2010:WorkflowViewState.IdRef="NTypeInto_24" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" Text="FT" Version="V3">
+                                <uix:NTypeInto.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="64d3a361-d931-4a06-9079-901921227cbc" CvElementArea="549, 508, 78, 27" CvType="InputBox" DesignTimeRectangle="551, 496, 56, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-combo-box&amp;gt;div&amp;gt;input' idx='2' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-untouched ng-pristine ng-valid' aaname='' tag='INPUT' type='text' /&gt;" Guid="4c6fbc45-49b0-4a8c-938d-4c1ed0a4b525" InformativeScreenshot="c4c1ab4eaaa027da1e64aae0c011fd9a.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                    <uix:TargetAnchorable.Anchors>
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                        <uix:Target CVScreenId="64d3a361-d931-4a06-9079-901921227cbc" CvTextArea="485, 513, 59, 13" CvTextArgument="Wind/hail" CvType="Text" DesignTimeRectangle="470, 499, 74, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Wind/hail' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Wind/hail' class='text' tag='DIV' type='' check:innerText='Wind/hail' /&gt;" Guid="ffc83839-1b20-4cbc-a5bd-2ef2e4deefb1" SearchSteps="FuzzySelector, CV" />
+                                        <uix:Target CVScreenId="845ae562-85ab-4094-8752-40f097f0fea3" CvTextArea="569, 430, 33, 15" CvTextArgument="Type" CvType="Text" DesignTimeRectangle="551, 427, 69, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Type' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Type' class='text' tag='DIV' type='' check:innerText='Type' /&gt;" Guid="4395de61-d299-4fe1-99f4-8fcec4846011" SearchSteps="FuzzySelector, CV" />
+                                      </scg:List>
+                                    </uix:TargetAnchorable.Anchors>
+                                  </uix:TargetAnchorable>
+                                </uix:NTypeInto.Target>
+                                <uix:NTypeInto.VerifyOptions>
+                                  <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                    <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                      <InArgument x:TypeArguments="x:Boolean" />
+                                    </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                    <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                      <InArgument x:TypeArguments="x:Double" />
+                                    </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                  </uix:VerifyExecutionTypeIntoOptions>
+                                </uix:NTypeInto.VerifyOptions>
+                              </uix:NTypeInto>
+                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Amount'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="530,288" sap2010:WorkflowViewState.IdRef="NTypeInto_25" InteractionMode="DebuggerApi" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" Text="[in_Wind_Hail]" Version="V3">
+                                <uix:NTypeInto.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="1b3bb7d6-d545-4a42-be6f-f9911fb75732" CvElementArea="803, 509, 84, 27" CvType="InputBox" DesignTimeRectangle="804, 497, 81, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-string-edit&amp;gt;div&amp;gt;input' idx='2' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-untouched ng-pristine ng-valid' aaname='' tag='INPUT' type='text' /&gt;" Guid="a74b2fce-91f1-405b-9814-2278ceabc505" InformativeScreenshot="7ff1c492af2efbf48b43d8b0ec84518c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                    <uix:TargetAnchorable.Anchors>
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                        <uix:Target CVScreenId="1b3bb7d6-d545-4a42-be6f-f9911fb75732" CvTextArea="817, 443, 54, 12" CvTextArgument="Amount" CvType="Text" DesignTimeRectangle="804, 427, 81, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' type='' check:innerText='Amount' /&gt;" Guid="ae87ef89-b67e-4616-9f5b-cc132b81fb37" SearchSteps="FuzzySelector" />
+                                        <uix:Target CVScreenId="845ae562-85ab-4094-8752-40f097f0fea3" CvTextArea="485, 500, 59, 13" CvTextArgument="Wind/hail" CvType="Text" DesignTimeRectangle="470, 499, 74, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Wind/hail' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Wind/hail' class='text' tag='DIV' type='' check:innerText='Wind/hail' /&gt;" Guid="a87fd2dd-4e1a-4aae-a639-c52367b7405c" SearchSteps="FuzzySelector, CV" />
+                                      </scg:List>
+                                    </uix:TargetAnchorable.Anchors>
+                                  </uix:TargetAnchorable>
+                                </uix:NTypeInto.Target>
+                                <uix:NTypeInto.VerifyOptions>
+                                  <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                    <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                      <InArgument x:TypeArguments="x:Boolean" />
+                                    </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                    <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                      <InArgument x:TypeArguments="x:Double" />
+                                    </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                  </uix:VerifyExecutionTypeIntoOptions>
+                                </uix:NTypeInto.VerifyOptions>
+                              </uix:NTypeInto>
+                              <If Condition="[String.IsNullOrEmpty(wind_hail_extract)]" sap:VirtualizedContainerService.HintSize="530,877" sap2010:WorkflowViewState.IdRef="If_19">
+                                <If.Then>
+                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,415" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Assign sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="Assign_10">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[wind_hail_extract]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">NA</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Wind hail&quot;,wind_hail_extract,in_Wind_Hail,&quot;Yes&quot;}]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,212" sap2010:WorkflowViewState.IdRef="AddDataRow_19" />
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,300" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Wind hail&quot;,wind_hail_extract,in_Wind_Hail,&quot;Yes&quot;}]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="354,212" sap2010:WorkflowViewState.IdRef="AddDataRow_30" />
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="688,1742" sap2010:WorkflowViewState.IdRef="Sequence_51">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If Condition="[cint(in_Wind_Hail)&lt;&gt;cint(wind_hail_extract)]" sap:VirtualizedContainerService.HintSize="626,1654" sap2010:WorkflowViewState.IdRef="If_27">
+                                <If.Then>
+                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,414" sap2010:WorkflowViewState.IdRef="Sequence_66">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_20">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[in_Wind_Hail]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">NA</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Wind Hail&quot;,wind_hail_extract,in_Wind_Hail,&quot;Yes&quot;}]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,212" sap2010:WorkflowViewState.IdRef="AddDataRow_29" />
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="592,1078" sap2010:WorkflowViewState.IdRef="Sequence_69">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <If Condition="[string.IsNullOrEmpty(in_Wind_Hail) andalso string.IsNullOrEmpty(wind_hail_extract)]" sap:VirtualizedContainerService.HintSize="530,990" sap2010:WorkflowViewState.IdRef="If_28">
+                                      <If.Then>
+                                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,528" sap2010:WorkflowViewState.IdRef="Sequence_67">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_21">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:String">[in_Wind_Hail]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:String">NA</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_22">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:String">[wind_hail_extract]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:String">NA</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Wind Hail&quot;,wind_hail_extract,in_Wind_Hail,&quot;No&quot;}]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,212" sap2010:WorkflowViewState.IdRef="AddDataRow_31" />
+                                        </Sequence>
+                                      </If.Then>
+                                      <If.Else>
+                                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,300" sap2010:WorkflowViewState.IdRef="Sequence_68">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Wind Hail&quot;,wind_hail_extract,in_Wind_Hail,&quot;No&quot;}]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="354,212" sap2010:WorkflowViewState.IdRef="AddDataRow_32" />
+                                        </Sequence>
+                                      </If.Else>
+                                    </If>
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                        <ui:OutputDataTable DataTable="[io_LogTable]" DisplayName="Output Data Table as Text" sap:VirtualizedContainerService.HintSize="722,113" sap2010:WorkflowViewState.IdRef="OutputDataTable_2" Text="[tst_dt]" />
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="722,177" sap2010:WorkflowViewState.IdRef="LogMessage_14" Message="[tst_dt]" />
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Optional Coverages/Endo…'" sap:VirtualizedContainerService.HintSize="722,220" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="d66be470-1e90-43bc-bdf2-8de0e20c4a23" CvElementArea="722, 336, 288, 28" CvTextArea="735, 342, 262, 17" CvTextArgument="Other Optional Coverages/Endorsements" CvType="Button" DesignTimeRectangle="723, 337, 286, 26" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl class='tab' idx='3' tabindex='-1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='tab' type='' tabindex='-1' tag='DIV' aaname='Other Optional Coverages/Endorsements' check:innerText='Other Optional Coverages/Endorsements' /&gt;" Guid="db696ae6-3704-47d0-888f-b18d3c2671aa" InformativeScreenshot="9a9eb92081e4707ea6780f028442cf31.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="d66be470-1e90-43bc-bdf2-8de0e20c4a23" CvElementArea="476, 335, 245, 29" CvTextArea="489, 342, 221, 17" CvTextArgument="Optional Coverages/Endorsements" CvType="Button" DesignTimeRectangle="476, 335, 248, 28" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Optional Coverages/Endorsements' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Optional Coverages/Endorsements' tag='DIV' type='' class='tab active' check:innerText='Optional Coverages/Endorsements' /&gt;" Guid="de819102-7be5-48ac-8649-740447843bb7" SearchSteps="FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NClick.Target>
+                          <uix:NClick.VerifyOptions>
+                            <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionOptions.Retry>
+                              <uix:VerifyExecutionOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionOptions.Timeout>
+                            </uix:VerifyExecutionOptions>
+                          </uix:NClick.VerifyOptions>
+                        </uix:NClick>
+                      </Sequence>
+                    </ActivityAction>
+                  </uix:NApplicationCard.Body>
+                  <uix:NApplicationCard.TargetApp>
+                    <uix:TargetApp Area="1912, -8, 1936, 1048" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="de0fd40c1f852939bd7e3fafce3e53b9.jpg" Selector="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" Title="IDTE000002 - Test ID" Url="[in_Url]" />
+                  </uix:NApplicationCard.TargetApp>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NApplicationCard>
+              </TryCatch.Try>
+              <TryCatch.Catches>
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="822,23" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ActivityAction x:TypeArguments="s:Exception">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                    </ActivityAction.Argument>
+                    <Sequence sap:VirtualizedContainerService.HintSize="416,312.5" sap2010:WorkflowViewState.IdRef="Sequence_52">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,175" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Warn" Message="[&quot;System Exception 18_Deductibles&quot;+&quot;+&quot;+exception.Message]" />
+                      <Rethrow DisplayName="Rethrow Get transaction item faulted" sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+                    </Sequence>
+                  </ActivityAction>
+                </Catch>
+              </TryCatch.Catches>
+            </TryCatch>
+          </Sequence>
+        </ActivityAction>
+      </ui:RetryScope.ActivityBody>
+      <ui:RetryScope.Condition>
+        <ActivityFunc x:TypeArguments="x:Boolean" />
+      </ui:RetryScope.Condition>
+    </ui:RetryScope>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="960,287" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,136" sap2010:WorkflowViewState.IdRef="Sequence_53">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <TryCatch.Try>
+              <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: IDTE000002 - Test ID" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" ScopeGuid="69fa00d6-7981-4b47-adf9-895e30fa8187" Version="V2">
+                <uix:NApplicationCard.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="688,4806" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:String" Name="base_deduct_extract" />
+                        <Variable x:TypeArguments="x:String" Name="wind_hail_extract" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Deductibles'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="626,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_11" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" Text="DWELL" Version="V3">
+                        <uix:NTypeInto.Target>
+                          <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="c8682f1e-8d2b-4c2c-b0f8-0428fd68df18" CvElementArea="344, 480, 123, 27" CvType="InputBox" DesignTimeRectangle="345, 481, 98, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-combo-box&amp;gt;div&amp;gt;input' idx='4' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='suggested ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="4739c061-1605-41eb-8012-48040adee4cd" InformativeScreenshot="6acd0d6f1e16a8ff53fd99fd6ee70a24.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                <uix:Target CVScreenId="c8682f1e-8d2b-4c2c-b0f8-0428fd68df18" CvTextArea="250, 404, 90, 16" CvTextArgument="Deductibles" CvType="Text" DesignTimeRectangle="251, 402, 88, 22" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Deductibles' class='title' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Deductibles' class='title' tag='SPAN' type='' check:innerText='Deductibles' /&gt;" Guid="30c1f59a-6a01-43c4-a288-3a8957c07c94" SearchSteps="FuzzySelector" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:NTypeInto.Target>
+                        <uix:NTypeInto.VerifyOptions>
+                          <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                            <uix:VerifyExecutionTypeIntoOptions.Retry>
+                              <InArgument x:TypeArguments="x:Boolean" />
+                            </uix:VerifyExecutionTypeIntoOptions.Retry>
+                            <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                              <InArgument x:TypeArguments="x:Double" />
+                            </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                          </uix:VerifyExecutionTypeIntoOptions>
+                        </uix:NTypeInto.VerifyOptions>
+                      </uix:NTypeInto>
+                      <uix:NGetText DisplayName="Get Text 'Base'" sap:VirtualizedContainerService.HintSize="626,191.33333333333334" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" TextString="[base_deduct_extract]" Version="V3">
+                        <uix:NGetText.Target>
+                          <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="77d3ff21-ca14-432d-8c31-048380b41b47" CvElementArea="1201, 641, 127, 41" CvType="InputBox" DesignTimeRectangle="1204, 643, 122, 38" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-string-edit&amp;gt;div&amp;gt;input' idx='3' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="1f3253de-1a61-425f-a0bf-4c2976bbdf06" InformativeScreenshot="435a6914172f406d4deeaab48fe2f7d2.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                <uix:Target CVScreenId="77d3ff21-ca14-432d-8c31-048380b41b47" CvTextArea="769, 648, 45, 19" CvTextArgument="Base" CvType="Text" DesignTimeRectangle="756, 646, 58, 24" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Base' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Base' class='text' tag='DIV' type='' check:innerText='Base' /&gt;" Guid="e336aef2-622b-4fc1-bb63-9528b3bff06d" SearchSteps="FuzzySelector, CV" />
+                                <uix:Target CVScreenId="8fce1dcd-19fe-401f-9547-2fbb92e5af0f" CvTextArea="1222, 585, 82, 19" CvTextArgument="Amount" CvType="Text" DesignTimeRectangle="1204, 580, 122, 30" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' type='' check:innerText='Amount' /&gt;" Guid="a49c4997-dd50-4cd1-9fff-03baead94e26" SearchSteps="FuzzySelector, CV" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:NGetText.Target>
+                      </uix:NGetText>
+                      <If Condition="[not string.IsNullOrEmpty(in_Base_Amount)  and CInt(base_deduct_extract) &lt;&gt;cint(in_Base_Amount)]" sap:VirtualizedContainerService.HintSize="626,1820.6666666666667" sap2010:WorkflowViewState.IdRef="If_10">
+                        <If.Then>
+                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="592,1547.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Base'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="530,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_12" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" Text="FT" Version="V3">
+                              <uix:NTypeInto.Target>
+                                <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="febde343-757a-4ef0-89dd-98536e3e08f6" CvElementArea="549, 480, 78, 27" CvType="InputBox" DesignTimeRectangle="551, 481, 56, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-combo-box&amp;gt;div&amp;gt;input' idx='3' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="4f845c3b-7930-4dae-966a-68032fc31d9c" InformativeScreenshot="cc00e7ad3bd7c80fc2d9c6bca3134603.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                      <uix:Target CVScreenId="febde343-757a-4ef0-89dd-98536e3e08f6" CvTextArea="514, 486, 30, 12" CvTextArgument="Base" CvType="Text" DesignTimeRectangle="505, 484, 39, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Base' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Base' class='text' tag='DIV' type='' check:innerText='Base' /&gt;" Guid="e55e0a87-2f71-4701-b8f9-06a557fd3ed0" SearchSteps="FuzzySelector, CV" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NTypeInto.Target>
+                              <uix:NTypeInto.VerifyOptions>
+                                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                    <InArgument x:TypeArguments="x:Boolean" />
+                                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                    <InArgument x:TypeArguments="x:Double" />
+                                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                </uix:VerifyExecutionTypeIntoOptions>
+                              </uix:NTypeInto.VerifyOptions>
+                            </uix:NTypeInto>
+                            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Amount'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="530,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_13" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" Text="[in_Base_Amount]" Version="V3">
+                              <uix:NTypeInto.Target>
+                                <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="64d3a361-d931-4a06-9079-901921227cbc" CvElementArea="803, 481, 84, 27" CvType="InputBox" DesignTimeRectangle="804, 482, 81, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-string-edit&amp;gt;div&amp;gt;input' idx='3' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="9b7f29b6-03bc-4fda-8695-f805884ac799" InformativeScreenshot="884ec62dfe06493a9225053d93c067e5.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                      <uix:Target CVScreenId="64d3a361-d931-4a06-9079-901921227cbc" CvTextArea="817, 443, 54, 12" CvTextArgument="Amount" CvType="Text" DesignTimeRectangle="804, 440, 81, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' type='' check:innerText='Amount' /&gt;" Guid="ab933b9a-292d-4b86-9663-75d3416445e7" SearchSteps="FuzzySelector, CV" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NTypeInto.Target>
+                              <uix:NTypeInto.VerifyOptions>
+                                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                    <InArgument x:TypeArguments="x:Boolean" />
+                                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                    <InArgument x:TypeArguments="x:Double" />
+                                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                </uix:VerifyExecutionTypeIntoOptions>
+                              </uix:NTypeInto.VerifyOptions>
+                            </uix:NTypeInto>
+                            <If Condition="[string.IsNullOrEmpty(base_deduct_extract)]" sap:VirtualizedContainerService.HintSize="530,877.3333333333334" sap2010:WorkflowViewState.IdRef="If_9">
+                              <If.Then>
+                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,416" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[base_deduct_extract]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">NA</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Base deduct&quot;,base_deduct_extract,in_Base_Amount,&quot;Yes&quot;}]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,214" sap2010:WorkflowViewState.IdRef="AddDataRow_9" />
+                                </Sequence>
+                              </If.Then>
+                              <If.Else>
+                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,298.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Base deduct&quot;,base_deduct_extract,in_Base_Amount,&quot;Yes&quot;}]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="354,214" sap2010:WorkflowViewState.IdRef="AddDataRow_10" />
+                                </Sequence>
+                              </If.Else>
+                            </If>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,101.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                      <uix:NGetText DisplayName="Get Text 'Wind/hail'" sap:VirtualizedContainerService.HintSize="626,191.33333333333334" sap2010:WorkflowViewState.IdRef="NGetText_6" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" TextString="[wind_hail_extract]" Version="V3">
+                        <uix:NGetText.Target>
+                          <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="9ee9864e-4c9d-4694-b7d1-28acf2ff9874" CvElementArea="1201, 683, 127, 40" CvType="InputBox" DesignTimeRectangle="1204, 685, 122, 37" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-string-edit&amp;gt;div&amp;gt;input' idx='2' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="e36a68d0-514c-49e9-a7ed-860642bd725e" InformativeScreenshot="1ee4e9df963186c729ed784bd11a5527.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                <uix:Target CVScreenId="9ee9864e-4c9d-4694-b7d1-28acf2ff9874" CvTextArea="726, 690, 88, 19" CvTextArgument="Wind/hail" CvType="Text" DesignTimeRectangle="704, 688, 110, 24" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Wind/hail' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Wind/hail' class='text' tag='DIV' type='' check:innerText='Wind/hail' /&gt;" Guid="cebff750-71b4-4925-9d80-4c8e24f638b1" SearchSteps="FuzzySelector, CV" />
+                                <uix:Target CVScreenId="d785c2e3-ab3e-4282-b6ab-3dab2a2619ce" CvTextArea="1222, 585, 82, 19" CvTextArgument="Amount" CvType="Text" DesignTimeRectangle="1204, 580, 122, 30" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' type='' check:innerText='Amount' /&gt;" Guid="73a20417-2a0c-44dc-9229-43078809758a" SearchSteps="FuzzySelector, CV" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:NGetText.Target>
+                      </uix:NGetText>
+                      <If Condition="[not string.IsNullOrEmpty(in_Wind_Hail) and cint(wind_hail_extract)&lt;&gt;cint(in_Wind_Hail)]" sap:VirtualizedContainerService.HintSize="626,2000" sap2010:WorkflowViewState.IdRef="If_12">
+                        <If.Then>
+                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="592,1726.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="530,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Trace" Message="[&quot;Wind/hail is present in the document&quot;+&quot; &quot;+&quot;and the amount is&quot;+in_Wind_Hail]" />
+                            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Wind/hail'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="530,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_14" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" Text="FT" Version="V3">
+                              <uix:NTypeInto.Target>
+                                <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="64d3a361-d931-4a06-9079-901921227cbc" CvElementArea="549, 508, 78, 27" CvType="InputBox" DesignTimeRectangle="551, 509, 56, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-combo-box&amp;gt;div&amp;gt;input' idx='2' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-untouched ng-pristine ng-valid' aaname='' tag='INPUT' type='text' /&gt;" Guid="4c6fbc45-49b0-4a8c-938d-4c1ed0a4b525" InformativeScreenshot="9ef563fcc41c912558b4418d985f0d92.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                      <uix:Target CVScreenId="64d3a361-d931-4a06-9079-901921227cbc" CvTextArea="485, 513, 59, 13" CvTextArgument="Wind/hail" CvType="Text" DesignTimeRectangle="470, 512, 74, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Wind/hail' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Wind/hail' class='text' tag='DIV' type='' check:innerText='Wind/hail' /&gt;" Guid="ffc83839-1b20-4cbc-a5bd-2ef2e4deefb1" SearchSteps="FuzzySelector, CV" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NTypeInto.Target>
+                              <uix:NTypeInto.VerifyOptions>
+                                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                    <InArgument x:TypeArguments="x:Boolean" />
+                                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                    <InArgument x:TypeArguments="x:Double" />
+                                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                </uix:VerifyExecutionTypeIntoOptions>
+                              </uix:NTypeInto.VerifyOptions>
+                            </uix:NTypeInto>
+                            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Amount'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="530,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_15" InteractionMode="DebuggerApi" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" Text="[in_Wind_Hail]" Version="V3">
+                              <uix:NTypeInto.Target>
+                                <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="1b3bb7d6-d545-4a42-be6f-f9911fb75732" CvElementArea="803, 509, 84, 27" CvType="InputBox" DesignTimeRectangle="804, 510, 81, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-string-edit&amp;gt;div&amp;gt;input' idx='2' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-untouched ng-pristine ng-valid' aaname='' tag='INPUT' type='text' /&gt;" Guid="a74b2fce-91f1-405b-9814-2278ceabc505" InformativeScreenshot="ff70ba5e213be625a3a356788666c8c5.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                      <uix:Target CVScreenId="1b3bb7d6-d545-4a42-be6f-f9911fb75732" CvTextArea="817, 443, 54, 12" CvTextArgument="Amount" CvType="Text" DesignTimeRectangle="804, 440, 81, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' type='' check:innerText='Amount' /&gt;" Guid="ae87ef89-b67e-4616-9f5b-cc132b81fb37" SearchSteps="FuzzySelector" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NTypeInto.Target>
+                              <uix:NTypeInto.VerifyOptions>
+                                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                    <InArgument x:TypeArguments="x:Boolean" />
+                                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                    <InArgument x:TypeArguments="x:Double" />
+                                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                </uix:VerifyExecutionTypeIntoOptions>
+                              </uix:NTypeInto.VerifyOptions>
+                            </uix:NTypeInto>
+                            <If Condition="[String.IsNullOrEmpty(wind_hail_extract)]" sap:VirtualizedContainerService.HintSize="530,877.3333333333334" sap2010:WorkflowViewState.IdRef="If_11">
+                              <If.Then>
+                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,416" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[wind_hail_extract]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">NA</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Wind hail&quot;,wind_hail_extract,in_Wind_Hail,&quot;Yes&quot;}]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,214" sap2010:WorkflowViewState.IdRef="AddDataRow_11" />
+                                </Sequence>
+                              </If.Then>
+                              <If.Else>
+                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,298.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Wind hail&quot;,wind_hail_extract,in_Wind_Hail,&quot;Yes&quot;}]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="354,214" sap2010:WorkflowViewState.IdRef="AddDataRow_12" />
+                                </Sequence>
+                              </If.Else>
+                            </If>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,101.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Optional Coverages/Endo…'" sap:VirtualizedContainerService.HintSize="626,222.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="d66be470-1e90-43bc-bdf2-8de0e20c4a23" CvElementArea="722, 336, 288, 28" CvTextArea="735, 342, 262, 17" CvTextArgument="Other Optional Coverages/Endorsements" CvType="Button" DesignTimeRectangle="723, 337, 286, 26" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl class='tab' idx='3' tabindex='-1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='tab' type='' tabindex='-1' tag='DIV' aaname='Other Optional Coverages/Endorsements' check:innerText='Other Optional Coverages/Endorsements' /&gt;" Guid="db696ae6-3704-47d0-888f-b18d3c2671aa" InformativeScreenshot="9a9eb92081e4707ea6780f028442cf31.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                <uix:Target CVScreenId="d66be470-1e90-43bc-bdf2-8de0e20c4a23" CvElementArea="476, 335, 245, 29" CvTextArea="489, 342, 221, 17" CvTextArgument="Optional Coverages/Endorsements" CvType="Button" DesignTimeRectangle="476, 335, 248, 28" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Optional Coverages/Endorsements' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Optional Coverages/Endorsements' tag='DIV' type='' class='tab active' check:innerText='Optional Coverages/Endorsements' /&gt;" Guid="de819102-7be5-48ac-8649-740447843bb7" SearchSteps="FuzzySelector, CV" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:NClick.Target>
+                        <uix:NClick.VerifyOptions>
+                          <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                            <uix:VerifyExecutionOptions.Retry>
+                              <InArgument x:TypeArguments="x:Boolean" />
+                            </uix:VerifyExecutionOptions.Retry>
+                            <uix:VerifyExecutionOptions.Timeout>
+                              <InArgument x:TypeArguments="x:Double" />
+                            </uix:VerifyExecutionOptions.Timeout>
+                          </uix:VerifyExecutionOptions>
+                        </uix:NClick.VerifyOptions>
+                      </uix:NClick>
+                    </Sequence>
+                  </ActivityAction>
+                </uix:NApplicationCard.Body>
+                <uix:NApplicationCard.TargetApp>
+                  <uix:TargetApp Area="1912, -8, 1936, 1048" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="de0fd40c1f852939bd7e3fafce3e53b9.jpg" Selector="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" Title="IDTE000002 - Test ID" Url="[in_Url]" />
+                </uix:NApplicationCard.TargetApp>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NApplicationCard>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,23" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                  <Sequence sap:VirtualizedContainerService.HintSize="520,679" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="458,175" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Warn" Message="[&quot;System Exception 18_Deductibles&quot;]" />
+                    <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="458,336" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="[In_arg_retry_count]">
+                      <ui:RetryScope.ActivityBody>
+                        <ActivityAction>
+                          <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,136" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: IDTE000002 - Test ID" sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="DebuggerApi" ScopeGuid="69fa00d6-7981-4b47-adf9-895e30fa8187" Version="V2">
+                              <uix:NApplicationCard.Body>
+                                <ActivityAction x:TypeArguments="x:Object">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                                  </ActivityAction.Argument>
+                                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="688,4806" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                                    <Sequence.Variables>
+                                      <Variable x:TypeArguments="x:String" Name="base_deduct_extract" />
+                                      <Variable x:TypeArguments="x:String" Name="wind_hail_extract" />
+                                    </Sequence.Variables>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Deductibles'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="626,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_16" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" Text="DWELL" Version="V3">
+                                      <uix:NTypeInto.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="c8682f1e-8d2b-4c2c-b0f8-0428fd68df18" CvElementArea="344, 480, 123, 27" CvType="InputBox" DesignTimeRectangle="345, 481, 98, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-combo-box&amp;gt;div&amp;gt;input' idx='4' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='suggested ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="4739c061-1605-41eb-8012-48040adee4cd" InformativeScreenshot="6acd0d6f1e16a8ff53fd99fd6ee70a24.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CVScreenId="c8682f1e-8d2b-4c2c-b0f8-0428fd68df18" CvTextArea="250, 404, 90, 16" CvTextArgument="Deductibles" CvType="Text" DesignTimeRectangle="251, 402, 88, 22" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Deductibles' class='title' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Deductibles' class='title' tag='SPAN' type='' check:innerText='Deductibles' /&gt;" Guid="30c1f59a-6a01-43c4-a288-3a8957c07c94" SearchSteps="FuzzySelector" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NTypeInto.Target>
+                                      <uix:NTypeInto.VerifyOptions>
+                                        <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                          <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                            <InArgument x:TypeArguments="x:Boolean" />
+                                          </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                          <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                            <InArgument x:TypeArguments="x:Double" />
+                                          </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                        </uix:VerifyExecutionTypeIntoOptions>
+                                      </uix:NTypeInto.VerifyOptions>
+                                    </uix:NTypeInto>
+                                    <uix:NGetText DisplayName="Get Text 'Base'" sap:VirtualizedContainerService.HintSize="626,191.33333333333334" sap2010:WorkflowViewState.IdRef="NGetText_7" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" TextString="[base_deduct_extract]" Version="V3">
+                                      <uix:NGetText.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="77d3ff21-ca14-432d-8c31-048380b41b47" CvElementArea="1201, 641, 127, 41" CvType="InputBox" DesignTimeRectangle="1204, 643, 122, 38" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-string-edit&amp;gt;div&amp;gt;input' idx='3' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="1f3253de-1a61-425f-a0bf-4c2976bbdf06" InformativeScreenshot="435a6914172f406d4deeaab48fe2f7d2.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                              <uix:Target CVScreenId="77d3ff21-ca14-432d-8c31-048380b41b47" CvTextArea="769, 648, 45, 19" CvTextArgument="Base" CvType="Text" DesignTimeRectangle="756, 646, 58, 24" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Base' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Base' class='text' tag='DIV' type='' check:innerText='Base' /&gt;" Guid="e336aef2-622b-4fc1-bb63-9528b3bff06d" SearchSteps="FuzzySelector, CV" />
+                                              <uix:Target CVScreenId="8fce1dcd-19fe-401f-9547-2fbb92e5af0f" CvTextArea="1222, 585, 82, 19" CvTextArgument="Amount" CvType="Text" DesignTimeRectangle="1204, 580, 122, 30" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' type='' check:innerText='Amount' /&gt;" Guid="a49c4997-dd50-4cd1-9fff-03baead94e26" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NGetText.Target>
+                                    </uix:NGetText>
+                                    <If Condition="[not string.IsNullOrEmpty(in_Base_Amount)  and CInt(base_deduct_extract) &lt;&gt;cint(in_Base_Amount)]" sap:VirtualizedContainerService.HintSize="626,1820.6666666666667" sap2010:WorkflowViewState.IdRef="If_14">
+                                      <If.Then>
+                                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="592,1547.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Base'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="530,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_17" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" Text="FT" Version="V3">
+                                            <uix:NTypeInto.Target>
+                                              <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="febde343-757a-4ef0-89dd-98536e3e08f6" CvElementArea="549, 480, 78, 27" CvType="InputBox" DesignTimeRectangle="551, 481, 56, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-combo-box&amp;gt;div&amp;gt;input' idx='3' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="4f845c3b-7930-4dae-966a-68032fc31d9c" InformativeScreenshot="cc00e7ad3bd7c80fc2d9c6bca3134603.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                                <uix:TargetAnchorable.Anchors>
+                                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                    <uix:Target CVScreenId="febde343-757a-4ef0-89dd-98536e3e08f6" CvTextArea="514, 486, 30, 12" CvTextArgument="Base" CvType="Text" DesignTimeRectangle="505, 484, 39, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Base' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Base' class='text' tag='DIV' type='' check:innerText='Base' /&gt;" Guid="e55e0a87-2f71-4701-b8f9-06a557fd3ed0" SearchSteps="FuzzySelector, CV" />
+                                                  </scg:List>
+                                                </uix:TargetAnchorable.Anchors>
+                                              </uix:TargetAnchorable>
+                                            </uix:NTypeInto.Target>
+                                            <uix:NTypeInto.VerifyOptions>
+                                              <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                                <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                  <InArgument x:TypeArguments="x:Boolean" />
+                                                </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                  <InArgument x:TypeArguments="x:Double" />
+                                                </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                              </uix:VerifyExecutionTypeIntoOptions>
+                                            </uix:NTypeInto.VerifyOptions>
+                                          </uix:NTypeInto>
+                                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Amount'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="530,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_18" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" Text="[in_Base_Amount]" Version="V3">
+                                            <uix:NTypeInto.Target>
+                                              <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="64d3a361-d931-4a06-9079-901921227cbc" CvElementArea="803, 481, 84, 27" CvType="InputBox" DesignTimeRectangle="804, 482, 81, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-string-edit&amp;gt;div&amp;gt;input' idx='3' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="9b7f29b6-03bc-4fda-8695-f805884ac799" InformativeScreenshot="884ec62dfe06493a9225053d93c067e5.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                                <uix:TargetAnchorable.Anchors>
+                                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                    <uix:Target CVScreenId="64d3a361-d931-4a06-9079-901921227cbc" CvTextArea="817, 443, 54, 12" CvTextArgument="Amount" CvType="Text" DesignTimeRectangle="804, 440, 81, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' type='' check:innerText='Amount' /&gt;" Guid="ab933b9a-292d-4b86-9663-75d3416445e7" SearchSteps="FuzzySelector, CV" />
+                                                  </scg:List>
+                                                </uix:TargetAnchorable.Anchors>
+                                              </uix:TargetAnchorable>
+                                            </uix:NTypeInto.Target>
+                                            <uix:NTypeInto.VerifyOptions>
+                                              <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                                <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                  <InArgument x:TypeArguments="x:Boolean" />
+                                                </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                  <InArgument x:TypeArguments="x:Double" />
+                                                </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                              </uix:VerifyExecutionTypeIntoOptions>
+                                            </uix:NTypeInto.VerifyOptions>
+                                          </uix:NTypeInto>
+                                          <If Condition="[string.IsNullOrEmpty(base_deduct_extract)]" sap:VirtualizedContainerService.HintSize="530,877.3333333333334" sap2010:WorkflowViewState.IdRef="If_13">
+                                            <If.Then>
+                                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,416" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_7">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:String">[base_deduct_extract]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:String">NA</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Base deduct&quot;,base_deduct_extract,in_Base_Amount,&quot;Yes&quot;}]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,214" sap2010:WorkflowViewState.IdRef="AddDataRow_13" />
+                                              </Sequence>
+                                            </If.Then>
+                                            <If.Else>
+                                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,298.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Base deduct&quot;,base_deduct_extract,in_Base_Amount,&quot;Yes&quot;}]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="354,214" sap2010:WorkflowViewState.IdRef="AddDataRow_14" />
+                                              </Sequence>
+                                            </If.Else>
+                                          </If>
+                                        </Sequence>
+                                      </If.Then>
+                                      <If.Else>
+                                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,101.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </Sequence>
+                                      </If.Else>
+                                    </If>
+                                    <uix:NGetText DisplayName="Get Text 'Wind/hail'" sap:VirtualizedContainerService.HintSize="626,191.33333333333334" sap2010:WorkflowViewState.IdRef="NGetText_8" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" TextString="[wind_hail_extract]" Version="V3">
+                                      <uix:NGetText.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="9ee9864e-4c9d-4694-b7d1-28acf2ff9874" CvElementArea="1201, 683, 127, 40" CvType="InputBox" DesignTimeRectangle="1204, 685, 122, 37" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-string-edit&amp;gt;div&amp;gt;input' idx='2' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="e36a68d0-514c-49e9-a7ed-860642bd725e" InformativeScreenshot="1ee4e9df963186c729ed784bd11a5527.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                                              <uix:Target CVScreenId="9ee9864e-4c9d-4694-b7d1-28acf2ff9874" CvTextArea="726, 690, 88, 19" CvTextArgument="Wind/hail" CvType="Text" DesignTimeRectangle="704, 688, 110, 24" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Wind/hail' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Wind/hail' class='text' tag='DIV' type='' check:innerText='Wind/hail' /&gt;" Guid="cebff750-71b4-4925-9d80-4c8e24f638b1" SearchSteps="FuzzySelector, CV" />
+                                              <uix:Target CVScreenId="d785c2e3-ab3e-4282-b6ab-3dab2a2619ce" CvTextArea="1222, 585, 82, 19" CvTextArgument="Amount" CvType="Text" DesignTimeRectangle="1204, 580, 122, 30" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' type='' check:innerText='Amount' /&gt;" Guid="73a20417-2a0c-44dc-9229-43078809758a" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NGetText.Target>
+                                    </uix:NGetText>
+                                    <If Condition="[not string.IsNullOrEmpty(in_Wind_Hail) and cint(wind_hail_extract)&lt;&gt;cint(in_Wind_Hail)]" sap:VirtualizedContainerService.HintSize="626,2000" sap2010:WorkflowViewState.IdRef="If_16">
+                                      <If.Then>
+                                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="592,1726.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="530,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Trace" Message="[&quot;Wind/hail is present in the document&quot;+&quot; &quot;+&quot;and the amount is&quot;+in_Wind_Hail]" />
+                                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Wind/hail'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="530,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_19" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" Text="FT" Version="V3">
+                                            <uix:NTypeInto.Target>
+                                              <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="64d3a361-d931-4a06-9079-901921227cbc" CvElementArea="549, 508, 78, 27" CvType="InputBox" DesignTimeRectangle="551, 509, 56, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-combo-box&amp;gt;div&amp;gt;input' idx='2' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-untouched ng-pristine ng-valid' aaname='' tag='INPUT' type='text' /&gt;" Guid="4c6fbc45-49b0-4a8c-938d-4c1ed0a4b525" InformativeScreenshot="9ef563fcc41c912558b4418d985f0d92.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                                <uix:TargetAnchorable.Anchors>
+                                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                    <uix:Target CVScreenId="64d3a361-d931-4a06-9079-901921227cbc" CvTextArea="485, 513, 59, 13" CvTextArgument="Wind/hail" CvType="Text" DesignTimeRectangle="470, 512, 74, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Wind/hail' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Wind/hail' class='text' tag='DIV' type='' check:innerText='Wind/hail' /&gt;" Guid="ffc83839-1b20-4cbc-a5bd-2ef2e4deefb1" SearchSteps="FuzzySelector, CV" />
+                                                  </scg:List>
+                                                </uix:TargetAnchorable.Anchors>
+                                              </uix:TargetAnchorable>
+                                            </uix:NTypeInto.Target>
+                                            <uix:NTypeInto.VerifyOptions>
+                                              <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                                <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                  <InArgument x:TypeArguments="x:Boolean" />
+                                                </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                  <InArgument x:TypeArguments="x:Double" />
+                                                </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                              </uix:VerifyExecutionTypeIntoOptions>
+                                            </uix:NTypeInto.VerifyOptions>
+                                          </uix:NTypeInto>
+                                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Amount'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="530,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_20" InteractionMode="DebuggerApi" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" Text="[in_Wind_Hail]" Version="V3">
+                                            <uix:NTypeInto.Target>
+                                              <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="1b3bb7d6-d545-4a42-be6f-f9911fb75732" CvElementArea="803, 509, 84, 27" CvType="InputBox" DesignTimeRectangle="804, 510, 81, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-string-edit&amp;gt;div&amp;gt;input' idx='2' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-untouched ng-pristine ng-valid' aaname='' tag='INPUT' type='text' /&gt;" Guid="a74b2fce-91f1-405b-9814-2278ceabc505" InformativeScreenshot="ff70ba5e213be625a3a356788666c8c5.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                                <uix:TargetAnchorable.Anchors>
+                                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                    <uix:Target CVScreenId="1b3bb7d6-d545-4a42-be6f-f9911fb75732" CvTextArea="817, 443, 54, 12" CvTextArgument="Amount" CvType="Text" DesignTimeRectangle="804, 440, 81, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Amount' class='text' tag='DIV' type='' check:innerText='Amount' /&gt;" Guid="ae87ef89-b67e-4616-9f5b-cc132b81fb37" SearchSteps="FuzzySelector" />
+                                                  </scg:List>
+                                                </uix:TargetAnchorable.Anchors>
+                                              </uix:TargetAnchorable>
+                                            </uix:NTypeInto.Target>
+                                            <uix:NTypeInto.VerifyOptions>
+                                              <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                                <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                  <InArgument x:TypeArguments="x:Boolean" />
+                                                </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                  <InArgument x:TypeArguments="x:Double" />
+                                                </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                              </uix:VerifyExecutionTypeIntoOptions>
+                                            </uix:NTypeInto.VerifyOptions>
+                                          </uix:NTypeInto>
+                                          <If Condition="[String.IsNullOrEmpty(wind_hail_extract)]" sap:VirtualizedContainerService.HintSize="530,877.3333333333334" sap2010:WorkflowViewState.IdRef="If_15">
+                                            <If.Then>
+                                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,416" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_8">
+                                                  <Assign.To>
+                                                    <OutArgument x:TypeArguments="x:String">[wind_hail_extract]</OutArgument>
+                                                  </Assign.To>
+                                                  <Assign.Value>
+                                                    <InArgument x:TypeArguments="x:String">NA</InArgument>
+                                                  </Assign.Value>
+                                                </Assign>
+                                                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Wind hail&quot;,wind_hail_extract,in_Wind_Hail,&quot;Yes&quot;}]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,214" sap2010:WorkflowViewState.IdRef="AddDataRow_15" />
+                                              </Sequence>
+                                            </If.Then>
+                                            <If.Else>
+                                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,298.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;Wind hail&quot;,wind_hail_extract,in_Wind_Hail,&quot;Yes&quot;}]" DataTable="[io_LogTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="354,214" sap2010:WorkflowViewState.IdRef="AddDataRow_16" />
+                                              </Sequence>
+                                            </If.Else>
+                                          </If>
+                                        </Sequence>
+                                      </If.Then>
+                                      <If.Else>
+                                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,101.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </Sequence>
+                                      </If.Else>
+                                    </If>
+                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Optional Coverages/Endo…'" sap:VirtualizedContainerService.HintSize="626,222.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="69fa00d6-7981-4b47-adf9-895e30fa8187" Version="V3">
+                                      <uix:NClick.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="d66be470-1e90-43bc-bdf2-8de0e20c4a23" CvElementArea="722, 336, 288, 28" CvTextArea="735, 342, 262, 17" CvTextArgument="Other Optional Coverages/Endorsements" CvType="Button" DesignTimeRectangle="723, 337, 286, 26" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl class='tab' idx='3' tabindex='-1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='tab' type='' tabindex='-1' tag='DIV' aaname='Other Optional Coverages/Endorsements' check:innerText='Other Optional Coverages/Endorsements' /&gt;" Guid="db696ae6-3704-47d0-888f-b18d3c2671aa" InformativeScreenshot="9a9eb92081e4707ea6780f028442cf31.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CVScreenId="d66be470-1e90-43bc-bdf2-8de0e20c4a23" CvElementArea="476, 335, 245, 29" CvTextArea="489, 342, 221, 17" CvTextArgument="Optional Coverages/Endorsements" CvType="Button" DesignTimeRectangle="476, 335, 248, 28" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Optional Coverages/Endorsements' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Optional Coverages/Endorsements' tag='DIV' type='' class='tab active' check:innerText='Optional Coverages/Endorsements' /&gt;" Guid="de819102-7be5-48ac-8649-740447843bb7" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NClick.Target>
+                                      <uix:NClick.VerifyOptions>
+                                        <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                          <uix:VerifyExecutionOptions.Retry>
+                                            <InArgument x:TypeArguments="x:Boolean" />
+                                          </uix:VerifyExecutionOptions.Retry>
+                                          <uix:VerifyExecutionOptions.Timeout>
+                                            <InArgument x:TypeArguments="x:Double" />
+                                          </uix:VerifyExecutionOptions.Timeout>
+                                        </uix:VerifyExecutionOptions>
+                                      </uix:NClick.VerifyOptions>
+                                    </uix:NClick>
+                                  </Sequence>
+                                </ActivityAction>
+                              </uix:NApplicationCard.Body>
+                              <uix:NApplicationCard.TargetApp>
+                                <uix:TargetApp Area="1912, -8, 1936, 1048" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="de0fd40c1f852939bd7e3fafce3e53b9.jpg" Selector="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" Title="IDTE000002 - Test ID" Url="[in_Url]" />
+                              </uix:NApplicationCard.TargetApp>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </uix:NApplicationCard>
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:RetryScope.ActivityBody>
+                      <ui:RetryScope.Condition>
+                        <ActivityFunc x:TypeArguments="x:Boolean" />
+                      </ui:RetryScope.Condition>
+                    </ui:RetryScope>
+                  </Sequence>
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="960,166" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;18_Deductibles success&quot;]" />
+  </Sequence>
+</Activity>

@@ -1,0 +1,1024 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="_13_prior_carrier" this:_13_prior_carrier.In_arg_policy_number="Z134715607" this:_13_prior_carrier.In_arg_effective_date="1/1/2028" this:_13_prior_carrier.In_arg_expiration_date="1/1/2029" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd2="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:this="clr-namespace:" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="In_arg_policy_number" Type="InArgument(x:String)" />
+    <x:Property Name="In_arg_effective_date" Type="InArgument(x:String)" />
+    <x:Property Name="In_arg_expiration_date" Type="InArgument(x:String)" />
+    <x:Property Name="In_arg_prior_carrer_table" Type="InArgument(sd:DataTable)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1227,4166</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>_13_prior_carrier_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>OS.Fuzzy.Activities</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="13 Prior_Carrier" sap:VirtualizedContainerService.HintSize="1101,4101" sap2010:WorkflowViewState.IdRef="Sequence_9">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Int32" Name="int_click" />
+      <Variable x:TypeArguments="x:Boolean" Name="line_of_business" />
+      <Variable x:TypeArguments="x:String" Name="effective_date" />
+      <Variable x:TypeArguments="x:String" Name="expiration_date" />
+      <Variable x:TypeArguments="x:String" Name="policy_number" />
+      <Variable x:TypeArguments="x:String" Name="str_policy_eff_exp" />
+      <Variable x:TypeArguments="sd:DataTable" Name="tst" />
+      <Variable x:TypeArguments="ui:UiElement" Name="ui_Lob" />
+      <Variable x:TypeArguments="ui:UiElement" Name="ui_worker_Compensation" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:BuildDataTable DataTable="[tst]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="1039,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;effective_date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;expiration_date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;policy_number&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;effective_date&gt;1/1/2031&lt;/effective_date&gt;&#xA;    &lt;expiration_date&gt;1/1/2032&lt;/expiration_date&gt;&#xA;    &lt;policy_number&gt;Z134715607&lt;/policy_number&gt;&#xA;  &lt;/TableName&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;effective_date&gt;1/1/2029&lt;/effective_date&gt;&#xA;    &lt;expiration_date&gt;1/1/2030&lt;/expiration_date&gt;&#xA;    &lt;policy_number&gt;Z134715607&lt;/policy_number&gt;&#xA;  &lt;/TableName&gt;&#xA;&lt;/NewDataSet&gt;" />
+    <Assign sap:VirtualizedContainerService.HintSize="1039,115" sap2010:WorkflowViewState.IdRef="Assign_7">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataTable">[In_arg_prior_carrer_table]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataTable">[tst]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Policy Information" sap:VirtualizedContainerService.HintSize="1039,2787" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" ScopeGuid="bc0151ea-871a-41c6-a22c-29b36ab51dc9" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1005,2462" sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="943,211" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[effective_date]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">["effective_date"]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[expiration_date]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">["expiration_date"]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[policy_number]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">policy_number</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[In_arg_prior_carrer_table]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="943,1940" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+              <ui:ForEachRow.Body>
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow_prior" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="909,1742" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="ui:UiElement" Name="UI_NEW" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:AnchorBase AnchorPosition="Right" DisplayName="Anchor Base" sap:VirtualizedContainerService.HintSize="847,232" sap2010:WorkflowViewState.IdRef="AnchorBase_13">
+                      <ui:AnchorBase.Action>
+                        <ActivityAction x:TypeArguments="ui:Anchor">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+                          </ActivityAction.Argument>
+                          <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'link  Edit'" FoundElement="[UI_NEW]" sap:VirtualizedContainerService.HintSize="334,107" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_6">
+                            <ui:WaitUiElementAppear.Target>
+                              <ui:Target Element="{x:Null}" Id="8dc68dfb-e9dd-4546-b192-f4f67a16326d" InformativeScreenshot="22f49d6b9996e23899306239dcaaba63" Selector="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctPolicy_PolPriorCar' /&gt;">
+                                <ui:Target.ClippingRegion>
+                                  <ui:Region Rectangle="1395, 1, 36, 19" />
+                                </ui:Target.ClippingRegion>
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:WaitUiElementAppear.Target>
+                          </ui:WaitUiElementAppear>
+                        </ActivityAction>
+                      </ui:AnchorBase.Action>
+                      <ui:AnchorBase.AnchorProvider>
+                        <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'WindowsForms10.STATIC.a...'" sap:VirtualizedContainerService.HintSize="334,107" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_14">
+                          <ui:WaitUiElementAppear.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f8fd5707-387b-4ec4-a07b-bc13cee8b3fe" InformativeScreenshot="96aaae45566514767946a3daa5d0d998" Selector="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctPolicy_PolPriorCar' /&gt;&lt;wnd ctrlname='m_lnkTopAction2' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:WaitUiElementAppear.Target>
+                        </ui:WaitUiElementAppear>
+                      </ui:AnchorBase.AnchorProvider>
+                    </ui:AnchorBase>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click" sap:VirtualizedContainerService.HintSize="847,208" sap2010:WorkflowViewState.IdRef="NClick_1" InUiElement="[UI_NEW]" KeyModifiers="None" MouseButton="Left" Version="V3">
+                      <uix:NClick.VerifyOptions>
+                        <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                          <uix:VerifyExecutionOptions.Retry>
+                            <InArgument x:TypeArguments="x:Boolean" />
+                          </uix:VerifyExecutionOptions.Retry>
+                          <uix:VerifyExecutionOptions.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:VerifyExecutionOptions.Timeout>
+                        </uix:VerifyExecutionOptions>
+                      </uix:NClick.VerifyOptions>
+                    </uix:NClick>
+                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'WindowsForms10.Window.8...'" sap:VirtualizedContainerService.HintSize="847,1214" sap2010:WorkflowViewState.IdRef="WindowScope_3" InformativeScreenshot="a2ba942fa069b7243ab81b2537f383e6" Selector="&lt;wnd app='workstationcoordinator.exe' ctrlname='frmBPolParent' /&gt;&lt;wnd ctrlname='mdiClient1' /&gt;&lt;wnd ctrlname='frmPolicy' /&gt;">
+                      <ui:WindowScope.Body>
+                        <ActivityAction x:TypeArguments="x:Object">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="813,1044" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="ui:UiElement" Name="UI_ADD" />
+                            </Sequence.Variables>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:AnchorBase AnchorPosition="Left" DisplayName="Anchor Base" sap:VirtualizedContainerService.HintSize="751,281" sap2010:WorkflowViewState.IdRef="AnchorBase_7">
+                              <ui:AnchorBase.Action>
+                                <ActivityAction x:TypeArguments="ui:Anchor">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+                                  </ActivityAction.Argument>
+                                  <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'combo box'" sap:VirtualizedContainerService.HintSize="359,156" sap2010:WorkflowViewState.IdRef="SelectItem_3" Item="Workers Compensation">
+                                    <ui:SelectItem.Items>
+                                      <scg:List x:TypeArguments="x:String" Capacity="50">
+                                        <x:String>Medical-PPO</x:String>
+                                        <x:String>Medical-Traditional</x:String>
+                                        <x:String>Miscellaneous Professional Liability</x:String>
+                                        <x:String>Mobile Homeowners</x:String>
+                                        <x:String>Motor Carrier</x:String>
+                                        <x:String>Motor Truck Cargo</x:String>
+                                        <x:String>Motorcycle</x:String>
+                                        <x:String>Ocean Marine</x:String>
+                                        <x:String>Ocean Marine - Commercial</x:String>
+                                        <x:String>Optional AD&amp;D</x:String>
+                                        <x:String>Package (C)</x:String>
+                                        <x:String>Package (P)</x:String>
+                                        <x:String>Personal &amp; Premises Liability</x:String>
+                                        <x:String>Personal Liability</x:String>
+                                        <x:String>Physicians and Surgeons</x:String>
+                                        <x:String>Pollution Liability</x:String>
+                                        <x:String>Prescription Drugs</x:String>
+                                        <x:String>Private Passenger Auto</x:String>
+                                        <x:String>Professional Liability</x:String>
+                                        <x:String>Railroad Protective Liability</x:String>
+                                        <x:String>Recreational Vehicles</x:String>
+                                        <x:String>Retirement Benefits</x:String>
+                                        <x:String>Scheduled Property</x:String>
+                                        <x:String>Signs</x:String>
+                                        <x:String>Small Farm/Ranch</x:String>
+                                        <x:String>Special Multi-Peril</x:String>
+                                        <x:String>Stop Loss Aggregate</x:String>
+                                        <x:String>Stop Loss Specific</x:String>
+                                        <x:String>Supplemental Insurance</x:String>
+                                        <x:String>Surety</x:String>
+                                        <x:String>Transportation</x:String>
+                                        <x:String>Travel &amp; Accident</x:String>
+                                        <x:String>Truckers</x:String>
+                                        <x:String>Umbrella (P)</x:String>
+                                        <x:String>Umbrella(C)</x:String>
+                                        <x:String>Valuable Papers</x:String>
+                                        <x:String>Voluntary AD&amp;D</x:String>
+                                        <x:String>Voluntary Dental</x:String>
+                                        <x:String>Voluntary Dependent Life</x:String>
+                                        <x:String>Voluntary Life(EE only)</x:String>
+                                        <x:String>Voluntary Life(EE/Sps/CH)</x:String>
+                                        <x:String>Voluntary LTD</x:String>
+                                        <x:String>Voluntary STD</x:String>
+                                        <x:String>Voluntary Vision</x:String>
+                                        <x:String>Watercraft (small boat)</x:String>
+                                        <x:String>Wind Policies</x:String>
+                                        <x:String>Work - Life</x:String>
+                                        <x:String>Workers Compensation</x:String>
+                                        <x:String>Workplace Violence</x:String>
+                                        <x:String>Yacht</x:String>
+                                      </scg:List>
+                                    </ui:SelectItem.Items>
+                                    <ui:SelectItem.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bbeab434-b531-4f7f-8ece-16e7ba93d312" InformativeScreenshot="b8bf7ef2d4fc31aab4ca49e78df39293" Selector="&lt;ctrl role='combo box' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:SelectItem.Target>
+                                  </ui:SelectItem>
+                                </ActivityAction>
+                              </ui:AnchorBase.Action>
+                              <ui:AnchorBase.AnchorProvider>
+                                <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'WindowsForms10.BUTTON.a...'" sap:VirtualizedContainerService.HintSize="334,107" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_7">
+                                  <ui:WaitUiElementAppear.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bc362a89-5f05-455b-ae70-168457e9086b" InformativeScreenshot="cc3c05ec42b0bee9480201589c6d5757" Selector="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctPolicy_PolPriorCar' /&gt;&lt;wnd ctrlname='Dialog' /&gt;&lt;wnd ctrlname='grpPolicy_PolPriorCar_PolGrpLine' /&gt;&lt;wnd ctrlname='radPolicy_PolPriorCarPolGrpLinePersonalOther_PCarLineOfBus' /&gt;">
+                                      <ui:Target.TimeoutMS>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:Target.TimeoutMS>
+                                      <ui:Target.WaitForReady>
+                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                      </ui:Target.WaitForReady>
+                                    </ui:Target>
+                                  </ui:WaitUiElementAppear.Target>
+                                </ui:WaitUiElementAppear>
+                              </ui:AnchorBase.AnchorProvider>
+                            </ui:AnchorBase>
+                            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="751,57" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+                              <ui:CommentOut.Body>
+                                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,194" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Assign sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[str_policy_eff_exp]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">[CurrentRow_prior(policy_number).tostring + ", " + CurrentRow_prior(effective_date).tostring+ ", " + CurrentRow_prior(expiration_date).tostring+ ", " + "Workers Compensation, P, R"]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                </Sequence>
+                              </ui:CommentOut.Body>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:CommentOut>
+                            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="751,57" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+                              <ui:CommentOut.Body>
+                                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,256" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,168" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[str_policy_eff_exp]" />
+                                </Sequence>
+                              </ui:CommentOut.Body>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:CommentOut>
+                            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="751,57" sap2010:WorkflowViewState.IdRef="CommentOut_7">
+                              <ui:CommentOut.Body>
+                                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="788,360" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:AnchorBase AnchorPosition="Auto" DisplayName="Anchor Base" sap:VirtualizedContainerService.HintSize="726,272" sap2010:WorkflowViewState.IdRef="AnchorBase_8">
+                                    <ui:AnchorBase.Action>
+                                      <ActivityAction x:TypeArguments="ui:Anchor">
+                                        <ActivityAction.Argument>
+                                          <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+                                        </ActivityAction.Argument>
+                                        <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'Edit'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[str_policy_eff_exp]">
+                                          <ui:TypeInto.Target>
+                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="002e3f89-3a6d-4c08-939c-1e1b3781631a" InformativeScreenshot="d89e611602daffc104b6c26787f81108" Selector="&lt;wnd cls='Edit' /&gt;">
+                                              <ui:Target.TimeoutMS>
+                                                <InArgument x:TypeArguments="x:Int32" />
+                                              </ui:Target.TimeoutMS>
+                                              <ui:Target.WaitForReady>
+                                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                                              </ui:Target.WaitForReady>
+                                            </ui:Target>
+                                          </ui:TypeInto.Target>
+                                        </ui:TypeInto>
+                                      </ActivityAction>
+                                    </ui:AnchorBase.Action>
+                                    <ui:AnchorBase.AnchorProvider>
+                                      <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'WindowsForms10.BUTTON.a...'" sap:VirtualizedContainerService.HintSize="334,107" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_8">
+                                        <ui:WaitUiElementAppear.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bc362a89-5f05-455b-ae70-168457e9086b" InformativeScreenshot="6699f685c2b690fbf7e9e923f1f08586" Selector="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctPolicy_PolPriorCar' /&gt;&lt;wnd ctrlname='Dialog' /&gt;&lt;wnd ctrlname='lblPolicy_PolPriorCar_PolCmbPriorCarPolNo' /&gt;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:WaitUiElementAppear.Target>
+                                      </ui:WaitUiElementAppear>
+                                    </ui:AnchorBase.AnchorProvider>
+                                  </ui:AnchorBase>
+                                </Sequence>
+                              </ui:CommentOut.Body>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:CommentOut>
+                            <ui:AnchorBase AnchorPosition="Auto" DisplayName="Anchor Base" sap:VirtualizedContainerService.HintSize="751,281" sap2010:WorkflowViewState.IdRef="AnchorBase_11">
+                              <ui:AnchorBase.Action>
+                                <ActivityAction x:TypeArguments="ui:Anchor">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+                                  </ActivityAction.Argument>
+                                  <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'combo box  Company:'" sap:VirtualizedContainerService.HintSize="359,156" sap2010:WorkflowViewState.IdRef="SelectItem_4" Item="Zenith, Insurance Company, Zenith">
+                                    <ui:SelectItem.Items>
+                                      <scg:List x:TypeArguments="x:String" Capacity="50">
+                                        <x:String xml:space="preserve"> Test Company - Training, Insurance Company, Test</x:String>
+                                        <x:String>ACE European Group Limited, Writing Company, Ace</x:String>
+                                        <x:String>Aegis Security Insurance Co, Writing Company, AEGIS</x:String>
+                                        <x:String>AIG Property Casualty Company, Writing Company, AIG</x:String>
+                                        <x:String>All Risks LTD, Brokerage Company, All</x:String>
+                                        <x:String>American Bankers Flood, Insurance Company, AmBank</x:String>
+                                        <x:String>American Bankers Insurance Company of Florida, Writing Company, AmB</x:String>
+                                        <x:String>American Economy Insurance Company, Writing Company, AEI</x:String>
+                                        <x:String>American European Insurance Group, Insurance Company, AEIG</x:String>
+                                        <x:String>American States Insurance Company of Texas, Writing Company, State</x:String>
+                                        <x:String>American States Lloyds Insurance Company, Writing Company, LLO</x:String>
+                                        <x:String>American States Preferred Insurance Company, Writing Company, Pref</x:String>
+                                        <x:String>Apogee Insurance Group, Insurance Company, Apogee</x:String>
+                                        <x:String>Ark Royal Insurance Company, Writing Company, Ark</x:String>
+                                        <x:String>ASI Preferred Insurance Corp, Writing Company, API</x:String>
+                                        <x:String>ASI Underwriters, Insurance Company, ASI</x:String>
+                                        <x:String>Associated International Insurance Company, Writing Company, Asso</x:String>
+                                        <x:String>Association Insurance Company, Writing Company, Assc</x:String>
+                                        <x:String>Atlantic Casualty Insurance Company, Writing Company, ACIC</x:String>
+                                        <x:String>Atlantic Specialty Insurance Company, Writing Company, ASI1</x:String>
+                                        <x:String>Automobile Ins Co of Hartford, Writing Company, TR7</x:String>
+                                        <x:String>Auto-Owners Ins Co, Insurance Company, AUTO</x:String>
+                                        <x:String>Avondale Insurance Assc, Brokerage Company, Avond</x:String>
+                                        <x:String>Bankers Insurance Company, Writing Company, BIC</x:String>
+                                        <x:String>Bankers, Insurance Company, Banker</x:String>
+                                        <x:String>Bass Underwriters, Brokerage Company, Bass U</x:String>
+                                        <x:String>Bridgefield Employers Insurance Company, Writing Company, Bri</x:String>
+                                        <x:String>Builders Insurance Group, Insurance Company, BLDG</x:String>
+                                        <x:String>Burns &amp; Wilcox, Brokerage Company, BW</x:String>
+                                        <x:String>Busincss First Insurance Company, Writing Company, Biz</x:String>
+                                        <x:String>Certain Underwriters at Lloyd's, Writing Company, Lloyd</x:String>
+                                        <x:String>Charter Oak Fire Insurance Company, Writing Company, TRA3</x:String>
+                                        <x:String>Chubb Custom Insurance Company, Writing Company, Chubb</x:String>
+                                        <x:String>Chubb Insurance Group, Insurance Company, Chubb</x:String>
+                                        <x:String>Citizens Property Insurance Corporation, Writing Company, CPIS</x:String>
+                                        <x:String>Citizens, Insurance Company, CITI</x:String>
+                                        <x:String>CNA Insurance, Insurance Company, CNA</x:String>
+                                        <x:String>Covington Specialty Insurance CompanyCovington Specialty Insurance Company, Writing Company, COV</x:String>
+                                        <x:String>Covington Specialty Insurance CompanyCovington Specialty Insurance Company, Writing Company, COV</x:String>
+                                        <x:String>CRC Insurance Services, Inc., Brokerage Company, CRC</x:String>
+                                        <x:String>Cumberland Insurance Co, Writing Company, cum</x:String>
+                                        <x:String>Cumberland Mutual Fire Ins Co, Writing Company, cuf</x:String>
+                                        <x:String>Cumberland Mutual, Writing Company, cmu</x:String>
+                                        <x:String>Cumberland, Insurance Company, CUG</x:String>
+                                        <x:String>Cypress Property &amp; Casualty Insurance, Insurance Company, Cyper</x:String>
+                                        <x:String>Essex Insurance Company, Writing Company, Essex</x:String>
+                                        <x:String>Essex Insurance Company, Writing Company, Essex</x:String>
+                                        <x:String>Evanston Insurance Co., Writing Company, Evan</x:String>
+                                        <x:String>Evanston Insurance Co., Writing Company, Evan</x:String>
+                                        <x:String>Everest National Ins Company, Writing Company, Everes</x:String>
+                                      </scg:List>
+                                    </ui:SelectItem.Items>
+                                    <ui:SelectItem.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dfa240e9-1244-48bc-b8c1-6443faf1aaaa" InformativeScreenshot="1fbea54f4a31a129820673545ce80b9b" Selector="&lt;ctrl role='combo box' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:SelectItem.Target>
+                                  </ui:SelectItem>
+                                </ActivityAction>
+                              </ui:AnchorBase.Action>
+                              <ui:AnchorBase.AnchorProvider>
+                                <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'WindowsForms10.STATIC.a...'" sap:VirtualizedContainerService.HintSize="334,107" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_11">
+                                  <ui:WaitUiElementAppear.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="844c1997-0333-45f2-bd83-77f0b63d7bdb" InformativeScreenshot="45d8946103feb8a6c1a51e15755c2b00" Selector="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctPolicy_PolPriorCar' /&gt;&lt;wnd ctrlname='Dialog' /&gt;&lt;wnd ctrlname='grpPolicy_PolPriorCar_PolGrpCompanyInfo' /&gt;&lt;wnd ctrlname='lblPolicy_PolPriorCar_PolCmbPriorCarCo' /&gt;">
+                                      <ui:Target.TimeoutMS>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:Target.TimeoutMS>
+                                      <ui:Target.WaitForReady>
+                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                      </ui:Target.WaitForReady>
+                                    </ui:Target>
+                                  </ui:WaitUiElementAppear.Target>
+                                </ui:WaitUiElementAppear>
+                              </ui:AnchorBase.AnchorProvider>
+                            </ui:AnchorBase>
+                            <ui:AnchorBase AnchorPosition="Right" DisplayName="Anchor Base" sap:VirtualizedContainerService.HintSize="751,223" sap2010:WorkflowViewState.IdRef="AnchorBase_12">
+                              <ui:AnchorBase.Action>
+                                <ActivityAction x:TypeArguments="ui:Anchor">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+                                  </ActivityAction.Argument>
+                                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'WindowsForms10.STATIC.a...'" sap:VirtualizedContainerService.HintSize="334,107" sap2010:WorkflowViewState.IdRef="Click_15" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                    <ui:Click.CursorPosition>
+                                      <ui:CursorPosition Position="Center">
+                                        <ui:CursorPosition.OffsetX>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:CursorPosition.OffsetX>
+                                        <ui:CursorPosition.OffsetY>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:CursorPosition.OffsetY>
+                                      </ui:CursorPosition>
+                                    </ui:Click.CursorPosition>
+                                    <ui:Click.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e87cea77-4e42-45b2-b19f-a1082e44a0d7" InformativeScreenshot="ed5d194b3b6cbfcebe0699f71212f962" Selector="&lt;wnd /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:Click.Target>
+                                  </ui:Click>
+                                </ActivityAction>
+                              </ui:AnchorBase.Action>
+                              <ui:AnchorBase.AnchorProvider>
+                                <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'link  Edit'" FoundElement="[UI_ADD]" sap:VirtualizedContainerService.HintSize="334,107" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_13">
+                                  <ui:WaitUiElementAppear.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8dc68dfb-e9dd-4546-b192-f4f67a16326d" InformativeScreenshot="ba399aef7213e80dc6c3dc8fd9ac9ed4" Selector="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctPolicy_PolPriorCar' /&gt;&lt;wnd ctrlname='m_lnkTopAction2' /&gt;">
+                                      <ui:Target.TimeoutMS>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:Target.TimeoutMS>
+                                      <ui:Target.WaitForReady>
+                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                      </ui:Target.WaitForReady>
+                                    </ui:Target>
+                                  </ui:WaitUiElementAppear.Target>
+                                </ui:WaitUiElementAppear>
+                              </ui:AnchorBase.AnchorProvider>
+                            </ui:AnchorBase>
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:WindowScope.Body>
+                    </ui:WindowScope>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEachRow.Body>
+            </ui:ForEachRow>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="943,57" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,253.6" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="353.6,167.2" sap2010:WorkflowViewState.IdRef="LogMessage_4" Message="[In_arg_policy_number + &quot;, &quot; + In_arg_effective_date + &quot;, &quot; + In_arg_expiration_date + &quot;, &quot; + &quot;Workers Compensation, P, R&quot;]" />
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="943,57" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,191.2" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="433.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_5">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[int_click]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="943,57" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,216.8" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:Hover DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateHover="{x:Null}" DisplayName="Hover 'push button  Page up'" sap:VirtualizedContainerService.HintSize="353.6,130.4" sap2010:WorkflowViewState.IdRef="Hover_2">
+                    <ui:Hover.CursorPosition>
+                      <ui:CursorPosition Position="Center">
+                        <ui:CursorPosition.OffsetX>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetX>
+                        <ui:CursorPosition.OffsetY>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetY>
+                      </ui:CursorPosition>
+                    </ui:Hover.CursorPosition>
+                    <ui:Hover.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ebf89435-7951-4c7e-a633-7d2bbd5edde0" InformativeScreenshot="bad8373adf7df083f9221ab1a835d49b" Selector="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;ctrl automationid='NonClientVerticalScrollBar' /&gt;&lt;ctrl automationid='UpPageButton' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:Hover.Target>
+                  </ui:Hover>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="943,50" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="592,832.8" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[int_click&lt;10]" DisplayName="While" sap:VirtualizedContainerService.HintSize="529.6,746.4" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
+                    <ui:InterruptibleWhile.Body>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,608.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_DOUBLE" DisplayName="Click 'push button  Line up'" sap:VirtualizedContainerService.HintSize="433.6,139.2" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="58363da2-e189-4f12-a70f-06c436c0ac21" InformativeScreenshot="2497d3866b7e397a82ff67215d118e10" Selector="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;ctrl automationid='NonClientVerticalScrollBar' /&gt;&lt;ctrl automationid='UpButton' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_DOUBLE" DisplayName="Click 'push button  Line up'" sap:VirtualizedContainerService.HintSize="433.6,139.2" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="58363da2-e189-4f12-a70f-06c436c0ac21" InformativeScreenshot="2497d3866b7e397a82ff67215d118e10" Selector="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;ctrl automationid='NonClientVerticalScrollBar' /&gt;&lt;ctrl automationid='UpButton' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_DOUBLE" DisplayName="Click 'push button  Line up'" sap:VirtualizedContainerService.HintSize="433.6,139.2" sap2010:WorkflowViewState.IdRef="Click_12" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="58363da2-e189-4f12-a70f-06c436c0ac21" InformativeScreenshot="2497d3866b7e397a82ff67215d118e10" Selector="&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;ctrl automationid='NonClientVerticalScrollBar' /&gt;&lt;ctrl automationid='UpButton' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                        <Assign sap:VirtualizedContainerService.HintSize="433.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_6">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Int32">[int_click]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Int32">[int_click+1]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ui:InterruptibleWhile.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InterruptibleWhile>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-12, 84, 3224, 1832" FilePath="C:\Users\sunde\AppData\Local\AMS Services, Inc\AMS 360\workstationcoordinator.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAHYcAAB2HAY/l8WUAAAYwSURBVFhHtZYHTFR3HMcfAqKiORTFUalYa3BUxdY2jg5tY1NMTMTG1VLFCa6AVRxoFXe1qatIHNWzrrhR66ijbq1S7LXWUbTnCQFBFM5TBO44+Pb7u3cvd1RADfpLPvm/9/v/1n++pzyvXI3u2j1tTaw+9/ROU/6tP1CYcROa2HLvQnSWlF3mnMPr9MY57fs43aouxtnt++QeXWCy5WYCpSXE/gxKYH9iwcOUI6b0xLAIZ5gXF47YL2PTnCTbvatAcT559II8hj0/F5bkbSclljPs84lli39I3sWfDSgwAQV3qkZRNgqM58zp+hkhzvCVS05iYFBB6iEzFxXIu/RysFyBNefOs4vAQcXv/q+bDbh3ALi7u3yMS4AbcYDhi7JciwZuzivfR8g5CuudE6ZKlyNra+xS/B0DpAwEbn2ncn0GkNwXONkBOFgL2K88m6OBwPkewNVJrjipc4FTISi8fS7Jma6sWNb6hxQatgC7vYEkH+AQgxwI4DsDVoV9OjWWtHy3X54JHtXuzrQuKbi6RY9jvYFtdHqVJLVAUeqxk860quQsCgyyGVYAW/2AjTR6lWzyBP6cD8veKNeGtByIisD5KGAdDfa+BaRtAqy3ecflqq28i1763W2kX3hs4DonAJs5zZrNoW5lbXJPA2cHqX07W8KW9lu8M72iFKYkJmF7S2DL6y6H+3TI3A88YnB5l0L0TLCLybXipM/d5gF9VjHBkV5Px9HeU6awCF8UX9/sWgb7qUgDfuT0X5pMowc8aqz8BwYSVjOp6IQ9HJVxY/k2GftUNnAQFimINhJPsznG0YuuyAis0cF6YoLZmZ4zcGY+sNIXWMvdup1JpN3Eke7oClyI5f2eoyJ67Vn06XtdXOYxS2AhgmYjz98zucbDy6qeOeynJ8KZXlHyd7G6b2ngjomXhz3LxV/LVL27Li+5rF3WMS4ji9beK4opNr/0cytgaWNgLg3cWd2W09kFODyca3yF31ze64eHqa1wfpabbRuX/gQvMu3ZPZ7w7zZVv6Ez7OubuwqwL6tlwoIawOmpwD8bOHWtgG/ooHHjJ35YbrB/mnq3y/Pa98ramPao+h1hauuwedfVP7+OS5/QGvkJwW4zEK87iQXcA8m8Mh8yQSo3WmJHYImcDO7o7OOqfhev6LMzy9osbER9f1UnLGxS1mbdB2oceRbdlVXAVAVP1rU1ONOzgBm6eMxnAYta0JCjzT70NL8vBuJqq1xZWb6N/lNgIkdbkY3oZjd0zEbeinZ6Z3pFSZ8YHOIoYDydhcVc062fq+g/4/oFufrKs1n1ITC9wdM2yzu5bOTZqbctbwZ+Fcv+thVM8zNhJtcpikavkhhvZC8Kcd0Bmlii/SMwzw/2SE+UjFBQOvLl4R7Puswxetc17C4FY2ubSqbUQPFwfjZpXEzHqmAXtDjDWMg0X2TGtTbzVJT/U5I+LjjEGumF4kg6ktLRamtjACuLsjJIpdBGbMWnhL6lY9hy2u2jCFvz1wEwxjzjlz1jZGBE/lAvh5MUghgvYFINlEysCXuMD2zjq8M21hvW0V6OViimzj6BNpNqApNJLO+UaH52x3o4iinmLBSO9UXW+KClzjSVy91hAfG5g7xQNJSjGuWBkpjqPFrcoLPqAnPq8xjxKC3g+deQd9FLv9hNZjHR3iiir40z83iUDhljWriO3fPIzcGBQ9PCfGAeyACDPfBkpCesEzgL0/1QOpvJ5vLY/Q97nA62Sb4o4DKKz+NwBdnDA3Bj3NsTnGGfSzxJTaLb0Kvpx5fDGl64FeqFrL4K7g9QkBfuAfOQarAM88SjyOrIH1fT8WyO8HT0PWDBOf0UZIbrcG1E8LX1oU0/Yay6xJdUJx6kQvEiskMbkWYkmHSI7/ba6OM9/c9c61MPqT0VGEMVpPd+mjt9fWD8qjEuhr9p0IcGzqWv/Ha1IkGkMalHapAKRUavI2LcnLQmHUlX0oOEEtnF/cmXZDAZQsLJABJGehEZdTfyDmlD3iBNiBTgQyqVakSq1GZCqpeZaEckYGfyPvmIyO+1IM+i60I6kfZEitcS+xNZApnhFxIpxptIQbWJFCWjaEAaEilQI4DUJ7LedUgtImsus1qBKMp/r9VzVft+2I0AAAAASUVORK5CYII=" InformativeScreenshot="a6b1e0600968735cf601f05a90805464.png" Selector="&lt;wnd app='workstationcoordinator.exe' ctrlname='frmBPolParent' /&gt;&lt;wnd ctrlname='mdiClient1' /&gt;&lt;wnd ctrlname='frmPolicy' /&gt;" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="1039,234" sap2010:WorkflowViewState.IdRef="Sequence_12">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Delay DisplayName=" Delay 1 second" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="Delay_4" />
+    </Sequence>
+    <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ScopeId="{x:Null}" ScrollOffset="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="e8fe623d-db7c-4b0a-91a1-3d9f674ffe5d" DisplayName="CV Screen Workers Compensation" sap:VirtualizedContainerService.HintSize="1039,560" sap2010:WorkflowViewState.IdRef="CVScope_1" SendOnPremData="False" Version="V6">
+      <p:CVScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="CVSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_22">
+            <p:CvClickWithDescriptor DelayBefore="{x:Null}" DelayMS="{x:Null}" DelayScreenshotAfterScroll="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" Descriptor="[&quot;Target: InputBox (11,70,216,17)&quot; +&#xA;&quot;Anchor: Text 'Line of Business' (13,54,81,12)&quot; +&#xA;&quot;Anchor: Text 'Business' (68,0,60,12)&quot; +&#xA;&quot;Anchor: Text 'Line of Business' (17,0,111,12)&quot;]" DesignTimeCacheId="e8fe623d-db7c-4b0a-91a1-3d9f674ffe5d" DesignTimeScaleFactor="1.25" DisplayName="CV Click - InputBox" sap:VirtualizedContainerService.HintSize="400,210" sap2010:WorkflowViewState.IdRef="CvClickWithDescriptor_1" InformativeScreenshot="7bd446be035a2d123bdbe1993eb55b2a" KeyModifiers="None" MouseButton="BTN_LEFT" NumberOfScrolls="2" ScrollDirection="None" Version="V6">
+              <p:CvClickWithDescriptor.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </p:CvClickWithDescriptor.CursorPosition>
+              <p:CvClickWithDescriptor.DesignTimeDescriptor>
+                <uc:CvDescriptor Id="d0d0b135-1138-4447-9c40-6ef114054623">
+                  <uc:CvDescriptor.Anchors>
+                    <x:Array Type="uc:CvElementDescriptor">
+                      <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="13, 54, 81, 12" ElementType="Text" Text="Line of Business" />
+                      <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="68, 0, 60, 12" ElementType="Text" Text="Business" />
+                      <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="17, 0, 111, 12" ElementType="Text" Text="Line of Business" />
+                    </x:Array>
+                  </uc:CvDescriptor.Anchors>
+                  <uc:CvDescriptor.Target>
+                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="11, 70, 216, 17" ElementType="InputBox" />
+                  </uc:CvDescriptor.Target>
+                </uc:CvDescriptor>
+              </p:CvClickWithDescriptor.DesignTimeDescriptor>
+              <p:CvClickWithDescriptor.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="17306bb2-008f-4f3e-ab2d-07d0c2b38486">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </p:CvClickWithDescriptor.Target>
+            </p:CvClickWithDescriptor>
+          </Sequence>
+        </ActivityAction>
+      </p:CVScope.Body>
+      <p:CVScope.DesignTimeCache>
+        <uc:CVCache CvUiElements="{x:Null}" OcrTexts="{x:Null}" DataSent="False" />
+      </p:CVScope.DesignTimeCache>
+      <p:CVScope.DesignTimeCacheContainer>
+        <uc:CvCacheContainer>
+          <uc:CvCacheContainer.Caches>
+            <scg:List x:TypeArguments="uc:CVCache" Capacity="1">
+              <uc:CVCache DataSent="False" DisplayName="Screen CV Click - 'Line of Bus (Main)" Id="e8fe623d-db7c-4b0a-91a1-3d9f674ffe5d" InformativeScreenshot="7a7dcc56dcca33ce4cf2c071e75878e5" LogicalPosition="3, 356" OcrText="Line of Business New Edit Delete Copy Line of Business Line of Business v Description v Application Wiriting Company Plan v State Plan v Sort # v Workers Compensation Workers Compensation Application, 130 Zenith Insurance Company 1" Position="3, 356" ScaleFactor="1.25" ScreenshotGuid="9561f067-ee00-4838-ac6c-5101daf99f28" ServerVersion="24.10.3.1">
+                <uc:CVCache.CvAnchorRelations>
+                  <scg:List x:TypeArguments="uc:AnchorRelationInfo" Capacity="4">
+                    <uc:AnchorRelationInfo IsTargetText="False" Target="0">
+                      <uc:AnchorRelationInfo.Anchors>
+                        <x:Array Type="x:Int32">
+                          <x:Int32>10</x:Int32>
+                          <x:Int32>11</x:Int32>
+                          <x:Int32>12</x:Int32>
+                        </x:Array>
+                      </uc:AnchorRelationInfo.Anchors>
+                    </uc:AnchorRelationInfo>
+                  </scg:List>
+                </uc:CVCache.CvAnchorRelations>
+                <uc:CVCache.CvTables>
+                  <x:Array Type="uc:CvTableInfo">
+                    <uc:CvTableInfo>
+                      <uc:CvTableInfo.Columns>
+                        <x:Array Type="x:Int32">
+                          <x:Int32>9</x:Int32>
+                          <x:Int32>220</x:Int32>
+                          <x:Int32>437</x:Int32>
+                          <x:Int32>648</x:Int32>
+                          <x:Int32>864</x:Int32>
+                          <x:Int32>1080</x:Int32>
+                          <x:Int32>1292</x:Int32>
+                          <x:Int32>1502</x:Int32>
+                        </x:Array>
+                      </uc:CvTableInfo.Columns>
+                      <uc:CvTableInfo.Rows>
+                        <x:Array Type="x:Int32">
+                          <x:Int32>49</x:Int32>
+                          <x:Int32>68</x:Int32>
+                          <x:Int32>85</x:Int32>
+                        </x:Array>
+                      </uc:CvTableInfo.Rows>
+                    </uc:CvTableInfo>
+                  </x:Array>
+                </uc:CVCache.CvTables>
+                <uc:CVCache.CvUiElements>
+                  <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="64">
+                    <uc:CvElementInfo Category="InputBox" Region="11, 70, 216, 17" />
+                    <uc:CvElementInfo Category="ArrowButton" Region="0, 0, 15, 15" />
+                    <uc:CvElementInfo Category="Icon" Region="0, 0, 15, 16" />
+                    <uc:CvElementInfo Category="Cell" Region="9, 49, 210, 17" />
+                    <uc:CvElementInfo Category="Cell" Region="9, 68, 210, 17" />
+                    <uc:CvElementInfo Category="Cell" Region="220, 49, 218, 17" />
+                    <uc:CvElementInfo Category="Cell" Region="220, 68, 218, 17" />
+                    <uc:CvElementInfo Category="Cell" Region="437, 49, 211, 17" />
+                    <uc:CvElementInfo Category="Cell" Region="437, 68, 211, 17" />
+                    <uc:CvElementInfo Category="Cell" Region="648, 49, 215, 17" />
+                    <uc:CvElementInfo Category="Cell" Region="648, 68, 215, 17" />
+                    <uc:CvElementInfo Category="Cell" Region="864, 49, 216, 17" />
+                    <uc:CvElementInfo Category="Cell" Region="864, 68, 216, 17" />
+                    <uc:CvElementInfo Category="Cell" Region="1080, 49, 212, 17" />
+                    <uc:CvElementInfo Category="Cell" Region="1080, 68, 212, 17" />
+                    <uc:CvElementInfo Category="Cell" Region="1292, 49, 211, 17" />
+                    <uc:CvElementInfo Category="Cell" Region="1292, 68, 211, 17" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="0, 71, 8, 16" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="1295, 70, 214, 17" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="868, 70, 213, 17" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="1081, 71, 216, 16" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="439, 69, 212, 16" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="848, 52, 16, 16" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="1475, 53, 12, 13" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="226, 70, 215, 17" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="652, 70, 215, 16" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="1276, 52, 16, 16" />
+                    <uc:CvElementInfo Category="Icon" Confidence="Runtime" Region="1490, 52, 16, 16" />
+                    <uc:CvElementInfo Category="CheckBox" Confidence="Runtime" Region="0, 0, 15, 14" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="440, 70, 208, 16" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1461, 0, 47, 17" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1314, 24, 141, 17" />
+                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="1491, 52, 16, 17" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="224, 51, 216, 20" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="9, 52, 217, 19" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="1294, 51, 214, 20" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="440, 51, 212, 20" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="651, 52, 216, 20" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="1080, 51, 216, 20" />
+                    <uc:CvElementInfo Category="InputBox" Confidence="Runtime" Region="866, 52, 216, 19" />
+                    <uc:CvElementInfo Category="ArrowButton" Region="419, 52, 18, 18" />
+                    <uc:CvElementInfo Category="ArrowButton" Region="1275, 52, 19, 18" />
+                    <uc:CvElementInfo Category="ArrowButton" Region="205, 52, 17, 18" />
+                    <uc:CvElementInfo Category="ArrowButton" Region="847, 52, 18, 18" />
+                    <uc:CvElementInfo Category="ArrowButton" Region="1060, 52, 18, 18" />
+                    <uc:CvElementInfo Category="ArrowButton" Region="632, 52, 19, 19" />
+                    <uc:CvElementInfo Category="ArrowButton" Region="1490, 52, 17, 18" />
+                    <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="1475, 52, 13, 14" />
+                  </scg:List>
+                </uc:CVCache.CvUiElements>
+                <uc:CVCache.OcrTexts>
+                  <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="37">
+                    <uc:OcrTextInfo Region="17, 0, 29, 12" Text="Line" />
+                    <uc:OcrTextInfo Region="49, 0, 14, 12" Text="of" />
+                    <uc:OcrTextInfo Region="68, 0, 60, 12" Text="Business" />
+                    <uc:OcrTextInfo Region="1398, 5, 24, 9" Text="New" />
+                    <uc:OcrTextInfo Region="1433, 4, 22, 10" Text="Edit" />
+                    <uc:OcrTextInfo Region="1465, 4, 37, 12" Text="Delete" />
+                    <uc:OcrTextInfo Region="1321, 28, 32, 12" Text="Copy" />
+                    <uc:OcrTextInfo Region="1356, 28, 24, 10" Text="Line" />
+                    <uc:OcrTextInfo Region="1382, 28, 12, 10" Text="of" />
+                    <uc:OcrTextInfo Region="1398, 28, 49, 10" Text="Business" />
+                    <uc:OcrTextInfo Region="13, 56, 21, 10" Text="Line" />
+                    <uc:OcrTextInfo Region="36, 56, 10, 10" Text="of" />
+                    <uc:OcrTextInfo Region="49, 54, 45, 12" Text="Business" />
+                    <uc:OcrTextInfo Region="209, 60, 9, 5" Text="v" />
+                    <uc:OcrTextInfo Region="228, 56, 57, 12" Text="Description" />
+                    <uc:OcrTextInfo Region="424, 60, 9, 6" Text="v" />
+                    <uc:OcrTextInfo Region="440, 54, 56, 13" Text="Application" />
+                    <uc:OcrTextInfo Region="653, 56, 37, 12" Text="Wiriting" />
+                    <uc:OcrTextInfo Region="692, 54, 48, 13" Text="Company" />
+                    <uc:OcrTextInfo Region="868, 56, 22, 10" Text="Plan" />
+                    <uc:OcrTextInfo Region="1064, 60, 10, 5" Text="v" />
+                    <uc:OcrTextInfo Region="1082, 56, 25, 10" Text="State" />
+                    <uc:OcrTextInfo Region="1110, 56, 22, 10" Text="Plan" />
+                    <uc:OcrTextInfo Region="1278, 60, 10, 6" Text="v" />
+                    <uc:OcrTextInfo Region="1296, 56, 20, 10" Text="Sort" />
+                    <uc:OcrTextInfo Region="1320, 56, 6, 9" Text="#" />
+                    <uc:OcrTextInfo Region="1493, 60, 9, 6" Text="v" />
+                    <uc:OcrTextInfo Region="12, 73, 42, 10" Text="Workers" />
+                    <uc:OcrTextInfo Region="57, 73, 72, 12" Text="Compensation" />
+                    <uc:OcrTextInfo Region="440, 72, 42, 12" Text="Workers" />
+                    <uc:OcrTextInfo Region="485, 73, 72, 12" Text="Compensation" />
+                    <uc:OcrTextInfo Region="560, 73, 58, 12" Text="Application," />
+                    <uc:OcrTextInfo Region="621, 73, 18, 10" Text="130" />
+                    <uc:OcrTextInfo Region="654, 72, 32, 12" Text="Zenith" />
+                    <uc:OcrTextInfo Region="688, 73, 50, 10" Text="Insurance" />
+                    <uc:OcrTextInfo Region="740, 73, 48, 12" Text="Company" />
+                    <uc:OcrTextInfo Region="1497, 73, 4, 10" Text="1" />
+                  </scg:List>
+                </uc:CVCache.OcrTexts>
+              </uc:CVCache>
+            </scg:List>
+          </uc:CvCacheContainer.Caches>
+        </uc:CvCacheContainer>
+      </p:CVScope.DesignTimeCacheContainer>
+      <p:CVScope.OCREngine>
+        <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd2:Rectangle, x:String))">
+          <ActivityFunc.Argument>
+            <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+          </ActivityFunc.Argument>
+          <p1:UiPathScreenOCR ApiKey="{x:Null}" Endpoint="{x:Null}" Output="{x:Null}" PredictionId="{x:Null}" Text="{x:Null}" UseLocalServer="{x:Null}" ComputeSkewAngle="False" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="UiPathScreenOCR_8" Image="[Image]" Language="en" NoopExecution="False" Profile="Screen" Scale="1" Timeout="100000" />
+        </ActivityFunc>
+      </p:CVScope.OCREngine>
+      <p:CVScope.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5dc3347d-971c-4f44-a08c-d4ab0f20a57d" InformativeScreenshot="92b950021b65d97615406c31883bb1e1" Selector="&lt;wnd app='workstationcoordinator.exe' ctrlname='frmBPolParent' /&gt;&lt;wnd ctrlname='mdiClient1' /&gt;&lt;wnd ctrlname='frmPolicy' /&gt;&lt;wnd ctrlname='m_oPanelMain' /&gt;&lt;wnd ctrlname='sctPolicy_PolLOB' /&gt;" WaitForReady="INTERACTIVE">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+        </ui:Target>
+      </p:CVScope.Target>
+      <p:CVScope.UseLocalServer>
+        <InArgument x:TypeArguments="x:Boolean" />
+      </p:CVScope.UseLocalServer>
+    </p:CVScope>
+    <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="1039,225" sap2010:WorkflowViewState.IdRef="Sequence_14">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Delay DisplayName=" Delay 1 second" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="Delay_5" />
+    </Sequence>
+  </Sequence>
+</Activity>

@@ -1,0 +1,1202 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="_13_protection_Wiring" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_protection_Device" Type="InArgument(x:String)" />
+    <x:Property Name="in_Smoke" Type="InArgument(x:String)" />
+    <x:Property Name="in_Temperature_fire" Type="InArgument(x:String)" />
+    <x:Property Name="in_Burglar" Type="InArgument(x:String)" />
+    <x:Property Name="in_Protection_Class" Type="InArgument(x:String)" />
+    <x:Property Name="in_Distance_to_hydrant" Type="InArgument(x:String)" />
+    <x:Property Name="in_Url" Type="InArgument(x:String)" />
+    <x:Property Name="In_arg_retry_count" Type="InArgument(x:Int32)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1668,4545.333333333333</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>_13_protection_Wiring_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>System.Numerics</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>OS.Fuzzy.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="_13_protection_Wiring" sap:VirtualizedContainerService.HintSize="908.6666666666666,4480.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="846.6666666666666,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Starting 14 protection page&quot;]" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="846.6666666666666,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="500,404" sap2010:WorkflowViewState.IdRef="Sequence_52">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,316" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+            <TryCatch.Try>
+              <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: IDTE000002 - Test ID" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="0eb94e99-e007-4fe6-9249-32acad9fd899" Version="V2" WindowResize="Maximize">
+                <uix:NApplicationCard.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="check rating-Underwriting page is opened or not" sap:VirtualizedContainerService.HintSize="670,3181" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:Boolean" Name="bool_Rating_Underwriting" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NCheckElement DelayBefore="0" DisplayName="Check Element 'General/Construction-Si…'" sap:VirtualizedContainerService.HintSize="608,190" sap2010:WorkflowViewState.IdRef="NCheckElement_2" Result="[bool_Rating_Underwriting]" ScopeIdentifier="0eb94e99-e007-4fe6-9249-32acad9fd899" Version="V3">
+                        <uix:NCheckElement.Target>
+                          <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="3ea1dcd0-882c-4a82-a871-2f94df97eab3" CvTextArea="246, 249, 155, 20" CvTextArgument="Rating/Underwriting" CvType="Text" DesignTimeRectangle="247, 247, 153, 22" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl class='title' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='title' tag='SPAN' type='' aaname='Rating/nderwriting' check:innerText='Rating/Underwriting' /&gt;" Guid="b5f8d697-4984-46b3-a3b8-22f39bc905ff" InformativeScreenshot="1381ff17cee667803461079f9b44e326.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                <uix:Target CVScreenId="c58a59c1-079d-47ce-bfdd-0a06a9c1e029" CvElementArea="445, 361, 230, 29" CvTextArea="458, 369, 207, 15" CvTextArgument="Protection/Wiring-Electrical/Heat" CvType="Button" DesignTimeRectangle="445, 361, 232, 28" ElementType="Text" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div' idx='2' isleaf='1' tabindex='-1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='tab active' isleaf='1' tabindex='-1' tag='DIV' aaname='Protection/Wiring-Electrical/Heat' check:innerText='Protection/Wiring-Electrical/Heat' /&gt;" Guid="77017a54-6eeb-4c17-90bd-2363ebe39fa3" SearchSteps="FuzzySelector, CV" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:NCheckElement.Target>
+                      </uix:NCheckElement>
+                      <If Condition="[bool_Rating_Underwriting]" sap:VirtualizedContainerService.HintSize="608,2678.5" sap2010:WorkflowViewState.IdRef="If_6">
+                        <If.Then>
+                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="574,2197.5" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="512,2109.5" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If Condition="[not string.IsNullOrEmpty(in_Distance_to_hydrant)]" sap:VirtualizedContainerService.HintSize="450,976.5" sap2010:WorkflowViewState.IdRef="If_4">
+                                <If.Then>
+                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,551" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Distance to hydrant is present in document &quot;]" />
+                                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Distance to hydrant (ft)'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,283.3333333333333" sap2010:WorkflowViewState.IdRef="NTypeInto_8" ScopeIdentifier="0eb94e99-e007-4fe6-9249-32acad9fd899" Text="[in_Distance_to_hydrant]" Version="V3">
+                                      <uix:NTypeInto.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="acac72e0-0849-4e58-8517-b00a4c6cebed" CvElementArea="889, 457, 43, 27" CvType="InputBox" DesignTimeRectangle="890, 458, 40, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-integer-edit&amp;gt;div&amp;gt;input' idx='4' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='string-edit ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="5fd4be66-1f11-41fc-85c6-f912342ab0e5" InformativeScreenshot="bb077e46487ebe5967bb4b479f9f6913.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CVScreenId="acac72e0-0849-4e58-8517-b00a4c6cebed" CvTextArea="746, 462, 137, 15" CvTextArgument="Distance to hydrant (ft)" CvType="Text" DesignTimeRectangle="733, 461, 149, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Distance to hydrant (ft)' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Distance to hydrant (ft)' class='text' tag='DIV' type='' check:innerText='Distance to hydrant (ft)' /&gt;" Guid="f589969f-d0aa-4ae7-a733-a9d5219ef120" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NTypeInto.Target>
+                                      <uix:NTypeInto.VerifyOptions>
+                                        <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                          <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                            <InArgument x:TypeArguments="x:Boolean" />
+                                          </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                          <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                            <InArgument x:TypeArguments="x:Double" />
+                                          </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                        </uix:VerifyExecutionTypeIntoOptions>
+                                      </uix:NTypeInto.VerifyOptions>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </uix:NTypeInto>
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,254.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,170" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Distance to hydrant is not present in document &quot;]" />
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                              <If Condition="[not String.IsNullOrEmpty(in_Protection_Class)]" sap:VirtualizedContainerService.HintSize="450,974" sap2010:WorkflowViewState.IdRef="If_5">
+                                <If.Then>
+                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,547.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_14" Message="[&quot;protection class is present &quot;]" />
+                                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Protection class'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,283.3333333333333" sap2010:WorkflowViewState.IdRef="NTypeInto_9" ScopeIdentifier="0eb94e99-e007-4fe6-9249-32acad9fd899" Text="[in_Protection_Class]" Version="V3">
+                                      <uix:NTypeInto.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="acac72e0-0849-4e58-8517-b00a4c6cebed" CvElementArea="1097, 458, 46, 27" CvType="InputBox" DesignTimeRectangle="1098, 459, 44, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-string-edit&amp;gt;div&amp;gt;input' idx='7' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="4c7aca1f-ecab-4911-a4b8-d40d6cf235b7" InformativeScreenshot="6fe74fe33634e3a7c4587f39a44c7f50.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CVScreenId="acac72e0-0849-4e58-8517-b00a4c6cebed" CvTextArea="996, 462, 94, 13" CvTextArgument="Protection class" CvType="Text" DesignTimeRectangle="976, 461, 114, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Protection class' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Protection class' class='text' tag='DIV' type='' check:innerText='Protection class' /&gt;" Guid="d4e26725-f96e-4f55-a0ba-4d5e23b91067" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NTypeInto.Target>
+                                      <uix:NTypeInto.VerifyOptions>
+                                        <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                          <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                            <InArgument x:TypeArguments="x:Boolean" />
+                                          </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                          <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                            <InArgument x:TypeArguments="x:Double" />
+                                          </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                        </uix:VerifyExecutionTypeIntoOptions>
+                                      </uix:NTypeInto.VerifyOptions>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </uix:NTypeInto>
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,254.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,170" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;protection class isnot present &quot;]" />
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                                <ui:CommentOut.Body>
+                                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="544.8,1752" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:IfElseIfV2 Condition="[in_protection_Device.ToLower.Trim = &quot;smoke&quot;]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="482.4,1665.6" sap2010:WorkflowViewState.IdRef="IfElseIfV2_4">
+                                      <ui:IfElseIfV2.Else>
+                                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,253.6" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="353.6,167.2" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;Protection device information is missing in the document&quot;]" />
+                                        </Sequence>
+                                      </ui:IfElseIfV2.Else>
+                                      <ui:IfElseIfV2.ElseIfs>
+                                        <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[in_protection_Device.ToLower.Trim=&quot;temperature/fire&quot;]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_5">
+                                            <ui:IfElseIfBlock.Then>
+                                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,364" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Temperature/fire'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="353.6,277.6" sap2010:WorkflowViewState.IdRef="NTypeInto_11" ScopeIdentifier="0eb94e99-e007-4fe6-9249-32acad9fd899" Text="[in_Temperature_fire]" Version="V3">
+                                                  <uix:NTypeInto.Target>
+                                                    <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="d965afc0-fd04-4c2b-803b-aa5cb06ac4e7" CvElementArea="428, 491, 59, 27" CvType="InputBox" DesignTimeRectangle="430, 492, 38, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-combo-box&amp;gt;div&amp;gt;input' idx='12' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="90ed7424-2bfa-448f-8600-261c91994056" InformativeScreenshot="b136311579d473a7e41f740fb46487c3.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                                      <uix:TargetAnchorable.Anchors>
+                                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                          <uix:Target CVScreenId="d965afc0-fd04-4c2b-803b-aa5cb06ac4e7" CvTextArea="319, 496, 105, 16" CvTextArgument="Temperature/fire" CvType="Text" DesignTimeRectangle="316, 495, 108, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Temperature/fire' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Temperature/fire' class='text' tag='DIV' type='' check:innerText='Temperature/fire' /&gt;" Guid="ba113075-4e78-4bb1-8453-c84f261440c8" SearchSteps="FuzzySelector, CV" />
+                                                        </scg:List>
+                                                      </uix:TargetAnchorable.Anchors>
+                                                    </uix:TargetAnchorable>
+                                                  </uix:NTypeInto.Target>
+                                                  <uix:NTypeInto.VerifyOptions>
+                                                    <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                                      <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                        <InArgument x:TypeArguments="x:Boolean" />
+                                                      </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                      <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                        <InArgument x:TypeArguments="x:Double" />
+                                                      </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                    </uix:VerifyExecutionTypeIntoOptions>
+                                                  </uix:NTypeInto.VerifyOptions>
+                                                </uix:NTypeInto>
+                                              </Sequence>
+                                            </ui:IfElseIfBlock.Then>
+                                          </ui:IfElseIfBlock>
+                                          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[in_protection_Device.ToLower.Trim=&quot;burglar&quot;]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_6">
+                                            <ui:IfElseIfBlock.Then>
+                                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,364" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Burglar'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="353.6,277.6" sap2010:WorkflowViewState.IdRef="NTypeInto_12" ScopeIdentifier="0eb94e99-e007-4fe6-9249-32acad9fd899" Text="[in_Burglar]" Version="V3">
+                                                  <uix:NTypeInto.Target>
+                                                    <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="d965afc0-fd04-4c2b-803b-aa5cb06ac4e7" CvElementArea="428, 518, 59, 28" CvType="InputBox" DesignTimeRectangle="430, 519, 38, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-combo-box&amp;gt;div&amp;gt;input' idx='14' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-untouched ng-pristine ng-valid' aaname='' tag='INPUT' type='text' /&gt;" Guid="c9e68e9f-db42-4586-aa0e-13edc1659b72" InformativeScreenshot="bd5b96193c1c6c247116d74bf5b4770c.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                                      <uix:TargetAnchorable.Anchors>
+                                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                          <uix:Target CVScreenId="d965afc0-fd04-4c2b-803b-aa5cb06ac4e7" CvTextArea="379, 523, 46, 16" CvTextArgument="Burglar" CvType="Text" DesignTimeRectangle="374, 522, 50, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Burglar' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Burglar' class='text' tag='DIV' type='' check:innerText='Burglar' /&gt;" Guid="935f3c18-0c8a-4008-b1cb-47ce3856974a" SearchSteps="FuzzySelector, CV" />
+                                                        </scg:List>
+                                                      </uix:TargetAnchorable.Anchors>
+                                                    </uix:TargetAnchorable>
+                                                  </uix:NTypeInto.Target>
+                                                  <uix:NTypeInto.VerifyOptions>
+                                                    <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                                      <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                        <InArgument x:TypeArguments="x:Boolean" />
+                                                      </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                      <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                        <InArgument x:TypeArguments="x:Double" />
+                                                      </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                    </uix:VerifyExecutionTypeIntoOptions>
+                                                  </uix:NTypeInto.VerifyOptions>
+                                                </uix:NTypeInto>
+                                              </Sequence>
+                                            </ui:IfElseIfBlock.Then>
+                                          </ui:IfElseIfBlock>
+                                        </sc:BindingList>
+                                      </ui:IfElseIfV2.ElseIfs>
+                                      <ui:IfElseIfV2.Then>
+                                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,364" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Smoke'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="353.6,277.6" sap2010:WorkflowViewState.IdRef="NTypeInto_10" ScopeIdentifier="0eb94e99-e007-4fe6-9249-32acad9fd899" Text="[in_Smoke]" Version="V3">
+                                            <uix:NTypeInto.Target>
+                                              <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="a027f4f1-aee6-4190-a58b-6b680603a310" CvElementArea="428, 463, 60, 27" CvType="InputBox" DesignTimeRectangle="430, 464, 38, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-combo-box&amp;gt;div&amp;gt;input' idx='13' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="1f05702c-3b93-4c50-b1a0-c73be4e4279b" InformativeScreenshot="8095bc6cc308cb08520468a2ea27b042.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                                <uix:TargetAnchorable.Anchors>
+                                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                    <uix:Target CVScreenId="a027f4f1-aee6-4190-a58b-6b680603a310" CvTextArea="380, 468, 43, 13" CvTextArgument="Smoke" CvType="Text" DesignTimeRectangle="373, 467, 49, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Smoke' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Smoke' class='text' tag='DIV' type='' check:innerText='Smoke' /&gt;" Guid="f3639633-171f-413a-9ce3-cdf713974cda" SearchSteps="FuzzySelector, CV" />
+                                                  </scg:List>
+                                                </uix:TargetAnchorable.Anchors>
+                                              </uix:TargetAnchorable>
+                                            </uix:NTypeInto.Target>
+                                            <uix:NTypeInto.VerifyOptions>
+                                              <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                                <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                  <InArgument x:TypeArguments="x:Boolean" />
+                                                </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                  <InArgument x:TypeArguments="x:Double" />
+                                                </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                              </uix:VerifyExecutionTypeIntoOptions>
+                                            </uix:NTypeInto.VerifyOptions>
+                                          </uix:NTypeInto>
+                                        </Sequence>
+                                      </ui:IfElseIfV2.Then>
+                                    </ui:IfElseIfV2>
+                                  </Sequence>
+                                </ui:CommentOut.Body>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:CommentOut>
+                            </Sequence>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="512,310" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="450,225.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Delay DisplayName=" Delay 3 seconds" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="388,114.66666666666667" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                            </Sequence>
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'General/Credits/Sq Ft'" sap:VirtualizedContainerService.HintSize="608,222.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0eb94e99-e007-4fe6-9249-32acad9fd899" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="387b9f02-5784-47ed-9cc1-4115e4609eca" CvElementArea="676, 361, 164, 29" CvTextArea="689, 368, 137, 16" CvTextArgument="General/Credits/Sq Ft" CvType="Button" DesignTimeRectangle="676, 363, 162, 26" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='General/Credits/Sq Ft' class='tab' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='General/Credits/Sq Ft' class='tab' tag='DIV' type='' check:innerText='General/Credits/Sq Ft' /&gt;" Guid="7bab0557-e3f4-4bd8-bdb6-570b6ef89e4d" InformativeScreenshot="83993483ecfd2fa31de33187b62d749f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                <uix:Target CVScreenId="387b9f02-5784-47ed-9cc1-4115e4609eca" CvElementArea="443, 360, 235, 30" CvTextArea="458, 368, 207, 17" CvTextArgument="Protection/Wiring-Electrical/Heat" CvType="Button" DesignTimeRectangle="445, 361, 232, 28" ElementType="Text" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div' idx='2' isleaf='1' tabindex='-1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='tab active' isleaf='1' tabindex='-1' tag='DIV' aaname='Protection/Wiring-Electrical/Heat' check:innerText='Protection/Wiring-Electrical/Heat' /&gt;" Guid="91b5d2c0-6bee-422e-ab0d-d58709aaaab0" SearchSteps="FuzzySelector, CV" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:NClick.Target>
+                        <uix:NClick.VerifyOptions>
+                          <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                            <uix:VerifyExecutionOptions.Retry>
+                              <InArgument x:TypeArguments="x:Boolean" />
+                            </uix:VerifyExecutionOptions.Retry>
+                            <uix:VerifyExecutionOptions.Timeout>
+                              <InArgument x:TypeArguments="x:Double" />
+                            </uix:VerifyExecutionOptions.Timeout>
+                          </uix:VerifyExecutionOptions>
+                        </uix:NClick.VerifyOptions>
+                      </uix:NClick>
+                    </Sequence>
+                  </ActivityAction>
+                </uix:NApplicationCard.Body>
+                <uix:NApplicationCard.TargetApp>
+                  <uix:TargetApp Area="1912, -8, 1936, 1048" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="f2a04d069b56931c37c0bc2e8dadc736.jpg" Selector="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" Title="IDTE000002 - Test ID" Url="[in_Url]" />
+                </uix:NApplicationCard.TargetApp>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NApplicationCard>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,23" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                  <Sequence sap:VirtualizedContainerService.HintSize="520,599" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="458,175" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[&quot;System exception at 14_protection_wiring&quot;]" />
+                    <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="458,336" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="[In_arg_retry_count]">
+                      <ui:RetryScope.ActivityBody>
+                        <ActivityAction>
+                          <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,136" sap2010:WorkflowViewState.IdRef="Sequence_51">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: IDTE000002 - Test ID" sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="0eb94e99-e007-4fe6-9249-32acad9fd899" Version="V2" WindowResize="Maximize">
+                              <uix:NApplicationCard.Body>
+                                <ActivityAction x:TypeArguments="x:Object">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                                  </ActivityAction.Argument>
+                                  <Sequence DisplayName="check rating-Underwriting page is opened or not" sap:VirtualizedContainerService.HintSize="670,3181" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                    <Sequence.Variables>
+                                      <Variable x:TypeArguments="x:Boolean" Name="bool_Rating_Underwriting" />
+                                    </Sequence.Variables>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <uix:NCheckElement DelayBefore="0" DisplayName="Check Element 'General/Construction-Si…'" sap:VirtualizedContainerService.HintSize="608,190" sap2010:WorkflowViewState.IdRef="NCheckElement_3" Result="[bool_Rating_Underwriting]" ScopeIdentifier="0eb94e99-e007-4fe6-9249-32acad9fd899" Version="V3">
+                                      <uix:NCheckElement.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="3ea1dcd0-882c-4a82-a871-2f94df97eab3" CvTextArea="246, 249, 155, 20" CvTextArgument="Rating/Underwriting" CvType="Text" DesignTimeRectangle="247, 247, 153, 22" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl class='title' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='title' tag='SPAN' type='' aaname='Rating/nderwriting' check:innerText='Rating/Underwriting' /&gt;" Guid="b5f8d697-4984-46b3-a3b8-22f39bc905ff" InformativeScreenshot="1381ff17cee667803461079f9b44e326.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CVScreenId="c58a59c1-079d-47ce-bfdd-0a06a9c1e029" CvElementArea="445, 361, 230, 29" CvTextArea="458, 369, 207, 15" CvTextArgument="Protection/Wiring-Electrical/Heat" CvType="Button" DesignTimeRectangle="445, 361, 232, 28" ElementType="Text" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div' idx='2' isleaf='1' tabindex='-1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='tab active' isleaf='1' tabindex='-1' tag='DIV' aaname='Protection/Wiring-Electrical/Heat' check:innerText='Protection/Wiring-Electrical/Heat' /&gt;" Guid="77017a54-6eeb-4c17-90bd-2363ebe39fa3" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NCheckElement.Target>
+                                    </uix:NCheckElement>
+                                    <If Condition="[bool_Rating_Underwriting]" sap:VirtualizedContainerService.HintSize="608,2678.5" sap2010:WorkflowViewState.IdRef="If_10">
+                                      <If.Then>
+                                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="574,2197.5" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="512,2109.5" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <If Condition="[not string.IsNullOrEmpty(in_Distance_to_hydrant)]" sap:VirtualizedContainerService.HintSize="450,976.5" sap2010:WorkflowViewState.IdRef="If_8">
+                                              <If.Then>
+                                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,551" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Info" Message="[&quot;Distance to hydrant is present in document &quot;]" />
+                                                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Distance to hydrant (ft)'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,283.3333333333333" sap2010:WorkflowViewState.IdRef="NTypeInto_13" ScopeIdentifier="0eb94e99-e007-4fe6-9249-32acad9fd899" Text="[in_Distance_to_hydrant]" Version="V3">
+                                                    <uix:NTypeInto.Target>
+                                                      <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="acac72e0-0849-4e58-8517-b00a4c6cebed" CvElementArea="889, 457, 43, 27" CvType="InputBox" DesignTimeRectangle="890, 458, 40, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-integer-edit&amp;gt;div&amp;gt;input' idx='4' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='string-edit ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="5fd4be66-1f11-41fc-85c6-f912342ab0e5" InformativeScreenshot="bb077e46487ebe5967bb4b479f9f6913.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                                        <uix:TargetAnchorable.Anchors>
+                                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                            <uix:Target CVScreenId="acac72e0-0849-4e58-8517-b00a4c6cebed" CvTextArea="746, 462, 137, 15" CvTextArgument="Distance to hydrant (ft)" CvType="Text" DesignTimeRectangle="733, 461, 149, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Distance to hydrant (ft)' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Distance to hydrant (ft)' class='text' tag='DIV' type='' check:innerText='Distance to hydrant (ft)' /&gt;" Guid="f589969f-d0aa-4ae7-a733-a9d5219ef120" SearchSteps="FuzzySelector, CV" />
+                                                          </scg:List>
+                                                        </uix:TargetAnchorable.Anchors>
+                                                      </uix:TargetAnchorable>
+                                                    </uix:NTypeInto.Target>
+                                                    <uix:NTypeInto.VerifyOptions>
+                                                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                                        <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                          <InArgument x:TypeArguments="x:Boolean" />
+                                                        </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                          <InArgument x:TypeArguments="x:Double" />
+                                                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                      </uix:VerifyExecutionTypeIntoOptions>
+                                                    </uix:NTypeInto.VerifyOptions>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </uix:NTypeInto>
+                                                </Sequence>
+                                              </If.Then>
+                                              <If.Else>
+                                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,254.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,170" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Info" Message="[&quot;Distance to hydrant is not present in document &quot;]" />
+                                                </Sequence>
+                                              </If.Else>
+                                            </If>
+                                            <If Condition="[not String.IsNullOrEmpty(in_Protection_Class)]" sap:VirtualizedContainerService.HintSize="450,974" sap2010:WorkflowViewState.IdRef="If_9">
+                                              <If.Then>
+                                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,547.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_20" Message="[&quot;protection class is present &quot;]" />
+                                                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Protection class'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,283.3333333333333" sap2010:WorkflowViewState.IdRef="NTypeInto_14" ScopeIdentifier="0eb94e99-e007-4fe6-9249-32acad9fd899" Text="[in_Protection_Class]" Version="V3">
+                                                    <uix:NTypeInto.Target>
+                                                      <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="acac72e0-0849-4e58-8517-b00a4c6cebed" CvElementArea="1097, 458, 46, 27" CvType="InputBox" DesignTimeRectangle="1098, 459, 44, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-string-edit&amp;gt;div&amp;gt;input' idx='7' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="4c7aca1f-ecab-4911-a4b8-d40d6cf235b7" InformativeScreenshot="6fe74fe33634e3a7c4587f39a44c7f50.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                                        <uix:TargetAnchorable.Anchors>
+                                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                            <uix:Target CVScreenId="acac72e0-0849-4e58-8517-b00a4c6cebed" CvTextArea="996, 462, 94, 13" CvTextArgument="Protection class" CvType="Text" DesignTimeRectangle="976, 461, 114, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Protection class' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Protection class' class='text' tag='DIV' type='' check:innerText='Protection class' /&gt;" Guid="d4e26725-f96e-4f55-a0ba-4d5e23b91067" SearchSteps="FuzzySelector, CV" />
+                                                          </scg:List>
+                                                        </uix:TargetAnchorable.Anchors>
+                                                      </uix:TargetAnchorable>
+                                                    </uix:NTypeInto.Target>
+                                                    <uix:NTypeInto.VerifyOptions>
+                                                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                                        <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                          <InArgument x:TypeArguments="x:Boolean" />
+                                                        </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                          <InArgument x:TypeArguments="x:Double" />
+                                                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                      </uix:VerifyExecutionTypeIntoOptions>
+                                                    </uix:NTypeInto.VerifyOptions>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </uix:NTypeInto>
+                                                </Sequence>
+                                              </If.Then>
+                                              <If.Else>
+                                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,254.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,170" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Info" Message="[&quot;protection class isnot present &quot;]" />
+                                                </Sequence>
+                                              </If.Else>
+                                            </If>
+                                            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+                                              <ui:CommentOut.Body>
+                                                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="544.8,1752" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:IfElseIfV2 Condition="[in_protection_Device.ToLower.Trim = &quot;smoke&quot;]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="482.4,1665.6" sap2010:WorkflowViewState.IdRef="IfElseIfV2_5">
+                                                    <ui:IfElseIfV2.Else>
+                                                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,253.6" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="353.6,167.2" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;Protection device information is missing in the document&quot;]" />
+                                                      </Sequence>
+                                                    </ui:IfElseIfV2.Else>
+                                                    <ui:IfElseIfV2.ElseIfs>
+                                                      <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                                        <ui:IfElseIfBlock BlockType="ElseIf" Condition="[in_protection_Device.ToLower.Trim=&quot;temperature/fire&quot;]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_7">
+                                                          <ui:IfElseIfBlock.Then>
+                                                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,364" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Temperature/fire'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="353.6,277.6" sap2010:WorkflowViewState.IdRef="NTypeInto_16" ScopeIdentifier="0eb94e99-e007-4fe6-9249-32acad9fd899" Text="[in_Temperature_fire]" Version="V3">
+                                                                <uix:NTypeInto.Target>
+                                                                  <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="d965afc0-fd04-4c2b-803b-aa5cb06ac4e7" CvElementArea="428, 491, 59, 27" CvType="InputBox" DesignTimeRectangle="430, 492, 38, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-combo-box&amp;gt;div&amp;gt;input' idx='12' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="90ed7424-2bfa-448f-8600-261c91994056" InformativeScreenshot="b136311579d473a7e41f740fb46487c3.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                                                    <uix:TargetAnchorable.Anchors>
+                                                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                                        <uix:Target CVScreenId="d965afc0-fd04-4c2b-803b-aa5cb06ac4e7" CvTextArea="319, 496, 105, 16" CvTextArgument="Temperature/fire" CvType="Text" DesignTimeRectangle="316, 495, 108, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Temperature/fire' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Temperature/fire' class='text' tag='DIV' type='' check:innerText='Temperature/fire' /&gt;" Guid="ba113075-4e78-4bb1-8453-c84f261440c8" SearchSteps="FuzzySelector, CV" />
+                                                                      </scg:List>
+                                                                    </uix:TargetAnchorable.Anchors>
+                                                                  </uix:TargetAnchorable>
+                                                                </uix:NTypeInto.Target>
+                                                                <uix:NTypeInto.VerifyOptions>
+                                                                  <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                                                    <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                                      <InArgument x:TypeArguments="x:Boolean" />
+                                                                    </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                                    <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                                      <InArgument x:TypeArguments="x:Double" />
+                                                                    </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                                  </uix:VerifyExecutionTypeIntoOptions>
+                                                                </uix:NTypeInto.VerifyOptions>
+                                                              </uix:NTypeInto>
+                                                            </Sequence>
+                                                          </ui:IfElseIfBlock.Then>
+                                                        </ui:IfElseIfBlock>
+                                                        <ui:IfElseIfBlock BlockType="ElseIf" Condition="[in_protection_Device.ToLower.Trim=&quot;burglar&quot;]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_8">
+                                                          <ui:IfElseIfBlock.Then>
+                                                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,364" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Burglar'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="353.6,277.6" sap2010:WorkflowViewState.IdRef="NTypeInto_17" ScopeIdentifier="0eb94e99-e007-4fe6-9249-32acad9fd899" Text="[in_Burglar]" Version="V3">
+                                                                <uix:NTypeInto.Target>
+                                                                  <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="d965afc0-fd04-4c2b-803b-aa5cb06ac4e7" CvElementArea="428, 518, 59, 28" CvType="InputBox" DesignTimeRectangle="430, 519, 38, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-combo-box&amp;gt;div&amp;gt;input' idx='14' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-untouched ng-pristine ng-valid' aaname='' tag='INPUT' type='text' /&gt;" Guid="c9e68e9f-db42-4586-aa0e-13edc1659b72" InformativeScreenshot="bd5b96193c1c6c247116d74bf5b4770c.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                                                    <uix:TargetAnchorable.Anchors>
+                                                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                                        <uix:Target CVScreenId="d965afc0-fd04-4c2b-803b-aa5cb06ac4e7" CvTextArea="379, 523, 46, 16" CvTextArgument="Burglar" CvType="Text" DesignTimeRectangle="374, 522, 50, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Burglar' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Burglar' class='text' tag='DIV' type='' check:innerText='Burglar' /&gt;" Guid="935f3c18-0c8a-4008-b1cb-47ce3856974a" SearchSteps="FuzzySelector, CV" />
+                                                                      </scg:List>
+                                                                    </uix:TargetAnchorable.Anchors>
+                                                                  </uix:TargetAnchorable>
+                                                                </uix:NTypeInto.Target>
+                                                                <uix:NTypeInto.VerifyOptions>
+                                                                  <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                                                    <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                                      <InArgument x:TypeArguments="x:Boolean" />
+                                                                    </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                                    <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                                      <InArgument x:TypeArguments="x:Double" />
+                                                                    </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                                  </uix:VerifyExecutionTypeIntoOptions>
+                                                                </uix:NTypeInto.VerifyOptions>
+                                                              </uix:NTypeInto>
+                                                            </Sequence>
+                                                          </ui:IfElseIfBlock.Then>
+                                                        </ui:IfElseIfBlock>
+                                                      </sc:BindingList>
+                                                    </ui:IfElseIfV2.ElseIfs>
+                                                    <ui:IfElseIfV2.Then>
+                                                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,364" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Smoke'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="353.6,277.6" sap2010:WorkflowViewState.IdRef="NTypeInto_15" ScopeIdentifier="0eb94e99-e007-4fe6-9249-32acad9fd899" Text="[in_Smoke]" Version="V3">
+                                                          <uix:NTypeInto.Target>
+                                                            <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="a027f4f1-aee6-4190-a58b-6b680603a310" CvElementArea="428, 463, 60, 27" CvType="InputBox" DesignTimeRectangle="430, 464, 38, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-combo-box&amp;gt;div&amp;gt;input' idx='13' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="1f05702c-3b93-4c50-b1a0-c73be4e4279b" InformativeScreenshot="8095bc6cc308cb08520468a2ea27b042.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                                              <uix:TargetAnchorable.Anchors>
+                                                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                                  <uix:Target CVScreenId="a027f4f1-aee6-4190-a58b-6b680603a310" CvTextArea="380, 468, 43, 13" CvTextArgument="Smoke" CvType="Text" DesignTimeRectangle="373, 467, 49, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Smoke' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Smoke' class='text' tag='DIV' type='' check:innerText='Smoke' /&gt;" Guid="f3639633-171f-413a-9ce3-cdf713974cda" SearchSteps="FuzzySelector, CV" />
+                                                                </scg:List>
+                                                              </uix:TargetAnchorable.Anchors>
+                                                            </uix:TargetAnchorable>
+                                                          </uix:NTypeInto.Target>
+                                                          <uix:NTypeInto.VerifyOptions>
+                                                            <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                                              <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                                <InArgument x:TypeArguments="x:Boolean" />
+                                                              </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                              <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                                <InArgument x:TypeArguments="x:Double" />
+                                                              </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                            </uix:VerifyExecutionTypeIntoOptions>
+                                                          </uix:NTypeInto.VerifyOptions>
+                                                        </uix:NTypeInto>
+                                                      </Sequence>
+                                                    </ui:IfElseIfV2.Then>
+                                                  </ui:IfElseIfV2>
+                                                </Sequence>
+                                              </ui:CommentOut.Body>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </ui:CommentOut>
+                                          </Sequence>
+                                        </Sequence>
+                                      </If.Then>
+                                      <If.Else>
+                                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="512,310" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="450,225.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Delay DisplayName=" Delay 3 seconds" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="388,114.66666666666667" sap2010:WorkflowViewState.IdRef="Delay_3" />
+                                          </Sequence>
+                                        </Sequence>
+                                      </If.Else>
+                                    </If>
+                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'General/Credits/Sq Ft'" sap:VirtualizedContainerService.HintSize="608,222.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0eb94e99-e007-4fe6-9249-32acad9fd899" Version="V3">
+                                      <uix:NClick.Target>
+                                        <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="387b9f02-5784-47ed-9cc1-4115e4609eca" CvElementArea="676, 361, 164, 29" CvTextArea="689, 368, 137, 16" CvTextArgument="General/Credits/Sq Ft" CvType="Button" DesignTimeRectangle="676, 363, 162, 26" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='General/Credits/Sq Ft' class='tab' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='General/Credits/Sq Ft' class='tab' tag='DIV' type='' check:innerText='General/Credits/Sq Ft' /&gt;" Guid="7bab0557-e3f4-4bd8-bdb6-570b6ef89e4d" InformativeScreenshot="83993483ecfd2fa31de33187b62d749f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CVScreenId="387b9f02-5784-47ed-9cc1-4115e4609eca" CvElementArea="443, 360, 235, 30" CvTextArea="458, 368, 207, 17" CvTextArgument="Protection/Wiring-Electrical/Heat" CvType="Button" DesignTimeRectangle="445, 361, 232, 28" ElementType="Text" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div' idx='2' isleaf='1' tabindex='-1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='tab active' isleaf='1' tabindex='-1' tag='DIV' aaname='Protection/Wiring-Electrical/Heat' check:innerText='Protection/Wiring-Electrical/Heat' /&gt;" Guid="91b5d2c0-6bee-422e-ab0d-d58709aaaab0" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NClick.Target>
+                                      <uix:NClick.VerifyOptions>
+                                        <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                          <uix:VerifyExecutionOptions.Retry>
+                                            <InArgument x:TypeArguments="x:Boolean" />
+                                          </uix:VerifyExecutionOptions.Retry>
+                                          <uix:VerifyExecutionOptions.Timeout>
+                                            <InArgument x:TypeArguments="x:Double" />
+                                          </uix:VerifyExecutionOptions.Timeout>
+                                        </uix:VerifyExecutionOptions>
+                                      </uix:NClick.VerifyOptions>
+                                    </uix:NClick>
+                                  </Sequence>
+                                </ActivityAction>
+                              </uix:NApplicationCard.Body>
+                              <uix:NApplicationCard.TargetApp>
+                                <uix:TargetApp Area="1912, -8, 1936, 1048" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAA/tSURBVGhDvZgJfFTV9ccHMgmRJZmsk20ykz2ZZLICARKysCRhTSrKH2wJ+Vf/gEuLLVptxSTa0qIsCWsEAgQBq8jmUtsqMFZJFWQRN1CBQAmblEwWyDaTe3rOvfdN3kRUbO3/fD6/zzn33Pvyvufc+97MRPND2BCtm25GkG/Zb2MNVZstUXuOjEpuOD061XZ1zFC4OmYYnM5Js30wMqlhT3qc9bcxhqrCAF1JmKeHyRutFG337t17T6G1Svvko49O7kGbhUZr5G1+WCPouQb9/D2psVYFVHhVnK+Mha7kZ3B9dWch3Nz5ArN3dPSgAdmVxkZ4prwcpo0vgDEZGVCQlQ3P19ZCB9ry5cur9Wjy1v+ZEfijppCKL0enNF3Nz2AcLC/d1RM4irw6R2r69XzmaGsFxhg4HA7uz3/+OcQaDIB/3kVhPj7QfL2Jr7HZbC3FaJj/9+1RUzCCK0eDgKijvXA8l5vOlE5fxvhybhofX8b5trp1oHScfHd3N48feeBBCO6vgcrxqbDpp8Ww5M4csAR6g1s/DWx77jm+xm630zVsIVo/NIl0e0bndf/QxOPUTS4C7OOdoOTz0OelS9GaDLAtWsg7qRgVQFCUq11bA9tm5AC8tgYce2vh5pan4aGseL4L5fN/xtdQsUrxZWVl/yvIbsOm6/1nf5GdYnMCIhQHdIKqYaVy0+ESKSeNXcpJZdcfngs99m4OolYPHiGypgvn4YGR8bDzvsmwcloOzBkaBZXZJgj2GgwnT5zga5XjRurq6uoejyYRv9keMQZVKLAKmNJdghM+VXico3kOj7lLuWnSp0PHu1bo7T04QZjsaOflc1D/+Cz4sPw+eG/B/8D+x0ph5+w8qMqOgrYvP+VrqFjndSh6c0nMW9uC8KAKdXcVGNFZGecgJPqLoyUwxZgj8TnU5ZJxYuuxAuXmHAhzClTb6U/g1NP3Qs3d+fD7okz47On74MVpGfDKvGLosP1TXIfrlevpWtwRFowmcV1tut5v9iUOpToOcixAJaD0AjqVChFxdgpTfNOS3wlYhiLPQQSMcoSunTkFKyalwc7SYqibOQHWFCXCU3iEzn92gs/Tuh5cz2O6vgcLcTCYO2fePInca/TAnhxpaeKACE0QBKruqoBGWA4qfKMS8yJSoRE9qePIYUY3E8KbKx4hRDEM2ttvwosLymBLaRFsnFUID6eFQElcEJz+4nN+9knKWi68vscO8MZrb/xFYvfaoUxzg0sXCYhiCaT2PM5KZgqsU9mkFO57mvGdj40m9dgR2k5FUFcFkF2+Sr88cQxS9TrwwDePcZAWBvfvBwsfe4zP0RuIiiDju0hNwMtsXzU1S2xhvzToK5xdJKnAXQEJTiUqok/ugvSOm50CvFvclHVLANwBBYrswpF6WDE5DRbOnAwJJiNEhEdBaqIF3ra+LVc4Pwv480B/r6OlvVOiazQe/gNNS36R19tNhLqA4gU4gXpjmuNe0SgLayzKgpaNNdB57AOwX7rIb8oQnkl46KIdwFjuANmnH38MV69ehfPvvQUfv7kXSkumwNDYODBHx0BSvBlGpA+Dp8or4crlK3w9P04ohjvZ9NX13h0wzUuvy6krgWMThzm75woogbOSpZQ4BS7fVcShb2l4VkkEDth9hrG9i5IAx48eBUucGY699z58dfok/OSuuyHK3xdMISGQiEUMS0nDAoZCcoIFUhKTYPWqVfzYOWgnuh1w8qPPTnF4D7+BpvQX7oQM1P2/K3CC/QO76got9A9FI5OYrfoZ6Glt5UCKXbIxeP3DLthg7YSGy9hu3IGeLoRH9fAj5IDuri7Ixy9sy5eu4NfMuWcm+A+8A2JMJkhJSIARaRmQnmSBtKRkiDAYwU+n45/ML734Ei+iu6ML9uzYJT4LfHPCy1K3F7O07SWQvv1H8MbdmRLQwrgfpcjCoSk+j765di2/uWKvHe+CeXU3YFhFMwyvbOF+2Z9uAuvELSdhAY5O0f2jhw5DfnYej7fWbQa/QQPBEByERyca0hITET4ZzLgLev8A8PfxhaCAAOjfrx/MmD6df6bYb7TDvPv+T7xG4xflH0/dVswIngopfbZIwEro8yMIGr2ikRZoql7Mb052ydYDczcL8KGVzTAMNZRi1F0rWwR8B8kO3Tc6eQdrVq2GDeu24Pm/DMbAQAgNDIDocANEhodDXFQ0V2hQMBjDDBBlNEFMhIkXMOuee/inur25DUxGo4kfn5StU1kKFpC2rQRSUeRXz81i50ckMuw0B6b4nBw3lhQw5dgQ/JSqVicwKaO8VzSu/wSh2/G7UHsX2Fvb+XU/f+BhOHnyDCx48H4YgGDm6CgwR0UhbDgWYeRdN4aFgTE0DMJDQiHSaAStmxvM+em9+BJg0NnwOugG9ddpvDL0xalbi6GvsjZOhU9zLOxcJoFTEUlA/lymmbW9vpdDkM3Z1IagNpUQHKHTVblpK5qhs6UDeto6eCG2i1egpGQ61L9zEPQ+3uDr5QXR+HsgFs8/AXsP8QIPd3cICdRDoJ8/93SUtG5aWLpoMbCbHdB9KA9KJ3iXaULuSaxKeX4qCBVzTwUkPz+FLf7ZaCd0Q2YiNIxIhMYfFUh0gFfxzBPorSWKUFS5oxW3/QY/v2++8joUFE6FJx79FX8wQwL8wRQaAmH6IPAaPASPSn9w17pBGB6hoAA8XkFB4OOtA/x1Ce8fOAjdnzwC9r/Hw7KfB1Zroh4faU3eMhUsW6YwdRGWLZMZ5Q/hjwwOL3V9+R8kPsCkZS2Q9qStVwjqMu6jNX9qRn4G2zfVQWxcChgN4eCJnQ7FAiJCgyEYYXVe3uChdeeFeQ4YAL46H16ED+5SXEwstH20GOz1ccxeHw+7/hC2V5OwdGxD8pYpcCtZ6iazmYvGsoZhCewsqmG4GTqOHubwp/D1mIpQJIJT4m9XEzy8/QZULV0DblpPGISvzQDsKhUQjl2mY0I7gD+3wN1dC0H+/hCJRZoR3BDkDfvWxCJ8DMLHMEd9LJzZGdGgSaqbxJLrEBhl4ZrMY8pTTLlXi9N4AWexAOXhPfBZN6QgENdC6VEEKrw6p86jX3AKfGKLINBHh8+ADgz6AAjHVyh1X9vfDbvfDwZ4eOCR0uOrNQRmFOjh7C4T2A9GM/vBGO4d9dFw7c8RNo1l82RI2oyw6L9JY1cWwdmh8exMRpz4TotWc6ADkhFckQLrkrtFzIuVcVzZGxBVWAm5BXfDyOHDITQ4GJ8FP0iL94OJo4aw8nv94G81BiBY+8FI5jgYBY6D0XzMY/SaxM0TWRJCumoSJG1CYZy4aSIzo6rvHQFnMuKdBazd3+6EU8vyLeO+c0qO/pZiBNoLqyhSqD6K5sH+bgTuAHqMNQmrC23mTRNYIgGjKCafuHEiH1PevHECG15TBCeyzPglrZHfaO+xTrA80QRJT1znnkC4V8d9vLI2iXKq/H48jtzsLRyKYO3vmrCQCBxHyAIwxhz3IuY5TfSzeQ0ESUpAUCc4ekWUJz0+Pwvajxzi97qIH2AEJCTgbq2+c19fe/KS+FrNmt/jUA6EI8BehTPK9ebDGen0jtAGTdiD6XvMtROxywLWXDvBJU6oLWIknsd1R3au5zcjK6ttgUQESEQo4b+/CpY2y7+G31jPPIVwRgR1FcKC/R0DQpMwluN9K/VWTdAMc5WAE7C8GDkmxW8oxALIFzHSjKpieTuAPUe7wPyb62BGEC6MCYrnvkPKuj1HO+Vfw+/6h0ciYBh2mwDJhxE0wfKx8FKYX/aQd7XGe2RoGUFy0A1FQOLFbFAkckJifOiS+LFNNntDKyQgiCKCSvjNP52g6jnXNdfx2hb5V/D4XH1ZAZUKReAQFPkwcPAcjTF+V2hqtmexxu0OrY7DrS+CuPUFvIh4HmNR6NWiHK0Z+8fZ0NqFXwvQGpt6YNyzNohHaAKP/7XwvfF1Z47WKLlxS2zQiM8RWWvnDex+JsEK0L8F85i8Q+25QuR8MDPp3Uz867RhwTBr/PpCCVoIcesKEB7H65ScyPOxzC36ew2/ORkVUYrdJLivSRag1ixcS9co1vwFnn0ORXBBjOudYMqpxkFYRDAWKPJHa/2Pc3gy3djw+XEIpij2ufGsd1zgkudzz4ncqiNbJYKw3Uc6YcwzTRCLkHEoxSuatb4ZdqvOPNmuExuhyUrHwwmskh6h1WMhB2pWoedsia/R9PfU6qKr8m0xCEfigBKSfKwUzZFX52gn6Aio7eRFB7z1aResfOsmrNp3EwvrcOk4WWtnGyyqr4GXX01AqEDqMnq9jPUISbGiQBwHgv3tAEaiOefxUcx3cmSFAhVbg7A141hszXiMUZiLluPotejlOEbO5277Mdt16q8S7bvt/YsfQu7WH7Pc2hyERTBFb/sjIMo5DuCS8Cg/KgA2PjZks8TuNdqFyKV5TQpYzFoUeR6PcxkTtHNMc3Kct/UnsOhgDQe80Cr+DUJGMeVWHn4eMjaViGvxunNv4VvFCeaPnqSKrRS7zHGF6/u7dl8xn0mRFdhhfoOotWOZE5x7RWIctYbm+Y44Y8pHrxGinOLFvDo3hj36QjrC+OJxIDBfAhWQVh8Zk3xdPc6Vl3lWSNxbm+HxzOMKhCIFPnrNWCn1fN+xOqesHwuRq8dweIrTa/Lg3Jv4MEooDmglSF/MCW+36hjPWX1wjEJ/+o9eZyXmN5vW19MUsSTHFrV6LCiim6o9wQifzxQw8kL5fE5R33HU6jFQtSMe4XwQlsB0rNvqjWOSTua8GfnuA148R7r2mpfN9E1Hp68NGR5UFrEqn5GUmwphvAo9CceR6HvXiDkaO/PoKVZfl70uS0L1wonYWwJ7g93phzCMuS/Oci+ReLdnvhMiK+nmt1LEyjwnpDO/Mv9r6xSZcD1dQ9qxG78qE5gCaPVCcOEF7GCEHkJFCWH8ZOmASon1/Uw3wVTBwVACQniSAmZagfFKKiqfyzkvx4onzdg4lAOp5bASrGvOfmAQ4/kDg6F8tvu3P7TfZQOT/EvCF2fbENQJErEiH4wrchE+l1Gs5CJwDeVJNKZr1ONzf8GHEuEIzFWDUAMxPwi699/B7Khrrw60lRZqyyTGf2ZaH09TWHlmAwesRvBq6XHMITE2VuegxJxTzvkc9sstSQKOgw4EguTgIif8/jvIwwfrPY+b9P1u74H9PuZdZKxQwMIRylSdy0HDqygWXomNVWKOlLVmBHYf3y4EKmClPJ3Q9v0D2LVXPGxPlmr/vfN+u0a74TczbjOBEqRahmWjeQGGqtF8DmOe3/AS/gxEQAQmaKF9A5zxtVfcm54sdavQDeqnk7f57xsVMnhYUFnwIxnHCZwDL89xSuRyYNTqEQTfKwLf58FQsG+5u/WhaW7z/1/Bb2VUDD3supLIqoD7LdaQhcMbqIiwpdnsxZdDscNa2xfbtQ07n9LuWXq/W9Wswn6zfxhojeZfSAcx4hIgDOkAAAAASUVORK5CYII=" InformativeScreenshot="f2a04d069b56931c37c0bc2e8dadc736.jpg" Selector="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" Title="IDTE000002 - Test ID" Url="[in_Url]" />
+                              </uix:NApplicationCard.TargetApp>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </uix:NApplicationCard>
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:RetryScope.ActivityBody>
+                      <ui:RetryScope.Condition>
+                        <ActivityFunc x:TypeArguments="x:Boolean" />
+                      </ui:RetryScope.Condition>
+                    </ui:RetryScope>
+                  </Sequence>
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="846.6666666666666,3991.3333333333335" sap2010:WorkflowViewState.IdRef="RetryScope_3" NumberOfRetries="[In_arg_retry_count]">
+      <ui:RetryScope.ActivityBody>
+        <ActivityAction>
+          <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="804.6666666666666,3780.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_69">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="742.6666666666666,3696" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+              <TryCatch.Try>
+                <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: IDTE000002 - Test ID" sap:VirtualizedContainerService.HintSize="704,3434" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="0eb94e99-e007-4fe6-9249-32acad9fd899" Version="V2" WindowResize="Maximize">
+                  <uix:NApplicationCard.Body>
+                    <ActivityAction x:TypeArguments="x:Object">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="check rating-Underwriting page is opened or not" sap:VirtualizedContainerService.HintSize="670,3174.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_53">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:Boolean" Name="bool_Rating_Underwriting" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NCheckElement DelayBefore="0" DisplayName="Check Element 'General/Construction-Si…'" sap:VirtualizedContainerService.HintSize="608,191.33333333333334" sap2010:WorkflowViewState.IdRef="NCheckElement_4" Result="[bool_Rating_Underwriting]" ScopeIdentifier="0eb94e99-e007-4fe6-9249-32acad9fd899" Version="V3">
+                          <uix:NCheckElement.Target>
+                            <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="3ea1dcd0-882c-4a82-a871-2f94df97eab3" CvTextArea="246, 249, 155, 20" CvTextArgument="Rating/Underwriting" CvType="Text" DesignTimeRectangle="247, 247, 153, 22" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl class='title' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='title' tag='SPAN' type='' aaname='Rating/nderwriting' check:innerText='Rating/Underwriting' /&gt;" Guid="b5f8d697-4984-46b3-a3b8-22f39bc905ff" InformativeScreenshot="1381ff17cee667803461079f9b44e326.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="c58a59c1-079d-47ce-bfdd-0a06a9c1e029" CvElementArea="445, 361, 230, 29" CvTextArea="458, 369, 207, 15" CvTextArgument="Protection/Wiring-Electrical/Heat" CvType="Button" DesignTimeRectangle="445, 361, 232, 28" ElementType="Text" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div' idx='2' isleaf='1' tabindex='-1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='tab active' isleaf='1' tabindex='-1' tag='DIV' aaname='Protection/Wiring-Electrical/Heat' check:innerText='Protection/Wiring-Electrical/Heat' /&gt;" Guid="77017a54-6eeb-4c17-90bd-2363ebe39fa3" SearchSteps="FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NCheckElement.Target>
+                        </uix:NCheckElement>
+                        <If Condition="[bool_Rating_Underwriting]" sap:VirtualizedContainerService.HintSize="608,2673.3333333333335" sap2010:WorkflowViewState.IdRef="If_13">
+                          <If.Then>
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="574,2191.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_65">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="512,2106.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If Condition="[not string.IsNullOrEmpty(in_Distance_to_hydrant)]" sap:VirtualizedContainerService.HintSize="450,974" sap2010:WorkflowViewState.IdRef="If_11">
+                                  <If.Then>
+                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,547.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;Distance to hydrant is present in document &quot;]" />
+                                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Distance to hydrant (ft)'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,283.3333333333333" sap2010:WorkflowViewState.IdRef="NTypeInto_18" ScopeIdentifier="0eb94e99-e007-4fe6-9249-32acad9fd899" Text="[in_Distance_to_hydrant]" Version="V3">
+                                        <uix:NTypeInto.Target>
+                                          <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="acac72e0-0849-4e58-8517-b00a4c6cebed" CvElementArea="889, 457, 43, 27" CvType="InputBox" DesignTimeRectangle="890, 458, 40, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-integer-edit&amp;gt;div&amp;gt;input' idx='4' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='string-edit ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="5fd4be66-1f11-41fc-85c6-f912342ab0e5" InformativeScreenshot="bb077e46487ebe5967bb4b479f9f6913.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                            <uix:TargetAnchorable.Anchors>
+                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                <uix:Target CVScreenId="acac72e0-0849-4e58-8517-b00a4c6cebed" CvTextArea="746, 462, 137, 15" CvTextArgument="Distance to hydrant (ft)" CvType="Text" DesignTimeRectangle="733, 461, 149, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Distance to hydrant (ft)' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Distance to hydrant (ft)' class='text' tag='DIV' type='' check:innerText='Distance to hydrant (ft)' /&gt;" Guid="f589969f-d0aa-4ae7-a733-a9d5219ef120" SearchSteps="FuzzySelector, CV" />
+                                              </scg:List>
+                                            </uix:TargetAnchorable.Anchors>
+                                          </uix:TargetAnchorable>
+                                        </uix:NTypeInto.Target>
+                                        <uix:NTypeInto.VerifyOptions>
+                                          <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                            <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                              <InArgument x:TypeArguments="x:Boolean" />
+                                            </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                            <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                              <InArgument x:TypeArguments="x:Double" />
+                                            </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                          </uix:VerifyExecutionTypeIntoOptions>
+                                        </uix:NTypeInto.VerifyOptions>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </uix:NTypeInto>
+                                    </Sequence>
+                                  </If.Then>
+                                  <If.Else>
+                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,254.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_56">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,170" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Info" Message="[&quot;Distance to hydrant is not present in document &quot;]" />
+                                    </Sequence>
+                                  </If.Else>
+                                </If>
+                                <If Condition="[not String.IsNullOrEmpty(in_Protection_Class)]" sap:VirtualizedContainerService.HintSize="450,974" sap2010:WorkflowViewState.IdRef="If_12">
+                                  <If.Then>
+                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,547.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,179.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_26" Message="[&quot;protection class is present &quot;]" />
+                                      <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Protection class'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,283.3333333333333" sap2010:WorkflowViewState.IdRef="NTypeInto_19" ScopeIdentifier="0eb94e99-e007-4fe6-9249-32acad9fd899" Text="[in_Protection_Class]" Version="V3">
+                                        <uix:NTypeInto.Target>
+                                          <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="acac72e0-0849-4e58-8517-b00a4c6cebed" CvElementArea="1097, 458, 46, 27" CvType="InputBox" DesignTimeRectangle="1098, 459, 44, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-string-edit&amp;gt;div&amp;gt;input' idx='7' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="4c7aca1f-ecab-4911-a4b8-d40d6cf235b7" InformativeScreenshot="6fe74fe33634e3a7c4587f39a44c7f50.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                            <uix:TargetAnchorable.Anchors>
+                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                <uix:Target CVScreenId="acac72e0-0849-4e58-8517-b00a4c6cebed" CvTextArea="996, 462, 94, 13" CvTextArgument="Protection class" CvType="Text" DesignTimeRectangle="976, 461, 114, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Protection class' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Protection class' class='text' tag='DIV' type='' check:innerText='Protection class' /&gt;" Guid="d4e26725-f96e-4f55-a0ba-4d5e23b91067" SearchSteps="FuzzySelector, CV" />
+                                              </scg:List>
+                                            </uix:TargetAnchorable.Anchors>
+                                          </uix:TargetAnchorable>
+                                        </uix:NTypeInto.Target>
+                                        <uix:NTypeInto.VerifyOptions>
+                                          <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                            <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                              <InArgument x:TypeArguments="x:Boolean" />
+                                            </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                            <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                              <InArgument x:TypeArguments="x:Double" />
+                                            </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                          </uix:VerifyExecutionTypeIntoOptions>
+                                        </uix:NTypeInto.VerifyOptions>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </uix:NTypeInto>
+                                    </Sequence>
+                                  </If.Then>
+                                  <If.Else>
+                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,254.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,170" sap2010:WorkflowViewState.IdRef="LogMessage_27" Level="Info" Message="[&quot;protection class isnot present &quot;]" />
+                                    </Sequence>
+                                  </If.Else>
+                                </If>
+                                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+                                  <ui:CommentOut.Body>
+                                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="544.8,1752" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:IfElseIfV2 Condition="[in_protection_Device.ToLower.Trim = &quot;smoke&quot;]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="482.4,1665.6" sap2010:WorkflowViewState.IdRef="IfElseIfV2_6">
+                                        <ui:IfElseIfV2.Else>
+                                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,253.6" sap2010:WorkflowViewState.IdRef="Sequence_62">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="353.6,167.2" sap2010:WorkflowViewState.IdRef="LogMessage_28" Level="Info" Message="[&quot;Protection device information is missing in the document&quot;]" />
+                                          </Sequence>
+                                        </ui:IfElseIfV2.Else>
+                                        <ui:IfElseIfV2.ElseIfs>
+                                          <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                            <ui:IfElseIfBlock BlockType="ElseIf" Condition="[in_protection_Device.ToLower.Trim=&quot;temperature/fire&quot;]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_9">
+                                              <ui:IfElseIfBlock.Then>
+                                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,364" sap2010:WorkflowViewState.IdRef="Sequence_60">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Temperature/fire'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="353.6,277.6" sap2010:WorkflowViewState.IdRef="NTypeInto_21" ScopeIdentifier="0eb94e99-e007-4fe6-9249-32acad9fd899" Text="[in_Temperature_fire]" Version="V3">
+                                                    <uix:NTypeInto.Target>
+                                                      <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="d965afc0-fd04-4c2b-803b-aa5cb06ac4e7" CvElementArea="428, 491, 59, 27" CvType="InputBox" DesignTimeRectangle="430, 492, 38, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-combo-box&amp;gt;div&amp;gt;input' idx='12' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="90ed7424-2bfa-448f-8600-261c91994056" InformativeScreenshot="b136311579d473a7e41f740fb46487c3.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                                        <uix:TargetAnchorable.Anchors>
+                                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                            <uix:Target CVScreenId="d965afc0-fd04-4c2b-803b-aa5cb06ac4e7" CvTextArea="319, 496, 105, 16" CvTextArgument="Temperature/fire" CvType="Text" DesignTimeRectangle="316, 495, 108, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Temperature/fire' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Temperature/fire' class='text' tag='DIV' type='' check:innerText='Temperature/fire' /&gt;" Guid="ba113075-4e78-4bb1-8453-c84f261440c8" SearchSteps="FuzzySelector, CV" />
+                                                          </scg:List>
+                                                        </uix:TargetAnchorable.Anchors>
+                                                      </uix:TargetAnchorable>
+                                                    </uix:NTypeInto.Target>
+                                                    <uix:NTypeInto.VerifyOptions>
+                                                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                                        <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                          <InArgument x:TypeArguments="x:Boolean" />
+                                                        </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                          <InArgument x:TypeArguments="x:Double" />
+                                                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                      </uix:VerifyExecutionTypeIntoOptions>
+                                                    </uix:NTypeInto.VerifyOptions>
+                                                  </uix:NTypeInto>
+                                                </Sequence>
+                                              </ui:IfElseIfBlock.Then>
+                                            </ui:IfElseIfBlock>
+                                            <ui:IfElseIfBlock BlockType="ElseIf" Condition="[in_protection_Device.ToLower.Trim=&quot;burglar&quot;]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_10">
+                                              <ui:IfElseIfBlock.Then>
+                                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,364" sap2010:WorkflowViewState.IdRef="Sequence_61">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Burglar'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="353.6,277.6" sap2010:WorkflowViewState.IdRef="NTypeInto_22" ScopeIdentifier="0eb94e99-e007-4fe6-9249-32acad9fd899" Text="[in_Burglar]" Version="V3">
+                                                    <uix:NTypeInto.Target>
+                                                      <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="d965afc0-fd04-4c2b-803b-aa5cb06ac4e7" CvElementArea="428, 518, 59, 28" CvType="InputBox" DesignTimeRectangle="430, 519, 38, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-combo-box&amp;gt;div&amp;gt;input' idx='14' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-untouched ng-pristine ng-valid' aaname='' tag='INPUT' type='text' /&gt;" Guid="c9e68e9f-db42-4586-aa0e-13edc1659b72" InformativeScreenshot="bd5b96193c1c6c247116d74bf5b4770c.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                                        <uix:TargetAnchorable.Anchors>
+                                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                            <uix:Target CVScreenId="d965afc0-fd04-4c2b-803b-aa5cb06ac4e7" CvTextArea="379, 523, 46, 16" CvTextArgument="Burglar" CvType="Text" DesignTimeRectangle="374, 522, 50, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Burglar' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Burglar' class='text' tag='DIV' type='' check:innerText='Burglar' /&gt;" Guid="935f3c18-0c8a-4008-b1cb-47ce3856974a" SearchSteps="FuzzySelector, CV" />
+                                                          </scg:List>
+                                                        </uix:TargetAnchorable.Anchors>
+                                                      </uix:TargetAnchorable>
+                                                    </uix:NTypeInto.Target>
+                                                    <uix:NTypeInto.VerifyOptions>
+                                                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                                        <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                          <InArgument x:TypeArguments="x:Boolean" />
+                                                        </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                          <InArgument x:TypeArguments="x:Double" />
+                                                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                      </uix:VerifyExecutionTypeIntoOptions>
+                                                    </uix:NTypeInto.VerifyOptions>
+                                                  </uix:NTypeInto>
+                                                </Sequence>
+                                              </ui:IfElseIfBlock.Then>
+                                            </ui:IfElseIfBlock>
+                                          </sc:BindingList>
+                                        </ui:IfElseIfV2.ElseIfs>
+                                        <ui:IfElseIfV2.Then>
+                                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,364" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Smoke'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="353.6,277.6" sap2010:WorkflowViewState.IdRef="NTypeInto_20" ScopeIdentifier="0eb94e99-e007-4fe6-9249-32acad9fd899" Text="[in_Smoke]" Version="V3">
+                                              <uix:NTypeInto.Target>
+                                                <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="a027f4f1-aee6-4190-a58b-6b680603a310" CvElementArea="428, 463, 60, 27" CvType="InputBox" DesignTimeRectangle="430, 464, 38, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-combo-box&amp;gt;div&amp;gt;input' idx='13' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ng-pristine ng-valid ng-touched' aaname='' tag='INPUT' type='text' /&gt;" Guid="1f05702c-3b93-4c50-b1a0-c73be4e4279b" InformativeScreenshot="8095bc6cc308cb08520468a2ea27b042.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                                  <uix:TargetAnchorable.Anchors>
+                                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                      <uix:Target CVScreenId="a027f4f1-aee6-4190-a58b-6b680603a310" CvTextArea="380, 468, 43, 13" CvTextArgument="Smoke" CvType="Text" DesignTimeRectangle="373, 467, 49, 16" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Smoke' class='text' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Smoke' class='text' tag='DIV' type='' check:innerText='Smoke' /&gt;" Guid="f3639633-171f-413a-9ce3-cdf713974cda" SearchSteps="FuzzySelector, CV" />
+                                                    </scg:List>
+                                                  </uix:TargetAnchorable.Anchors>
+                                                </uix:TargetAnchorable>
+                                              </uix:NTypeInto.Target>
+                                              <uix:NTypeInto.VerifyOptions>
+                                                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                    <InArgument x:TypeArguments="x:Boolean" />
+                                                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                    <InArgument x:TypeArguments="x:Double" />
+                                                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                                </uix:VerifyExecutionTypeIntoOptions>
+                                              </uix:NTypeInto.VerifyOptions>
+                                            </uix:NTypeInto>
+                                          </Sequence>
+                                        </ui:IfElseIfV2.Then>
+                                      </ui:IfElseIfV2>
+                                    </Sequence>
+                                  </ui:CommentOut.Body>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:CommentOut>
+                              </Sequence>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="512,310" sap2010:WorkflowViewState.IdRef="Sequence_67">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="450,225.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_66">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Delay DisplayName=" Delay 3 seconds" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="388,114.66666666666667" sap2010:WorkflowViewState.IdRef="Delay_4" />
+                              </Sequence>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'General/Credits/Sq Ft'" sap:VirtualizedContainerService.HintSize="608,222.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0eb94e99-e007-4fe6-9249-32acad9fd899" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://berni01.appliedepic.com/#/" CVScreenId="387b9f02-5784-47ed-9cc1-4115e4609eca" CvElementArea="676, 361, 164, 29" CvTextArea="689, 368, 137, 16" CvTextArgument="General/Credits/Sq Ft" CvType="Button" DesignTimeRectangle="676, 363, 162, 26" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='General/Credits/Sq Ft' class='tab' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='General/Credits/Sq Ft' class='tab' tag='DIV' type='' check:innerText='General/Credits/Sq Ft' /&gt;" Guid="7bab0557-e3f4-4bd8-bdb6-570b6ef89e4d" InformativeScreenshot="83993483ecfd2fa31de33187b62d749f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target CVScreenId="387b9f02-5784-47ed-9cc1-4115e4609eca" CvElementArea="443, 360, 235, 30" CvTextArea="458, 368, 207, 17" CvTextArgument="Protection/Wiring-Electrical/Heat" CvType="Button" DesignTimeRectangle="445, 361, 232, 28" ElementType="Text" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;root&amp;gt;app&amp;gt;program&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;screen&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-frame&amp;gt;div&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-panel&amp;gt;div&amp;gt;proxy&amp;gt;div&amp;gt;asi-tab-container&amp;gt;div&amp;gt;div&amp;gt;div' idx='2' isleaf='1' tabindex='-1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='tab active' isleaf='1' tabindex='-1' tag='DIV' aaname='Protection/Wiring-Electrical/Heat' check:innerText='Protection/Wiring-Electrical/Heat' /&gt;" Guid="91b5d2c0-6bee-422e-ab0d-d58709aaaab0" SearchSteps="FuzzySelector, CV" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NClick.Target>
+                          <uix:NClick.VerifyOptions>
+                            <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                              <uix:VerifyExecutionOptions.Retry>
+                                <InArgument x:TypeArguments="x:Boolean" />
+                              </uix:VerifyExecutionOptions.Retry>
+                              <uix:VerifyExecutionOptions.Timeout>
+                                <InArgument x:TypeArguments="x:Double" />
+                              </uix:VerifyExecutionOptions.Timeout>
+                            </uix:VerifyExecutionOptions>
+                          </uix:NClick.VerifyOptions>
+                        </uix:NClick>
+                      </Sequence>
+                    </ActivityAction>
+                  </uix:NApplicationCard.Body>
+                  <uix:NApplicationCard.TargetApp>
+                    <uix:TargetApp Area="1912, -8, 1936, 1048" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="f2a04d069b56931c37c0bc2e8dadc736.jpg" Selector="&lt;html app='chrome.exe' title='IDTE000002 - Test ID' /&gt;" Title="IDTE000002 - Test ID" Url="[in_Url]" />
+                  </uix:NApplicationCard.TargetApp>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </uix:NApplicationCard>
+              </TryCatch.Try>
+              <TryCatch.Catches>
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="708.6666666666666,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ActivityAction x:TypeArguments="s:Exception">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                    </ActivityAction.Argument>
+                    <Sequence sap:VirtualizedContainerService.HintSize="416,220" sap2010:WorkflowViewState.IdRef="Sequence_68">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Info" Message="[&quot;System exception at 14_protection_wiring&quot;+&quot;+&quot;+exception.Message]" />
+                      <Rethrow DisplayName="Rethrow Get transaction item faulted" sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+                    </Sequence>
+                  </ActivityAction>
+                </Catch>
+              </TryCatch.Catches>
+            </TryCatch>
+          </Sequence>
+        </ActivityAction>
+      </ui:RetryScope.ActivityBody>
+      <ui:RetryScope.Condition>
+        <ActivityFunc x:TypeArguments="x:Boolean" />
+      </ui:RetryScope.Condition>
+    </ui:RetryScope>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="846.6666666666666,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;completed 14_protection wiring page&quot;]" />
+  </Sequence>
+</Activity>

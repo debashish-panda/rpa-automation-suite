@@ -1,0 +1,81 @@
+{
+  "version": "2.0",
+  "resources": [
+    {
+      "activityDisplayName": "For Each Email in inbox",
+      "activityId": "ForEachEmailConnections_3",
+      "resource": "Connection",
+      "key": "23e5faa4-4df4-425d-823e-0d93cc5df062",
+      "id": "Connection23e5faa4-4df4-425d-823e-0d93cc5df06223e5faa4-4df4-425d-823e-0d93cc5df062False",
+      "value": {
+        "ConnectionId": {
+          "defaultValue": "23e5faa4-4df4-425d-823e-0d93cc5df062",
+          "isExpression": false,
+          "displayName": "Connection",
+          "description": "The connection to be used"
+        }
+      },
+      "metadata": {
+        "BindingsVersion": "2.2",
+        "Connector": "uipath-google-gmail",
+        "UseConnectionService": "True"
+      }
+    },
+    {
+      "activityDisplayName": "For Each Email in inbox",
+      "activityId": "ForEachEmailConnections_3",
+      "resource": "Property",
+      "key": "23e5faa4-4df4-425d-823e-0d93cc5df062.For Each Email in inbox",
+      "id": "Property23e5faa4-4df4-425d-823e-0d93cc5df062.For Each Email in inboxInboxFalseINBOXFalse",
+      "value": {
+        "ParentFolders[*].Name": {
+          "defaultValue": "Inbox",
+          "isExpression": false,
+          "displayName": "Email folder or label",
+          "description": "The folder or label to get email messages from"
+        },
+        "ParentFolders[*].ID": {
+          "defaultValue": "INBOX",
+          "isExpression": false,
+          "displayName": "Email folder or label",
+          "description": "The folder or label to get email messages from"
+        }
+      },
+      "metadata": {
+        "BindingsVersion": "2.1",
+        "ActivityName": "For Each Email in inbox",
+        "ObjectName": "NormalizedMessage",
+        "DisplayLabel": "ParentFolders[*].Name",
+        "ParentResourceKey": "Connection.23e5faa4-4df4-425d-823e-0d93cc5df062"
+      }
+    },
+    {
+      "activityDisplayName": "Move Email to RPA folder",
+      "activityId": "MoveEmailConnections_1",
+      "resource": "Property",
+      "key": "23e5faa4-4df4-425d-823e-0d93cc5df062.Move Email to RPA folder",
+      "id": "Property23e5faa4-4df4-425d-823e-0d93cc5df062.Move Email to RPA folderMails read by botFalseLabel_1408100293070039327False",
+      "value": {
+        "ParentFolders[*].Name": {
+          "defaultValue": "Mails read by bot",
+          "isExpression": false,
+          "displayName": "To email folder or label",
+          "description": "The folder or label where to move the email message"
+        },
+        "ParentFolders[*].ID": {
+          "defaultValue": "Label_1408100293070039327",
+          "isExpression": false,
+          "displayName": "To email folder or label",
+          "description": "The folder or label where to move the email message"
+        }
+      },
+      "metadata": {
+        "BindingsVersion": "2.1",
+        "ActivityName": "Move Email to RPA folder",
+        "ObjectName": "NormalizedMessage",
+        "DisplayLabel": "ParentFolders[*].Name",
+        "ParentResourceKey": "Connection.23e5faa4-4df4-425d-823e-0d93cc5df062"
+      }
+    }
+  ]
+}

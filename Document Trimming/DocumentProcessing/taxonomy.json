@@ -1,0 +1,205 @@
+﻿{
+  "DataContractVersion": "1.1",
+  "DocumentTypes": [
+    {
+      "Connections": [],
+      "DocumentTypeId": "CommercialLines_WC.CartonHosey.Zenith",
+      "Group": "Commercial Lines_WC",
+      "Category": "Carton Hosey",
+      "Name": "Zenith",
+      "OptionalUniqueIdentifier": "",
+      "TypeField": {
+        "FieldId": "CommercialLines_WC.CartonHosey.Zenith.DocumentType",
+        "FieldName": "Document Type"
+      },
+      "Fields": []
+    },
+    {
+      "Connections": [],
+      "DocumentTypeId": "CommercialLines_WC.CartonHosey.Hartford",
+      "Group": "Commercial Lines_WC",
+      "Category": "Carton Hosey",
+      "Name": "Hartford",
+      "OptionalUniqueIdentifier": "",
+      "TypeField": {
+        "FieldId": "CommercialLines_WC.CartonHosey.Hartford.DocumentType",
+        "FieldName": "Document Type"
+      },
+      "Fields": []
+    },
+    {
+      "Connections": [],
+      "DocumentTypeId": "CommercialLines_WC.CartonHosey.Travelers",
+      "Group": "Commercial Lines_WC",
+      "Category": "Carton Hosey",
+      "Name": "Travelers",
+      "OptionalUniqueIdentifier": "",
+      "TypeField": {
+        "FieldId": "CommercialLines_WC.CartonHosey.Travelers.DocumentType",
+        "FieldName": "Document Type"
+      },
+      "Fields": []
+    },
+    {
+      "Connections": [],
+      "DocumentTypeId": "CommercialLines_WC.CartonHosey.Amtrust",
+      "Group": "Commercial Lines_WC",
+      "Category": "Carton Hosey",
+      "Name": "Amtrust",
+      "OptionalUniqueIdentifier": "",
+      "TypeField": {
+        "FieldId": "CommercialLines_WC.CartonHosey.Amtrust.DocumentType",
+        "FieldName": "Document Type"
+      },
+      "Fields": []
+    },
+    {
+      "Connections": [],
+      "DocumentTypeId": "CommercialLines_WC.CartonHosey.Summit",
+      "Group": "Commercial Lines_WC",
+      "Category": "Carton Hosey",
+      "Name": "Summit",
+      "OptionalUniqueIdentifier": "",
+      "TypeField": {
+        "FieldId": "CommercialLines_WC.CartonHosey.Summit.DocumentType",
+        "FieldName": "Document Type"
+      },
+      "Fields": []
+    },
+    {
+      "Connections": [],
+      "DocumentTypeId": "CommercialLines_WC.CartonHosey.Autoowners",
+      "Group": "Commercial Lines_WC",
+      "Category": "Carton Hosey",
+      "Name": "Autoowners",
+      "OptionalUniqueIdentifier": "",
+      "TypeField": {
+        "FieldId": "CommercialLines_WC.CartonHosey.Autoowners.DocumentType",
+        "FieldName": "Document Type"
+      },
+      "Fields": []
+    }
+  ],
+  "Groups": [
+    {
+      "Name": "Commercial Lines_WC",
+      "Categories": [
+        "Carton Hosey"
+      ]
+    }
+  ],
+  "SupportedLanguages": [
+    {
+      "Name": "Undetermined Language",
+      "Code": "und"
+    },
+    {
+      "Name": "Bulgarian",
+      "Code": "bul"
+    },
+    {
+      "Name": "Cantonese",
+      "Code": "yue"
+    },
+    {
+      "Name": "Danish",
+      "Code": "dan"
+    },
+    {
+      "Name": "Dutch",
+      "Code": "nld"
+    },
+    {
+      "Name": "English",
+      "Code": "eng"
+    },
+    {
+      "Name": "French",
+      "Code": "fra"
+    },
+    {
+      "Name": "Georgian",
+      "Code": "kat"
+    },
+    {
+      "Name": "German",
+      "Code": "deu"
+    },
+    {
+      "Name": "Greek",
+      "Code": "ell"
+    },
+    {
+      "Name": "Hebrew",
+      "Code": "heb"
+    },
+    {
+      "Name": "Hindi",
+      "Code": "hin"
+    },
+    {
+      "Name": "Italian",
+      "Code": "ita"
+    },
+    {
+      "Name": "Japanese",
+      "Code": "jpn"
+    },
+    {
+      "Name": "Korean",
+      "Code": "kor"
+    },
+    {
+      "Name": "Macedonian",
+      "Code": "mkd"
+    },
+    {
+      "Name": "Mandarin",
+      "Code": "zho"
+    },
+    {
+      "Name": "Marathi",
+      "Code": "mar"
+    },
+    {
+      "Name": "Norwegian",
+      "Code": "nor"
+    },
+    {
+      "Name": "Polish",
+      "Code": "pol"
+    },
+    {
+      "Name": "Portuguese",
+      "Code": "por"
+    },
+    {
+      "Name": "Romanian",
+      "Code": "ron"
+    },
+    {
+      "Name": "Russian",
+      "Code": "rus"
+    },
+    {
+      "Name": "Serbian",
+      "Code": "srp"
+    },
+    {
+      "Name": "Spanish",
+      "Code": "spa"
+    },
+    {
+      "Name": "Swedish",
+      "Code": "swe"
+    },
+    {
+      "Name": "Telugu",
+      "Code": "tel"
+    },
+    {
+      "Name": "Turkish",
+      "Code": "tur"
+    }
+  ]
+}

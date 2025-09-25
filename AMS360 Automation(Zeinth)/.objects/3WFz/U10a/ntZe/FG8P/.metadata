@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Mouse Scroll 'State'",
+  "Type": "Element",
+  "Id": "FG8P0ORYO0qEoiHbcahGhQ",
+  "Reference": "h-fWjeEVaEiOCYACMxZQQA/FG8P0ORYO0qEoiHbcahGhQ",
+  "ParentRef": "h-fWjeEVaEiOCYACMxZQQA/ntZebWs-80KDAv6hbYHerg",
+  "Created": "2024-10-08T05:10:13.6556301Z",
+  "Updated": "2024-10-08T05:10:13.6556301Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.3.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.10.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Workers Compensation",
+  "Type": "Screen",
+  "Id": "ntZebWs-80KDAv6hbYHerg",
+  "Reference": "h-fWjeEVaEiOCYACMxZQQA/ntZebWs-80KDAv6hbYHerg",
+  "ParentRef": "h-fWjeEVaEiOCYACMxZQQA/U10ayjtaSE6nDjNJcJmC6w",
+  "Created": "2024-10-08T05:10:13.4832413Z",
+  "Updated": "2024-10-08T05:10:13.4832413Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.3.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.10.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

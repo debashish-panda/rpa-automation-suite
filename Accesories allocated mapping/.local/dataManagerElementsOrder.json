@@ -1,0 +1,57 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Name&Sequence_1",
+        "dt_assests_inventory&Sequence_2",
+        "dt_Assest_stock&Sequence_2",
+        "dt_employee_details&Sequence_2",
+        "ct&Sequence_2",
+        "dict_group_data&Sequence_4",
+        "lp_cnt&Sequence_4",
+        "Mn_count&Sequence_4",
+        "Ky_count&Sequence_4",
+        "Location&Sequence_4",
+        "Department&Sequence_4",
+        "Email&Sequence_4",
+        "empDetails&Sequence_5",
+        "Asset_ID&Sequence_9",
+        "Assest_Type&Sequence_9",
+        "Make_By&Sequence_9",
+        "Model_No&Sequence_9",
+        "Serial_No&Sequence_9",
+        "MatchedRow&Sequence_37",
+        "parsedDate&Sequence_37",
+        "formattedDate&Sequence_37",
+        "MatchedRow&Sequence_24",
+        "parsedDate&Sequence_24",
+        "formattedDate&Sequence_24",
+        "MatchedRow&Sequence_50",
+        "parsedDate&Sequence_50",
+        "formattedDate&Sequence_50",
+        "MatchedRow&Sequence_27",
+        "parsedDate&Sequence_27",
+        "formattedDate&Sequence_27",
+        "MatchedRow&Sequence_29",
+        "parsedDate&Sequence_29",
+        "formattedDate&Sequence_29",
+        "MatchedRow&Sequence_57",
+        "parsedDate&Sequence_57",
+        "formattedDate&Sequence_57"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}
